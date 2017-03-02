@@ -268,6 +268,13 @@
   @include prefix(justify-content, $justify, webkit ms spec);
 }
 
+@mixin fontHelvetica( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  //font-family: "Open Sans", sans-serif;
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
 
 /*================ VARIABLES ================*/
 /*============================================================================
@@ -362,6 +369,7 @@ $gutter-site-mobile: 22px;
 $section-spacing: 55px;
 $section-spacing-small: 35px;
 $border-radius: 2px;
+$header-gutter: 60px;
 
 /*================ Z-Index ================*/
 $z-index-dropdown : 7;
@@ -1176,10 +1184,9 @@ html {
 
 .main-content {
   display: block;
-  padding-top: $section-spacing-small;
 
   @include media-query($medium-up) {
-    padding-top: $section-spacing;
+
   }
 }
 
@@ -2793,11 +2800,11 @@ $slick-dot-size-small: 10px;
 
 /*================ Index sections ================*/
 .index-section {
-  padding-top: $section-spacing-small;
+  //padding-top: $section-spacing-small;
   padding-bottom: $section-spacing-small;
 
   @include media-query($medium-up) {
-    padding-top: $section-spacing;
+    //padding-top: $section-spacing;
     padding-bottom: $section-spacing;
   }
 
@@ -3522,9 +3529,14 @@ h1.product-single__title {
 
 /*================ MODULES ================*/
 .site-header {
-  background-color: $color-body;
-  position: relative;
-  padding: 0 $gutter-site;
+  z-index: 10;
+  position: fixed;
+  top: 45px;
+  width: 100%;
+  background: rgba(255,255,255,0);
+  border: none;
+  //background-color: $color-body;
+  padding: 0 $header-gutter;
 
   @include media-query($small) {
     border-bottom: 1px solid $color-border;
@@ -3535,6 +3547,67 @@ h1.product-single__title {
     &.logo--center {
       padding-top: $grid-gutter;
     }
+  }
+}
+
+.site-header-main-container {
+  height: 106.66px;
+  width: 100%;
+  position: relative;
+}
+
+.site-header-logo-container {
+  height: 65px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+
+  a {
+    height: 100%;
+
+    img {
+      max-height: 100%;
+    }
+  }
+}
+
+.site-header-navi-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  .navi-elem {
+    float: left;
+    width: 150px;
+    text-align: center;
+    @include fontHelvetica(18px, 400, 2px);
+    //color: #53565a;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+
+}
+
+.site-header-menu-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+
+  .site-header-menu {
+    text-align: right;
+
+    .menu-elem {
+      float: right;
+      margin-left: 33.33px;
+      @include fontHelvetica(14px, 400, 1px);
+      color: #ffffff;
+      text-transform: uppercase;
+
+    }
+
   }
 }
 
@@ -3776,6 +3849,40 @@ h1.product-single__title {
 
 .article__tags--list {
   font-style: italic;
+}
+
+.shipping-container {
+  height: 34pt;
+  width: 100%;
+  position: relative;
+
+  .shipping {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 27px;
+
+    .truck-icon {
+      float: left;
+      height: 15pt;
+
+      img {
+        vertical-align: middle;
+      }
+
+    }
+
+    .info {
+      float: left;
+      text-transform: uppercase;
+      font-size: 13pt;
+      margin-left: 16pt;
+      color: rgba(117, 120, 123, 1);
+    }
+
+  }
 }
 
 /*============================================================================
@@ -4990,6 +5097,79 @@ $toolbar-height-small: 46px;
   .featured-row__subtext {
     font-size: em($font-size-base + 2);
   }
+}
+
+.home-intro-block {
+  position: relative;
+  height: calc(100vh - 45px);
+  width: 100%;
+  background: #ffffff;
+}
+
+.home-intro-video-background {
+  overflow: hidden;
+  position: absolute;
+  left: 21pt;
+  right: 21pt;
+  top: 0;
+  height: 100%;
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+  }
+
+  .home-intro-bottom-line-block {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+
+    .add-line {
+      float: left;
+      height: 100%;
+      width: calc(50% - 18px);
+      background: #ffffff;
+    }
+
+    .arrow-block {
+      position: relative;
+      float: left;
+      width: 36px;
+      height: 100%;
+      background: rgba(255,255,255,0);
+      overflow: hidden;
+
+      .arrow-helper-1 {
+        position: absolute;
+        height: 200%;
+        background: #ffffff;
+        width: 100%;
+        transform: rotate(38deg) translate(12%,-36%);
+      }
+
+      .arrow-helper-2 {
+        position: absolute;
+        height: 200%;
+        background: #ffffff;
+        width: 100%;
+        transform: rotate(-38deg) translate(-12%,-28%);
+      }
+
+    }
+
+  }
+
 }
 
 .hero {
