@@ -73,17 +73,6 @@
           "button_link": ""
         }
       },
-      "featured-collections": {
-        "type": "collection",
-        "settings": {
-          "title": "Featured collection",
-          "collection": "frontpage",
-          "grid": "2",
-          "rows": "1",
-          "show_vendor": false,
-          "show_view_all": false
-        }
-      },
       "footer": {
         "type": "footer",
         "settings": {
@@ -113,7 +102,6 @@
     },
     "content_for_index": [
       "hero",
-      "featured-collections",
       "1488547337137"
     ]
   },

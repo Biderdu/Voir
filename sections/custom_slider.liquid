@@ -3,6 +3,7 @@
 </style>
 
 <div class="custom-section-slider-block">
+
   {%- assign collection = collections[section.settings.collection] -%}
 
   {% for product in collection.products %}
@@ -22,7 +23,7 @@
         "id": "collection",
         "type": "collection",
         "label": "Collection"
-      }
+        }
     ],
     "presets": [
       {
