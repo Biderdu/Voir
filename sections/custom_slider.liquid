@@ -3,7 +3,14 @@
 </style>
 
 <div class="custom-section-slider-block">
-  TEST
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {% for product in collection.products %}
+    <div class="grid__item">
+        <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: 'medium-up--one-half' }}" alt="{{ product.featured_image.alt }}">
+    </div>
+  {% endfor %}
+
 </div>
 
 {% schema %}

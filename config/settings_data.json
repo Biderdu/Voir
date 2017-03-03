@@ -107,7 +107,7 @@
       "1488547337137": {
         "type": "custom_slider",
         "settings": {
-          "title": "test"
+          "collection": "frontpage"
         }
       }
     },
