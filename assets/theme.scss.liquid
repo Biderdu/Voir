@@ -3666,6 +3666,7 @@ h1.product-single__title {
   border: none;
   //background-color: $color-body;
   padding: 0 $header-gutter;
+  transition: top 0.05s ease-out, background 0.2s ease-out;
 
   @include media-query($small) {
     border-bottom: 1px solid $color-border;
@@ -3677,68 +3678,113 @@ h1.product-single__title {
       padding-top: $grid-gutter;
     }
   }
-}
 
-.site-header-main-container {
-  height: 106.66px;
-  width: 100%;
-  position: relative;
-}
+  .site-header-main-container {
+    height: 106.66px;
+    width: 100%;
+    position: relative;
 
-.site-header-logo-container {
-  height: 65px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translate(0,-50%);
+    .site-header-logo-container {
+      height: 65px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0,-50%);
 
-  a {
-    height: 100%;
+      a {
+        height: 100%;
 
-    img {
-      max-height: 100%;
+        .logo-img {
+          content: url('{{ "voir-logo-white.png" | asset_url }}');
+          max-height: 100%;
+        }
+      }
     }
-  }
-}
 
-.site-header-navi-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+    .site-header-navi-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
 
-  .navi-elem {
-    float: left;
-    width: 150px;
-    text-align: center;
-    @include fontHelvetica(18px, 400, 2px);
-    //color: #53565a;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-
-}
-
-.site-header-menu-container {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(0,-50%);
-
-  .site-header-menu {
-    text-align: right;
-
-    .menu-elem {
-      float: right;
-      margin-left: 33.33px;
-      @include fontHelvetica(14px, 400, 1px);
-      color: #ffffff;
-      text-transform: uppercase;
+      .navi-elem {
+        float: left;
+        width: 150px;
+        text-align: center;
+        @include fontHelvetica(18px, 400, 2px);
+        //color: #53565a;
+        color: #ffffff;
+        text-transform: uppercase;
+        transition: color 0.2s ease-out;
+      }
 
     }
 
+    .site-header-menu-container {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+
+      .site-header-menu {
+        text-align: right;
+
+        .menu-elem {
+          float: right;
+          margin-left: 33.33px;
+          @include fontHelvetica(14px, 400, 1px);
+          color: #ffffff;
+          text-transform: uppercase;
+
+        }
+
+      }
+    }
+
   }
+
 }
+
+.site-header.bright {
+  background: rgba(255,255,255,1);
+  box-shadow: 0 1pt 3pt #e9e9e9;
+
+  .site-header-main-container {
+
+    .site-header-logo-container {
+
+      a {
+        .logo-img {
+          content: url('{{ "logo.png" | asset_url }}');
+        }
+      }
+
+    }
+
+    .site-header-navi-container {
+
+      .navi-elem {
+        color: #53565a;
+      }
+
+    }
+
+    .site-header-menu-container {
+
+      .site-header-menu {
+
+        .menu-elem {
+          color: #53565a;
+        }
+
+      }
+    }
+
+  }
+
+}
+
+
 
 .site-header__logo {
   margin: 15px 0;

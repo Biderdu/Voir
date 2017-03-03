@@ -781,7 +781,8 @@ theme.Header = (function() {
     siteNavChildLinks: '.site-nav__child-link',
     siteNavActiveDropdown: '.site-nav--active-dropdown',
     siteNavLinkMain: '.site-nav__link--main',
-    siteNavChildLink: '.site-nav__link--last'
+    siteNavChildLink: '.site-nav__link--last',
+    siteHeader: '.site-header'
   };
 
   var config = {
@@ -790,6 +791,11 @@ theme.Header = (function() {
   };
 
   var cache = {};
+
+  var windowHeight = $(window).height();
+  var startScroll = $(selectors.body).scrollTop();
+
+  headerStyleChangesByPosition(startScroll, windowHeight);
 
   function init() {
     cacheSelectors();
@@ -828,6 +834,27 @@ theme.Header = (function() {
       // Prevent click on body from firing instead of link
       evt.stopImmediatePropagation();
     });
+
+    $(window).scroll( function() {
+
+      headerStyleChangesByPosition($(selectors.body).scrollTop(), windowHeight);
+
+    });
+  }
+
+  function headerStyleChangesByPosition(scrollTop, windowHeight) {
+    if(scrollTop < 45) {
+      var top = 45 - scrollTop;
+      $(selectors.siteHeader).css({ top: top + 'px' });
+    } else {
+      $(selectors.siteHeader).css({ top: '0px' });
+    }
+
+    if(scrollTop > windowHeight*0.90) {
+      $(selectors.siteHeader).addClass( "bright" );
+    } else {
+      $(selectors.siteHeader).removeClass( "bright" )
+    }
   }
 
   function cacheSelectors() {
