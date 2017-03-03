@@ -38,6 +38,24 @@
   @return ($value / ($value * 0 + 1));
 }
 
+/*===fonts===*/
+@font-face {
+  font-family: 'Helvetica';
+  src: url('Helvetica.otf');
+}
+
+@font-face {
+  font-family: 'Helvetica-Bold';
+  src: url('Helvetica_Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Helvetica-Light';
+  src: url('Helvetica_Light.otf');
+}
+
+/*========*/
+
 /*================ #Mixins ================*/
 @mixin clearfix() {
   &::after {
@@ -269,7 +287,21 @@
 }
 
 @mixin fontHelvetica( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
-  //font-family: "Open Sans", sans-serif;
+  font-family: "Helvetica";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontHelveticaBold( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  font-family: "Helvetica-Bold";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontHelveticaLight( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  font-family: "Helvetica-Light";
   font-weight: $fontweight;
   font-size: $fontsize;
   letter-spacing: $letterSpacing;
@@ -1168,6 +1200,103 @@ $grid-breakpoints: (
   opacity: 1;
   z-index: $z-index-skip-to-content;
   transition: none;
+}
+
+/*========Animations========*/
+@-webkit-keyframes fade-keyword-1 {
+  0%   {opacity: 0;}
+  1%   {opacity: 1;}
+  17%  {opacity: 1;}
+  20%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-1 {
+  0%   {opacity: 0;}
+  1%   {opacity: 1;}
+  17%  {opacity: 1;}
+  20%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+
+
+@-webkit-keyframes fade-keyword-2 {
+  0%   {opacity: 0;}
+  20%  {opacity: 0;}
+  21%  {opacity: 1;}
+  37%  {opacity: 1;}
+  40%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-2 {
+  0%   {opacity: 0;}
+  20%  {opacity: 0;}
+  21%  {opacity: 1;}
+  37%  {opacity: 1;}
+  40%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+
+@-webkit-keyframes fade-keyword-3 {
+  0%   {opacity: 0;}
+  40%  {opacity: 0;}
+  41%  {opacity: 1;}
+  57%  {opacity: 1;}
+  60%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-3 {
+  0%   {opacity: 0;}
+  40%  {opacity: 0;}
+  41%  {opacity: 1;}
+  57%  {opacity: 1;}
+  60%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+
+
+
+@-webkit-keyframes fade-keyword-4 {
+  0%   {opacity: 0;}
+  60%  {opacity: 0;}
+  61%  {opacity: 1;}
+  77%  {opacity: 1;}
+  80%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-4 {
+  0%   {opacity: 0;}
+  60%  {opacity: 0;}
+  61%  {opacity: 1;}
+  77%  {opacity: 1;}
+  80%  {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+
+
+
+
+@-webkit-keyframes fade-keyword-5 {
+  0%   {opacity: 0;}
+  80%  {opacity: 0;}
+  81%  {opacity: 1;}
+  97%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-5 {
+  0%   {opacity: 0;}
+  80%  {opacity: 0;}
+  81%  {opacity: 1;}
+  97%  {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 /*================ #Basic Styles ================*/
@@ -5166,6 +5295,102 @@ $toolbar-height-small: 46px;
         transform: rotate(-38deg) translate(-12%,-28%);
       }
 
+    }
+
+  }
+
+}
+
+.home-intro-center-line-left {
+  background: #c8c9c7;
+  height: 2px;
+  width: 25%;
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
+
+.home-intro-center-line-right {
+  background: #c8c9c7;
+  height: 2px;
+  width: 25%;
+  position: absolute;
+  top: 40%;
+  right: 0;
+}
+
+.home-intro-text-container {
+
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 180px;
+  width: 600px;
+
+  .title {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include fontHelvetica(35pt, 400, 1px);
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .keywords {
+    @include fontHelvetica(90pt, 700, 1px);
+    color: #ffffff;
+
+    .keyword {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,0);
+      transition: opacity 0.40s ease-out;
+    }
+
+    .first-word {
+      -webkit-animation: fade-keyword-1 5s infinite;
+      animation: fade-keyword-1 5s infinite;
+    }
+
+    .second-word {
+      -webkit-animation: fade-keyword-2 5s infinite;
+      animation: fade-keyword-2 5s infinite;
+    }
+
+    .third-word {
+      -webkit-animation: fade-keyword-3 5s infinite;
+      animation: fade-keyword-3 5s infinite;
+    }
+
+     .fourth-word {
+      -webkit-animation: fade-keyword-4 5s infinite;
+      animation: fade-keyword-4 5s infinite;
+    }
+
+     .fifth-word {
+      -webkit-animation: fade-keyword-5 5s infinite;
+      animation: fade-keyword-5 5s infinite;
+    }
+
+  }
+
+  .description {
+    width: 520pt;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%,0);
+    @include fontHelveticaLight(18px, 200, 2px);
+    line-height: 26pt;
+    color: #ffffff;
+    text-align: center;
+
+    span {
+      @include fontHelveticaBold(18px, 700, 2px);
     }
 
   }
