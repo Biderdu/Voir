@@ -41,17 +41,32 @@
 /*===fonts===*/
 @font-face {
   font-family: 'Helvetica';
-  src: url('Helvetica.otf');
+  src: url('Helvetica.ttf');
 }
 
 @font-face {
   font-family: 'Helvetica-Bold';
-  src: url('Helvetica_Bold.ttf');
+  src: url('Helvetica-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Helvetica-Light';
-  src: url('Helvetica_Light.otf');
+  src: url('Helvetica-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Cambria';
+  src: url('Cambria.ttf');
+}
+
+@font-face {
+  font-family: 'Cambria-Bold';
+  src: url('Cambria-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Cambria-Italic';
+  src: url('Cambria-Italic.ttf');
 }
 
 /*========*/
@@ -302,6 +317,27 @@
 
 @mixin fontHelveticaLight( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
   font-family: "Helvetica-Light";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontCambria( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  font-family: "Cambria";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontCambriaBold( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  font-family: "Cambria-Bold";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontCambriaItalic( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.0667em ){
+  font-family: "Cambria-Italic";
   font-weight: $fontweight;
   font-size: $fontsize;
   letter-spacing: $letterSpacing;
@@ -5299,7 +5335,7 @@ $toolbar-height-small: 46px;
     height: auto;
     z-index: 0;
     transform: translateX(-50%) translateY(-50%);
-    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg') no-repeat;
     background-size: cover;
     transition: 1s opacity;
   }
@@ -5350,7 +5386,7 @@ $toolbar-height-small: 46px;
 .home-intro-center-line-left {
   background: #c8c9c7;
   height: 2px;
-  width: 25%;
+  width: 22%;
   position: absolute;
   top: 40%;
   left: 0;
@@ -5359,7 +5395,7 @@ $toolbar-height-small: 46px;
 .home-intro-center-line-right {
   background: #c8c9c7;
   height: 2px;
-  width: 25%;
+  width: 22%;
   position: absolute;
   top: 40%;
   right: 0;
@@ -5387,7 +5423,7 @@ $toolbar-height-small: 46px;
   }
 
   .keywords {
-    @include fontHelvetica(90pt, 700, 1px);
+    @include fontCambriaBold(90pt, 700, 1px);
     color: #ffffff;
 
     .keyword {
@@ -5395,6 +5431,7 @@ $toolbar-height-small: 46px;
       left: 50%;
       transform: translate(-50%,0);
       transition: opacity 0.40s ease-out;
+
     }
 
     .first-word {
@@ -5446,6 +5483,19 @@ $toolbar-height-small: 46px;
 .custom-section-slider-block {
   height: 100vh;
   margin-top: 60px;
+  position: relative;
+
+  .collection-slider-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #f4f4f4;
+    width: calc(100% - 50pt);
+    height: 425pt;
+    border-radius: 1px;
+  }
+
 }
 
 .hero {
