@@ -6,15 +6,71 @@
 
   {%- assign collection = collections[section.settings.collection] -%}
 
-  <div class="collection-slider-container">
+  <div class="collection-slider-main-block">
+    <div class="collection-slider-container">
+      {% for product in collection.products %}
+        <div class="product-item-container">
+          <div class="product-info-container">
+            <div class="product-left-side">
+              <div class="image-container">
+                <img class="product-item-image" src="{{ product.featured_image.src | img_url: '720x' }}" alt="{{ product.featured_image.alt }}">
+              </div>
+
+            </div>
+            <div class="product-right-side">
+              <div class="product-title">{{ product.title }}</div>
+              <div class="product-description">{{ product.description }}</div>
+              <div class="learn-button">
+              <span>
+                Learn More
+              </span>
+              </div>
+            </div>
+          </div>
+          <div class="product-short-info">
+            <span class="index">0{{ forloop.index }}</span> / {{ product.title }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="social-panel-container">
+
+      <div class="social-bar-container">
+        <div class="icon-container">
+          <img src="{{ 'instagram_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'facebook_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'twitter_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'pinterest_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'youtube_icon.svg' | asset_url }}">
+        </div>
+      </div>
+
+      <div class="bottom-line"></div>
+
+    </div>
+
+    <div class="carousel-indicator-container">
+      {% for product in collection.products %}
+
+        <div class="carousel-indicator">
+          <div class="indicator-fill"></div>
+        </div>
+
+      {% endfor %}
+    </div>
 
   </div>
 
-  {% for product in collection.products %}
-    <div class="grid__item">
-        <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: 'medium-up--one-half' }}" alt="{{ product.featured_image.alt }}">
-    </div>
-  {% endfor %}
+
 
 </div>
 

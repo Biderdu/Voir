@@ -2723,6 +2723,24 @@ theme.SlideshowSection.prototype = _.assignIn({}, theme.SlideshowSection.prototy
   }
 });
 
+function homeSliderInit() {
+  $('.collection-slider-container').slick({
+    dots: false,
+    infinite: true,
+    arrows: false
+  });
+
+  $('.carousel-indicator-container .carousel-indicator').eq(0).addClass('active');
+
+  $('.collection-slider-container').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+
+    $('.carousel-indicator').removeClass('active');
+
+    $('.carousel-indicator-container .carousel-indicator').eq(nextSlide).addClass('active');
+
+  });
+
+}
 
 $(document).ready(function() {
   var sections = new theme.Sections();
@@ -2735,6 +2753,9 @@ $(document).ready(function() {
   sections.register('map', theme.Maps);
   sections.register('slideshow-section', theme.SlideshowSection);
   sections.register('quotes', theme.Quotes);
+
+  homeSliderInit();
+
 });
 
 theme.init = function() {

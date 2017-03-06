@@ -374,6 +374,10 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 
 /*================ Color Variables ================*/
 
+//VOIR colors
+$voir-gray-1: #53565a;
+$voir-gray-2: #75787b;
+
 // Text colors
 $color-text: {{ settings.color_text }};
 $color-text-shadow: rgba(0, 0, 0, 0.1);
@@ -3747,8 +3751,8 @@ h1.product-single__title {
         float: left;
         width: 150px;
         text-align: center;
-        @include fontHelvetica(18px, 400, 2px);
-        //color: #53565a;
+        @include fontHelvetica(18pt, 400, 2px);
+        //color: $voir-gray-1;
         color: #ffffff;
         text-transform: uppercase;
         transition: color 0.2s ease-out;
@@ -3768,7 +3772,7 @@ h1.product-single__title {
         .menu-elem {
           float: right;
           margin-left: 33.33px;
-          @include fontHelvetica(14px, 400, 1px);
+          @include fontHelvetica(14pt, 400, 1px);
           color: #ffffff;
           text-transform: uppercase;
 
@@ -3800,7 +3804,7 @@ h1.product-single__title {
     .site-header-navi-container {
 
       .navi-elem {
-        color: #53565a;
+        color: $voir-gray-1;
       }
 
     }
@@ -3810,7 +3814,7 @@ h1.product-single__title {
       .site-header-menu {
 
         .menu-elem {
-          color: #53565a;
+          color: $voir-gray-1;
         }
 
       }
@@ -5485,7 +5489,7 @@ $toolbar-height-small: 46px;
   margin-top: 60px;
   position: relative;
 
-  .collection-slider-container {
+  .collection-slider-main-block {
     position: absolute;
     top: 55%;
     left: 50%;
@@ -5493,8 +5497,216 @@ $toolbar-height-small: 46px;
     background: #f4f4f4;
     width: calc(100% - 50pt);
     height: 425pt;
-    border-radius: 1px;
+    border-radius: 1pt;
+
+    .collection-slider-container {
+      width: 100%;
+      height: 100%;
+
+      .slick-list {
+        height: calc(100% + 40px);
+        margin-top: -40px;
+        padding-top: 40px;
+
+        .slick-track {
+          height: 100%;
+        }
+
+      }
+
+      .product-item-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        .product-info-container {
+          margin: auto;
+          position: relative;
+          height: 100%;
+          width: 70%;
+
+          .product-left-side {
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 50%;
+
+            .image-container {
+
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              height: 80%;
+              width: 80%;
+
+              .product-item-image {
+                max-height: 100%;
+                max-width: 100%;
+              }
+            }
+
+
+          }
+
+          .product-right-side {
+            position: relative;
+            float: right;
+            height: 100%;
+            width: 50%;
+
+            .product-title {
+              @include fontCambriaBold(40pt, 400, 0.025em);
+              color: $voir-gray-1;
+              margin-top: 40pt;
+            }
+
+            .product-description {
+
+              @include fontHelvetica(14pt, 400, 0.02em);
+              color: $voir-gray-1;
+              margin-top: 20pt;
+
+              p {
+                @include fontHelvetica(18pt, 400, 0.045em);
+                color: $voir-gray-2;
+
+                span {
+                  @include fontHelvetica(14pt, 400, 0.02em);
+                  color: $voir-gray-1;
+                }
+
+              }
+
+            }
+
+            .learn-button {
+              position: absolute;
+              left: 0;
+              bottom: 40pt;
+              border: 1pt solid $voir-gray-1;
+              border-radius: 1pt;
+              width: 200pt;
+              height: 45pt;
+              cursor: pointer;
+              background: #f4f4f4;
+              transition: background 0.2s ease-out;
+
+              span {
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+
+                @include fontHelveticaBold(13pt, 400);
+                color: $voir-gray-1;
+                text-transform: uppercase;
+              }
+
+              &:hover {
+                background: #f9f9f9;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      .product-short-info {
+        position: absolute;
+        top: -20pt;
+        left: 20pt;
+        @include fontHelvetica(13pt, 400, 0.02em);
+        color: $voir-gray-2;
+
+        span.index {
+          @include fontHelveticaBold(13pt, 400, 0.02em);
+        }
+
+      }
+    }
+
+    .social-panel-container {
+      background: #f4f4f4;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 60pt;
+
+      .social-bar-container {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        width: 100%;
+
+        .icon-container {
+          position: relative;
+          margin-bottom: 20pt;
+
+          img {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,0);
+          }
+
+        }
+
+      }
+
+      .bottom-line {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 15%);
+        height: 130pt;
+        width: 2pt;
+        background: #c8c9c7;
+      }
+
+    }
+
+    .carousel-indicator-container {
+
+      position: absolute;
+      right: 0;
+      bottom: -75pt;
+      height: 50pt;
+
+      .carousel-indicator {
+        position: relative;
+        float: left;
+        margin-left: 21pt;
+        height: 50pt;
+        width: 5pt;
+
+
+        .indicator-fill {
+          position: absolute;
+          bottom: 0;
+          background: #e3e3e3;
+          height: 28pt;
+          width: 100%;
+          transition: all 0.5s ease-out;
+        }
+
+      }
+
+      .carousel-indicator.active {
+
+        .indicator-fill {
+          background: $voir-gray-1;
+          height: 50pt;
+        }
+
+      }
+
+    }
   }
+
 
 }
 
