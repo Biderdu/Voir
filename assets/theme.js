@@ -2742,6 +2742,29 @@ function homeSliderInit() {
 
 }
 
+function getDocHeight() {
+  var D = document;
+  return Math.max(
+      D.body.scrollHeight, D.documentElement.scrollHeight,
+      D.body.offsetHeight, D.documentElement.offsetHeight,
+      D.body.clientHeight, D.documentElement.clientHeight
+  );
+}
+
+function footerInit() {
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == getDocHeight()) {
+
+      $('.site-footer').addClass('active_footer');
+
+    } else {
+
+      $('.site-footer').removeClass('active_footer');
+
+    }
+  });
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -2755,6 +2778,8 @@ $(document).ready(function() {
   sections.register('quotes', theme.Quotes);
 
   homeSliderInit();
+
+  footerInit();
 
 });
 
