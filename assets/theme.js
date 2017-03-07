@@ -2791,7 +2791,7 @@ function instagramInit() {
       nextArrow: '<div class="slider-arrow right-arrow"><img></div>',
       prevArrow: '<div class="slider-arrow left-arrow"><img></div>'
     });
-  },700)
+  },900)
   
 }
 
