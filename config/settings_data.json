@@ -110,12 +110,19 @@
         "settings": {
           "collection": "frontpage"
         }
+      },
+      "1488886617077": {
+        "type": "custom_instagram_gallery",
+        "settings": {
+          "collection": "frontpage"
+        }
       }
     },
     "content_for_index": [
       "hero",
       "1488547337137",
       "1488806400143",
+      "1488886617077",
       "1488883033208"
     ]
   },

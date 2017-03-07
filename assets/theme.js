@@ -2765,6 +2765,36 @@ function footerInit() {
   });
 }
 
+function instagramInit() {
+
+  var feed = new Instafeed({
+    get: 'user',
+    // get: 'tagged',
+    userId: '4775145375',
+    // tagName: 'CreateWithVoir',
+    clientId: '488d6d543a5647b4ab70eef1a48ba9da',
+    accessToken: '4775145375.488d6d5.69f8d4ff2f5342698736325c3d2b0718',
+    resolution: 'standard_resolution',
+    template: '<a href="{{link}}"><div class="insta-image-container"><img src="{{image}}" /></div></a>'
+  });
+
+  feed.run();
+
+  setTimeout(function(){
+    $('#instafeed').slick({
+      dots: false,
+      infinite: true,
+      arrows: true,
+      slidesToShow: 4,
+      centerMode: true,
+      lazyLoad: 'ondemand',
+      nextArrow: '<div class="slider-arrow right-arrow"><img></div>',
+      prevArrow: '<div class="slider-arrow left-arrow"><img></div>'
+    });
+  },700)
+  
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -2780,6 +2810,8 @@ $(document).ready(function() {
   homeSliderInit();
 
   footerInit();
+  
+  instagramInit();
 
 });
 

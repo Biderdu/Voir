@@ -99,6 +99,30 @@
 
   </header>
 
+  <div class="social-panel-container">
+
+    <div class="social-bar-container">
+      <div class="icon-container">
+        <img src="{{ 'instagram_icon.svg' | asset_url }}">
+      </div>
+      <div class="icon-container">
+        <img src="{{ 'facebook_icon.svg' | asset_url }}">
+      </div>
+      <div class="icon-container">
+        <img src="{{ 'twitter_icon.svg' | asset_url }}">
+      </div>
+      <div class="icon-container">
+        <img src="{{ 'pinterest_icon.svg' | asset_url }}">
+      </div>
+      <div class="icon-container">
+        <img src="{{ 'youtube_icon.svg' | asset_url }}">
+      </div>
+    </div>
+
+    <div class="bottom-line"></div>
+
+  </div>
+
   {% if section.settings.align_logo == 'center' %}
   <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
     {% include 'site-nav', nav_alignment: 'site-nav--centered' %}

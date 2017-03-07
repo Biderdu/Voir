@@ -5347,6 +5347,46 @@ $toolbar-height-small: 46px;
 
 }
 
+.social-panel-container {
+  z-index: 10;
+  position: fixed;
+  left: 20pt;
+  top: 30%;
+  height: 360pt;
+  width: 60pt;
+
+  .social-bar-container {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+
+    .icon-container {
+      position: relative;
+      margin-bottom: 20pt;
+
+      img {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+      }
+
+    }
+
+  }
+
+  .bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 15%);
+    height: 130pt;
+    width: 2pt;
+    background: #c8c9c7;
+  }
+
+}
+
 .home-intro-video-background {
   overflow: hidden;
   position: absolute;
@@ -5637,46 +5677,6 @@ $toolbar-height-small: 46px;
       }
     }
 
-    .social-panel-container {
-      background: #f4f4f4;
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 60pt;
-
-      .social-bar-container {
-        position: absolute;
-        top: 20%;
-        left: 0;
-        width: 100%;
-
-        .icon-container {
-          position: relative;
-          margin-bottom: 20pt;
-
-          img {
-            position: relative;
-            left: 50%;
-            transform: translate(-50%,0);
-          }
-
-        }
-
-      }
-
-      .bottom-line {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 15%);
-        height: 130pt;
-        width: 2pt;
-        background: #c8c9c7;
-      }
-
-    }
-
     .carousel-indicator-container {
 
       position: absolute;
@@ -5860,44 +5860,153 @@ $toolbar-height-small: 46px;
 
     }
 
-    .social-panel-container {
+  }
+}
+
+.custom-section-instagram-gallery {
+  height: 100vh;
+  position: relative;
+
+  .home-intro-center-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 25%;
+    position: absolute;
+    top: 25%;
+    left: 0;
+  }
+
+  .home-intro-center-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 25%;
+    position: absolute;
+    top: 25%;
+    right: 0;
+  }
+
+  .upper-text-block {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .title {
+      @include fontCambriaBold(36pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
+
+    .description {
       position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 326pt;
-      width: 60pt;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 0);
 
-      .social-bar-container {
-        position: absolute;
-        top: -10%;
-        left: 0;
-        width: 100%;
+      @include fontHelvetica(18pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
 
-        .icon-container {
-          position: relative;
-          margin-bottom: 20pt;
+  }
+
+  .insta-gallery-container {
+    position: absolute;
+    width: 90%;
+    bottom: 20%;
+    left: 50%;
+    height: 270pt;
+    transform: translate(-50%, 0);
+
+    .slick-list {
+      top: 50%;
+      transform: translate(0,-50%);
+
+      .slick-track {
+        height: 270px;
+      }
+
+      a {
+        overflow: hidden;
+        position: relative;
+
+        .insta-image-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 270px;
+          width: 270px;
 
           img {
-            position: relative;
+            max-height: 100%;
+            max-width: 100%;
           }
 
         }
 
       }
 
-      .bottom-line {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 0);
-        height: 130pt;
-        width: 2pt;
-        background: #c8c9c7;
+    }
+
+    .slider-arrow {
+
+      img {
+        content: url('{{ "Right_Slide_Arrow.svg" | asset_url }}');
+        max-height: 100%;
       }
+
+      width: 8.5pt;
+      height: 24pt;
+      cursor: pointer;
 
     }
 
+    .left-arrow {
+      position: absolute;
+      top: 50%;
+      left: -2%;
+      transform: translate(0, -50%) rotate(180deg);
+    }
+
+    .right-arrow {
+      position: absolute;
+      top: 50%;
+      right: -2%;
+      transform: translate(0, -50%);
+    }
+
   }
+
+  .bottom-gallery-button {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 45pt;
+    width: 250pt;
+    cursor: pointer;
+    border: 1pt $voir-gray-1 solid;
+    border-radius: 1pt;
+
+    span {
+      position: absolute;
+      width: 100%;
+      top: 45%;
+      transform: translate(0,-50%);
+
+      @include fontHelveticaBold(13pt, 400, 0.02em);
+      color: $voir-gray-1;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &:hover {
+      background: #f9f9f9;
+    }
+
+  }
+
 }
 
 .custom-section-bottom-info-block {
