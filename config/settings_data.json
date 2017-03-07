@@ -76,7 +76,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_linklist": "footer",
+          "footer_linklist": "",
           "footer_linklist_two": "",
           "footer_newsletter_enable": false,
           "show_payment_icons": false
@@ -104,12 +104,19 @@
         "settings": {
           "collection": "frontpage"
         }
+      },
+      "1488883033208": {
+        "type": "custom_bottom_section",
+        "settings": {
+          "collection": "frontpage"
+        }
       }
     },
     "content_for_index": [
       "hero",
       "1488547337137",
-      "1488806400143"
+      "1488806400143",
+      "1488883033208"
     ]
   },
   "presets": {

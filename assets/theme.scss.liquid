@@ -5893,6 +5893,95 @@ $toolbar-height-small: 46px;
   }
 }
 
+.custom-section-bottom-info-block {
+  height: 100vh;
+  position: relative;
+
+  .home-intro-center-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 25%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+  }
+
+  .home-intro-center-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 25%;
+    position: absolute;
+    top: 40%;
+    right: 0;
+  }
+
+  .upper-text-block {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .title {
+      @include fontCambriaBold(36pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
+
+    .description {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%,0);
+
+      @include fontHelvetica(18pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
+
+  }
+
+  .bottom-buttons-block {
+    position: absolute;
+    width: 626pt;
+    left: 50%;
+    bottom: 25%;
+    transform: translate(-50%, 0);
+
+    .bottom-button {
+      position: relative;
+      float: left;
+      height: 45pt;
+      width: 250pt;
+      cursor: pointer;
+      border: 1pt $voir-gray-1 solid;
+      border-radius: 1pt;
+
+      span {
+        position: absolute;
+        width: 100%;
+        top: 45%;
+        transform: translate(0,-50%);
+
+        @include fontHelveticaBold(13pt, 400, 0.02em);
+        color: $voir-gray-1;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      &:hover {
+        background: #f9f9f9;
+      }
+
+    }
+
+    .contact-button {
+      margin-left: 126pt;
+    }
+
+  }
+
+}
+
 .hero {
   position: relative;
   height: 475px;
