@@ -98,11 +98,18 @@
         "settings": {
           "collection": "frontpage"
         }
+      },
+      "1488806400143": {
+        "type": "custom_collection",
+        "settings": {
+          "collection": "frontpage"
+        }
       }
     },
     "content_for_index": [
       "hero",
-      "1488547337137"
+      "1488547337137",
+      "1488806400143"
     ]
   },
   "presets": {

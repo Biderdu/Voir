@@ -1,0 +1,93 @@
+<style>
+
+</style>
+
+<div class="custom-section-collection-block">
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  <div class="upper-title-block">
+      <div class="title">
+        Our Collection
+      </div>
+      <div class="description">
+        Explore our line of curated haircare essentials
+      </div>
+  </div>
+
+  <div class="home-intro-center-line-left"></div>
+  <div class="home-intro-center-line-right"></div>
+
+  <div class="collections-block-container">
+    <div class="collection-list">
+      {% for product in collection.products %}
+        <div class="product-item-container">
+          <div class="product-top-side">
+            <div class="image-container">
+              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+            </div>
+          </div>
+          <div class="product-bottom-side">
+            <div class="short-info">
+              <div class="name">
+                {{ product.title }}
+              </div>
+              <div class="descr">
+                {{ product.description }}
+              </div>
+            </div>
+            <div class="price-info">
+              ${{ product.price }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="social-panel-container">
+
+      <div class="social-bar-container">
+        <div class="icon-container">
+          <img src="{{ 'instagram_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'facebook_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'twitter_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'pinterest_icon.svg' | asset_url }}">
+        </div>
+        <div class="icon-container">
+          <img src="{{ 'youtube_icon.svg' | asset_url }}">
+        </div>
+      </div>
+
+      <div class="bottom-line"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "custom-section-collection",
+    "class": "index-section index-section--flush",
+    "settings": [
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Custom Collection",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

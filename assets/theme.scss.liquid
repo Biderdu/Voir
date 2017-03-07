@@ -5319,6 +5319,25 @@ $toolbar-height-small: 46px;
   height: calc(100vh - 45px);
   width: 100%;
   background: #ffffff;
+
+  .home-intro-center-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 22%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+  }
+
+  .home-intro-center-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 22%;
+    position: absolute;
+    top: 40%;
+    right: 0;
+  }
+
 }
 
 .home-intro-video-background {
@@ -5385,24 +5404,6 @@ $toolbar-height-small: 46px;
 
   }
 
-}
-
-.home-intro-center-line-left {
-  background: #c8c9c7;
-  height: 2px;
-  width: 22%;
-  position: absolute;
-  top: 40%;
-  left: 0;
-}
-
-.home-intro-center-line-right {
-  background: #c8c9c7;
-  height: 2px;
-  width: 22%;
-  position: absolute;
-  top: 40%;
-  right: 0;
 }
 
 .home-intro-text-container {
@@ -5708,6 +5709,188 @@ $toolbar-height-small: 46px;
   }
 
 
+}
+
+.custom-section-collection-block {
+  height: 100vh;
+  position: relative;
+
+  .home-intro-center-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 27%;
+    position: absolute;
+    top: 25%;
+    left: 0;
+  }
+
+  .home-intro-center-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 27%;
+    position: absolute;
+    top: 25%;
+    right: 0;
+  }
+
+  .upper-title-block {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .title {
+      @include fontCambriaBold(36pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
+
+    .description {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%,0);
+
+      @include fontHelvetica(18pt, 400, 0.02em);
+      color: $voir-gray-1;
+    }
+
+  }
+
+  .collections-block-container {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    .collection-list {
+      position: absolute;
+      bottom: 0;
+      width: 85%;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .product-item-container {
+        position: relative;
+        float: left;
+        width: 21%;
+        height: 326pt;
+        margin-right: 5.33330%;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        .product-top-side {
+          position: relative;
+          height: 275pt;
+          width: 100%;
+          background: #f2f2f2;
+
+          .image-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 261pt;
+            width: calc(100% - 14pt);
+            border: 2pt #ffffff solid;
+
+            img {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              max-width: 100%;
+              max-height: 100%;
+            }
+
+          }
+
+        }
+
+        .product-bottom-side {
+          position: absolute;
+          width: 100%;
+          height: 32pt;
+          left: 0;
+          bottom: 0;
+
+          .short-info {
+            float: left;
+            text-align: left;
+            width: 75%;
+
+            .name {
+              @include fontCambriaBold(13pt, 400, 0.02em);
+              color: $voir-gray-2;
+            }
+
+            .descr {
+              @include fontHelvetica(11pt, 400, 0.02em);
+              color: $voir-gray-2;
+
+              span {
+                display: none;
+              }
+
+            }
+
+          }
+
+          .price-info {
+            float: right;
+            width: 25%;
+            @include fontHelveticaBold(13pt, 400, 0.02em);
+            color: $voir-gray-2;
+          }
+
+        }
+
+      }
+
+    }
+
+    .social-panel-container {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 326pt;
+      width: 60pt;
+
+      .social-bar-container {
+        position: absolute;
+        top: -10%;
+        left: 0;
+        width: 100%;
+
+        .icon-container {
+          position: relative;
+          margin-bottom: 20pt;
+
+          img {
+            position: relative;
+          }
+
+        }
+
+      }
+
+      .bottom-line {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 130pt;
+        width: 2pt;
+        background: #c8c9c7;
+      }
+
+    }
+
+  }
 }
 
 .hero {
