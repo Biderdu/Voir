@@ -355,6 +355,9 @@ $grid-widescreen: 1400px;
 $grid-gutter: 30px;
 $grid-gutter-mobile: 22px;
 
+$screen-mobile: 768px;
+$screen-tablet: 1024px;
+
 $small: 'small';
 $medium: 'medium';
 $medium-down: 'medium-down';
@@ -3697,6 +3700,41 @@ h1.product-single__title {
 
 
 /*================ MODULES ================*/
+.shipping-container {
+  height: 36px;
+  width: 100%;
+  position: relative;
+
+  .shipping {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 22px;
+
+    .truck-icon {
+      float: left;
+      height: 15pt;
+
+      img {
+        max-height: 100%;
+        vertical-align: middle;
+      }
+
+    }
+
+    .info {
+      float: left;
+      text-transform: uppercase;
+      @include fontHelvetica(12px, 400, 0.02em);
+      margin-left: 16pt;
+      color: rgba(117, 120, 123, 1);
+    }
+
+  }
+}
+
 .site-header {
   z-index: 10;
   position: fixed;
@@ -3706,11 +3744,6 @@ h1.product-single__title {
   border: none;
   padding: 0 $header-gutter;
   transition: top 0.05s ease-out, background 0.15s ease-out 0.5s;
-
-  @include media-query($small) {
-    border-bottom: 1px solid $color-border;
-    padding: 0;
-  }
 
   @include media-query($medium-up) {
     &.logo--center {
@@ -3756,6 +3789,7 @@ h1.product-single__title {
     }
 
     .site-header-navi-container {
+      display: block;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -3776,6 +3810,7 @@ h1.product-single__title {
     }
 
     .site-header-menu-container {
+      display: block;
       position: absolute;
       right: 0;
       top: 50%;
@@ -3962,7 +3997,61 @@ h1.product-single__title {
 
 }
 
+@media (max-width: $screen-mobile) {
 
+  .shipping-container {
+
+    .shipping {
+
+      width: 80%;
+      text-align: center;
+
+      .truck-icon {
+        height: 15px;
+      }
+
+      .info {
+        float: none;
+        @include fontHelvetica(11px, 400, 0.02em);
+      }
+
+    }
+  }
+
+  .site-header {
+    padding: 0;
+
+    .site-header-main-container {
+
+      height: 65px;
+
+      .site-header-logo-container {
+        left: 15px;
+
+        a {
+          width: 70px;
+          margin-top: 10px;
+        }
+
+      }
+
+      .site-header-navi-container {
+
+        display: none;
+
+      }
+
+      .site-header-menu-container {
+
+        display: none;
+
+      }
+
+    }
+
+  }
+
+}
 
 .site-header__logo {
   margin: 15px 0;
@@ -4202,40 +4291,6 @@ h1.product-single__title {
 
 .article__tags--list {
   font-style: italic;
-}
-
-.shipping-container {
-  height: 36px;
-  width: 100%;
-  position: relative;
-
-  .shipping {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 22px;
-
-    .truck-icon {
-      float: left;
-      height: 15pt;
-
-      img {
-        vertical-align: middle;
-      }
-
-    }
-
-    .info {
-      float: left;
-      text-transform: uppercase;
-      @include fontHelvetica(14px, 400, 0.02em);
-      margin-left: 16pt;
-      color: rgba(117, 120, 123, 1);
-    }
-
-  }
 }
 
 /*============================================================================
@@ -6482,6 +6537,84 @@ $toolbar-height-small: 46px;
 
 .hero--x-large {
   height: 582px;
+}
+
+@media (max-width: $screen-mobile) {
+
+  .main-content {
+    background: #fbfbfb;
+  }
+
+  .home-intro-block {
+    position: relative;
+    height: calc(100vh - 46px);
+    width: 100%;
+    background: #fbfbfb;
+
+    .home-intro-center-line-left {
+      background: #c8c9c7;
+      height: 2px;
+      width: 10%;
+      position: absolute;
+      top: 40%;
+      left: 0;
+    }
+
+    .home-intro-center-line-right {
+      background: #c8c9c7;
+      height: 2px;
+      width: 10%;
+      position: absolute;
+      top: 40%;
+      right: 0;
+    }
+
+  }
+
+  .home-intro-video-background {
+    left: 8px;
+    right: 8px;
+
+    .home-intro-bottom-line-block {
+
+      display: none;
+
+    }
+
+  }
+
+  .home-intro-text-container {
+
+    height: 60px;
+    width: 300px;
+
+    .title {
+
+      @include fontHelvetica(20px, 400, 0.02em);
+
+    }
+
+    .keywords {
+
+      @include fontCambriaBold(40px, 700, 0.015em);
+
+    }
+
+    .description {
+      width: 250px;
+      top: 170%;
+
+      @include fontHelveticaLight(14px, 200, 0.015em);
+      line-height: 22px;
+
+      span {
+        @include fontHelveticaBold(14px, 700, 0.015em);
+      }
+
+    }
+
+  }
+
 }
 
 @include media-query($medium-up) {

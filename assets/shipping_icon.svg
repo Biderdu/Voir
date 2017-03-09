@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="17px" viewBox="0 0 31 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Shipping Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Shipping-Icon" transform="translate(1.000000, 1.000000)" stroke="#75787B">
+            <path d="M26,8 L29.2352941,8.00539216" id="Stroke-1376"></path>
+            <path d="M26,10 L27.6176471,10.0053922" id="Stroke-1377"></path>
+            <path d="M26,12 L26.5392157,12.0053922" id="Stroke-1378"></path>
+            <path d="M6.95424837,12.9771242 C6.95424837,14.0684967 6.06849673,14.9542484 4.97712418,14.9542484 C3.88377451,14.9542484 3,14.0684967 3,12.9771242 C3,11.8857516 3.88377451,11 4.97712418,11 C6.06849673,11 6.95424837,11.8857516 6.95424837,12.9771242 L6.95424837,12.9771242 Z" id="Stroke-1103"></path>
+            <path d="M20.9542484,12.9771242 C20.9542484,14.0684967 20.0684967,14.9542484 18.9771242,14.9542484 C17.8837745,14.9542484 17,14.0684967 17,12.9771242 C17,11.8857516 17.8837745,11 18.9771242,11 C20.0684967,11 20.9542484,11.8857516 20.9542484,12.9771242 L20.9542484,12.9771242 Z" id="Stroke-1104"></path>
+            <polyline id="Stroke-1105" points="2.47140523 13.8398693 0 13.8398693 0 8.40277778 1.97712418 6.42565359 4.44852941 1.97712418 8.89705882 1.97712418 8.89705882 0 22.7369281 0 22.7369281 13.8398693 20.2655229 13.8398693"></polyline>
+            <path d="M7,13 L16.8856209,13" id="Stroke-1106"></path>
+            <polyline id="Stroke-1107" points="6.96568627 4 5.48284314 4 4 6.96568627"></polyline>
+            <path d="M9,2 L9,11.8856209" id="Stroke-1108"></path>
+            <path d="M0,11 L22.7369281,11" id="Stroke-1109"></path>
+        </g>
+    </g>
+</svg>
