@@ -3751,7 +3751,7 @@ h1.product-single__title {
         float: left;
         width: 150px;
         text-align: center;
-        @include fontHelvetica(18pt, 400, 2px);
+        @include fontHelvetica(20px, 400, 2px);
         //color: $voir-gray-1;
         color: #ffffff;
         text-transform: uppercase;
@@ -3772,7 +3772,7 @@ h1.product-single__title {
         .menu-elem {
           float: right;
           margin-left: 33.33px;
-          @include fontHelvetica(14pt, 400, 1px);
+          @include fontHelvetica(15px, 400, 1px);
           color: #ffffff;
           text-transform: uppercase;
 
@@ -4067,7 +4067,7 @@ h1.product-single__title {
 }
 
 .shipping-container {
-  height: 34pt;
+  height: 36px;
   width: 100%;
   position: relative;
 
@@ -4077,7 +4077,7 @@ h1.product-single__title {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 27px;
+    height: 22px;
 
     .truck-icon {
       float: left;
@@ -4092,7 +4092,7 @@ h1.product-single__title {
     .info {
       float: left;
       text-transform: uppercase;
-      font-size: 13pt;
+      @include fontHelvetica(14px, 400, 0.02em);
       margin-left: 16pt;
       color: rgba(117, 120, 123, 1);
     }
@@ -5323,7 +5323,7 @@ $toolbar-height-small: 46px;
 
 .home-intro-block {
   position: relative;
-  height: calc(100vh - 45px);
+  height: calc(100vh - 36px);
   width: 100%;
   background: #ffffff;
 
@@ -5347,51 +5347,11 @@ $toolbar-height-small: 46px;
 
 }
 
-.social-panel-container {
-  z-index: 10;
-  position: fixed;
-  left: 20pt;
-  top: 30%;
-  height: 360pt;
-  width: 60pt;
-
-  .social-bar-container {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    width: 100%;
-
-    .icon-container {
-      position: relative;
-      margin-bottom: 20pt;
-
-      img {
-        position: relative;
-        left: 50%;
-        transform: translate(-50%,0);
-      }
-
-    }
-
-  }
-
-  .bottom-line {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 15%);
-    height: 130pt;
-    width: 2pt;
-    background: #c8c9c7;
-  }
-
-}
-
 .home-intro-video-background {
   overflow: hidden;
   position: absolute;
-  left: 21pt;
-  right: 21pt;
+  left: 22px;
+  right: 22px;
   top: 0;
   height: 100%;
 
@@ -5413,7 +5373,7 @@ $toolbar-height-small: 46px;
   .home-intro-bottom-line-block {
     position: absolute;
     bottom: 0;
-    height: 45px;
+    height: 36px;
     width: 100%;
 
     .add-line {
@@ -5436,7 +5396,7 @@ $toolbar-height-small: 46px;
         height: 200%;
         background: #ffffff;
         width: 100%;
-        transform: rotate(38deg) translate(12%,-36%);
+        transform: rotate(38deg) translate(27%,-36%);
       }
 
       .arrow-helper-2 {
@@ -5444,7 +5404,7 @@ $toolbar-height-small: 46px;
         height: 200%;
         background: #ffffff;
         width: 100%;
-        transform: rotate(-38deg) translate(-12%,-28%);
+        transform: rotate(-38deg) translate(-27%,-28%);
       }
 
     }
@@ -5459,7 +5419,7 @@ $toolbar-height-small: 46px;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 180px;
+  height: 160px;
   width: 600px;
 
   .title {
@@ -5468,14 +5428,14 @@ $toolbar-height-small: 46px;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @include fontHelvetica(35pt, 400, 1px);
+    @include fontHelvetica(38px, 400, 0.02em);
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;
   }
 
   .keywords {
-    @include fontCambriaBold(90pt, 700, 1px);
+    @include fontCambriaBold(96px, 700, 1px);
     color: #ffffff;
 
     .keyword {
@@ -5519,7 +5479,7 @@ $toolbar-height-small: 46px;
     top: 120%;
     left: 50%;
     transform: translate(-50%,0);
-    @include fontHelveticaLight(18px, 200, 2px);
+    @include fontHelveticaLight(20px, 200, 0.025em);
     line-height: 26pt;
     color: #ffffff;
     text-align: center;
@@ -5611,16 +5571,16 @@ $toolbar-height-small: 46px;
 
             .product-description {
 
-              @include fontHelvetica(14pt, 400, 0.02em);
+              @include fontHelvetica(20px, 400, 0.02em);
               color: $voir-gray-1;
               margin-top: 20pt;
 
               p {
-                @include fontHelvetica(18pt, 400, 0.045em);
+                @include fontHelvetica(22px, 400, 0.045em);
                 color: $voir-gray-2;
 
                 span {
-                  @include fontHelvetica(14pt, 400, 0.02em);
+                  @include fontHelvetica(20px, 400, 0.02em);
                   color: $voir-gray-1;
                 }
 
@@ -5634,19 +5594,19 @@ $toolbar-height-small: 46px;
               bottom: 40pt;
               border: 1pt solid $voir-gray-1;
               border-radius: 1pt;
-              width: 200pt;
-              height: 45pt;
+              height: 55px;
+              width: 300px;
               cursor: pointer;
               background: #f4f4f4;
               transition: background 0.2s ease-out;
 
               span {
                 position: absolute;
-                top: 45%;
+                top: 50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
 
-                @include fontHelveticaBold(13pt, 400);
+                @include fontHelveticaBold(14px, 400);
                 color: $voir-gray-1;
                 text-transform: uppercase;
               }
@@ -5667,14 +5627,54 @@ $toolbar-height-small: 46px;
         position: absolute;
         top: -20pt;
         left: 20pt;
-        @include fontHelvetica(13pt, 400, 0.02em);
+        @include fontHelvetica(14px, 400, 0.02em);
         color: $voir-gray-2;
 
         span.index {
-          @include fontHelveticaBold(13pt, 400, 0.02em);
+          @include fontHelveticaBold(14px, 400, 0.02em);
         }
 
       }
+    }
+
+    .social-panel-container {
+      background: #f4f4f4;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 60pt;
+
+      .social-bar-container {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        width: 100%;
+
+        .icon-container {
+          position: relative;
+          margin-bottom: 20pt;
+
+          img {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,0);
+          }
+
+        }
+
+      }
+
+      .bottom-line {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 15%);
+        height: 130pt;
+        width: 2pt;
+        background: #c8c9c7;
+      }
+
     }
 
     .carousel-indicator-container {
@@ -5749,7 +5749,7 @@ $toolbar-height-small: 46px;
     text-align: center;
 
     .title {
-      @include fontCambriaBold(36pt, 400, 0.02em);
+      @include fontCambriaBold(40px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -5759,7 +5759,7 @@ $toolbar-height-small: 46px;
       top: 100%;
       transform: translate(-50%,0);
 
-      @include fontHelvetica(18pt, 400, 0.02em);
+      @include fontHelvetica(20px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -5831,12 +5831,12 @@ $toolbar-height-small: 46px;
             width: 75%;
 
             .name {
-              @include fontCambriaBold(13pt, 400, 0.02em);
+              @include fontCambriaBold(14px, 400, 0.02em);
               color: $voir-gray-2;
             }
 
             .descr {
-              @include fontHelvetica(11pt, 400, 0.02em);
+              @include fontHelvetica(12px, 400, 0.02em);
               color: $voir-gray-2;
 
               span {
@@ -5856,6 +5856,43 @@ $toolbar-height-small: 46px;
 
         }
 
+      }
+
+    }
+
+    .social-panel-container {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 326pt;
+      width: 60pt;
+
+      .social-bar-container {
+        position: absolute;
+        top: -10%;
+        left: 0;
+        width: 100%;
+
+        .icon-container {
+          position: relative;
+          margin-bottom: 20pt;
+
+          img {
+            position: relative;
+          }
+
+        }
+
+      }
+
+      .bottom-line {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 130pt;
+        width: 2pt;
+        background: #c8c9c7;
       }
 
     }
@@ -5894,7 +5931,7 @@ $toolbar-height-small: 46px;
     text-align: center;
 
     .title {
-      @include fontCambriaBold(36pt, 400, 0.02em);
+      @include fontCambriaBold(40px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -5904,7 +5941,7 @@ $toolbar-height-small: 46px;
       top: 100%;
       transform: translate(-50%, 0);
 
-      @include fontHelvetica(18pt, 400, 0.02em);
+      @include fontHelvetica(20px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -5983,8 +6020,8 @@ $toolbar-height-small: 46px;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%,-50%);
-    height: 45pt;
-    width: 250pt;
+    height: 55px;
+    width: 300px;
     cursor: pointer;
     border: 1pt $voir-gray-1 solid;
     border-radius: 1pt;
@@ -5992,10 +6029,10 @@ $toolbar-height-small: 46px;
     span {
       position: absolute;
       width: 100%;
-      top: 45%;
+      top: 50%;
       transform: translate(0,-50%);
 
-      @include fontHelveticaBold(13pt, 400, 0.02em);
+      @include fontHelveticaBold(14px, 400, 0.02em);
       color: $voir-gray-1;
       text-transform: uppercase;
       text-align: center;
@@ -6040,7 +6077,7 @@ $toolbar-height-small: 46px;
     text-align: center;
 
     .title {
-      @include fontCambriaBold(36pt, 400, 0.02em);
+      @include fontCambriaBold(40px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -6050,7 +6087,7 @@ $toolbar-height-small: 46px;
       top: 100%;
       transform: translate(-50%,0);
 
-      @include fontHelvetica(18pt, 400, 0.02em);
+      @include fontHelvetica(20px, 400, 0.02em);
       color: $voir-gray-1;
     }
 
@@ -6066,8 +6103,8 @@ $toolbar-height-small: 46px;
     .bottom-button {
       position: relative;
       float: left;
-      height: 45pt;
-      width: 250pt;
+      height: 55px;
+      width: 300px;
       cursor: pointer;
       border: 1pt $voir-gray-1 solid;
       border-radius: 1pt;
@@ -6075,10 +6112,10 @@ $toolbar-height-small: 46px;
       span {
         position: absolute;
         width: 100%;
-        top: 45%;
+        top: 50%;
         transform: translate(0,-50%);
 
-        @include fontHelveticaBold(13pt, 400, 0.02em);
+        @include fontHelveticaBold(14px, 400, 0.02em);
         color: $voir-gray-1;
         text-transform: uppercase;
         text-align: center;
