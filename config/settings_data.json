@@ -57,7 +57,8 @@
           "message_text": "Announce something here",
           "message_link": "",
           "color_bg": "#7796A8",
-          "color_text": "#fff"
+          "color_text": "#fff",
+          "collection": "frontpage"
         }
       },
       "hero": {

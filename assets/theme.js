@@ -836,15 +836,35 @@ theme.Header = (function() {
     });
 
     $(window).scroll( function() {
-
       headerStyleChangesByPosition($(selectors.body).scrollTop(), windowHeight);
+    });
+
+    $('#shop-navi-item').mouseover(function() {
+      $( "#shop-additional-menu" ).addClass('active');
+      $(selectors.siteHeader).addClass( "bright-hover" );
+    });
+
+    $( "#shop-navi-item" ).mouseleave(function() {
+      $( "#shop-additional-menu" ).removeClass( "active" );
+      $(selectors.siteHeader).removeClass( "bright-hover" );
+    });
+
+    $('#shop-additional-menu').mouseover(function() {
+      $( "#shop-additional-menu" ).addClass('active');
+      $(selectors.siteHeader).addClass( "bright-hover" );
+    });
+
+    $( "#shop-additional-menu" ).mouseleave(function() {
+      $( "#shop-additional-menu" ).removeClass( "active" );
+      $(selectors.siteHeader).removeClass( "bright-hover" );
 
     });
+
   }
 
   function headerStyleChangesByPosition(scrollTop, windowHeight) {
-    if(scrollTop < 45) {
-      var top = 45 - scrollTop;
+    if(scrollTop < 36) {
+      var top = 36 - scrollTop;
       $(selectors.siteHeader).css({ top: top + 'px' });
     } else {
       $(selectors.siteHeader).css({ top: '0px' });
@@ -2763,6 +2783,12 @@ function footerInit() {
 
     }
   });
+
+  $('#back-to-top-arrow').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+    return false;
+  });
+
 }
 
 function instagramInit() {
@@ -2781,6 +2807,7 @@ function instagramInit() {
   feed.run();
 
   setTimeout(function(){
+
     $('#instafeed').slick({
       dots: false,
       infinite: true,
@@ -2791,6 +2818,10 @@ function instagramInit() {
       nextArrow: '<div class="slider-arrow right-arrow"><img></div>',
       prevArrow: '<div class="slider-arrow left-arrow"><img></div>'
     });
+
+    $('#instafeed').removeClass( "hidden-gallery" );
+
+
   },900)
   
 }

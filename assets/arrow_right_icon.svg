@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="arrow-icon" transform="translate(7.500000, 7.500000) rotate(-180.000000) translate(-7.500000, -7.500000) translate(0.000000, 1.000000)" stroke="#C8C9C7" stroke-width="1.5">
+            <path d="M0,6.06070085 L5.98028978,0" id="Stroke-58"></path>
+            <g id="Group" transform="translate(0.560000, 5.463768)">
+                <path d="M13.1622372,0.75 L0,0.75" id="Stroke-60"></path>
+            </g>
+            <path d="M0,6.55652174 L5.96874133,12.5161107" id="Stroke-62"></path>
+            <path d="M0,6.06070085 L5.98028978,0" id="Stroke-58"></path>
+            <path d="M0,6.55652174 L5.96874133,12.5161107" id="Stroke-62"></path>
+        </g>
+    </g>
+</svg>

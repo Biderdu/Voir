@@ -55,7 +55,9 @@
             </a>
           {% endif %}
         </li>
+
       {% endfor %}
+
     </ul>
   </nav>
 
@@ -65,12 +67,13 @@
 
       <div class="site-header-logo-container">
         <a href="/" itemprop="url" class="site-header__logo-image">
-          <img class="logo-img" alt="{{ shop.name }}" itemprop="logo">
+          <img class="logo-img" src="{{ 'voir-logo-white.png' | asset_url }}" alt="{{ shop.name }}">
+          <img class="logo-img-dark" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}">
         </a>
       </div>
 
       <div class="site-header-navi-container">
-        <div class="navi-elem">
+        <div class="navi-elem" id="shop-navi-item">
           SHOP
         </div>
         <div class="navi-elem">
@@ -93,6 +96,28 @@
             THE STUDIO
           </div>
         </div>
+      </div>
+
+      {%- assign collection = collections[section.settings.collection] -%}
+
+      <div id="shop-additional-menu" class="shop-menu-panel">
+        <div class="prod-list-container">
+          <div class="list-item">
+            Our Collection
+          </div>
+          {% for product in collection.products %}
+            <div class="list-item">
+              {{ product.title }}
+            </div>
+          {% endfor %}
+          <div class="list-item">
+            Studio Set
+          </div>
+        </div>
+
+        <div class="home-intro-center-line-left"></div>
+        <div class="home-intro-center-line-right"></div>
+
       </div>
 
     </div>
@@ -132,6 +157,11 @@
           {"value": "left", "label": "Left"},
           {"value": "center", "label": "Centered"}
         ]
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
       },
       {
         "type": "image_picker",
