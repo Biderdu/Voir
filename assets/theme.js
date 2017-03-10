@@ -2808,16 +2808,26 @@ function instagramInit() {
 
   setTimeout(function(){
 
+    var slidesToShow = 4;
+    var arrows = true;
+
+    if($(window).width() < 769){
+      slidesToShow = 1.7;
+      arrows = false;
+    }
+
     $('#instafeed').slick({
       dots: false,
       infinite: true,
-      arrows: true,
-      slidesToShow: 4,
+      arrows: arrows,
+      slidesToShow: slidesToShow,
       centerMode: true,
+      centerPadding: '20px',
       lazyLoad: 'ondemand',
       nextArrow: '<div class="slider-arrow right-arrow"><img></div>',
       prevArrow: '<div class="slider-arrow left-arrow"><img></div>'
     });
+
 
     $('#instafeed').removeClass( "hidden-gallery" );
 
