@@ -870,7 +870,7 @@ theme.Header = (function() {
       $(selectors.siteHeader).css({ top: '0px' });
     }
 
-    if(scrollTop > windowHeight*0.90) {
+    if(scrollTop > windowHeight*0.87) {
       $(selectors.siteHeader).addClass( "bright" );
     } else {
       $(selectors.siteHeader).removeClass( "bright" )
