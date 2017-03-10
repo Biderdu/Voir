@@ -3903,6 +3903,235 @@ h1.product-single__title {
 
 }
 
+.my-bag-modal {
+  visibility: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.5);
+  transition: visibility 0.4s ease-out;
+
+  .hide-layer {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: calc(100% - 380px);
+  }
+
+  .my-bag-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 380px;
+    transform: translateX(380px);
+    background: #ffffff;
+    transition: transform 0.4s ease-out;
+
+    .upper-panel {
+      position: relative;
+      width: 100%;
+      height: 110px;
+      border-bottom: 1px solid #e3e3e3;
+
+      .title-container {
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+
+        .title {
+          float: left;
+          text-transform: uppercase;
+          @include fontHelvetica(16px);
+          color: $voir-gray-1;
+        }
+
+        .items-count {
+          float: left;
+          margin-left: 25px;
+          text-transform: uppercase;
+          @include fontHelvetica(16px);
+          color: $voir-gray-1;
+
+          span {
+            @include fontHelveticaBold(16px);
+          }
+
+        }
+
+      }
+
+      .close-button {
+        position: absolute;
+        right: 10%;
+        top: 20%;
+        cursor: pointer;
+      }
+
+    }
+
+    .items-list-container {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 370px);
+    }
+
+    .bag-bottom-panel {
+      border-top: 1px solid #e3e3e3;
+      position: relative;
+      width: 100%;
+      height: 260px;
+
+      .price-container {
+        position: absolute;
+        left: 10%;
+        top: 5%;
+        height: 20%;
+        width: 80%;
+
+        .info {
+          float: left;
+          width: 60%;
+          height: 100%;
+
+          .total {
+            width: 100%;
+            @include fontHelveticaBold(14px);
+            color: $voir-gray-2;
+          }
+
+          .taxes {
+            width: 100%;
+            @include fontHelveticaLight(12px);
+            color: $voir-gray-2;
+          }
+
+        }
+
+        .price {
+          float: left;
+          width: 40%;
+          height: 100%;
+
+          .units {
+            float: right;
+            @include fontHelveticaLight(14px);
+            color: $voir-gray-2;
+            margin-left: 5px;
+          }
+
+          .count {
+            float: right;
+            @include fontHelveticaBold(14px);
+            color: $voir-gray-2;
+          }
+
+        }
+
+      }
+
+      .button-container {
+        position: absolute;
+        left: 10%;
+        top: 28%;
+        height: 60%;
+        width: 80%;
+
+        .view-bug-button {
+          position: relative;
+          float: left;
+          height: 50px;
+          width: 100%;
+          cursor: pointer;
+          border: 1pt $voir-gray-1 solid;
+          border-radius: 2px;
+
+          span {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translate(0,-50%);
+
+            @include fontHelveticaBold(14px, 400, 0.02em);
+            color: $voir-gray-1;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          &:hover {
+            background: #f9f9f9;
+          }
+
+        }
+
+        .checkout-button {
+          position: relative;
+          float: left;
+          height: 50px;
+          width: 100%;
+          cursor: pointer;
+          border: 1pt $voir-gray-1 solid;
+          border-radius: 2px;
+          margin-top: 20px;
+
+          span {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translate(0,-50%);
+
+            @include fontHelveticaBold(14px, 400, 0.02em);
+            color: $voir-gray-1;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          &:hover {
+            background: #f9f9f9;
+          }
+
+        }
+
+      }
+
+      .shipping-container {
+        position: absolute;
+        left: 10%;
+        bottom: 5%;
+        height: 10%;
+        width: 80%;
+
+        .info {
+          width: 100%;
+          text-align: center;
+          @include fontHelvetica(13px);
+          color: $voir-gray-3;
+          text-transform: uppercase;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.my-bag-modal.active-modal {
+  visibility: visible;
+
+  .my-bag-panel {
+    transform: translateX(0);
+    transition: transform 0.3s ease-out 0.1s;
+  }
+
+}
+
 .site-header.bright-hover {
   background: rgba(255,255,255,1);
   box-shadow: 0 1pt 3pt #e9e9e9;

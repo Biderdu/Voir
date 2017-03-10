@@ -860,6 +860,19 @@ theme.Header = (function() {
 
     });
 
+    $("#my-bag-menu-button").mouseover(function() {
+      $('#my-bag-container').addClass('active-modal');
+    });
+
+    $('.hide-layer').click(function () {
+      $('#my-bag-container').removeClass('active-modal');
+    });
+
+    $('#bag-close-button').click(function () {
+      $('#my-bag-container').removeClass('active-modal');
+    });
+
+
   }
 
   function headerStyleChangesByPosition(scrollTop, windowHeight) {

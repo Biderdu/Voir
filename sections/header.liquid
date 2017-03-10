@@ -86,7 +86,7 @@
 
       <div class="site-header-menu-container">
         <div class="site-header-menu">
-          <div class="menu-elem">
+          <div id="my-bag-menu-button" class="menu-elem">
             MY BAG(0)
           </div>
           <div class="menu-elem">
@@ -123,6 +123,60 @@
     </div>
 
   </header>
+
+  <div id="my-bag-container" class="my-bag-modal">
+    <div class="hide-layer"></div>
+    <div class="my-bag-panel">
+      <div class="upper-panel">
+        <div class="title-container">
+          <div class="title">
+            My Bag
+          </div>
+          <div class="items-count">
+            <span>1</span> Item(s)
+          </div>
+        </div>
+
+        <div id="bag-close-button" class="close-button">
+          <img src="{{ 'close_icon.svg' | asset_url  }}">
+        </div>
+      </div>
+      <div class="items-list-container">
+
+      </div>
+      <div class="bag-bottom-panel">
+        <div class="price-container">
+          <div class="info">
+            <div class="total">
+              Subtotal
+            </div>
+            <div class="taxes">
+              Taxes calculated at checkout
+            </div>
+          </div>
+          <div class="price">
+            <div class="units">
+              CAD
+            </div>
+            <div class="count">
+              $35.00
+            </div>
+          </div>
+        </div>
+        <div class="button-container">
+          <div class="view-bug-button">
+            <span>VIEW MY BAG</span>
+          </div>
+          <div class="checkout-button">
+            <span>CHECKOUT</span>
+          </div>
+        </div>
+        <div class="shipping-container">
+          <div class="info">FREE SHIPPING & RETURNS IN CANADA</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% if section.settings.align_logo == 'center' %}
   <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
