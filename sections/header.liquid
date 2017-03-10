@@ -98,6 +98,11 @@
         </div>
       </div>
 
+      <div class="site-header-mobile-menu">
+        <img class="menu-img" src="{{ 'menu_icon_white.svg' | asset_url }}" alt="{{ shop.name }}">
+        <img class="menu-img-dark" src="{{ 'menu_icon.svg' | asset_url }}" alt="{{ shop.name }}">
+      </div>
+
       {%- assign collection = collections[section.settings.collection] -%}
 
       <div id="shop-additional-menu" class="shop-menu-panel">

@@ -3775,7 +3775,7 @@ h1.product-single__title {
           top: 0;
           left: 0;
           opacity: 1;
-          transition: opacity 0.2s ease-out 0.5s;
+          transition: opacity 0.15s ease-out 0.5s;
           max-height: 100%;
         }
 
@@ -3784,10 +3784,41 @@ h1.product-single__title {
           top: 0;
           left: 0;
           opacity: 0;
-          transition: opacity 0.2s ease-out 0.5s;
+          transition: opacity 0.15s ease-out 0.5s;
           max-height: 100%;
         }
       }
+    }
+
+    .site-header-mobile-menu {
+      display: none;
+      height: 22px;
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translate(0,-50%);
+      width: 35px;
+
+        .menu-img {
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          opacity: 1;
+          transition: opacity 0.15s ease-out 0.5s;
+          max-height: 100%;
+        }
+
+        .menu-img-dark {
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          opacity: 0;
+          transition: opacity 0.15s ease-out 0.5s;
+          max-height: 100%;
+        }
+
     }
 
     .site-header-navi-container {
@@ -4155,6 +4186,20 @@ h1.product-single__title {
 
     }
 
+    .site-header-mobile-menu {
+
+      .menu-img {
+        opacity: 0;
+        transition: opacity 0.15s ease-out;
+      }
+
+      .menu-img-dark {
+        opacity: 1;
+        transition: opacity 0.15s ease-out;
+      }
+
+    }
+
     .site-header-navi-container {
 
       .navi-elem {
@@ -4199,6 +4244,20 @@ h1.product-single__title {
           opacity: 1;
           transition: opacity 0.15s ease-out;
         }
+      }
+
+    }
+
+    .site-header-mobile-menu {
+
+      .menu-img {
+        opacity: 0;
+        transition: opacity 0.15s ease-out;
+      }
+
+      .menu-img-dark {
+        opacity: 1;
+        transition: opacity 0.15s ease-out;
       }
 
     }
@@ -4264,6 +4323,10 @@ h1.product-single__title {
           margin-top: 10px;
         }
 
+      }
+
+      .site-header-mobile-menu {
+        display: block;
       }
 
       .site-header-navi-container {
