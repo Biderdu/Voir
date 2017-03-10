@@ -5348,6 +5348,13 @@ $toolbar-height-small: 46px;
   transform: translateY(0);
 }
 
+@media (max-width: $screen-mobile) {
+  .site-footer {
+    height: 420px;
+    transform: translateY(420px);
+  }
+}
+
 @include media-query($medium-up) {
   .site-footer__linklist--center {
     margin-top: $section-spacing-small;
@@ -6972,6 +6979,168 @@ $toolbar-height-small: 46px;
 
     .bottom-gallery-button {
       bottom: 10%;
+    }
+
+  }
+
+  .custom-section-bottom-info-block {
+
+    .home-intro-center-line-left {
+      width: 15%;
+      top: 15%;
+    }
+
+    .home-intro-center-line-right {
+      width: 15%;
+      top: 15%;
+    }
+
+    .upper-text-block {
+      top: 15%;
+      text-align: center;
+
+      .title {
+        margin: auto;
+        width: 75%;
+        @include fontCambriaBold(28px, 400, 0.015em);
+      }
+
+      .description {
+        width: 95%;
+        @include fontHelvetica(14px, 400, 0.02em);
+      }
+
+    }
+
+    .bottom-buttons-block {
+      width: 100%;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, 0);
+
+      .bottom-button {
+        position: relative;
+        float: none;
+        height: 50px;
+        width: 250px;
+        left: 50%;
+        transform: translate(-50%,0);
+      }
+
+      .contact-button {
+        margin-left: 0;
+        margin-top: 70px;
+      }
+
+    }
+
+  }
+
+  .main-footer-container {
+    width: 100%;
+    height: 100%;
+
+    .left-side {
+      float: left;
+      height: 50%;
+      width: 100%;
+      border-bottom: 0;
+
+      .foot-info-block {
+        display: none;
+
+        .first-row {
+          height: 25%;
+        }
+
+        .second-row {
+          height: 22%;
+        }
+
+        .third-row {
+          height: 22%;
+        }
+
+        .fourth-row {
+          height: 22%;
+        }
+
+      }
+
+      .foot-info-block.contact-us {
+        display: block;
+        padding-top: 25px;
+        width: 80%;
+        left: 50%;
+        position: relative;
+        transform: translate(-50%,0);
+      }
+
+    }
+
+    .right-side {
+      float: left;
+      height: 50%;
+      width: 80%;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .title-sub {
+        @include fontHelveticaBold(16px, 400, 0.02em);
+        color: $voir-gray-2;
+        text-transform: uppercase;
+        height: 20%;
+      }
+
+      .email-field {
+        position: relative;
+        height: 45%;
+        width: 100%;
+
+        input {
+          @include fontHelveticaLight(14px, 400, 0.02em);
+          background: #f4f4f4;
+          width: 100%;
+          height: 38px;
+          border: none;
+          border-radius: 0;
+          position: relative;
+          top: 15%;
+        }
+
+        .arrow-container {
+          position: absolute;
+          right: 10px;
+          top: calc(15% + 11px);
+        }
+
+      }
+
+      .social-footer-panel {
+        height: 20%;
+
+        .icon-container {
+          position: relative;
+          margin-left: 0;
+          margin-right: 20px;
+          float: left;
+        }
+
+      }
+
+      .tm-block {
+
+        @include fontHelvetica(13px, 400, 0.015em);
+        height: 20%;
+
+      }
+
+      .back-arrow-container {
+        top: -85%;
+        right: -5%;
+      }
+
     }
 
   }
