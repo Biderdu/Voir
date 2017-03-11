@@ -6867,6 +6867,152 @@ $toolbar-height-small: 46px;
 
 }
 
+//about page
+
+.about-intro-block-container {
+  position: relative;
+  height: calc(100vh - 36px);
+  width: 100%;
+  background: #ffffff;
+
+  .intro-main-container {
+    position: absolute;
+    bottom: 22px;
+    left: 28px;
+    right: 28px;
+
+    height: calc(100% - 145px);
+    background: url('{{ "abstract-paper-texture.jpg" | asset_url }}') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    .intro-info-container {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      width: 500px;
+
+      .title {
+        opacity: 0;
+        width: 100%;
+        @include fontHelvetica(24px);
+        color: $voir-gray-1;
+      }
+
+      .verb {
+        opacity: 0;
+        width: 100%;
+
+        .verb-bold {
+          @include fontCambriaBold(54px);
+          color: $voir-gray-1;
+        }
+
+        .verb-italic {
+          @include fontCambriaItalic(54px);
+          color: $voir-gray-1;
+        }
+
+      }
+
+      .translate {
+        opacity: 0;
+        width: 100%;
+        @include fontHelvetica(32px);
+        color: $voir-gray-1;
+      }
+
+      .description {
+        opacity: 0;
+        margin-top: 70px;
+        width: 100%;
+        @include fontHelveticaLight(20px);
+        color: $voir-gray-2;
+
+        span {
+          @include fontHelveticaBold(20px);
+        }
+
+      }
+
+    }
+
+  }
+
+  .side-line-left {
+    opacity: 0;
+    background: #c8c9c7;
+    height: 2px;
+    width: 27%;
+    position: absolute;
+    top: 42%;
+    left: 0;
+  }
+
+  .side-line-right {
+    opacity: 0;
+    background: #c8c9c7;
+    height: 2px;
+    width: 27%;
+    position: absolute;
+    top: 42%;
+    right: 0;
+  }
+
+}
+
+.about-intro-block-container.animation-start {
+
+  .intro-main-container {
+
+    .intro-info-container {
+
+      .title {
+        opacity: 1;
+        transition: opacity 0.6s ease-out 0.5s;
+      }
+
+      .verb {
+        opacity: 1;
+        transition: opacity 0.6s ease-out 1.0s;
+      }
+
+      .translate {
+        opacity: 1;
+        transition: opacity 0.6s ease-out 1.5s;
+      }
+
+      .description {
+        opacity: 1;
+        transition: opacity 0.6s ease-out 1.9s;
+      }
+
+    }
+
+  }
+
+  .side-line-left {
+    opacity: 1;
+    transition: opacity 0.6s ease-out 0.1s;
+  }
+
+  .side-line-right {
+    opacity: 1;
+    transition: opacity 0.6s ease-out 0.1s;
+  }
+}
+
+.about-art-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+}
+
 .hero {
   position: relative;
   height: 475px;
