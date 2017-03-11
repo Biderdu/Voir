@@ -795,6 +795,12 @@ theme.Header = (function() {
   var windowHeight = $(window).height();
   var startScroll = $(selectors.body).scrollTop();
 
+  var socPanelActiveBlocks = {
+    home: [2,3],
+    about: [2,3,4,5]
+  };
+  var socPanActivePos = [];
+
 
   function init() {
     cacheSelectors();
@@ -834,12 +840,12 @@ theme.Header = (function() {
       evt.stopImmediatePropagation();
     });
 
-    var pathname = window.location.pathname;
-    var url      = window.location.href;
 
-    console.log(pathname, url);
+
 
     if($('#about-us-page').length != 0) {
+
+
       $(selectors.siteHeader).addClass( "bright" );
 
       $( document ).ready(function() {
@@ -854,7 +860,12 @@ theme.Header = (function() {
         headerPositionChange($(selectors.body).scrollTop());
       });
 
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.about);
+
     } else {
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
       headerPositionChange($(selectors.body).scrollTop());
       headerStyleChange($(selectors.body).scrollTop(), windowHeight);
@@ -863,8 +874,16 @@ theme.Header = (function() {
         headerPositionChange($(selectors.body).scrollTop());
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
       });
+
+
     }
 
+    socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
+
+    $(window).scroll( function() {
+      socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
+    });
+    
 
 
     $('#shop-navi-item').mouseover(function() {
@@ -918,6 +937,46 @@ theme.Header = (function() {
     } else {
       $(selectors.siteHeader).removeClass( "bright" )
     }
+  }
+
+  function socialPanelShowSetPos(activeBlocks) {
+
+    var activePositions = [];
+
+    activeBlocks.forEach(function(item) {
+
+      var start = windowHeight * (item - 1) - windowHeight/2;
+      var end = windowHeight * item - windowHeight/2;
+
+      activePositions.push(
+          {
+            start: start,
+            end: end
+          }
+      );
+
+    });
+
+    return activePositions;
+
+  }
+
+  function socialPanelShowCheck(scrollTop, activePos) {
+
+    var show = false;
+
+    activePos.forEach(function(item){
+      if(scrollTop > item.start && scrollTop < item.end) {
+        show = true;
+      }
+    });
+
+    if(show) {
+      $('#social-panel-header').addClass('active-panel');
+    } else {
+      $('#social-panel-header').removeClass('active-panel');
+    }
+
   }
 
   function cacheSelectors() {
