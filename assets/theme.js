@@ -797,7 +797,7 @@ theme.Header = (function() {
 
   var socPanelActiveBlocks = {
     home: [2,3],
-    about: [2,3,4,5]
+    about: [2,3,4,5,6,7]
   };
   var socPanActivePos = [];
 
@@ -883,7 +883,7 @@ theme.Header = (function() {
     $(window).scroll( function() {
       socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
     });
-    
+
 
 
     $('#shop-navi-item').mouseover(function() {

@@ -55,6 +55,11 @@
 }
 
 @font-face {
+  font-family: 'Helvetica-Oblique';
+  src: url('Helvetica-Oblique.ttf');
+}
+
+@font-face {
   font-family: 'Cambria';
   src: url('Cambria.ttf');
 }
@@ -317,6 +322,13 @@
 
 @mixin fontHelveticaLight( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.025em ){
   font-family: "Helvetica-Light";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontHelveticaOblique( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.025em ){
+  font-family: "Helvetica-Oblique";
   font-weight: $fontweight;
   font-size: $fontsize;
   letter-spacing: $letterSpacing;
@@ -6993,20 +7005,18 @@ $toolbar-height-small: 46px;
   }
 
   .side-line-left {
-    opacity: 0;
     background: #c8c9c7;
     height: 2px;
-    width: 27%;
+    width: 0;
     position: absolute;
     top: 42%;
     left: 0;
   }
 
   .side-line-right {
-    opacity: 0;
     background: #c8c9c7;
     height: 2px;
-    width: 27%;
+    width: 0;
     position: absolute;
     top: 42%;
     right: 0;
@@ -7045,13 +7055,13 @@ $toolbar-height-small: 46px;
   }
 
   .side-line-left {
-    opacity: 1;
-    transition: opacity 0.6s ease-out 0.1s;
+    width: 27%;
+    transition: width 1.1s ease-out 0.7s;
   }
 
   .side-line-right {
-    opacity: 1;
-    transition: opacity 0.6s ease-out 0.1s;
+    width: 27%;
+    transition: width 1.1s ease-out 0.7s;
   }
 }
 
@@ -7060,6 +7070,338 @@ $toolbar-height-small: 46px;
   height: 100vh;
   width: 100%;
   background: #ffffff;
+
+  .art-block-info {
+    position: absolute;
+    height: 400px;
+    width: 520px;
+    top: 50%;
+    left: 15%;
+    transform: translate(0,-50%);
+    text-align: left;
+
+    .title {
+      @include fontCambriaBold(44px);
+      color: $voir-gray-1;
+    }
+
+    .info {
+      width: 520px;
+      margin-top: 55px;
+      @include fontHelvetica(19px);
+      color: $voir-gray-1;
+    }
+
+  }
+
+  .side-line-right {
+    opacity: 1;
+    background: #c8c9c7;
+    height: 2px;
+    width: 30%;
+    position: absolute;
+    top: calc(50% - 170px);
+    right: 0;
+  }
+
+}
+
+.about-nature-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  .nature-block-background {
+    position: absolute;
+    bottom: 22px;
+    left: 28px;
+    right: 28px;
+
+    height: calc(100% - 145px);
+
+    background: #f4f4f4;
+  }
+
+  .nature-block-info {
+    position: absolute;
+    height: 420px;
+    width: 520px;
+    top: 50%;
+    right: 10%;
+    transform: translate(0,-50%);
+    text-align: left;
+
+    .title {
+      @include fontCambriaBold(44px);
+      color: $voir-gray-1;
+    }
+
+    .info {
+      width: 520px;
+      margin-top: 30px;
+      @include fontHelvetica(19px);
+      color: $voir-gray-1;
+
+      p {
+        @include fontHelvetica(19px);
+        color: $voir-gray-1;
+        margin-top: 30px;
+
+        span {
+          @include fontHelveticaOblique(19px);
+          color: $voir-gray-1;
+        }
+
+      }
+
+    }
+
+  }
+
+  .side-line-left {
+    opacity: 1;
+    background: #c8c9c7;
+    height: 2px;
+    width: 30%;
+    position: absolute;
+    top: calc(50% - 190px);
+    left: 0;
+  }
+
+}
+
+.about-image-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  .image-container {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(0,-50%);
+    height: 65%;
+    width: 80%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+
+  }
+
+}
+
+.about-ingredients-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  .ingr-block-background {
+    position: absolute;
+    bottom: 22px;
+    left: 28px;
+    right: 28px;
+
+    height: calc(100% - 145px);
+
+    background: #f4f4f4;
+  }
+
+  .ingr-block-info {
+    position: absolute;
+    height: 450px;
+    width: 520px;
+    top: 50%;
+    left: 10%;
+    transform: translate(0,-50%);
+    text-align: left;
+
+    .title {
+      @include fontCambriaBold(44px);
+      color: $voir-gray-1;
+    }
+
+    .info {
+
+      width: 1100px;
+      margin-top: 55px;
+      @include fontHelvetica(19px);
+      color: $voir-gray-1;
+
+      .first-row {
+        width: 47%;
+        @include fontHelvetica(19px);
+        color: $voir-gray-1;
+      }
+
+
+      .second-row {
+        width: 100%;
+        margin-top: 50px;
+
+        .left-side {
+          width: 47.5%;
+          float: left;
+          @include fontHelvetica(19px);
+          color: $voir-gray-1;
+
+          span {
+            @include fontHelveticaBold(19px);
+            color: $voir-gray-1;
+          }
+        }
+
+
+        .right-side {
+          width: 47.5%;
+          float: right;
+          @include fontHelvetica(19px);
+          color: $voir-gray-1;
+
+          span {
+            @include fontHelveticaBold(19px);
+            color: $voir-gray-1;
+          }
+        }
+
+      }
+
+
+    }
+
+  }
+
+  .side-line-right {
+    opacity: 1;
+    background: #c8c9c7;
+    height: 2px;
+    width: 30%;
+    position: absolute;
+    top: calc(50% - 190px);
+    right: 0;
+  }
+
+}
+
+.about-packaging-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  .packaging-image {
+    position: absolute;
+    height: 400px;
+    width: 470px;
+    top: 50%;
+    left: 13%;
+    transform: translate(0,-50%);
+    text-align: left;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 100%;
+      max-width: inherit;
+    }
+
+  }
+
+  .packaging-block-info {
+    position: absolute;
+    height: 380px;
+    width: 500px;
+    top: calc(50% + 20px);
+    right: 13%;
+    transform: translate(0,-50%);
+    text-align: left;
+
+    .title {
+      @include fontCambriaBold(44px);
+      color: $voir-gray-1;
+    }
+
+    .info {
+
+      width: 500px;
+      margin-top: 55px;
+      @include fontHelvetica(19px);
+      color: $voir-gray-1;
+
+    }
+
+  }
+
+}
+
+.about-made-block-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  .made-block-background {
+    position: absolute;
+    bottom: 22px;
+    left: 28px;
+    right: 28px;
+
+    height: calc(100% - 145px);
+
+    background: #f4f4f4;
+  }
+
+  .made-block-info {
+    position: absolute;
+    height: 450px;
+    width: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+    .title {
+      @include fontCambriaBold(44px);
+      color: $voir-gray-1;
+    }
+
+    .info {
+      width: 700px;
+      margin-top: 55px;
+      @include fontHelvetica(19.5px);
+      line-height: 28px;
+      color: $voir-gray-1;
+    }
+
+  }
+
+  .side-line-left {
+    opacity: 1;
+    background: #c8c9c7;
+    height: 2px;
+    width: 26%;
+    position: absolute;
+    top: calc(50% - 190px);
+    left: 0;
+  }
+
+  .side-line-right {
+    opacity: 1;
+    background: #c8c9c7;
+    height: 2px;
+    width: 26%;
+    position: absolute;
+    top: calc(50% - 190px);
+    right: 0;
+  }
+
 }
 
 .hero {
