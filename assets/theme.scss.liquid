@@ -3756,7 +3756,7 @@ h1.product-single__title {
   width: 100%;
   background: rgba(255,255,255,0);
   border: none;
-  padding: 0 $header-gutter;
+  padding: 0 40px;
   transition: top 0.05s ease-out, background 0.15s ease-out 0.5s;
 
   @include media-query($medium-up) {
@@ -3766,12 +3766,12 @@ h1.product-single__title {
   }
 
   .site-header-main-container {
-    height: 100px;
+    height: 80px;
     width: 100%;
     position: relative;
 
     .site-header-logo-container {
-      height: 65px;
+      height: 56px;
       position: absolute;
       left: 0;
       top: 50%;
@@ -6928,6 +6928,8 @@ $toolbar-height-small: 46px;
 
 }
 
+
+
 //about page
 
 .about-intro-block-container {
@@ -6942,7 +6944,7 @@ $toolbar-height-small: 46px;
     left: 28px;
     right: 28px;
 
-    height: calc(100% - 145px);
+    height: calc(100% - 125px);
     background: url('{{ "abstract-paper-texture.jpg" | asset_url }}') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -6959,22 +6961,26 @@ $toolbar-height-small: 46px;
 
       .title {
         opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
         width: 100%;
-        @include fontHelvetica(24px);
+        @include fontHelvetica(22px);
         color: $voir-gray-1;
       }
 
       .verb {
         opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 1.0s ease 1.0s, transform 1.0s ease 1.0s;
         width: 100%;
 
         .verb-bold {
-          @include fontCambriaBold(54px);
+          @include fontCambriaBold(51px);
           color: $voir-gray-1;
         }
 
         .verb-italic {
-          @include fontCambriaItalic(54px);
+          @include fontCambriaItalic(51px);
           color: $voir-gray-1;
         }
 
@@ -6982,6 +6988,8 @@ $toolbar-height-small: 46px;
 
       .translate {
         opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 1.0s ease 1.5s, transform 1.0s ease 1.5s;
         width: 100%;
         @include fontHelvetica(32px);
         color: $voir-gray-1;
@@ -6989,6 +6997,8 @@ $toolbar-height-small: 46px;
 
       .description {
         opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 1.0s ease 1.9s, transform 1.0s ease 1.9s;
         margin-top: 70px;
         width: 100%;
         @include fontHelveticaLight(20px);
@@ -7032,22 +7042,22 @@ $toolbar-height-small: 46px;
 
       .title {
         opacity: 1;
-        transition: opacity 0.6s ease-out 0.5s;
+        transform: translate3d(0, 0, 0);
       }
 
       .verb {
         opacity: 1;
-        transition: opacity 0.6s ease-out 1.0s;
+        transform: translate3d(0, 0, 0);
       }
 
       .translate {
         opacity: 1;
-        transition: opacity 0.6s ease-out 1.5s;
+        transform: translate3d(0, 0, 0);
       }
 
       .description {
         opacity: 1;
-        transition: opacity 0.6s ease-out 1.9s;
+        transform: translate3d(0, 0, 0);
       }
 
     }
@@ -7083,6 +7093,9 @@ $toolbar-height-small: 46px;
     .title {
       @include fontCambriaBold(44px);
       color: $voir-gray-1;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
@@ -7090,6 +7103,9 @@ $toolbar-height-small: 46px;
       margin-top: 55px;
       @include fontHelvetica(19px);
       color: $voir-gray-1;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
     }
 
   }
@@ -7098,10 +7114,33 @@ $toolbar-height-small: 46px;
     opacity: 1;
     background: #c8c9c7;
     height: 2px;
-    width: 30%;
+    width: 0;
+    transition: width 1.5s ease 0.2s;
     position: absolute;
     top: calc(50% - 170px);
     right: 0;
+  }
+
+}
+
+.about-art-block-container.active-animation {
+
+  .art-block-info {
+
+    .title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .info {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+  }
+
+  .side-line-right {
+    width: 30%;
   }
 
 }
@@ -7118,7 +7157,7 @@ $toolbar-height-small: 46px;
     left: 28px;
     right: 28px;
 
-    height: calc(100% - 145px);
+    height: calc(100% - 125px);
 
     background: #f4f4f4;
   }
@@ -7185,11 +7224,25 @@ $toolbar-height-small: 46px;
     height: 65%;
     width: 80%;
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1.5s ease;
 
     img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
       width: 100%;
     }
 
+  }
+
+}
+
+.about-image-block-container.active-animation {
+
+  .image-container {
+    opacity: 1;
   }
 
 }
@@ -7206,7 +7259,7 @@ $toolbar-height-small: 46px;
     left: 28px;
     right: 28px;
 
-    height: calc(100% - 145px);
+    height: calc(100% - 125px);
 
     background: #f4f4f4;
   }
@@ -7223,6 +7276,9 @@ $toolbar-height-small: 46px;
     .title {
       @include fontCambriaBold(44px);
       color: $voir-gray-1;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
@@ -7236,6 +7292,9 @@ $toolbar-height-small: 46px;
         width: 47%;
         @include fontHelvetica(19px);
         color: $voir-gray-1;
+        opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
       }
 
 
@@ -7248,6 +7307,9 @@ $toolbar-height-small: 46px;
           float: left;
           @include fontHelvetica(19px);
           color: $voir-gray-1;
+          opacity: 0;
+          transform: translate3d(0, 15px, 0);
+          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
 
           span {
             @include fontHelveticaBold(19px);
@@ -7261,6 +7323,9 @@ $toolbar-height-small: 46px;
           float: right;
           @include fontHelvetica(19px);
           color: $voir-gray-1;
+          opacity: 0;
+          transform: translate3d(0, 15px, 0);
+          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
 
           span {
             @include fontHelveticaBold(19px);
@@ -7276,13 +7341,53 @@ $toolbar-height-small: 46px;
   }
 
   .side-line-right {
-    opacity: 1;
     background: #c8c9c7;
     height: 2px;
-    width: 30%;
+    width: 0;
+    transition: width 1.5s ease 0.2s;
     position: absolute;
     top: calc(50% - 190px);
     right: 0;
+  }
+
+}
+
+.about-ingredients-block-container.active-animation {
+
+  .ingr-block-info {
+
+    .title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .info {
+
+      .first-row {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .second-row {
+
+        .left-side {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+        .right-side {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+      }
+
+    }
+
+  }
+
+  .side-line-right {
+    width: 30%;
   }
 
 }
@@ -7326,15 +7431,43 @@ $toolbar-height-small: 46px;
     .title {
       @include fontCambriaBold(44px);
       color: $voir-gray-1;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
-
       width: 500px;
       margin-top: 55px;
       @include fontHelvetica(19px);
       color: $voir-gray-1;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 1.0s ease 0.7s, transform 1.0s ease 0.7s;
+    }
 
+  }
+
+}
+
+.about-packaging-block-container.active-animation {
+
+  .packaging-image {
+    img {
+
+    }
+  }
+
+  .packaging-block-info {
+
+    .title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .info {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
     }
 
   }
@@ -7353,7 +7486,7 @@ $toolbar-height-small: 46px;
     left: 28px;
     right: 28px;
 
-    height: calc(100% - 145px);
+    height: calc(100% - 125px);
 
     background: #f4f4f4;
   }
@@ -7403,6 +7536,10 @@ $toolbar-height-small: 46px;
   }
 
 }
+
+//about-end
+
+
 
 .hero {
   position: relative;
