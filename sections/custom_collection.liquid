@@ -20,33 +20,33 @@
 
   <div class="collections-block-container">
     <div class="collection-list">
-      {% for product in collection.products %}
-        <div class="product-item-container">
-          <div class="product-top-side">
-            <div class="image-container">
-              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+        {% for product in collection.products %}
+          <div class="product-item-container">
+            <div class="product-top-side">
+              <div class="image-container">
+                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+              </div>
+              <div class="hover-container">
+                <div class="add-button">
+                  <span>Add to bag</span>
+                </div>
+              </div>
             </div>
-            <div class="hover-container">
-              <div class="add-button">
-                <span>Add to bag</span>
+            <div class="product-bottom-side">
+              <div class="short-info">
+                <div class="name">
+                  {{ product.title }}
+                </div>
+                <div class="descr">
+                  {{ product.description }}
+                </div>
+              </div>
+              <div class="price-info">
+                ${{ product.price }}
               </div>
             </div>
           </div>
-          <div class="product-bottom-side">
-            <div class="short-info">
-              <div class="name">
-                {{ product.title }}
-              </div>
-              <div class="descr">
-                {{ product.description }}
-              </div>
-            </div>
-            <div class="price-info">
-              ${{ product.price }}
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
     </div>
 
     <div class="social-panel-container">
