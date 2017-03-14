@@ -793,6 +793,7 @@ theme.Header = (function() {
   var cache = {};
 
   var windowHeight = $(window).height();
+  var windowWidth = $(window).width();
   var startScroll = $(selectors.body).scrollTop();
 
   var socPanelActiveBlocks = {
@@ -808,6 +809,16 @@ theme.Header = (function() {
 
   var socPanActivePos = [];
 
+  var headerTop = 36;
+
+  if(windowWidth < 1025) {
+    headerTop = 28;
+
+    if (windowWidth < 769) {
+      headerTop = 30;
+    }
+
+  }
 
   function init() {
     cacheSelectors();
@@ -963,8 +974,8 @@ theme.Header = (function() {
   }
 
   function headerPositionChange(scrollTop) {
-    if(scrollTop < 36) {
-      var top = 36 - scrollTop;
+    if(scrollTop < headerTop) {
+      var top = headerTop - scrollTop;
       $(selectors.siteHeader).css({ top: top + 'px' });
     } else {
       $(selectors.siteHeader).css({ top: '0px' });
@@ -2972,9 +2983,12 @@ function instagramInit() {
         if ($(window).width() < 1025) {
           slidesToShow = 2.7;
           arrows = false;
-        } else if ($(window).width() < 768) {
-          slidesToShow = 1.7;
-          arrows = false;
+
+          if ($(window).width() < 769) {
+            slidesToShow = 1.7;
+            arrows = false;
+          }
+
         }
 
 
