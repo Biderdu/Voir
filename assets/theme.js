@@ -806,6 +806,11 @@ theme.Header = (function() {
     home: []
   };
 
+  // var panelsWithAnimations = {
+  //   about: ['about-packaging-panel'],
+  //   home: []
+  // };
+
 
   var socPanActivePos = [];
 
@@ -814,7 +819,7 @@ theme.Header = (function() {
   if(windowWidth < 1025) {
     headerTop = 28;
 
-    if (windowWidth < 769) {
+    if (windowWidth < 768) {
       headerTop = 30;
     }
 
@@ -960,17 +965,18 @@ theme.Header = (function() {
 
   }
 
-  function isScrolledIntoView(elem)
-  {
+  function isScrolledIntoView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
+    var elemTop = parseInt($(elem).offset().top);
+    var elemBottom = parseInt(elemTop + $(elem).height());
 
     var elemHeight = elemBottom - elemTop;
 
-    return ((elemBottom - (0.45 * elemHeight ) <= docViewBottom) && (elemTop + ( 0.45 * elemHeight)  >= docViewTop));
+    var threshold = 0.49 * elemHeight;
+
+    return ((elemBottom - threshold <= docViewBottom) && (elemTop + threshold >= docViewTop));
   }
 
   function headerPositionChange(scrollTop) {
@@ -2948,10 +2954,12 @@ function footerInit() {
     if($(window).scrollTop() + $(window).height() >= getDocHeight()) {
 
       $('.site-footer').addClass('active_footer');
+      $('#social-panel-line').addClass('hidden-line');
 
     } else {
 
       $('.site-footer').removeClass('active_footer');
+      $('#social-panel-line').removeClass('hidden-line');
 
     }
   });

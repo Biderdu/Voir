@@ -3760,7 +3760,7 @@ h1.product-single__title {
   background: rgba(255,255,255,0);
   border: none;
   padding: 0 40px;
-  transition: top 0.05s ease-out, background 0.15s ease-out 0.5s;
+  transition: background 0.15s ease-out 0.5s;
 
   @include media-query($medium-up) {
     &.logo--center {
@@ -5967,12 +5967,20 @@ $toolbar-height-small: 46px;
 
   .bottom-line {
     position: absolute;
-    bottom: 0;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, 15%);
     height: 133px;
     width: 2px;
     background: $voir-gray-3;
+    opacity: 1;
+    transition: opacity 0.40s ease, height 0.40s ease;
+  }
+
+  .bottom-line.hidden-line {
+    opacity: 0;
+    height: 0;
+
   }
 
 }
@@ -7009,11 +7017,11 @@ $toolbar-height-small: 46px;
   .intro-main-container {
     position: absolute;
     bottom: 22px;
-    left: 28px;
-    right: 28px;
+    left: 25px;
+    right: 25px;
 
     height: calc(100% - 125px);
-    background: url('{{ "abstract-paper-texture.jpg" | asset_url }}') no-repeat center center fixed;
+    background: url('{{ "about_back.jpg" | asset_url }}') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7030,7 +7038,6 @@ $toolbar-height-small: 46px;
       .title {
         opacity: 0;
         transform: translate3d(0, 15px, 0);
-        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
         width: 100%;
         @include fontHelvetica(22px);
         color: $voir-gray-1;
@@ -7039,7 +7046,6 @@ $toolbar-height-small: 46px;
       .verb {
         opacity: 0;
         transform: translate3d(0, 15px, 0);
-        transition: opacity 1.0s ease 1.0s, transform 1.0s ease 1.0s;
         width: 100%;
 
         .verb-bold {
@@ -7057,7 +7063,6 @@ $toolbar-height-small: 46px;
       .translate {
         opacity: 0;
         transform: translate3d(0, 15px, 0);
-        transition: opacity 1.0s ease 1.5s, transform 1.0s ease 1.5s;
         width: 100%;
         @include fontHelvetica(30px);
         color: $voir-gray-1;
@@ -7066,7 +7071,6 @@ $toolbar-height-small: 46px;
       .description {
         opacity: 0;
         transform: translate3d(0, 15px, 0);
-        transition: opacity 1.0s ease 1.9s, transform 1.0s ease 1.9s;
         margin-top: 65px;
         width: 100%;
         @include fontHelveticaLight(20px);
@@ -7111,21 +7115,25 @@ $toolbar-height-small: 46px;
       .title {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
       }
 
       .verb {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 1.0s, transform 1.0s ease 1.0s;
       }
 
       .translate {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 1.5s, transform 1.0s ease 1.5s;
       }
 
       .description {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 1.9s, transform 1.0s ease 1.9s;
       }
 
     }
@@ -7163,7 +7171,7 @@ $toolbar-height-small: 46px;
       color: $voir-gray-1;
       opacity: 0;
       transform: translate3d(0, 15px, 0);
-      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
     .info {
@@ -7173,7 +7181,7 @@ $toolbar-height-small: 46px;
       color: $voir-gray-1;
       opacity: 0;
       transform: translate3d(0, 15px, 0);
-      transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
   }
@@ -7183,7 +7191,7 @@ $toolbar-height-small: 46px;
     background: #c8c9c7;
     height: 2px;
     width: 0;
-    transition: width 1.5s ease 0.2s;
+    transition: width 0.2s ease 0.2s;
     position: absolute;
     top: calc(50% - 170px);
     right: 0;
@@ -7198,17 +7206,20 @@ $toolbar-height-small: 46px;
     .title {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
     }
 
   }
 
   .side-line-right {
     width: 30%;
+    transition: width 1.5s ease 0.2s;
   }
 
 }
@@ -7293,7 +7304,7 @@ $toolbar-height-small: 46px;
     width: 80%;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transition: opacity 0.6s ease 0.1s;
 
     img {
       position: absolute;
@@ -7311,6 +7322,7 @@ $toolbar-height-small: 46px;
 
   .image-container {
     opacity: 1;
+    transition: opacity 1.5s ease 0.1s;
   }
 
 }
@@ -7346,7 +7358,7 @@ $toolbar-height-small: 46px;
       color: $voir-gray-1;
       opacity: 0;
       transform: translate3d(0, 15px, 0);
-      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
     .info {
@@ -7362,7 +7374,7 @@ $toolbar-height-small: 46px;
         color: $voir-gray-1;
         opacity: 0;
         transform: translate3d(0, 15px, 0);
-        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
       }
 
 
@@ -7377,7 +7389,7 @@ $toolbar-height-small: 46px;
           color: $voir-gray-1;
           opacity: 0;
           transform: translate3d(0, 15px, 0);
-          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
+          transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
           p {
             @include fontHelvetica(19px);
@@ -7398,7 +7410,7 @@ $toolbar-height-small: 46px;
           color: $voir-gray-1;
           opacity: 0;
           transform: translate3d(0, 15px, 0);
-          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
+          transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
           p {
             @include fontHelvetica(19px);
@@ -7422,7 +7434,7 @@ $toolbar-height-small: 46px;
     background: #c8c9c7;
     height: 2px;
     width: 0;
-    transition: width 1.5s ease 0.2s;
+    transition: width 0.2s ease 0.2s;
     position: absolute;
     top: calc(50% - 145px);
     right: 0;
@@ -7437,6 +7449,7 @@ $toolbar-height-small: 46px;
     .title {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
@@ -7444,6 +7457,7 @@ $toolbar-height-small: 46px;
       .first-row {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 0.5s, transform 1.0s ease 0.5s;
       }
 
       .second-row {
@@ -7451,11 +7465,13 @@ $toolbar-height-small: 46px;
         .left-side {
           opacity: 1;
           transform: translate3d(0, 0, 0);
+          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
         }
 
         .right-side {
           opacity: 1;
           transform: translate3d(0, 0, 0);
+          transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
         }
 
       }
@@ -7466,6 +7482,7 @@ $toolbar-height-small: 46px;
 
   .side-line-right {
     width: 30%;
+    transition: width 1.5s ease 0.2s;
   }
 
 }
@@ -7511,7 +7528,7 @@ $toolbar-height-small: 46px;
       color: $voir-gray-1;
       opacity: 0;
       transform: translate3d(0, 15px, 0);
-      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
     .info {
@@ -7521,7 +7538,7 @@ $toolbar-height-small: 46px;
       color: $voir-gray-1;
       opacity: 0;
       transform: translate3d(0, 15px, 0);
-      transition: opacity 1.0s ease 0.7s, transform 1.0s ease 0.7s;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
   }
@@ -7541,11 +7558,13 @@ $toolbar-height-small: 46px;
     .title {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
     }
 
     .info {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.7s, transform 1.0s ease 0.7s;
     }
 
   }
@@ -7561,8 +7580,8 @@ $toolbar-height-small: 46px;
   .made-block-background {
     position: absolute;
     bottom: 22px;
-    left: 28px;
-    right: 28px;
+    left: 25px;
+    right: 25px;
 
     height: calc(100% - 125px);
 
@@ -7573,7 +7592,7 @@ $toolbar-height-small: 46px;
     position: absolute;
     height: 330px;
     width: 700px;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -7599,7 +7618,7 @@ $toolbar-height-small: 46px;
     height: 2px;
     width: 30%;
     position: absolute;
-    top: calc(50% - 130px);
+    top: calc(45% - 130px);
     left: 0;
   }
 
@@ -7609,14 +7628,785 @@ $toolbar-height-small: 46px;
     height: 2px;
     width: 30%;
     position: absolute;
-    top: calc(50% - 130px);
+    top: calc(45% - 130px);
     right: 0;
   }
 
 }
 
-//about-end
+@media (max-width: $screen-tablet) {
 
+  .about-intro-block-container {
+
+    height: calc(100vh - 28px);
+
+    .intro-main-container {
+
+      height: calc(100% - 105px);
+
+
+      .intro-info-container {
+        width: 450px;
+
+        .title {
+          @include fontHelvetica(18px);
+        }
+
+        .verb {
+
+          .verb-bold {
+            @include fontCambriaBold(42px);
+          }
+
+          .verb-italic {
+            @include fontCambriaItalic(42px);
+          }
+
+        }
+
+        .translate {
+          @include fontHelvetica(18px);
+        }
+
+        .description {
+          padding: 0 25px 0 25px;
+          @include fontHelveticaLight(15px);
+          line-height: 23px;
+
+          span {
+            @include fontHelveticaBold(15px);
+          }
+
+        }
+
+      }
+
+    }
+
+    .side-line-left {
+      top: calc(45% - 30px);
+    }
+
+    .side-line-right {
+      top: calc(45% - 30px);
+    }
+
+  }
+
+  .about-intro-block-container.animation-start {
+
+    .intro-main-container {
+
+    }
+
+    .side-line-left {
+      width: 22%;
+    }
+
+    .side-line-right {
+      width: 22%;
+    }
+  }
+
+  .about-art-block-container {
+    height: 55vh;
+
+    .art-block-info {
+      top: 55%;
+
+      .title {
+        @include fontCambriaBold(30px);
+      }
+
+      .info {
+        @include fontHelvetica(15px);
+      }
+
+    }
+
+    .side-line-right {
+      top: calc(55% - 170px);
+    }
+
+  }
+
+  .about-art-block-container.active-animation {
+
+    .art-block-info {
+
+    }
+
+    .side-line-right {
+      width: 23%;
+    }
+
+  }
+
+  .about-nature-block-container {
+    height: 55vh;
+
+    .nature-block-background {
+      height: calc(100% - 10px);
+    }
+
+    .nature-block-info {
+      width: 405px;
+      right: 75px;
+      top: 55%;
+
+      .title {
+        @include fontCambriaBold(30px);
+        line-height: 30px;
+      }
+
+      .info {
+        width: 405px;
+        margin-top: 35px;
+        @include fontHelvetica(15px);
+        line-height: 23px;
+
+        p {
+          @include fontHelvetica(15px);
+
+          span {
+            @include fontHelveticaOblique(15px);
+          }
+
+        }
+
+      }
+
+    }
+
+    .side-line-left {
+      width: 23%;
+      top: calc(55% - 175px);
+    }
+
+  }
+
+  .about-image-block-container {
+    height: 55vh;
+
+    .image-container {
+
+      height: 65%;
+      left: 24px;
+      width: calc(100% - 48px);
+
+      img {
+
+      }
+
+    }
+
+  }
+
+  .about-image-block-container.active-animation {
+
+    .image-container {
+
+    }
+
+  }
+
+  .about-ingredients-block-container {
+    height: 60vh;
+
+    .ingr-block-background {
+      height: calc(100% - 10px);
+    }
+
+    .ingr-block-info {
+      position: absolute;
+      height: 380px;
+      width: 425px;
+      top: 45%;
+      left: 75px;
+      transform: translate(0,-50%);
+      text-align: left;
+
+      .title {
+        @include fontCambriaBold(30px);
+      }
+
+      .info {
+        @include fontHelvetica(15px);
+        margin-top: 30px;
+
+        .first-row {
+          width: 100%;
+          @include fontHelvetica(15px);
+          line-height: 23px;
+        }
+
+
+        .second-row {
+          margin-top: 35px;
+
+          .left-side {
+            width: 100%;
+            @include fontHelvetica(15px);
+            line-height: 23px;
+
+            p {
+              @include fontHelvetica(15px);
+            }
+
+            span {
+              @include fontHelveticaBold(15px);
+            }
+          }
+
+
+          .right-side {
+            width: 100%;
+            float: left;
+            @include fontHelvetica(15px);
+            line-height: 23px;
+            margin-top: 35px;
+
+            p {
+              @include fontHelvetica(15px);
+            }
+
+            span {
+              @include fontHelveticaBold(15px)
+            }
+          }
+
+        }
+
+
+      }
+
+    }
+
+    .side-line-right {
+      top: calc(45% - 165px);
+    }
+
+  }
+
+  .about-ingredients-block-container.active-animation {
+
+    .ingr-block-info {
+
+    }
+
+    .side-line-right {
+      width: 23%;
+    }
+
+  }
+
+  .about-packaging-block-container {
+    height: 90vh;
+
+    .packaging-image {
+      position: absolute;
+      height: 400px;
+      width: 720px;
+      top: 7%;
+      right: 50%;
+      transform: translate(50%,0);
+      text-align: left;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: initial;
+      }
+
+    }
+
+    .packaging-block-info {
+      position: absolute;
+      height: 300px;
+      width: 400px;
+      top: 55%;
+      left: 100px;
+      transform: translate(0,0);
+      text-align: left;
+
+      .title {
+        @include fontCambriaBold(30px);
+      }
+
+      .info {
+        width: 400px;
+        @include fontHelvetica(15px);
+      }
+
+    }
+
+  }
+
+  .about-packaging-block-container.active-animation {
+
+    .packaging-image {
+      img {
+
+      }
+    }
+
+    .packaging-block-info {
+
+      .title {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+      }
+
+      .info {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 1.0s ease 0.7s, transform 1.0s ease 0.7s;
+      }
+
+    }
+
+  }
+
+  .about-made-block-container {
+    height: 70vh;
+
+    .made-block-background {
+      height: calc(100% - 10px);
+    }
+
+    .made-block-info {
+      position: absolute;
+      height: 330px;
+      width: 530px;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+
+      .title {
+        @include fontCambriaBold(30px);
+      }
+
+      .info {
+        width: 530px;
+        @include fontHelvetica(15px);
+      }
+
+    }
+
+    .side-line-left {
+      top: calc(35% - 140px);
+    }
+
+    .side-line-right {
+      top: calc(35% - 140px);
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+  .about-intro-block-container {
+    height: calc(100vh - 30px);
+
+    .intro-main-container {
+      left: 13px;
+      right: 13px;
+
+      height: calc(100% - 85px);
+
+      .intro-info-container {
+        width: 270px;
+        top: 50%;
+
+        .title {
+          @include fontHelvetica(14px);
+        }
+
+        .verb {
+          line-height: 28px;
+          .verb-bold {
+            @include fontCambriaBold(28px);
+          }
+
+          .verb-italic {
+            @include fontCambriaItalic(28px);
+          }
+        }
+
+        .translate {
+          @include fontHelvetica(14px);
+          line-height: 14px;
+        }
+
+        .description {
+          margin-top: 50px;
+          padding: 0 5px 0 5px;
+          @include fontHelveticaLight(13px);
+
+          span {
+            @include fontHelveticaBold(13px);
+          }
+
+        }
+
+      }
+
+    }
+
+    .side-line-left {
+      top: calc(50% - 50px);
+    }
+
+    .side-line-right {
+      top: calc(50% - 50px);
+    }
+
+  }
+
+  .about-intro-block-container.animation-start {
+
+    .intro-main-container {
+
+      .intro-info-container {
+
+      }
+
+    }
+
+    .side-line-left {
+      width: 10%;
+    }
+
+    .side-line-right {
+      width: 10%;
+    }
+  }
+
+  .about-art-block-container {
+    height: 75vh;
+
+    .art-block-info {
+      position: absolute;
+      height: 380px;
+      width: 270px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: left;
+
+      .title {
+        @include fontCambriaBold(24px);
+      }
+
+      .info {
+        width: 270px;
+        margin-top: 38px;
+        @include fontHelvetica(13px);
+      }
+
+    }
+
+    .side-line-right {
+     display: none;
+    }
+
+  }
+
+  .about-art-block-container.active-animation {
+
+    .art-block-info {
+
+
+    }
+
+    .side-line-right {
+      display: none;
+    }
+
+  }
+
+  .about-nature-block-container {
+    height: 90vh;
+
+    .nature-block-background {
+      left: 0;
+      right: 0;
+
+
+      height: calc(100% - 10px);
+    }
+
+    .nature-block-info {
+      height: 400px;
+      width: 270px;
+      top: 45%;
+      right: 50%;
+      transform: translate(50%,-50%);
+
+      .title {
+        @include fontCambriaBold(24px);
+      }
+
+      .info {
+        width: 270px;
+        margin-top: 35px;
+        @include fontHelvetica(13px);
+
+        p {
+          @include fontHelvetica(13px);
+
+          span {
+            @include fontHelveticaOblique(13px);
+          }
+
+        }
+
+      }
+
+    }
+
+    .side-line-left {
+      display: none;
+    }
+
+  }
+
+  .about-image-block-container {
+    height: 40vh;
+
+    .image-container {
+      left: 0;
+      width: 100%;
+      height: 70%;
+
+      img {
+
+      }
+
+    }
+
+  }
+
+  .about-image-block-container.active-animation {
+
+    .image-container {
+
+    }
+
+  }
+
+  .about-ingredients-block-container {
+    height: 90vh;
+
+    .ingr-block-background {
+      bottom: 5px;
+      left: 0;
+      right: 0;
+
+      height: calc(100% - 10px);
+    }
+
+    .ingr-block-info {
+      height: 360px;
+      width: 270px;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      .title {
+        @include fontCambriaBold(24px);
+
+      }
+
+      .info {
+
+        @include fontHelvetica(13px);
+
+        .first-row {
+          width: 100%;
+          @include fontHelvetica(13px);
+        }
+
+
+        .second-row {
+          width: 100%;
+          margin-top: 35px;
+
+          .left-side {
+            width: 100%;
+            float: left;
+            @include fontHelvetica(13px);
+
+            p {
+              @include fontHelvetica(13px);
+            }
+
+            span {
+              @include fontHelveticaBold(13px);
+            }
+          }
+
+
+          .right-side {
+            width: 100%;
+            float: left;
+            @include fontHelvetica(13px);
+
+            p {
+              @include fontHelvetica(13px);
+            }
+
+            span {
+              @include fontHelveticaBold(13px);
+            }
+          }
+
+        }
+
+
+      }
+
+    }
+
+    .side-line-right {
+      display: none;
+    }
+
+  }
+
+  .about-ingredients-block-container.active-animation {
+
+    .ingr-block-info {
+
+      .title {
+
+      }
+
+      .info {
+
+        .first-row {
+
+        }
+
+        .second-row {
+
+        }
+
+      }
+
+    }
+
+    .side-line-right {
+
+    }
+
+  }
+
+  .about-packaging-block-container {
+    height: 120vh;
+
+    .packaging-image {
+      height: 290px;
+      width: 300px;
+      top: 5%;
+      right: 50%;
+      transform: translate(50%,0);
+
+      img {
+        width: auto;
+        max-height: 100%;
+      }
+
+    }
+
+    .packaging-block-info {
+      height: 250px;
+      width: 270px;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .title {
+        @include fontCambriaBold(24px);
+        line-height: 24px;
+      }
+
+      .info {
+        width: 270px;
+        @include fontHelvetica(13px);
+        line-height: 23px;
+      }
+
+    }
+
+  }
+
+  .about-packaging-block-container.active-animation {
+
+    .packaging-image {
+      img {
+
+      }
+    }
+
+    .packaging-block-info {
+
+    }
+
+  }
+
+  .about-made-block-container {
+    height: 160vh;
+    width: 100%;
+
+    .made-block-background {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+
+      height: calc(100% - 10px);
+    }
+
+    .made-block-info {
+      height: 400px;
+      width: 270px;
+      top: 30%;
+
+      .title {
+        @include fontCambriaBold(24px);
+        line-height: 24px;
+        text-align: left;
+      }
+
+      .info {
+        width: 270px;
+        margin-top: 38px;
+        @include fontHelvetica(13px);
+        line-height: 23px;
+        text-align: left;
+      }
+
+    }
+
+    .side-line-left {
+      display: none;
+    }
+
+    .side-line-right {
+      display: none;
+    }
+
+  }
+}
+
+//about-end
 
 
 .hero {
