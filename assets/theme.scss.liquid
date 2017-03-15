@@ -3752,6 +3752,10 @@ h1.product-single__title {
   }
 }
 
+.shipping-container.hidden-shipping {
+  display: none;
+}
+
 .site-header {
   z-index: 10;
   position: fixed;
@@ -8408,6 +8412,501 @@ $toolbar-height-small: 46px;
 
 //about-end
 
+//general-faq
+
+.general-faq-main-container {
+
+  .faq-head-panel {
+    width: 100%;
+    height: 266px;
+    background: #ffffff;
+    border-bottom: 1px solid #e3e3e3;
+
+    .left-side {
+      float: left;
+      position: relative;
+      height: 100%;
+      width: 440px;
+
+      .help-info {
+        position: absolute;
+        left: 75px;
+        bottom: 60px;
+
+        .service {
+          @include fontHelvetica(14px);
+          line-height: 14px;
+          color: $voir-gray-2;
+          text-align: left;
+          margin-bottom: 10px;
+        }
+
+        .looking {
+          @include fontCambriaBold(28px);
+          line-height: 28px;
+          color: $voir-gray-1;
+          text-align: left;
+        }
+
+      }
+
+    }
+
+    .right-side {
+      float: left;
+      position: relative;
+      height: 100%;
+      width: calc(100% - 440px);
+
+      .info-menu {
+        position: absolute;
+        left: 0;
+        bottom: 60px;
+
+        .menu-item {
+          float: left;
+          @include fontHelvetica(16px);
+          color: $voir-gray-1;
+          margin-right: 60px;
+          line-height: 16px;
+          text-transform: uppercase;
+
+          a {
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        .menu-item.active {
+          @include fontHelveticaBold(16px);
+        }
+
+      }
+
+      .info-menu-mobile {
+        display: none;
+      }
+
+    }
+
+  }
+
+  .faq-main-container {
+    width: 100%;
+    display: inline-block;
+
+    .left-side {
+      float: left;
+      position: relative;
+      height: 100%;
+      width: 440px;
+
+      .info-select {
+        position: relative;
+        width: 190px;
+        height: 75px;
+        left: 75px;
+        margin-top: 50px;
+
+        .select-item {
+          @include fontHelveticaLight(18px);
+          line-height: 24px;
+          color: $voir-gray-1;
+          margin-bottom: 30px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+        }
+
+        .select-item.active {
+          @include fontHelveticaBold(18px);
+        }
+
+      }
+
+      .contacts-data {
+        position: relative;
+        width: 190px;
+        height: 135px;
+        left: 75px;
+        margin-top: 100px;
+
+        .call {
+          width: 100%;
+
+          .title {
+            @include fontHelveticaLight(15px);
+            line-height: 15px;
+            color: $voir-gray-1;
+          }
+
+          .number {
+            margin-top: 15px;
+            @include fontHelvetica(16px);
+            line-height: 16px;
+            color: #4889e2;
+          }
+
+        }
+
+        .mail {
+          width: 100%;
+          margin-top: 30px;
+
+          .title {
+            @include fontHelveticaLight(15px);
+            line-height: 15px;
+            color: $voir-gray-1;
+          }
+
+          .address {
+            margin-top: 15px;
+            @include fontHelvetica(16px);
+            line-height: 16px;
+            color: #4889e2;
+          }
+
+        }
+
+      }
+
+    }
+
+    .right-side {
+      float: left;
+      position: relative;
+      height: 100%;
+      width: calc(100% - 440px);
+
+      .info-container {
+        display: none;
+        position: relative;
+        left: 0;
+        margin-top: 51px;
+        width: 785px;
+        text-align: start;
+
+        .main-title {
+          @include fontHelveticaBold(18px);
+          line-height: 24px;
+          color: $voir-gray-1;
+        }
+
+        .info-item {
+          margin-top: 30px;
+
+          .title {
+            @include fontHelveticaBold(16px);
+            line-height: 24px;
+            color: $voir-gray-1;
+          }
+
+          .description {
+            @include fontHelveticaLight(16px);
+            line-height: 24px;
+            color: $voir-gray-1;
+
+            p {
+              margin: 0;
+              @include fontHelveticaLight(16px);
+              line-height: 24px;
+              color: $voir-gray-1;
+            }
+
+            p.last-paragraph {
+              margin-top: 25px;
+            }
+
+            .mail {
+              color: #4889e2;
+            }
+
+          }
+
+        }
+      }
+
+      .info-container.active {
+        display: block;
+      }
+
+      .footer-mockup-row {
+        height: 300px;
+        width: 100%;
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-tablet) {
+
+  .general-faq-main-container {
+
+    .faq-head-panel {
+
+      height: 269px;
+      background: #fbfbfb;
+      border-bottom: 1px solid #e3e3e3;
+
+      .left-side {
+        height: 222px;
+        width: 100%;
+
+        .help-info {
+          left: 45px;
+          bottom: 50px;
+
+          .service {
+
+          }
+
+          .looking {
+
+          }
+
+        }
+
+      }
+
+      .right-side {
+        border-top: 1px solid #e3e3e3;
+        height: 45px;
+        width: 100%;
+
+        .info-menu {
+          display: none;
+        }
+
+        .info-menu-mobile {
+          display: block;
+          width: 100%;
+          height: 100%;
+
+          .menu-select {
+            position: relative;
+            margin-left: 45px;
+            @include fontHelvetica(13px);
+            color: $voir-gray-2;
+            line-height: 45px;
+
+            span {
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-2;
+            }
+
+            .arrow-icon-container {
+              position: absolute;
+              right: 30px;
+              top: 7px;
+              width: 15px;
+              height: 30px;
+              transform: rotate(90deg);
+              cursor: pointer;
+
+              .down-arrow-icon {
+                content: url('{{ "Right_Slide_Arrow.svg" | asset_url }}');
+                height: 100%;
+                width: 100%;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+    .faq-main-container {
+      width: 100%;
+
+      .left-side {
+        display: none;
+      }
+
+      .right-side {
+        height: 100%;
+        width: 100%;
+
+        .info-container{
+          left: 45px;
+          margin-top: 50px;
+          width: 678px;
+
+          .main-title {
+            @include fontHelveticaBold(16px);
+            line-height: 23px;
+
+          }
+
+          .info-item {
+            margin-top: 30px;
+
+            .title {
+              @include fontHelveticaBold(15px);
+              line-height: 23px;
+            }
+
+            .description {
+              @include fontHelveticaLight(15px);
+              line-height: 23px;
+
+              p {
+                margin: 0;
+                @include fontHelveticaLight(15px);
+                line-height: 23px;
+              }
+
+              p.last-paragraph {
+                margin-top: 25px;
+              }
+
+              .mail {
+                color: #4889e2;
+              }
+
+            }
+
+          }
+
+        }
+
+        .footer-mockup-row {
+          height: 350px;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+
+  .general-faq-main-container {
+
+    .faq-head-panel {
+
+      height: 255px;
+      background: #ffffff;
+      border-bottom: 1px solid #e3e3e3;
+
+      .left-side {
+        height: 210px;
+        width: 100%;
+
+        .help-info {
+          left: 25px;
+          bottom: 50px;
+
+        }
+
+      }
+
+      .right-side {
+
+        .info-menu {
+
+        }
+
+        .info-menu-mobile {
+
+          .menu-select {
+            margin-left: 25px;
+
+            span {
+
+            }
+
+            .arrow-icon-container {
+              width: 10px;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+    .faq-main-container {
+      background: #ffffff;
+
+      .right-side {
+
+        .info-container {
+          left: 25px;
+          margin-top: 50px;
+          width: 270px;
+
+          .main-title {
+            @include fontHelveticaBold(13px);
+            line-height: 21px;
+
+          }
+
+          .info-item {
+            margin-top: 30px;
+
+            .title {
+              @include fontHelveticaBold(13px);
+              line-height: 21px;
+            }
+
+            .description {
+              @include fontHelveticaLight(13px);
+              line-height: 21px;
+
+              p {
+                margin: 0;
+                @include fontHelveticaLight(13px);
+                line-height: 21px;
+              }
+
+              p.last-paragraph {
+                margin-top: 25px;
+              }
+
+              .mail {
+                color: #4889e2;
+              }
+
+            }
+
+          }
+
+        }
+
+        .footer-mockup-row {
+          height: 450px;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+//general-faq end
 
 .hero {
   position: relative;

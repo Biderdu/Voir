@@ -803,7 +803,8 @@ theme.Header = (function() {
 
   var panelsWithAnimations = {
     about: ['about-art-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
-    home: []
+    home: [],
+    faq: []
   };
 
   // var panelsWithAnimations = {
@@ -819,7 +820,7 @@ theme.Header = (function() {
   if(windowWidth < 1025) {
     headerTop = 28;
 
-    if (windowWidth < 768) {
+    if (windowWidth < 769) {
       headerTop = 30;
     }
 
@@ -866,7 +867,7 @@ theme.Header = (function() {
 
 
 
-    if($('#about-us-page').length != 0) {
+    if($('#about-us-page').length != 0) {   //about page init
 
 
       $(selectors.siteHeader).addClass( "bright" );
@@ -906,7 +907,17 @@ theme.Header = (function() {
 
       });
 
-    } else {
+    } else if($('#general-faq-page').length != 0) {   //general-faq
+
+      $(selectors.siteHeader).addClass( "bright" );
+
+      $('.shipping-container').addClass("hidden-shipping");
+
+      $(selectors.siteHeader).css({ top: '0px' });
+
+      window.addEventListener("hashchange", faqHashChanges, false);
+
+    } else {           //home page
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
@@ -917,8 +928,7 @@ theme.Header = (function() {
         headerPositionChange($(selectors.body).scrollTop());
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
       });
-
-
+      
     }
 
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
@@ -962,6 +972,18 @@ theme.Header = (function() {
       $('#my-bag-container').removeClass('active-modal');
     });
 
+
+  }
+
+  function faqHashChanges() {
+
+    $('.info-menu .menu-item').removeClass('active');
+
+    $(window.location.hash + '-menu-item').addClass('active');
+
+    $('.faq-main-container .info-container').removeClass('active');
+
+    $(window.location.hash + '-info-panel').addClass('active');
 
   }
 
@@ -2992,7 +3014,7 @@ function instagramInit() {
           slidesToShow = 2.7;
           arrows = false;
 
-          if ($(window).width() < 769) {
+          if ($(window).width() < 768) {
             slidesToShow = 1.7;
             arrows = false;
           }
