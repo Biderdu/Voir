@@ -798,13 +798,15 @@ theme.Header = (function() {
 
   var socPanelActiveBlocks = {
     home: [2,3],
-    about: [2,3,4,5,6,7]
+    about: [2,3,4,5,6,7],
+    contact: [2]
   };
 
   var panelsWithAnimations = {
     about: ['about-art-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
     home: [],
-    faq: []
+    faq: [],
+    contact: []
   };
 
   // var panelsWithAnimations = {
@@ -869,6 +871,7 @@ theme.Header = (function() {
 
     if($('#about-us-page').length != 0) {   //about page init
 
+      
 
       $(selectors.siteHeader).addClass( "bright" );
 
@@ -907,8 +910,12 @@ theme.Header = (function() {
 
       });
 
+      
+      
     } else if($('#general-faq-page').length != 0) {   //general-faq
 
+      
+      
       $(selectors.siteHeader).addClass( "bright" );
 
       $('.shipping-container').addClass("hidden-shipping");
@@ -932,8 +939,36 @@ theme.Header = (function() {
         $("#privacy-view-less").addClass('hidden');
       });
       
+      
+      
+    } else if($('#contact-us-page').length != 0) {   //contact-us
+
+      
+      
+      $(selectors.siteHeader).addClass( "bright" );
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.contact);
+
+      //scroll check
+      $(window).scroll( function() {
+        headerPositionChange($(selectors.body).scrollTop());
+        
+        panelsWithAnimations.contact.forEach(function(panel) {
+          if(isScrolledIntoView('#' + panel)) {
+            $('#' + panel).addClass('active-animation');
+          } else {
+            $('#' + panel).removeClass('active-animation');
+          }
+        });
+
+      });
+
+
+      
     } else {           //home page
 
+      
+      
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
       headerPositionChange($(selectors.body).scrollTop());
@@ -944,8 +979,12 @@ theme.Header = (function() {
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
       });
       
+      
+      
     }
 
+    
+    
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
 
     $(window).scroll( function() {

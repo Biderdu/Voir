@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="21px" viewBox="0 0 31 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Mail Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Mail-Icon" transform="translate(1.000000, 1.000000)" stroke="#75787B" stroke-width="1.5">
+            <path d="M28.3409091,16.6834112 C28.3409091,17.7874112 27.4550909,18.6834112 26.3636364,18.6834112 L2.63636364,18.6834112 C1.54490909,18.6834112 0.659090909,17.7874112 0.659090909,16.6834112 L0.659090909,2.01674455 C0.659090909,0.911411213 1.54490909,0.0167445459 2.63636364,0.0167445459 L26.3636364,0.0167445459 C27.4550909,0.0167445459 28.3409091,0.911411213 28.3409091,2.01674455 L28.3409091,16.6834112 L28.3409091,16.6834112 Z" id="Stroke-406"></path>
+            <polyline id="Stroke-407" points="27.6818182 0.683411213 14.5 11.3500779 1.31818182 0.683411213"></polyline>
+        </g>
+    </g>
+</svg>

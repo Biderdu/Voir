@@ -60,6 +60,11 @@
 }
 
 @font-face {
+  font-family: 'Helvetica-Bold-Oblique';
+  src: url('Helvetica-BoldOblique.ttf');
+}
+
+@font-face {
   font-family: 'Cambria';
   src: url('Cambria.ttf');
 }
@@ -329,6 +334,13 @@
 
 @mixin fontHelveticaOblique( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.015em ){
   font-family: "Helvetica-Oblique";
+  font-weight: $fontweight;
+  font-size: $fontsize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin fontHelveticaBoldOblique( $fontsize: 13px, $fontweight: 400, $letterSpacing: 0.015em ){
+  font-family: "Helvetica-Bold-Oblique";
   font-weight: $fontweight;
   font-size: $fontsize;
   letter-spacing: $letterSpacing;
@@ -4325,6 +4337,7 @@ h1.product-single__title {
 
   .shipping-container {
     height: 28px;
+    background: #f4f4f4;
 
     .shipping {
       height: 28px;
@@ -8927,6 +8940,606 @@ $toolbar-height-small: 46px;
 }
 
 //general-faq end
+
+//contact-us
+
+.contact-us-main-container {
+
+  .contact-intro-block {
+     position: relative;
+     height: calc(100vh - 36px);
+     width: 100%;
+
+     .intro-container {
+       position: relative;
+       height: calc(100% - 127px);
+       width: calc(100% - 50px);
+       left: 25px;
+       top: 103px;
+       background: #f4f4f4;
+
+       .center-info-container {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         width: 520px;
+         height: 340px;
+         text-align: center;
+
+         .contact {
+           @include fontHelvetica(22px);
+           color: $voir-gray-1;
+           line-height: 22px;
+           margin-bottom: 5px;
+         }
+
+         .assistance {
+           @include fontCambriaBold(50px);
+           color: $voir-gray-1;
+           line-height: 55px;
+         }
+
+         .we-here {
+           @include fontHelvetica(30px);
+           color: $voir-gray-1;
+           line-height: 55px;
+           margin-top: 10px;
+         }
+
+         .add-info {
+           margin-top: 65px;
+
+           .shipping {
+             @include fontHelveticaLight(18px);
+             color: $voir-gray-1;
+             line-height: 26px;
+
+             span {
+               @include fontHelveticaBoldOblique(18px);
+               color: $voir-gray-1;
+               line-height: 26px;
+             }
+
+             a {
+               @include fontHelveticaLight(18px);
+               color: #4b8bde;
+               line-height: 26px;
+
+               &:hover {
+                 opacity: 1;
+                 color: #4b8bde;
+               }
+             }
+           }
+
+           .faq {
+             margin-top: 25px;
+             @include fontHelveticaLight(18px);
+             color: $voir-gray-1;
+             line-height: 26px;
+
+             span {
+               @include fontHelveticaBoldOblique(18px);
+               color: $voir-gray-1;
+               line-height: 26px;
+             }
+
+             a {
+               @include fontHelveticaLight(18px);
+               color: #4b8bde;
+               line-height: 26px;
+
+               &:hover {
+                 opacity: 1;
+                 color: #4b8bde;
+               }
+             }
+           }
+
+         }
+
+       }
+
+     }
+
+     .side-line-left {
+       background: #c8c9c7;
+       height: 2px;
+       width: 29.2%;
+       position: absolute;
+       top: calc(50% - 70px);
+       left: 0;
+     }
+
+     .side-line-right {
+       background: #c8c9c7;
+       height: 2px;
+       width: 29.2%;
+       position: absolute;
+       top: calc(50% - 70px);
+       right: 0;
+     }
+
+   }
+
+  .contact-feedback-block {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    .center-info-container {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 720px;
+      height: 190px;
+      text-align: center;
+
+      .title {
+        @include fontCambriaBold(50px);
+        color: $voir-gray-1;
+        line-height: 55px;
+      }
+
+      .description {
+        @include fontHelvetica(18px);
+        color: $voir-gray-1;
+        line-height: 18px;
+        margin-top: 15px;
+      }
+
+      .add-info {
+        margin-top: 50px;
+
+        @include fontHelveticaLight(18px);
+        color: $voir-gray-1;
+        line-height: 26px;
+
+        span {
+          @include fontHelvetica(18px);
+          color: $voir-gray-1;
+          line-height: 26px;
+        }
+
+        a {
+          @include fontHelveticaLight(18px);
+          color: #4b8bde;
+          line-height: 26px;
+
+          &:hover {
+            opacity: 1;
+            color: #4b8bde;
+          }
+        }
+
+      }
+
+    }
+
+    .contact-details-panel {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 120px;
+      width: 720px;
+
+
+      .detail-item {
+        float: left;
+        height: 100%;
+        width: 200px;
+        margin-right: 60px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .icon {
+          position: relative;
+          height: 20px;
+          width: 100%;
+
+          .mail-icon {
+            content: url('{{ "mail_icon.svg" | asset_url }}');
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+          }
+
+          .phone-icon {
+            content: url('{{ "phone_icon.svg" | asset_url }}');
+            height: 140%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -15%);
+          }
+
+
+        }
+
+        .description {
+          position: relative;
+          left: 50%;
+          transform: translate(-50%,0);
+          width: 170px;
+          height: 45px;
+          margin-top: 6px;
+          border-bottom: 1px solid #c8c9c7;
+          @include fontHelveticaLight(16px);
+          color: $voir-gray-1;
+          line-height: 45px;
+          text-align: center;
+        }
+
+        .cred {
+          position: relative;
+          width: 100%;
+          margin-top: 30px;
+
+          @include fontHelvetica(18px);
+          color: #4b8bde;
+          line-height: 18px;
+        }
+
+      }
+
+    }
+
+    .side-line-left {
+      background: #c8c9c7;
+      height: 2px;
+      width: 29.2%;
+      position: absolute;
+      top: calc(35% - 65px);
+      left: 0;
+    }
+
+    .side-line-right {
+      background: #c8c9c7;
+      height: 2px;
+      width: 29.2%;
+      position: absolute;
+      top: calc(35% - 65px);
+      right: 0;
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-tablet) {
+  .contact-us-main-container {
+
+    .contact-intro-block {
+      height: calc(100vh - 28px);
+
+      .intro-container {
+        height: calc(100% - 105px);
+        width: calc(100% - 48px);
+        left: 24px;
+        top: 89px;
+
+        .center-info-container {
+          width: 450px;
+          height: 270px;
+
+          .contact {
+            @include fontHelvetica(18px);
+            line-height: 18px;
+            margin-bottom: 5px;
+          }
+
+          .assistance {
+            @include fontCambriaBold(42px);
+            line-height: 42px;
+          }
+
+          .we-here {
+            @include fontHelvetica(18px);
+            line-height: 18px;
+            margin-top: 10px;
+          }
+
+          .add-info {
+            margin-top: 60px;
+
+            .shipping {
+              @include fontHelveticaLight(15px);
+              line-height: 23px;
+
+              span {
+                @include fontHelveticaBoldOblique(15px);
+                line-height: 23px;
+              }
+
+              a {
+                @include fontHelveticaLight(15px);
+                line-height: 23px;
+              }
+            }
+
+            .faq {
+              @include fontHelveticaLight(15px);
+              line-height: 23px;
+
+              span {
+                @include fontHelveticaBoldOblique(15px);
+                line-height: 23px;
+              }
+
+              a {
+                @include fontHelveticaLight(15px);
+                line-height: 23px;
+              }
+            }
+
+          }
+
+        }
+
+      }
+
+      .side-line-left {
+        width: 22%;
+        top: calc(50% - 50px);
+      }
+
+      .side-line-right {
+        width: 22%;
+        top: calc(50% - 50px);
+      }
+
+    }
+
+    .contact-feedback-block {
+      height: 85vh;
+
+      .center-info-container {
+        top: 25%;
+        width: 600px;
+        height: 160px;
+
+        .title {
+          @include fontCambriaBold(30px);
+          line-height: 30px;
+        }
+
+        .description {
+
+        }
+
+        .add-info {
+          @include fontHelveticaLight(15px);
+          line-height: 23px;
+
+          span {
+            @include fontHelvetica(15px);
+            line-height: 23px;
+          }
+
+          a {
+            @include fontHelveticaLight(15px);
+            line-height: 23px;
+          }
+
+        }
+
+      }
+
+      .contact-details-panel {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 120px;
+        width: 620px;
+
+
+        .detail-item {
+          width: 170px;
+          margin-right: 55px;
+
+          .icon {
+
+          }
+
+          .description {
+            width: 150px;
+            @include fontHelveticaLight(15px);
+            line-height: 45px;
+          }
+
+          .cred {
+            margin-top: 33px;
+            @include fontHelvetica(16px);
+            line-height: 16px;
+          }
+
+        }
+
+      }
+
+      .side-line-left {
+        width: 22%;
+        top: calc(25% - 65px);
+      }
+
+      .side-line-right {
+        width: 22%;
+        top: calc(25% - 65px);
+      }
+
+    }
+
+  }
+}
+
+@media (max-width: $screen-mobile) {
+
+  .contact-us-main-container {
+
+    .contact-intro-block {
+      height: calc(100vh - 30px);
+
+      .intro-container {
+        height: calc(100% - 85px);
+        width: calc(100% - 26px);
+        left: 13px;
+        top: 62px;
+
+        .center-info-container {
+          width: 270px;
+          height: 350px;
+
+          .contact {
+            @include fontHelvetica(14px);
+            line-height: 14px;
+          }
+
+          .assistance {
+            @include fontCambriaBold(28px);
+            line-height: 28px;
+          }
+
+          .we-here {
+            @include fontHelvetica(14px);
+            line-height: 14px;
+          }
+
+          .add-info {
+            margin-top: 50px;
+
+            .shipping {
+              @include fontHelveticaLight(13px);
+
+              span {
+                @include fontHelveticaBoldOblique(13px);
+              }
+
+              a {
+                @include fontHelveticaLight(13px);
+              }
+            }
+
+            .faq {
+              @include fontHelveticaLight(13px);
+
+              span {
+                @include fontHelveticaBoldOblique(13px);
+              }
+
+              a {
+                @include fontHelveticaLight(13px);
+              }
+            }
+
+          }
+
+        }
+
+      }
+
+      .side-line-left {
+        width: 10%;
+        top: calc(50% - 80px);
+      }
+
+      .side-line-right {
+        width: 10%;
+        top: calc(50% - 80px);
+      }
+
+    }
+
+    .contact-feedback-block {
+      height: 85vh;
+
+      .center-info-container {
+        top: 25%;
+        width: 600px;
+        height: 160px;
+
+        .title {
+          @include fontCambriaBold(30px);
+          line-height: 30px;
+        }
+
+        .description {
+
+        }
+
+        .add-info {
+          @include fontHelveticaLight(15px);
+          line-height: 23px;
+
+          span {
+            @include fontHelvetica(15px);
+            line-height: 23px;
+          }
+
+          a {
+            @include fontHelveticaLight(15px);
+            line-height: 23px;
+          }
+
+        }
+
+      }
+
+      .contact-details-panel {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 120px;
+        width: 620px;
+
+
+        .detail-item {
+          width: 170px;
+          margin-right: 55px;
+
+          .icon {
+
+          }
+
+          .description {
+            width: 150px;
+            @include fontHelveticaLight(15px);
+            line-height: 45px;
+          }
+
+          .cred {
+            margin-top: 33px;
+            @include fontHelvetica(16px);
+            line-height: 16px;
+          }
+
+        }
+
+      }
+
+      .side-line-left {
+        width: 22%;
+        top: calc(25% - 65px);
+      }
+
+      .side-line-right {
+        width: 22%;
+        top: calc(25% - 65px);
+      }
+
+    }
+
+  }
+
+}
+
+//contact-us end
 
 .hero {
   position: relative;
