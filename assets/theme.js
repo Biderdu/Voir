@@ -930,6 +930,16 @@ theme.Header = (function() {
       faqHashChanges();
       window.addEventListener("hashchange", faqHashChanges, false);
 
+      if(windowWidth < 1025) {
+        $("#faq-tab-select").click(function(){
+
+          toggleFaqSelectList();
+
+          return false;
+
+        });
+      }
+
       //view more/less buttons
       $("#privacy-view-more").click(function() {
         $('#privacy-add-info').addClass('active');
@@ -973,7 +983,11 @@ theme.Header = (function() {
       
     } else {           //home page
 
-      
+      $( document ).ready(function() {
+        setTimeout(function(){
+          $('#home-intro-block').addClass('animation-start');
+        }, 500);
+      });
       
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
@@ -1040,7 +1054,11 @@ theme.Header = (function() {
     $('.info-menu .menu-item').removeClass('active');
 
     $(window.location.hash + '-menu-item').addClass('active');
-
+    
+    if(window.location.hash) {
+      $('#faq-tab-selected-panel').html($(window.location.hash + '-mobile-menu-list-item > a').html());
+    }
+    
     $('.faq-main-container .info-container').removeClass('active');
 
     $(window.location.hash + '-info-panel').addClass('active');
@@ -1114,6 +1132,24 @@ theme.Header = (function() {
       $('#social-panel-header').addClass('active-panel');
     } else {
       $('#social-panel-header').removeClass('active-panel');
+    }
+
+  }
+
+  function toggleFaqSelectList() {
+
+
+    $('#faq-tab-select-list').toggleClass('active-list');
+
+
+    if( $("#faq-tab-select-list").hasClass( "active-list" ) ) {
+
+      $('body').on('click', '#general-faq-page', toggleFaqSelectList);
+
+    } else {
+
+      $('body').off('click', '#general-faq-page');
+
     }
 
   }
