@@ -803,7 +803,7 @@ theme.Header = (function() {
   };
 
   var panelsWithAnimations = {
-    about: ['about-art-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
+    about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
     home: [],
     faq: [],
     contact: []
@@ -871,7 +871,6 @@ theme.Header = (function() {
 
     if($('#about-us-page').length != 0) {   //about page init
 
-      
 
       $(selectors.siteHeader).addClass( "bright" );
 
@@ -1089,10 +1088,14 @@ theme.Header = (function() {
   }
 
   function headerStyleChange(scrollTop, windowHeight) {
-    if(scrollTop > windowHeight*0.87) {
+    if(scrollTop > windowHeight*0.65) {
       $(selectors.siteHeader).addClass( "bright" );
     } else {
-      $(selectors.siteHeader).removeClass( "bright" )
+
+      // var opacityIn = scrollTop/(windowHeight*0.65) * 0.95;
+
+      $(selectors.siteHeader).removeClass( "bright" );
+      // $(selectors.siteHeader).css( "background","rgba(255,255,255," + opacityIn + ")" );
     }
   }
 
