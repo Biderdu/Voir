@@ -8603,19 +8603,19 @@ $toolbar-height-small: 46px;
           margin-top: 30px;
 
           .title {
-            @include fontHelveticaBold(16px);
+            @include fontHelveticaBold(16px, 400, 0.02em);
             line-height: 24px;
             color: $voir-gray-1;
           }
 
           .description {
-            @include fontHelveticaLight(16px);
+            @include fontHelveticaLight(16px, 400, 0.02em);
             line-height: 24px;
             color: $voir-gray-1;
 
             p {
               margin: 0;
-              @include fontHelveticaLight(16px);
+              @include fontHelveticaLight(16px, 400, 0.02em);
               line-height: 24px;
               color: $voir-gray-1;
             }
@@ -8630,6 +8630,26 @@ $toolbar-height-small: 46px;
 
           }
 
+        }
+
+        .view-more {
+          display: block;
+          margin-top: 30px;
+          @include fontHelvetica(12px);
+          line-height: 12px;
+          color: $voir-gray-3;
+        }
+
+        .view-more.hidden {
+          display: none;
+        }
+
+        .add-info-container {
+          display: none;
+        }
+
+        .add-info-container.active {
+          display: block;
         }
       }
 

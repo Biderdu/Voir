@@ -915,8 +915,23 @@ theme.Header = (function() {
 
       $(selectors.siteHeader).css({ top: '0px' });
 
+      //tabs change
+      faqHashChanges();
       window.addEventListener("hashchange", faqHashChanges, false);
 
+      //view more/less buttons
+      $("#privacy-view-more").click(function() {
+        $('#privacy-add-info').addClass('active');
+        $("#privacy-view-more").addClass('hidden');
+        $("#privacy-view-less").removeClass('hidden');
+      });
+
+      $("#privacy-view-less").click(function() {
+        $('#privacy-add-info').removeClass('active');
+        $("#privacy-view-more").removeClass('hidden');
+        $("#privacy-view-less").addClass('hidden');
+      });
+      
     } else {           //home page
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
