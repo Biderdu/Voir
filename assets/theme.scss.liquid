@@ -8989,6 +8989,7 @@ $toolbar-height-small: 46px;
 
          .add-info {
            margin-top: 65px;
+           padding: 0 25px 0 25px;
 
            .shipping {
              @include fontHelveticaLight(18px);
@@ -9183,6 +9184,8 @@ $toolbar-height-small: 46px;
           @include fontHelvetica(18px);
           color: #4b8bde;
           line-height: 18px;
+
+          text-align: center;
         }
 
       }
@@ -9246,6 +9249,7 @@ $toolbar-height-small: 46px;
 
           .add-info {
             margin-top: 60px;
+            padding: 0 15px 0 15px;
 
             .shipping {
               @include fontHelveticaLight(15px);
@@ -9393,7 +9397,7 @@ $toolbar-height-small: 46px;
 
         .center-info-container {
           width: 270px;
-          height: 350px;
+          height: 280px;
 
           .contact {
             @include fontHelvetica(14px);
@@ -9412,6 +9416,7 @@ $toolbar-height-small: 46px;
 
           .add-info {
             margin-top: 50px;
+            padding: 0;
 
             .shipping {
               @include fontHelveticaLight(13px);
@@ -9445,45 +9450,47 @@ $toolbar-height-small: 46px;
 
       .side-line-left {
         width: 10%;
-        top: calc(50% - 80px);
+        top: calc(50% - 85px);
       }
 
       .side-line-right {
         width: 10%;
-        top: calc(50% - 80px);
+        top: calc(50% - 85px);
       }
 
     }
 
     .contact-feedback-block {
-      height: 85vh;
+      height: 1400px;
 
       .center-info-container {
-        top: 25%;
-        width: 600px;
-        height: 160px;
+        top: 13%;
+        width: 270px;
+        height: 250px;
 
         .title {
-          @include fontCambriaBold(30px);
-          line-height: 30px;
+          @include fontCambriaBold(28px);
+          line-height: 28px;
         }
 
         .description {
-
+          @include fontHelvetica(14px);
+          line-height: 14px;
         }
 
         .add-info {
-          @include fontHelveticaLight(15px);
-          line-height: 23px;
+          @include fontHelveticaLight(13px);
+
+          .second-paragraph {
+            margin-top: 20px;
+          }
 
           span {
-            @include fontHelvetica(15px);
-            line-height: 23px;
+            @include fontHelvetica(13px);
           }
 
           a {
-            @include fontHelveticaLight(15px);
-            line-height: 23px;
+            @include fontHelveticaLight(13px);
           }
 
         }
@@ -9492,16 +9499,17 @@ $toolbar-height-small: 46px;
 
       .contact-details-panel {
         position: absolute;
-        top: 45%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, 0);
         height: 120px;
-        width: 620px;
+        width: 270px;
 
 
         .detail-item {
-          width: 170px;
-          margin-right: 55px;
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 60px;
 
           .icon {
 
@@ -9509,12 +9517,12 @@ $toolbar-height-small: 46px;
 
           .description {
             width: 150px;
-            @include fontHelveticaLight(15px);
+            @include fontHelveticaLight(14px);
             line-height: 45px;
           }
 
           .cred {
-            margin-top: 33px;
+            margin-top: 20px;
             @include fontHelvetica(16px);
             line-height: 16px;
           }
@@ -9524,13 +9532,11 @@ $toolbar-height-small: 46px;
       }
 
       .side-line-left {
-        width: 22%;
-        top: calc(25% - 65px);
+        display: none;
       }
 
       .side-line-right {
-        width: 22%;
-        top: calc(25% - 65px);
+        display: none;
       }
 
     }

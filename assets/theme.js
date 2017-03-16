@@ -923,6 +923,10 @@ theme.Header = (function() {
       $(selectors.siteHeader).css({ top: '0px' });
 
       //tabs change
+      if(!window.location.hash) {
+        window.location.hash = '#faq';
+      }
+
       faqHashChanges();
       window.addEventListener("hashchange", faqHashChanges, false);
 
@@ -948,6 +952,8 @@ theme.Header = (function() {
       $(selectors.siteHeader).addClass( "bright" );
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.contact);
+
+      headerPositionChange($(selectors.body).scrollTop());
 
       //scroll check
       $(window).scroll( function() {
