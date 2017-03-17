@@ -1072,10 +1072,13 @@ theme.Header = (function() {
     var elemBottom = parseInt(elemTop + $(elem).height());
 
     var elemHeight = elemBottom - elemTop;
+    
+    var checkValue = (elemBottom + elemTop) / 2;
 
-    var threshold = 0.49 * elemHeight;
+    var topCheck = checkValue - elemHeight * 0.2;
+    var bottomCheck = checkValue + elemHeight * 0.2;
 
-    return ((elemBottom - threshold <= docViewBottom) && (elemTop + threshold >= docViewTop));
+    return ( (topCheck <= docViewBottom) && (topCheck >= docViewTop) ) || ((bottomCheck <= docViewBottom) && (bottomCheck >= docViewTop));
   }
 
   function headerPositionChange(scrollTop) {
@@ -1088,14 +1091,15 @@ theme.Header = (function() {
   }
 
   function headerStyleChange(scrollTop, windowHeight) {
-    if(scrollTop > windowHeight*0.65) {
+    if(scrollTop > windowHeight*0.87) {
       $(selectors.siteHeader).addClass( "bright" );
+      $('.gradient-back-block').css( "background","rgba(255,255,255,0.65)" );
     } else {
 
-      // var opacityIn = scrollTop/(windowHeight*0.65) * 0.95;
+      var opacityIn = scrollTop/(windowHeight*0.87) * 0.65;
 
       $(selectors.siteHeader).removeClass( "bright" );
-      // $(selectors.siteHeader).css( "background","rgba(255,255,255," + opacityIn + ")" );
+      $('.gradient-back-block').css( "background","rgba(255,255,255," + opacityIn + ")" );
     }
   }
 
