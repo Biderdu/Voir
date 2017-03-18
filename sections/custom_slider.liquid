@@ -2,12 +2,12 @@
 
 </style>
 
-<div class="custom-section-slider-block">
+<div id="home-slider-panel" class="custom-section-slider-block">
 
   {%- assign collection = collections[section.settings.collection] -%}
 
   <div class="collection-slider-main-block">
-    <div class="collection-slider-container">
+    <div id="home-collection-slider-container" class="collection-slider-container">
       {% for product in collection.products %}
         <div class="product-item-container products-slider-home">
           <div class="product-info-container">

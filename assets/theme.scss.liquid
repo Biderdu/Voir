@@ -6200,6 +6200,8 @@ $toolbar-height-small: 46px;
     .collection-slider-container {
       width: 100%;
       height: 100%;
+      //overflow: hidden;
+      position: relative;
 
       .slick-list {
         height: calc(100% + 40px);
@@ -6330,6 +6332,19 @@ $toolbar-height-small: 46px;
 
           }
 
+        }
+
+        &.current {
+          transform: translate(0, 0);
+          z-index: 2;
+        }
+
+        &.prev {
+          transform: translate(0, -100%);
+        }
+
+        &.next {
+          transform: translate(0, 100%);
         }
 
       }
@@ -10267,6 +10282,7 @@ $toolbar-height-small: 46px;
         }
 
         .product-item-container {
+          position: relative;
 
           .product-info-container {
             width: 100%;
