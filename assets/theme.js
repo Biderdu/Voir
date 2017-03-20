@@ -799,7 +799,8 @@ theme.Header = (function() {
   var socPanelActiveBlocks = {
     home: [2,3],
     about: [2,3,4,5,6,7],
-    contact: [2]
+    contact: [2],
+    product: [1]
   };
 
   var panelsWithAnimations = {};
@@ -811,7 +812,8 @@ theme.Header = (function() {
       about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
       home: [],
       faq: [],
-      contact: ['contact-intro-panel', 'contact-feedback-panel']
+      contact: ['contact-intro-panel', 'contact-feedback-panel'],
+      product: []
     };
 
   } else {
@@ -820,7 +822,8 @@ theme.Header = (function() {
       about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
       home: ['home-collection-panel'],
       faq: [],
-      contact: ['contact-intro-panel', 'contact-feedback-panel']
+      contact: ['contact-intro-panel', 'contact-feedback-panel'],
+      product: []
     };
 
   } 
@@ -882,21 +885,19 @@ theme.Header = (function() {
 
     if($('#about-us-page').length != 0) {   //about page init
 
-
-      $(selectors.siteHeader).addClass( "bright" );
+      console.log('about');
 
       $( document ).ready(function() {
         setTimeout(function(){
           $('#about-us-page').addClass('animation-start');
 
-          socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.about);
-
           animationForScroll(panelsWithAnimations.about);
 
         }, 500);
       });
-
+      
       //first check
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.about);
 
       headerPositionChange($(selectors.body).scrollTop());
       
@@ -913,9 +914,8 @@ theme.Header = (function() {
       
     } else if($('#general-faq-page').length != 0) {   //general-faq
 
-      
-      
-      $(selectors.siteHeader).addClass( "bright" );
+      console.log('faq');
+
 
       $('.shipping-container').addClass("hidden-shipping");
 
@@ -956,18 +956,18 @@ theme.Header = (function() {
       
     } else if($('#contact-us-page').length != 0) {   //contact-us
 
+      console.log('contact');
+
+
       $( document ).ready(function() {
         setTimeout(function(){
-          
-          socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.contact);
 
           animationForScroll(panelsWithAnimations.contact);
 
         }, 500);
       });
-      
-      $(selectors.siteHeader).addClass( "bright" );
-      
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.contact);
 
       headerPositionChange($(selectors.body).scrollTop());
       
@@ -982,7 +982,37 @@ theme.Header = (function() {
 
 
       
+    } else if($('#product-page-panel').length != 0) {   //product page
+
+      console.log('product');
+
+
+      $( document ).ready(function() {
+        setTimeout(function(){
+
+          animationForScroll(panelsWithAnimations.product);
+
+        }, 500);
+      });
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.product);
+
+      headerPositionChange($(selectors.body).scrollTop());
+
+
+      //scroll check
+      $(window).scroll( function() {
+        headerPositionChange($(selectors.body).scrollTop());
+
+        animationForScroll(panelsWithAnimations.product);
+      });
+
+
+
     } else if($('#home-intro-block').length != 0)  {           //home page
+
+      console.log('home');
+
 
       $( document ).ready(function() {
         setTimeout(function(){
@@ -994,7 +1024,6 @@ theme.Header = (function() {
 
         }, 500);
       });
-      
 
 
       headerPositionChange($(selectors.body).scrollTop());
@@ -1008,8 +1037,7 @@ theme.Header = (function() {
 
     }
 
-    
-    
+
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
 
     $(window).scroll( function() {
@@ -2656,7 +2684,7 @@ theme.Product = (function() {
       saleClasses: 'product-price__sale product-price__sale--single',
       saleLabel: '.product-price__sale-label-' + sectionId,
       singleOptionSelector: '.single-option-selector-' + sectionId
-    }
+    };
 
     // Stop parsing if we don't have the product json script tag when loading
     // section in the Theme Editor

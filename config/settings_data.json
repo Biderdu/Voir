@@ -50,6 +50,7 @@
         "type": "header",
         "settings": {
           "align_logo": "left",
+          "collection": "frontpage",
           "logo": "",
           "logo_max_width": "100",
           "main_linklist": "main-menu",
@@ -57,8 +58,7 @@
           "message_text": "Announce something here",
           "message_link": "",
           "color_bg": "#7796A8",
-          "color_text": "#fff",
-          "collection": "frontpage"
+          "color_text": "#fff"
         }
       },
       "hero": {
@@ -87,11 +87,8 @@
         "type": "product-template",
         "settings": {
           "image_size": "medium",
-          "show_quantity_selector": false,
-          "show_variant_labels": true,
-          "show_vendor": false,
-          "enable_zoom": true,
-          "show_share_buttons": true
+          "show_quantity_selector": true,
+          "show_variant_labels": true
         }
       },
       "1488547337137": {
