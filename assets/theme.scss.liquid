@@ -10292,6 +10292,160 @@ $toolbar-height-small: 46px;
                 @include fontHelvetica(18px);
               }
             }
+          }
+
+          .product-form-container {
+            .product-form {
+              margin-top: 15px;
+              margin-bottom: 15px;
+              height: 45px;
+
+              .product-form-quantity {
+                width: 185px;
+                height: 100%;
+                position: relative;
+
+                .label {
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translate(0,-50%);
+                  @include fontHelveticaBold(13px);
+                  line-height: 13px;
+                  color: $voir-gray-1;
+                }
+
+                .quantity-input-container {
+                  position: relative;
+                  height: 45px;
+                  width: 135px;
+                  float: right;
+                  border: 1px solid $voir-gray-2;
+
+                  .qty-control {
+                    position: absolute;
+                    transform: translate(0,-50%);
+                    top: 45%;
+                    width: 10px;
+                    @include fontHelvetica(20px);
+                    color: #a7a8aa;
+                    line-height: 20px;
+                    cursor: pointer;
+                  }
+
+                  .qty-control.minus {
+                   left: 15px;
+                  }
+
+                  .qty-control.plus {
+                    right: 15px;
+                  }
+
+                  input {
+                    text-align: center;
+                    width: 60px;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    height: 40px;
+                    border: none;
+                    transform: translate(-50%,-50%);
+                    @include fontHelvetica(21px);
+                    line-height: 21px;
+                    color: $voir-gray-1;
+                  }
+
+                }
+
+              }
+
+              .product-form-button-submit {
+                height: 100%;
+                width: 200px;
+                margin-left: 20px;
+
+                .product-btn-submit {
+                  height: 100%;
+                  width: 100%;
+                  border: 1px solid $voir-gray-2;
+                  background: #ffffff;
+
+                  span {
+                    @include fontHelveticaBold(13px);
+                    line-height: 13px;
+                    color: $voir-gray-1;
+                  }
+
+                }
+
+              }
+
+            }
+          }
+
+          .detail-info-row {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            height: 400px;
+
+            .info-tabs {
+              position: relative;
+              width: 100%;
+              display: inline-block;
+
+              .tab {
+                float: left;
+                @include fontHelvetica(13px);
+                color: $voir-gray-3;
+                line-height: 13px;
+                margin-right: 30px;
+                cursor: pointer;
+                text-transform: uppercase;
+
+                &.active {
+                  @include fontHelveticaBold(13px);
+                  color: $voir-gray-1;
+                }
+
+              }
+
+            }
+
+            .info-container {
+              margin-top: 20px;
+              position: relative;
+              width: 100%;
+              @include fontHelveticaLight(16px, 400, 1.0px);
+              line-height: 24px;
+              color: #424448;
+
+              .additional-info {
+                display: none;
+
+                &.active {
+                  display: block;
+                }
+
+              }
+
+              .view-toggle {
+                display: none;
+                @include fontHelvetica(12px);
+                color: $voir-gray-3;
+                line-height: 24px;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &.active {
+                  display: block;
+                }
+
+              }
+
+
+
+            }
 
           }
 

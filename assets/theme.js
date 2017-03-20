@@ -895,7 +895,7 @@ theme.Header = (function() {
 
         }, 500);
       });
-      
+
       //first check
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.about);
 
@@ -990,6 +990,22 @@ theme.Header = (function() {
       $( document ).ready(function() {
         setTimeout(function(){
 
+          $('#qty-minus').on('click', function() {
+            productQtyChange('minus');
+          });
+
+          $('#qty-plus').on('click', function() {
+            productQtyChange('plus');
+          });
+
+          $('#detail-add-info-less').on('click', function() {
+            productAddInfoToggle();
+          });
+
+          $('#detail-add-info-more').on('click', function() {
+            productAddInfoToggle();
+          });
+
           animationForScroll(panelsWithAnimations.product);
 
         }, 500);
@@ -1051,6 +1067,31 @@ theme.Header = (function() {
 
   }
 
+
+  //product page functions
+  function productQtyChange(inc) {
+
+    var cur_val = parseInt($('#Quantity').val());
+
+    if(inc == 'plus') {
+      $('#Quantity').val(cur_val + 1);
+    } else {
+      if(cur_val > 1) {
+        $('#Quantity').val(cur_val - 1);
+      }
+    }
+
+  }
+
+  function productAddInfoToggle() {
+    $('#detail-add-info-less').toggleClass('active');
+    $('#detail-add-info-more').toggleClass('active');
+    $('#detail-add-info-block').toggleClass('active');
+  }
+
+  //
+
+
   function faqHashChanges() {
 
     $('.info-menu .menu-item').removeClass('active');
@@ -1067,8 +1108,6 @@ theme.Header = (function() {
 
   }
 
-  
-  
   function isScrolledIntoView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();

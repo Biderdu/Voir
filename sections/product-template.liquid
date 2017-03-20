@@ -45,34 +45,69 @@
 
           <div class="product-price-row">
             <div class="size-info"><span>100mL</span> / <span>3.4 fl.oz.</span></div>
-            <div class="price-info">{{ current_variant.price | divided_by: 100.00 }} <span>CAD</span></div>
+            <div class="price-info">${{ current_variant.price | divided_by: 100.00 }} <span>CAD</span></div>
           </div>
 
           <div class="product-edge-line"></div>
 
-          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <div class="product-form-container" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
             <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
 
+              <select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="product-form__variants no-js">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% else %}
+                    <option disabled="disabled">{{ variant.title }}
+                      - {{ 'products.product.sold_out' | t }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
 
-              <div class="product-form__item product-form__item--quantity">
-                <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+              <div class="product-form-quantity">
+                <div class="label">QTY:</div>
+                <div class="quantity-input-container">
+                  <div id="qty-minus" class="qty-control minus">-</div>
+                  <input type="text" id="Quantity" name="quantity" value="1" min="1" class="product-form__input">
+                  <div id="qty-plus" class="qty-control plus">+</div>
+                </div>
               </div>
 
-              <div class="product-form__item product-form__item--submit">
-                <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if product.options.size == 1 and product.variants[0].title == 'Default Title' %} product-form__cart-submit--small{% endif %}">
-                <span id="AddToCartText-{{ section.id }}">
-
-                 ADD TO BAG
-
-                </span>
+              <div class="product-form-button-submit">
+                <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="product-btn-submit">
+                  <span id="AddToCartText-{{ section.id }}">
+                    ADD TO BAG
+                  </span>
                 </button>
               </div>
             </form>
 
           </div>
 
+          <div class="product-edge-line"></div>
+
+          <div class="detail-info-row">
+            <div class="info-tabs">
+              <div id="info-tab-description" class="tab active">
+                DESCRIPTION
+              </div>
+              <div id="info-tab-ingredients" class="tab">
+                INGREDIENTS
+              </div>
+              <div id="info-tab-how-to-use" class="tab">
+                HOW TO USE
+              </div>
+            </div>
+            <div class="info-container">
+              Radiant and uplifting, our luminous hair oil is like liquid sunshine. The light golden elixir is packed with fortifying natural oils from rosehip, avocado, and jojoba that tame frizz and nourish each
+              <span id="detail-add-info-block" class="additional-info">strand for hair that’s instantly soft, smooth, and shining to perfection. Use it as a quick fix for unruly flyaways, a detangler, or pre-shampoo treatment, or leave it on overnight for deep conditioning—a few drops will go a long way.</span>
+              <span id="detail-add-info-more" class="view-toggle active">VIEW MORE</span>
+              <span id="detail-add-info-less" class="view-toggle">VIEW LESS</span>
+            </div>
+          </div>
 
         </div>
       </div>
