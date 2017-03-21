@@ -32,6 +32,8 @@
 
   {% include 'social-meta-tags' %}
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
@@ -113,5 +115,25 @@
     {% section 'footer' %}
 
   </div>
+
+  <div class="modal-container">
+    <div id="product-page-modal-panel" class="product-modal-panel">
+      <div id="product-page-modal-overlay" class="modal-overlay"></div>
+      <div class="info-container">
+        <div id="product-page-modal-close-button" class="close-button"><img src="{{ 'close_icon.svg' | asset_url }}"></div>
+        <div class="title">
+          Full Ingredients List
+        </div>
+        <div id="modal-short-description" class="short-description">
+          Luxury Hair Oil
+        </div>
+        <div class="center-line"></div>
+        <div id="modal-ingredients-list" class="ingredients-list">
+          Isododecane, Isohexadecane, Isoamyl Laurate, Coconut Alkanes, Ethylene/Propylene/Styrene Copolymer, Simmondsia Chinensis (Jojoba) Oil, Helianthus Annuus (Sunflower) Oil, Mauritia Flexuosa (Buriti) Oil, Persea Gratissima (Avocado), Rosa Canina (Rosehip) Fruit Oil, Butylene/Ethylene/Styrene Copolymer, Coco-Caprylate/Caprate, Fragrance (Parfum), Citronellyl Methylcrotonate, Phospholipids, Glycine Soja (Soybean) Oil, Phenoxyethanol, Glycolipids, Glycine Soja (Soybean) Sterols.
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

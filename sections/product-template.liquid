@@ -17,7 +17,7 @@
         {%- assign featured_img_src = product.featured_image.src -%}
         <div class="product-image-container">
           <div class="border"></div>
-          <img src="{{ featured_img_src | img_url: '530x' }}" class="featured-image">
+          <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image">
         </div>
       </div>
 
@@ -113,6 +113,57 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="product-page-ingredients">
+  <div class="ingredients-title">
+    Ingredients Spotlight
+  </div>
+
+  <div class="ingredients-container">
+    <div class="image-container">
+      <img src="{{ product.featured_image.src | img_url: '720x' }}" class="ingredients-image">
+    </div>
+    <div class="ingredients-panel">
+      <div class="ingredient-pin to-left" style="top: 220px; right: 350px;">
+        <div class="icon"><span class="glyphicon glyphicon-plus-sign"></span></div>
+        <div class="mid-line"></div>
+        <div class="description">
+          <div class="title">
+            Soybean-Based Biolipid Complex
+          </div>
+          <div class="details">
+            Nutrient-packed fortifiers that condition
+            hair fibres to leave your tresses looking
+            soft and smooth.
+          </div>
+        </div>
+      </div>
+      <div class="ingredient-pin to-right" style="top: 370px; left: 340px;">
+        <div class="icon"><span class="glyphicon glyphicon-plus-sign"></span></div>
+        <div class="mid-line"></div>
+        <div class="description">
+          <div class="title">
+            Soybean-Based Biolipid Complex
+          </div>
+          <div class="details">
+            Nutrient-packed fortifiers that condition
+            hair fibres to leave your tresses looking
+            soft and smooth.
+          </div>
+        </div>
+      </div>
+      <div id="ingredients-full-list-button" class="full-list">
+        Full Ingredients List
+      </div>
+    </div>
+  </div>
+
+  <div class="side-line-left"></div>
+  <div class="side-line-right"></div>
+</div>
+
+<div class="product-page-how-to-use">
 
 </div>
 

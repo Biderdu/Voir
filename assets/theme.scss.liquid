@@ -10474,7 +10474,309 @@ $toolbar-height-small: 46px;
     }
 
   }
+}
 
+.product-page-ingredients {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .ingredients-title {
+    @include fontCambriaBold(36px);
+    color: $voir-gray-1;
+    line-height: 36px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .side-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 30%;
+    position: absolute;
+    top: 25%;
+    left: 0;
+  }
+
+  .side-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 30%;
+    position: absolute;
+    top: 25%;
+    right: 0;
+  }
+
+  .ingredients-container {
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    .image-container {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 100%;
+      width: 500px;
+      transform: translate(-50%, -50%);
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 80%;
+        max-width: 80%;
+      }
+
+    }
+
+    .ingredients-panel {
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 100%;
+      width: 500px;
+      transform: translate(-50%, -50%);
+
+      .ingredient-pin {
+        height: 30px;
+        width: 450px;
+        position: absolute;
+
+        .icon {
+          position: relative;
+          height: 100%;
+          width: 30px;
+          font-size: 24px;
+          color: $voir-gray-2;
+          transform: translate3d(0,0,0);
+          transition: color 1.0s ease, font-size 1.0s ease;
+          cursor: pointer;
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+
+        }
+
+        .mid-line {
+          width: 30px;
+          height: 1px;
+          position: relative;
+          top: 50%;
+          transform: translate(0,-50%);
+          background: $voir-gray-3;
+          margin-left: 11px;
+          margin-right: 11px;
+        }
+
+        .description {
+          position: relative;
+          height: 100%;
+          display: inline-block;
+
+          .title {
+            @include fontHelvetica(18px);
+            color: $voir-gray-1;
+            line-height: 30px;
+            display: inline-block;
+            cursor: pointer;
+          }
+
+
+          .details {
+            @include fontHelveticaLight(15px);
+            color: $voir-gray-1;
+            width: 290px;
+            line-height: 23px;
+            visibility: hidden;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translate3d(0,15px,0);
+            transition: visibility 0.2s ease 0.3s, opacity 0.3s ease, transform 0.3s ease;
+          }
+
+        }
+
+        &:hover {
+
+          .icon {
+            font-size: 30px;
+            color: $voir-gray-1;
+          }
+
+          .description {
+
+            .details {
+              visibility: visible;
+              opacity: 1;
+              transform: translate3d(0,0,0);
+              transition: visibility 0.2s ease , opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+            }
+          }
+
+
+        }
+
+      }
+
+      .ingredient-pin.to-left {
+
+        .icon {
+          float: right;
+        }
+
+        .mid-line {
+          float: right;
+        }
+
+        .description {
+          float: right;
+          text-align: right;
+        }
+
+      }
+
+      .ingredient-pin.to-right {
+
+        .icon {
+          float: left;
+        }
+
+        .mid-line {
+          float: left;
+        }
+
+        .description {
+          float: left;
+          text-align: left;
+        }
+
+      }
+
+      .full-list {
+        @include fontHelvetica(13px, 400, 1px);
+        line-height: 13px;
+        color: $voir-gray-3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        cursor: pointer;
+      }
+
+    }
+
+  }
+
+}
+
+.product-modal-panel {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  &.active {
+    display: block;
+  }
+
+  .modal-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .info-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 450px;
+    background: #ffffff;
+
+    .title {
+      position: absolute;
+      top: 12%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontCambriaBold(28px, 400, 1px);
+      line-height: 36px;
+      color: $voir-gray-1;
+      text-align: center;
+    }
+
+    .short-description {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontHelveticaBold(14px, 400, 1px);
+      line-height: 14px;
+      color: $voir-gray-2;
+      text-align: center;
+    }
+
+    .center-line {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 300px;
+      height: 2px;
+      background: #c8c9c7;
+    }
+
+    .ingredients-list {
+      width: 450px;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontHelvetica(14px, 400, 1px);
+      line-height: 23px;
+      color: $voir-gray-2;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+  }
+
+}
+
+.product-page-how-to-use {
+  position: relative;
+  height: 100vh;
+  width: 100%;
 }
 
 

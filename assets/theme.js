@@ -1016,6 +1016,14 @@ theme.Header = (function() {
       headerPositionChange($(selectors.body).scrollTop());
 
 
+      $('#ingredients-full-list-button').on('click', productModalPanelToggle);
+
+      $('#product-page-modal-overlay').on('click', productModalPanelToggle);
+
+      $('#product-page-modal-close-button').on('click', productModalPanelToggle);
+
+
+
       //scroll check
       $(window).scroll( function() {
         headerPositionChange($(selectors.body).scrollTop());
@@ -1087,6 +1095,10 @@ theme.Header = (function() {
     $('#detail-add-info-less').toggleClass('active');
     $('#detail-add-info-more').toggleClass('active');
     $('#detail-add-info-block').toggleClass('active');
+  }
+
+  function productModalPanelToggle() {
+    $('#product-page-modal-panel').toggleClass('active');
   }
 
   //
