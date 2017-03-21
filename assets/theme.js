@@ -800,7 +800,7 @@ theme.Header = (function() {
     home: [2,3],
     about: [2,3,4,5,6,7],
     contact: [2],
-    product: [1]
+    product: [1,2,3,6]
   };
 
   var panelsWithAnimations = {};
@@ -823,7 +823,7 @@ theme.Header = (function() {
       home: ['home-collection-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
-      product: []
+      product: ['product-page-collection-panel']
     };
 
   } 
@@ -1022,6 +1022,7 @@ theme.Header = (function() {
 
       $('#product-page-modal-close-button').on('click', productModalPanelToggle);
 
+      howToUseInit();
 
 
       //scroll check
@@ -1099,6 +1100,28 @@ theme.Header = (function() {
 
   function productModalPanelToggle() {
     $('#product-page-modal-panel').toggleClass('active');
+  }
+
+  function howToUseInit() {
+    $('#first-step-tab').on('click', function() {
+      howToUseTabSwitch('first')
+    });
+    $('#second-step-tab').on('click', function(){
+      howToUseTabSwitch('second')
+    });
+    $('#third-step-tab').on('click', function(){
+      howToUseTabSwitch('third')
+    });
+  }
+
+  function howToUseTabSwitch(tab) {
+
+    $('#product-page-use-tabs').children().removeClass('active');
+    $('#product-page-use-descriptions').children().removeClass('active');
+
+    $('#' + tab + '-step-tab').addClass('active');
+    $('#' + tab + '-step-description').addClass('active');
+
   }
 
   //
