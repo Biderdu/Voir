@@ -813,7 +813,7 @@ theme.Header = (function() {
       home: [],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
-      product: []
+      product: ['product-page-art-panel']
     };
 
   } else {
@@ -823,10 +823,10 @@ theme.Header = (function() {
       home: ['home-collection-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
-      product: ['product-page-collection-panel']
+      product: ['product-page-collection-panel', 'product-page-art-panel']
     };
 
-  } 
+  }
   
 
   var socPanActivePos = [];
@@ -1006,6 +1006,22 @@ theme.Header = (function() {
             productAddInfoToggle();
           });
 
+          $('#info-tab-ingredients').on('click', function() {
+            $('html, body').animate({
+              scrollTop: $("#product-page-ingredients-panel").offset().top
+            }, 1000);
+          });
+
+          $('#info-tab-how-to-use').on('click', function() {
+            $('html, body').animate({
+              scrollTop: $("#product-page-use-panel").offset().top
+            }, 1500);
+          });
+
+          // $('.spr-summary-actions-newreview').on('click', function() {
+          //   reviewsFormPositioning();
+          // });
+
           animationForScroll(panelsWithAnimations.product);
 
         }, 500);
@@ -1030,6 +1046,8 @@ theme.Header = (function() {
         headerPositionChange($(selectors.body).scrollTop());
 
         animationForScroll(panelsWithAnimations.product);
+
+        // reviewsFormPositioning();
       });
 
 
@@ -1121,6 +1139,22 @@ theme.Header = (function() {
 
     $('#' + tab + '-step-tab').addClass('active');
     $('#' + tab + '-step-description').addClass('active');
+
+  }
+
+  function reviewsFormPositioning() {
+
+    var topOffset = $(window).scrollTop();
+    
+
+    var leftElemOffset = $('.spr-form').offset().left;
+    var topElemOffset = $('.spr-form').offset().top;
+
+    if(leftElemOffset != 0) {
+      $('.spr-form').css("left", 24 - leftElemOffset);
+    }
+
+    $('.spr-form').css("top", parseInt($('.spr-form').css("top"),10) + 80 + topOffset - topElemOffset);
 
   }
 

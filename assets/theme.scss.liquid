@@ -10197,6 +10197,12 @@ $toolbar-height-small: 46px;
             transform: translate(0,-50%);
           }
 
+          img.reel-main-image {
+            height: 134px;
+            width: 300px;
+          }
+
+
           .border {
             position: absolute;
             width: 310px;
@@ -10956,18 +10962,22 @@ $toolbar-height-small: 46px;
       z-index: 1;
       top: 50%;
       left: 0;
-      transform: translate(0,-50%);
+      transform: translate(0,50%);
       height: 280px;
       width: 100%;
       background: rgba(255,255,255,0.9);
+      opacity: 0;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
       .icon {
         position: relative;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 15px);
         height: 35px;
         width: 35px;
         margin-top: 40px;
+        opacity: 0;
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
         img {
           height: 100%;
@@ -10985,6 +10995,9 @@ $toolbar-height-small: 46px;
         color: $voir-gray-1;
         line-height: 36px;
         text-align: center;
+        opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
       }
 
       .art-description {
@@ -10992,11 +11005,50 @@ $toolbar-height-small: 46px;
         left: 50%;
         margin-top: 30px;
         width: 450px;
-        transform: translate(-50%,0);
+        transform: translate(-50%,15px);
         @include fontHelvetica(16px);
         color: $voir-gray-1;
         line-height: 24px;
         text-align: center;
+        opacity: 0;
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+      }
+
+    }
+
+  }
+}
+
+.product-page-about-art.active-animation {
+
+  .about-art-container {
+
+    .art-back {
+
+    }
+
+    .art-description-container {
+
+      opacity: 1;
+      transform: translate(0,-50%);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+
+      .icon {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        transition: opacity 0.7s ease 0.6s, transform 0.7s ease 0.6s;
+      }
+
+      .art-title {
+        opacity: 1;
+        transform: translate3d(0, 0,0);
+        transition: opacity 0.7s ease 1.0s, transform 0.7s ease 1.0s;
+      }
+
+      .art-description {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        transition: opacity 0.7s ease 1.4s, transform 0.7s ease 1.4s;
       }
 
     }
@@ -11009,6 +11061,7 @@ $toolbar-height-small: 46px;
   position: relative;
   height: 100vh;
   width: 100%;
+  z-index: 1000;
 
   .reviews-container {
     height: 75%;
@@ -11036,6 +11089,168 @@ $toolbar-height-small: 46px;
           color: $voir-gray-1;
           line-height: 13px;
         }
+
+        .spr-form {
+
+          form {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            margin: auto;
+
+            .spr-form-title {
+              @include fontCambriaBold(30px, 400, 1px);
+              color: $voir-gray-1;
+              line-height: 30px;
+              text-align: center;
+              margin-bottom: 70px;
+            }
+
+            .spr-form-contact {
+              padding: 0 30px 0 30px;
+
+              .spr-form-contact-name {
+                width: 300px;
+                float: left;
+
+                label {
+                  display: none;
+                }
+
+                input {
+                  border: none;
+                  border-bottom: 1px solid $voir-gray-3;
+                  height: 45px;
+                  padding: 15px 0 15px 0;
+                  @include fontHelvetica(14px, 400, 1px);
+                  line-height: 45px;
+                  color: #a8aaaa;
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                }
+
+              }
+
+              .spr-form-contact-email {
+                width: 300px;
+                float: left;
+                margin-left: 30px;
+
+
+                label {
+                  display: none;
+                }
+
+                input {
+                  border: none;
+                  border-bottom: 1px solid $voir-gray-3;
+                  height: 45px;
+                  padding: 15px 0 15px 0;
+                  @include fontHelvetica(14px, 400, 1px);
+                  line-height: 45px;
+                  color: #a8aaaa;
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                }
+              }
+
+            }
+
+            .spr-form-review {
+
+              .spr-form-review-rating {
+                position: absolute;
+                top: 50px;
+                left: 50%;
+                transform: translate(-50%,0);
+                width: 230px;
+
+                .spr-form-label {
+                  float: left;
+                  @include fontHelveticaBold(14px);
+                  color: $voir-gray-2;
+                }
+
+                .spr-starrating {
+                  float: right;
+                }
+
+              }
+
+            }
+
+            .spr-form-review-title {
+              padding: 0 30px 0 30px;
+
+              label {
+                display: none;
+              }
+
+              input {
+                border: none;
+                border-bottom: 1px solid $voir-gray-3;
+                height: 45px;
+                padding: 15px 0 15px 0;
+                @include fontHelvetica(14px, 400, 1px);
+                line-height: 45px;
+                color: #a8aaaa;
+
+                &:focus {
+                  outline: none;
+                }
+
+              }
+
+            }
+
+            .spr-form-review-body {
+              padding: 0 30px 0 30px;
+
+              label {
+                display: none;
+              }
+
+              textarea {
+                border: none;
+                border-bottom: 1px solid $voir-gray-3;
+                height: 45px;
+                padding: 15px 0 15px 0;
+                @include fontHelvetica(14px, 400, 1px);
+                line-height: 45px;
+                color: #a8aaaa;
+
+                &:focus {
+                  outline: none;
+                }
+
+              }
+            }
+
+            .spr-form-actions {
+              text-align: center;
+
+              .spr-button-primary {
+                float: none;
+                height: 45px;
+                width: 350px;
+                background: #ffffff;
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-1;
+                border: 1px solid $voir-gray-1;
+              }
+
+            }
+
+          }
+
+        }
+
       }
 
 
