@@ -1052,7 +1052,24 @@ theme.Header = (function() {
 
 
 
-    } else if($('#home-intro-block').length != 0)  {           //home page
+    } else if($('#login-page-panel').length != 0)  {           //login page
+
+      console.log('login');
+
+
+      $( document ).ready(function() {
+        setTimeout(function(){
+
+          $('#register-continue-button').on('click',function() {
+            $('#register-hidden-block').addClass('active');
+            $('#register-continue-button').addClass('hidden');
+          })
+
+        }, 500);
+      });
+      
+
+  } else if($('#home-intro-block').length != 0)  {           //home page
 
       console.log('home');
 
@@ -1160,6 +1177,11 @@ theme.Header = (function() {
 
   //
 
+  //login page
+
+
+
+  //
 
   function faqHashChanges() {
 
@@ -3590,6 +3612,8 @@ theme.init = function() {
   $('a[href="#"]').on('click', function(evt) {
     evt.preventDefault();
   });
+
+
 
 };
 

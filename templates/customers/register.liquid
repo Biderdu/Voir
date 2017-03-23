@@ -1,32 +1,57 @@
-<div class="page-width">
+<div class="page-width account-page-main-container">
+  <div class="section-header text-center">
+    <h1>{{ 'customer.account.title' | t }}</h1>
+    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+  </div>
+
   <div class="grid">
-    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+    <div class="grid__item medium-up--two-thirds">
+      <h2>{{ 'customer.orders.title' | t }}</h2>
 
-      <div class="form-vertical">
-        {% form 'create_customer' %}
+      {% paginate customer.orders by 20 %}
+      {% if customer.orders.size != 0 %}
 
-          <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+        <table class="responsive-table">
+          <thead>
+          <tr>
+            <th>{{ 'customer.orders.order_number' | t }}</th>
+            <th>{{ 'customer.orders.date' | t }}</th>
+            <th>{{ 'customer.orders.payment_status' | t }}</th>
+            <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+            <th>{{ 'customer.orders.total' | t }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for order in customer.orders %}
+            <tr>
+              <td data-label="{{ 'customer.orders.order_number' | t }}">
+                <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small">{{ order.name }}</a>
+              </td>
+              <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+              <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+              <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+              <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
 
-          {{ form.errors | default_errors }}
+      {% else %}
 
-          <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
-          <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+        <p>{{ 'customer.orders.none' | t }}</p>
 
-          <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
-          <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+      {% endif %}
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
+      {% endpaginate %}
+    </div>
+    <div class="grid__item medium-up--one-third">
+      <h2>{{ 'customer.account.details' | t }}</h2>
 
-          <label for="Email">{{ 'customer.register.email' | t }}</label>
-          <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+      {{ customer.default_address | format_address }}
 
-          <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
-          <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
-
-          <p class="text-center">
-            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
-          </p>
-
-        {% endform %}
-      </div>
+      <p><a href="/account/addresses" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
     </div>
   </div>
 </div>

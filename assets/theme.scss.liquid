@@ -11157,6 +11157,7 @@ $toolbar-height-small: 46px;
                   @include fontHelvetica(14px, 400, 1px);
                   line-height: 45px;
                   color: #a8aaaa;
+                  border-radius: 0;
 
                   &:focus {
                     outline: none;
@@ -11184,6 +11185,7 @@ $toolbar-height-small: 46px;
                   @include fontHelvetica(14px, 400, 1px);
                   line-height: 45px;
                   color: #a8aaaa;
+                  border-radius: 0;
 
                   &:focus {
                     outline: none;
@@ -11232,6 +11234,7 @@ $toolbar-height-small: 46px;
                 @include fontHelvetica(14px, 400, 1px);
                 line-height: 45px;
                 color: #a8aaaa;
+                border-radius: 0;
 
                 &:focus {
                   outline: none;
@@ -11256,6 +11259,7 @@ $toolbar-height-small: 46px;
                 @include fontHelvetica(14px, 400, 1px);
                 line-height: 45px;
                 color: #a8aaaa;
+                border-radius: 0;
 
                 &:focus {
                   outline: none;
@@ -11305,7 +11309,319 @@ $toolbar-height-small: 46px;
 
 @media (max-width: $screen-mobile) {}
 
-//prodcut page end
+//product page end
+
+//login page
+
+.login-page-main-container {
+  position: relative;
+  height: calc(100vh - 36px);
+  width: 100%;
+
+  .inner-login-container {
+    position: relative;
+    height: calc(100vh - 120px);
+    top: 120px;
+    width: 100%;
+
+    .left-side {
+      position: relative;
+      height: 100%;
+      width: 50%;
+      float: left;
+
+      .login-block-container {
+        position: relative;
+        height: 100%;
+        width: 350px;
+        right: 80px;
+        float: right;
+
+        .login-form-container {
+
+          .login-title {
+            @include fontCambriaBold(36px);
+            color: $voir-gray-1;
+            line-height: 36px;
+            text-align: start;
+            margin-bottom: 40px;
+          }
+
+          .login-input-mail {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-bottom: 1px solid #c8c9c7;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px, 400, 1px);
+            line-height: 14px;
+            color: $voir-gray-2;
+            border-radius: 0;
+
+            &:focus {
+              outline: none;
+            }
+
+          }
+
+          .login-input-pass {
+              width: 100%;
+              height: 45px;
+              border: none;
+              border-bottom: 1px solid #c8c9c7;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              border-radius: 0;
+              margin-bottom: 10px;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+
+          .login-action-block {
+
+            p {
+              text-align: right;
+              margin-bottom: 30px;
+
+              a {
+                @include fontHelvetica(12px, 400, 1px);
+                line-height: 12px;
+                color: $voir-gray-3;
+              }
+
+            }
+
+            input {
+              height: 45px;
+              width: 350px;
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-1;
+              background: #ffffff;
+              border: 1px solid $voir-gray-1;
+              transition: color 0.4s ease, background 0.4s ease;
+
+              &:focus {
+                outline: none;
+              }
+
+              &:hover {
+                opacity: 1;
+                background: $voir-gray-1;
+                color: #ffffff;
+              }
+
+            }
+
+          }
+
+        }
+
+        .reset-container {
+          .reset-title {
+            @include fontCambriaBold(36px, 400, 0.001em);
+            color: $voir-gray-1;
+            line-height: 36px;
+            text-align: start;
+            margin-bottom: 40px;
+          }
+
+          .reset-input-mail {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-bottom: 1px solid #c8c9c7;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px, 400, 1px);
+            line-height: 14px;
+            color: $voir-gray-2;
+            border-radius: 0;
+
+            &:focus {
+              outline: none;
+            }
+
+          }
+
+          .reset-action-block {
+
+            p {
+              width: 170px;
+              float: left;
+
+              input {
+                height: 45px;
+                width: 350px;
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-1;
+                background: #ffffff;
+                border: 1px solid $voir-gray-1;
+                transition: color 0.4s ease, background 0.4s ease;
+
+                &:focus {
+                  outline: none;
+                }
+
+                &:hover {
+                  opacity: 1;
+                  background: $voir-gray-1;
+                  color: #ffffff;
+                }
+
+              }
+
+            }
+
+            button {
+              float: right;
+              width: 170px;
+              height: 45px;
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-1;
+              background: #ffffff;
+              border: none;
+              transition: color 0.4s ease, background 0.4s ease;
+
+              &:focus {
+                outline: none;
+              }
+
+              &:hover {
+                opacity: 1;
+                background: $voir-gray-1;
+                color: #ffffff;
+              }
+            }
+
+          }
+        }
+
+      }
+
+    }
+
+    .right-side {
+      position: relative;
+      height: 100%;
+      width: 50%;
+      float: right;
+
+      .register-block-container {
+        position: relative;
+        height: 100%;
+        width: 350px;
+        left: 80px;
+        float: left;
+
+        .register-form-container {
+
+          .register-title {
+            @include fontCambriaBold(36px);
+            color: $voir-gray-1;
+            line-height: 36px;
+            text-align: start;
+            margin-bottom: 40px;
+          }
+
+          .register-input {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-bottom: 1px solid #c8c9c7;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px, 400, 1px);
+            line-height: 14px;
+            color: $voir-gray-2;
+            border-radius: 0;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .register-continue-button {
+            height: 45px;
+            width: 350px;
+            @include fontHelveticaBold(13px);
+            color: $voir-gray-1;
+            background: #ffffff;
+            border: 1px solid $voir-gray-1;
+            transition: color 0.4s ease, background 0.4s ease;
+            cursor: pointer;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 1px;
+
+            &:hover {
+              opacity: 1;
+              background: $voir-gray-1;
+              color: #ffffff;
+            }
+
+            &.hidden {
+              display: none;
+            }
+
+          }
+
+          .register-hidden-block {
+            display: none;
+
+            &.active {
+              display: block;
+            }
+
+            .register-button-submit {
+              margin-top: 10px;
+              height: 45px;
+              width: 350px;
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-1;
+              background: #ffffff;
+              border: 1px solid $voir-gray-1;
+              transition: color 0.4s ease, background 0.4s ease;
+
+              &:focus {
+                outline: none;
+              }
+
+              &:hover {
+                opacity: 1;
+                background: $voir-gray-1;
+                color: #ffffff;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.shopify-challenge__message {
+  margin-top: 120px;
+}
+
+.account-page-main-container {
+  margin-top: 120px;
+}
+
+@media (max-width: $screen-tablet) {}
+
+@media (max-width: $screen-mobile) {}
+
+//login page end
 
 
 .hero {
