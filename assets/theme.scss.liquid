@@ -3873,7 +3873,7 @@ h1.product-single__title {
 
       .navi-elem {
         float: left;
-        width: 150px;
+        width: 120px;
         text-align: center;
         @include fontHelvetica(18px);
         color: #ffffff;
@@ -3882,6 +3882,11 @@ h1.product-single__title {
         cursor: pointer;
         height: 100%;
         line-height: 80px;
+
+        &.active {
+          @include fontHelveticaBold(18px);
+        }
+
       }
 
     }
@@ -3904,6 +3909,29 @@ h1.product-single__title {
           text-transform: uppercase;
           transition: color 0.15s;
           cursor: pointer;
+          line-height: 28px;
+
+          &.menu-my-bag {
+            position: relative;
+            top: -3px;
+
+            .bag-counter {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              transform: translate(50%,50%);
+
+              font-size: 12px;
+              line-height: 20px;
+              border-radius: 20px;
+              height: 20px;
+              width: 20px;
+              background: #e3e3e3;
+              text-align: center;
+            }
+
+          }
+
         }
 
       }
@@ -3923,18 +3951,18 @@ h1.product-single__title {
       transition: opacity 0.15s, height 0.15s;
 
       .prod-list-container {
+        display: inline-block;
         position: absolute;
         top: 50%;
         left: 50%;
         height: 24px;
-        width: 34%;
         transform: translate( -50%, -50% );
 
         .list-item {
           float: left;
+          margin-right: 28px;
           @include fontHelveticaLight(14px);
           color: $voir-gray-2;
-          width: 16.66660%;
           text-align: center;
         }
 
@@ -4264,6 +4292,11 @@ h1.product-single__title {
       .navi-elem {
         transition: color 0.15s ease-out;
         color: $voir-gray-1;
+
+        &.active {
+          border-bottom: 2px solid $voir-gray-1;
+        }
+
       }
 
     }
@@ -4326,6 +4359,11 @@ h1.product-single__title {
       .navi-elem {
         transition: color 0.15s ease-out;
         color: $voir-gray-1;
+
+        &.active {
+          border-bottom: 2px solid $voir-gray-1;
+        }
+
       }
 
     }
@@ -11610,6 +11648,10 @@ $toolbar-height-small: 46px;
 }
 
 .shopify-challenge__message {
+  margin-top: 120px;
+}
+
+.addresses-page-container {
   margin-top: 120px;
 }
 

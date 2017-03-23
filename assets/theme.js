@@ -891,6 +891,8 @@ theme.Header = (function() {
         setTimeout(function(){
           $('#about-us-page').addClass('animation-start');
 
+          $('#about-navi-item').addClass('active');
+          
           animationForScroll(panelsWithAnimations.about);
 
         }, 500);
@@ -963,6 +965,8 @@ theme.Header = (function() {
         setTimeout(function(){
 
           animationForScroll(panelsWithAnimations.contact);
+
+          $('#contact-navi-item').addClass('active');
 
         }, 500);
       });
@@ -1078,6 +1082,8 @@ theme.Header = (function() {
         setTimeout(function(){
           $('#home-intro-block').addClass('animation-start');
 
+          $('#shop-navi-item').addClass('active');
+          
           socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
           animationForScroll(panelsWithAnimations.home);

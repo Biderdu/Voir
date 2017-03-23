@@ -77,13 +77,13 @@
         </div>
 
         <a href="/pages/about">
-          <div class="navi-elem">
+          <div class="navi-elem" id="about-navi-item">
             ABOUT
           </div>
         </a>
 
         <a href="/pages/contact-us">
-          <div class="navi-elem">
+          <div class="navi-elem" id="contact-navi-item">
               CONTACT
           </div>
         </a>
@@ -91,13 +91,20 @@
 
       <div class="site-header-menu-container">
         <div class="site-header-menu">
-          <div id="my-bag-menu-button" class="menu-elem">
-            MY BAG(0)
+          <div id="my-bag-menu-button" class="menu-elem menu-my-bag">
+           <img src="{{ 'my_bag.svg' | asset_url }}">
+            <div class="bag-counter">0</div>
           </div>
           <a href="/account/login">
-            <div class="menu-elem">
-              SIGN UP
-            </div>
+            {% if customer %}
+              <div class="menu-elem">
+                {{ customer.first_name }}
+              </div>
+            {% else %}
+              <div class="menu-elem">
+                SIGN UP
+              </div>
+            {% endif %}
           </a>
           <div class="menu-elem">
             THE STUDIO
@@ -119,16 +126,13 @@
           </div>
           {% for product in collection.products %}
             <div class="list-item">
-              {{ product.title }}
+              {{ product.metafields.c_f.short_description }}
             </div>
           {% endfor %}
           <div class="list-item">
             Studio Set
           </div>
         </div>
-
-        <div class="home-intro-center-line-left"></div>
-        <div class="home-intro-center-line-right"></div>
 
       </div>
 
