@@ -7286,11 +7286,24 @@ $toolbar-height-small: 46px;
   }
 }
 
-.about-art-block-container {
+.about-art-nature-container {
   position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.about-art-block-container {
+  position: absolute;
   height: 100vh;
   width: 100%;
   background: #ffffff;
+  transform: translate3d(0, -100%,0);
+  transition: transform 1.0s ease;
+
+  &.active-slide {
+    transform: translate3d(0, 0,0);
+  }
 
   .art-block-info {
     position: absolute;
@@ -7360,10 +7373,16 @@ $toolbar-height-small: 46px;
 }
 
 .about-nature-block-container {
-  position: relative;
+  position: absolute;
   height: 100vh;
   width: 100%;
   background: #ffffff;
+  transform: translate3d(0, 100%,0);
+  transition: transform 1.0s ease;
+
+  &.active-slide {
+    transform: translate3d(0, 0,0);
+  }
 
   .nature-block-background {
     position: absolute;
@@ -7922,8 +7941,18 @@ $toolbar-height-small: 46px;
     }
   }
 
+  .about-art-nature-container {
+    position: relative;
+    width: 100%;
+    height: 110vh;
+
+  }
+
   .about-art-block-container {
+    position: relative;
+    top: 0;
     height: 55vh;
+    transform: translate3d(0, 0,0);
 
     .art-block-info {
       top: 55%;
@@ -7957,7 +7986,10 @@ $toolbar-height-small: 46px;
   }
 
   .about-nature-block-container {
+    position: relative;
+    bottom: 0;
     height: 55vh;
+    transform: translate3d(0, 0,0);
 
     .nature-block-background {
       height: calc(100% - 10px);

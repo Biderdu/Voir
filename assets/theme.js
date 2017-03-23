@@ -809,7 +809,7 @@ theme.Header = (function() {
   if (windowWidth < 768) {
 
     panelsWithAnimations = {
-      about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
+      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
       home: [],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
@@ -819,7 +819,7 @@ theme.Header = (function() {
   } else {
 
     panelsWithAnimations = {
-      about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
+      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
       home: ['home-collection-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
@@ -3245,7 +3245,7 @@ function homeSliderDesctopInit() {
     var docViewBottom = docViewTop + $(window).height();
 
     sconfig.sliderBelow = ( delta > 0 ) && ( docViewBottom > (sliderElemTop + 100 )) && ( docViewBottom < sliderElemBottom - 20);
-    sconfig.sliderAbove = ( delta < 0 ) && ( docViewTop < (sliderElemBottom + 100 )) && ( docViewTop > sliderElemTop + 20);
+    sconfig.sliderAbove = ( delta < 0 ) && ( docViewTop < (sliderElemBottom - 100 )) && ( docViewTop > sliderElemTop + 20);
 
     if( sconfig.sliderBelow || sconfig.sliderAbove ) {
       sconfig.state = 'locked';
@@ -3422,6 +3422,123 @@ function instagramInit() {
 
 }
 
+function aboutArtNatureSlider() {
+
+  //autoscroll
+  
+  var sliderElemTop = parseInt($('#about-art-nature-panel').offset().top);
+  var sliderElemBottom = parseInt(sliderElemTop + $('#about-art-nature-panel').height());
+
+
+  var sconfig = {
+    state: 'enabled'
+  };
+
+  $(window).on('mousewheel', function (event) {
+
+    if( sconfig.state === 'locked' ){
+      event.stopPropagation();
+      event.preventDefault();
+      return false;
+    }
+
+    var delta = event.originalEvent.deltaY;
+
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    sconfig.sliderBelow = ( delta > 0 ) && ( docViewBottom > (sliderElemTop + 100 )) && ( docViewBottom < sliderElemBottom - 20);
+    sconfig.sliderAbove = ( delta < 0 ) && ( docViewTop < (sliderElemBottom - 100 )) && ( docViewTop > sliderElemTop + 20);
+
+    if( sconfig.sliderBelow || sconfig.sliderAbove ) {
+      sconfig.state = 'locked';
+
+      setTimeout(function(){
+        $("html, body").animate({
+          scrollTop: sliderElemTop
+        }, 500, function(){
+          sconfig.state = 'enabled';
+        });
+      }, 100);
+
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+  });
+
+  var didScroll = false;
+
+  setInterval(function () {
+    if (didScroll) {
+      didScroll = false;
+    }
+  }, 1000);
+
+  var art_block = $('#about-art-panel');
+  var nature_block = $('#about-nature-panel');
+
+  $('#about-art-nature-panel').on('mousewheel', function (event) {
+
+    if( sconfig.state === 'locked' ){
+      event.stopPropagation();
+      event.preventDefault();
+      return false;
+    }
+
+    var delta = event.originalEvent.deltaY;
+
+    if( !didScroll && ( delta > 0 && nature_block.hasClass('active-slide') || delta < 0 && art_block.hasClass('active-slide') ) ) {
+        return;
+    }
+
+    if(!didScroll) {
+
+        didScroll = true;
+
+          if(delta > 0) {
+            art_block.removeClass('active-slide').removeClass('active-animation');
+            nature_block.addClass('active-slide').addClass('active-animation');
+          }
+
+          if(delta < 0) {
+            nature_block.removeClass('active-slide').removeClass('active-animation');
+            art_block.addClass('active-slide').addClass('active-animation');
+          }
+
+    }
+
+    var delta = event.originalEvent.deltaY;
+
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    sconfig.sliderBelow = ( delta > 0 ) && ( docViewBottom > (sliderElemTop + 100 )) && ( docViewBottom < sliderElemBottom - 20);
+    sconfig.sliderAbove = ( delta < 0 ) && ( docViewTop < (sliderElemBottom - 100 )) && ( docViewTop > sliderElemTop + 20);
+
+    if( sconfig.sliderBelow || sconfig.sliderAbove ) {
+      sconfig.state = 'locked';
+
+      setTimeout(function(){
+        $("html, body").animate({
+          scrollTop: sliderElemTop
+        }, 500, function(){
+          sconfig.state = 'enabled';
+        });
+      }, 100);
+
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+
+    event.stopPropagation();
+    event.preventDefault();
+
+});
+  
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -3442,6 +3559,13 @@ $(document).ready(function() {
     } else {
       homeSliderInit();
     }
+
+  } else if($('#about-us-page').length != 0) {
+
+    if($(window).width() > 1024) {
+      aboutArtNatureSlider();
+    }
+
   }
 
   footerInit();
