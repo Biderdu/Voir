@@ -88,7 +88,8 @@
         "settings": {
           "image_size": "medium",
           "show_quantity_selector": true,
-          "show_variant_labels": true
+          "show_variant_labels": true,
+          "collection": "frontpage"
         }
       },
       "1488547337137": {
@@ -120,8 +121,7 @@
       "hero",
       "1488547337137",
       "1488806400143",
-      "1488886617077",
-      "1488883033208"
+      "1488886617077"
     ]
   },
   "presets": {
