@@ -1111,7 +1111,6 @@ theme.Header = (function() {
 
   }
 
-
   //product page functions
   function productQtyChange(inc) {
 
@@ -3569,6 +3568,44 @@ function aboutArtNatureSlider() {
   
 }
 
+function homeBagInit() {
+
+  $('.collection-add-to-bag-button').on('click', function() {
+    console.log('variant id: ', $(this).data().id);
+
+    var productData = $(this).data();
+
+    $.ajax({
+      type: "POST",
+      url: '/cart/add.js',
+      data: {
+        quantity: 1,
+        id: productData.id
+      },
+      success: function(response) {
+        location.reload();
+      },
+      error:   function(jqXHR, textStatus, errorThrown) {
+        location.reload();
+      }
+    });
+
+    // jQuery.post(
+    //   '/cart/add.js',
+    //   {
+    //     quantity: 1,
+    //     id: productData.id
+    //   },
+    //   function(response) {
+    //     console.log('response: ', response);
+    //     location.reload();
+    //   });
+
+  })
+
+}
+
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -3583,6 +3620,8 @@ $(document).ready(function() {
 
 
   if($('#home-intro-block').length != 0) {
+
+    homeBagInit();
 
     if($(window).width() > 1024) {
       homeSliderDesctopInit();

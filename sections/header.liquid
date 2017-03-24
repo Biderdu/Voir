@@ -230,7 +230,7 @@
               CAD
             </div>
             <div class="count">
-              ${{ cart.total_price }}
+              ${{ cart.total_price | divided_by: 100.00 }}
             </div>
           </div>
         </div>

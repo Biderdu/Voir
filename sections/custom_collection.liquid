@@ -27,7 +27,7 @@
                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
               </div>
               <div class="hover-container">
-                <div class="add-button">
+                <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
                   <span>Add to bag</span>
                 </div>
               </div>
