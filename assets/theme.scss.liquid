@@ -3798,6 +3798,8 @@ h1.product-single__title {
   .site-header-main-container {
     height: 80px;
     width: 100%;
+    max-width: 1366px;
+    margin: auto;
     position: relative;
 
     .site-header-logo-container {
@@ -3914,6 +3916,13 @@ h1.product-single__title {
           &.menu-my-bag {
             position: relative;
             top: -3px;
+            height: 25px;
+            width: 20px;
+
+            .my-bag-icon {
+              content: url('{{ "my_bag_white.svg" | asset_url }}');
+            }
+
 
             .bag-counter {
               position: absolute;
@@ -3928,6 +3937,8 @@ h1.product-single__title {
               width: 20px;
               background: #e3e3e3;
               text-align: center;
+
+              color: $voir-gray-1;
             }
 
           }
@@ -4093,6 +4104,117 @@ h1.product-single__title {
       position: relative;
       width: 100%;
       height: calc(100% - 320px);
+      overflow: auto;
+
+      .bag-item {
+        height: 140px;
+        padding: 20px 0 20px 0;
+        border-bottom: 1px solid #e3e3e3;
+        border-top: 1px solid #e3e3e3;
+
+        .image-container {
+          float: left;
+          position: relative;
+          height: 100%;
+          width: 30%;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+          }
+
+        }
+
+        .info-container {
+          float: left;
+          position: relative;
+          height: 100%;
+          width: 70%;
+
+          .upper-part {
+            position: relative;
+            width: 100%;
+            height: 50%;
+
+            .title {
+              @include fontCambriaBold(13px);
+              line-height: 13px;
+              color: $voir-gray-2;
+              margin-top: 11px;
+            }
+
+            .description {
+              @include fontHelvetica(11px);
+              line-height: 11px;
+              color: $voir-gray-2;
+              margin-top: 5px;
+            }
+
+          }
+
+          .lower-part {
+            position: relative;
+            width: 100%;
+            height: 50%;
+
+            .count-container {
+              position: relative;
+              float: left;
+              height: 25px;
+              width: 80px;
+              border: 1px solid $voir-gray-1;
+              border-radius: 1px;
+              margin-top: 10px;
+
+
+              .counter {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+                transform: translate(-50%,0);
+
+                @include fontHelvetica(11px);
+                color: $voir-gray-2;
+                line-height: 25px;
+              }
+
+            }
+
+            .total-price {
+              position: relative;
+              float: right;
+              margin-right: 40px;
+              line-height: 25px;
+              margin-top: 10px;
+
+              .price-check {
+                float: right;
+                @include fontHelveticaBold(12px);
+                color: $voir-gray-2;
+                line-height: 25px;
+              }
+
+              .units {
+                float: right;
+                @include fontHelveticaLight(12px);
+                color: $voir-gray-2;
+                line-height: 25px;
+                margin-left: 5px;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
     }
 
     .bag-bottom-panel {
@@ -4168,20 +4290,27 @@ h1.product-single__title {
           border: 1px $voir-gray-1 solid;
           border-radius: 2px;
 
-          span {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translate(0,-50%);
+          @include fontHelveticaBold(13px);
+          text-transform: uppercase;
+          text-align: center;
+          line-height: 45px;
+          transition: background 0.3s ease;
 
-            @include fontHelveticaBold(13px);
-            color: $voir-gray-1;
-            text-transform: uppercase;
-            text-align: center;
+          a {
+            display: block;
+            text-decoration: none;
+            opacity: 1;
+            color:  $voir-gray-1;
+            transition: color 0.3s ease;
+
+            &:hover {
+              opacity: 1;
+              color:  #ffffff;
+            }
           }
 
           &:hover {
-            background: #f9f9f9;
+            background: $voir-gray-1;
           }
 
         }
@@ -4196,20 +4325,27 @@ h1.product-single__title {
           border-radius: 2px;
           margin-top: 15px;
 
-          span {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translate(0,-50%);
+          @include fontHelveticaBold(13px);
+          text-transform: uppercase;
+          text-align: center;
+          line-height: 45px;
+          transition: background 0.3s ease;
 
-            @include fontHelveticaBold(13px);
-            color: $voir-gray-1;
-            text-transform: uppercase;
-            text-align: center;
+          a {
+            display: block;
+            text-decoration: none;
+            opacity: 1;
+            color:  $voir-gray-1;
+            transition: color 0.3s ease;
+
+            &:hover {
+              opacity: 1;
+              color:  #ffffff;
+            }
           }
 
           &:hover {
-            background: #f9f9f9;
+            background: $voir-gray-1;
           }
 
         }
@@ -4308,6 +4444,13 @@ h1.product-single__title {
         .menu-elem {
           transition: color 0.15s ease-out;
           color: $voir-gray-1;
+
+          &.menu-my-bag {
+            .my-bag-icon {
+              content: url('{{ "my_bag.svg" | asset_url }}');
+            }
+          }
+
         }
 
       }
@@ -4375,6 +4518,13 @@ h1.product-single__title {
         .menu-elem {
           transition: color 0.15s ease-out;
           color: $voir-gray-1;
+
+          &.menu-my-bag {
+            .my-bag-icon {
+              content: url('{{ "my_bag.svg" | asset_url }}');
+            }
+          }
+
         }
 
       }
@@ -6022,8 +6172,9 @@ $toolbar-height-small: 46px;
 }
 
 .social-panel-container {
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.6s ease-out;
+  transition: visibility 0.1s ease 0.6s, opacity 0.6s ease-out;
   display: block;
   z-index: 10;
   position: fixed;
@@ -6074,6 +6225,8 @@ $toolbar-height-small: 46px;
 
 .social-panel-container.active-panel {
   opacity: 1;
+  visibility: visible;
+  transition: visibility 0.1s ease, opacity 0.6s ease-out 0.1s;
 }
 
 .home-intro-video-background {
@@ -6223,6 +6376,9 @@ $toolbar-height-small: 46px;
 
 .custom-section-slider-block {
   height: 100vh;
+  max-width: 1366px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
   position: relative;
 
@@ -6558,7 +6714,8 @@ $toolbar-height-small: 46px;
 
   .collections-block-container {
     position: absolute;
-    bottom: 10%;
+    height: 320px;
+    top: 45%;
     left: 0;
     width: 100%;
     text-align: center;
@@ -6786,7 +6943,7 @@ $toolbar-height-small: 46px;
 }
 
 .custom-section-instagram-gallery {
-  height: 100vh;
+  height: calc(100vh + 250px);
   position: relative;
 
   .home-intro-center-line-left {
@@ -6794,7 +6951,7 @@ $toolbar-height-small: 46px;
     height: 2px;
     width: 30%;
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 0;
   }
 
@@ -6803,7 +6960,7 @@ $toolbar-height-small: 46px;
     height: 2px;
     width: 30%;
     position: absolute;
-    top: 25%;
+    top: 15%;
     right: 0;
   }
 
@@ -6811,7 +6968,7 @@ $toolbar-height-small: 46px;
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 25%;
+    top: 15%;
     transform: translate(-50%, -50%);
     text-align: center;
 
@@ -6836,10 +6993,13 @@ $toolbar-height-small: 46px;
     opacity: 1;
     position: absolute;
     width: 85%;
-    bottom: 24%;
+    top: 30%;
     left: 50%;
     height: 270px;
     transform: translate(-50%, 0);
+
+    max-width: 1366px;
+    margin: auto;
 
     .slick-list {
       top: 50%;
@@ -6907,36 +7067,37 @@ $toolbar-height-small: 46px;
 
   .bottom-gallery-button {
     position: absolute;
-    top: 85%;
+    top: 63%;
     left: 50%;
     transform: translate(-50%,0);
-    height: 47px;
-    width: 252px;
+    height: 45px;
+    width: 250px;
     cursor: pointer;
     border: 1px $voir-gray-1 solid;
     border-radius: 1px;
-    transition: backgroud 0.3s ease;
+    transition: backgroud 0.3s ease, color 0.3s ease;
+    @include fontHelveticaBold(13px);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 45px;
 
-    span {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      transform: translate(0,-50%);
-      transition: color 0.3s ease;
-
-      @include fontHelveticaBold(13px);
+    a {
+      opacity: 1;
+      display: block;
       color: $voir-gray-1;
-      text-transform: uppercase;
-      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 1;
+        color: #ffffff;
+        text-decoration: none;
+      }
     }
 
     &:hover {
 
       background: $voir-gray-1;
-
-      span {
-        color: #ffffff;
-      }
+      color: #ffffff;
 
     }
 
@@ -7051,6 +7212,7 @@ $toolbar-height-small: 46px;
   top: 50%;
   left: 50%;
   width: 88%;
+  max-width: 1202px; //1366 * 0.88
   height: 78%;
   transform: translate(-50%, -50%);
 
@@ -8825,7 +8987,9 @@ $toolbar-height-small: 46px;
 
           a {
             &:hover {
+              color: $voir-gray-1;
               opacity: 1;
+              text-decoration: none;
             }
           }
 
@@ -9332,12 +9496,12 @@ $toolbar-height-small: 46px;
 
   .contact-intro-block {
      position: relative;
-     height: calc(100vh - 36px);
+     height: calc(100vh + 214px);
      width: 100%;
 
      .intro-container {
        position: relative;
-       height: calc(100% - 127px);
+       height: calc(100vh - 160px);
        width: calc(100% - 50px);
        left: 25px;
        top: 103px;
@@ -9345,102 +9509,125 @@ $toolbar-height-small: 46px;
 
        .center-info-container {
          position: absolute;
-         top: 50%;
+         top: 30%;
          left: 50%;
          transform: translate(-50%,-50%);
-         width: 520px;
-         height: 340px;
+         width: 550px;
+         height: 210px;
          text-align: center;
-
-         .contact {
-           @include fontHelvetica(22px);
-           color: $voir-gray-1;
-           line-height: 22px;
-           margin-bottom: 5px;
-
-           opacity: 0;
-           transform: translate3d(0, 15px, 0);
-           transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
-         }
 
          .assistance {
            @include fontCambriaBold(50px);
            color: $voir-gray-1;
            line-height: 55px;
-
-           opacity: 0;
-           transform: translate3d(0, 15px, 0);
-           transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
          }
 
          .we-here {
-           @include fontHelvetica(30px);
+           @include fontHelvetica(28px);
            color: $voir-gray-1;
            line-height: 55px;
            margin-top: 10px;
-
-           opacity: 0;
-           transform: translate3d(0, 15px, 0);
-           transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
          }
 
          .add-info {
-           margin-top: 65px;
-           padding: 0 25px 0 25px;
 
-           .shipping {
-             @include fontHelveticaLight(18px);
+           .questions {
+             display: none;
+           }
+
+           margin-top: 40px;
+
+           @include fontHelveticaLight(18px);
+           color: $voir-gray-1;
+           line-height: 26px;
+
+           span {
+             @include fontHelvetica(18px);
              color: $voir-gray-1;
              line-height: 26px;
+           }
 
-             opacity: 0;
-             transform: translate3d(0, 15px, 0);
-             transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+           a {
+             @include fontHelveticaLight(18px);
+             color: #4b8bde;
+             line-height: 26px;
 
-             span {
-               @include fontHelveticaBoldOblique(18px);
-               color: $voir-gray-1;
-               line-height: 26px;
-             }
-
-             a {
-               @include fontHelveticaLight(18px);
+             &:hover {
+               opacity: 1;
                color: #4b8bde;
-               line-height: 26px;
-
-               &:hover {
-                 opacity: 1;
-                 color: #4b8bde;
-               }
              }
            }
 
-           .faq {
-             margin-top: 25px;
-             @include fontHelveticaLight(18px);
+         }
+
+       }
+
+       .contact-details-panel {
+         position: absolute;
+         top: 60%;
+         left: 50%;
+         transform: translate(-50%, 0);
+         height: 120px;
+         width: 720px;
+
+
+         .detail-item {
+           float: left;
+           height: 100%;
+           width: 200px;
+           margin-right: 60px;
+
+           &:last-child {
+             margin-right: 0;
+           }
+
+           .icon {
+             position: relative;
+             height: 20px;
+             width: 100%;
+
+             .mail-icon {
+               content: url('{{ "mail_icon.svg" | asset_url }}');
+               height: 100%;
+               position: absolute;
+               left: 50%;
+               transform: translate(-50%,0);
+             }
+
+             .phone-icon {
+               content: url('{{ "phone_icon.svg" | asset_url }}');
+               height: 140%;
+               position: absolute;
+               left: 50%;
+               transform: translate(-50%, -15%);
+             }
+
+
+           }
+
+           .description {
+             position: relative;
+             left: 50%;
+             transform: translate(-50%, 15px);
+             width: 170px;
+             height: 45px;
+             margin-top: 6px;
+             border-bottom: 1px solid #c8c9c7;
+             @include fontHelveticaLight(16px);
              color: $voir-gray-1;
-             line-height: 26px;
+             line-height: 45px;
+             text-align: center;
+           }
 
-             opacity: 0;
-             transform: translate3d(0, 15px, 0);
-             transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+           .cred {
+             position: relative;
+             width: 100%;
+             margin-top: 30px;
 
-             span {
-               @include fontHelveticaBoldOblique(18px);
-               color: $voir-gray-1;
-               line-height: 26px;
-             }
-
-             a {
-               @include fontHelveticaLight(18px);
-               color: #4b8bde;
-               line-height: 26px;
-
-               &:hover {
-                 opacity: 1;
-                 color: #4b8bde;
-               }
-             }
+             @include fontHelvetica(18px);
+             color: #4b8bde;
+             line-height: 18px;
+             text-align: center;
            }
 
          }
@@ -9452,80 +9639,22 @@ $toolbar-height-small: 46px;
      .side-line-left {
        background: #c8c9c7;
        height: 2px;
-       width: 0;
-       transition: width 0.2s ease 0.2s;
+       width: 29.2%;
        position: absolute;
-       top: calc(50% - 70px);
+       top: calc(30% - 80px);
        left: 0;
      }
 
      .side-line-right {
        background: #c8c9c7;
        height: 2px;
-       width: 0;
-       transition: width 0.2s ease 0.2s;
+       width: 29.2%;
        position: absolute;
-       top: calc(50% - 70px);
+       top: calc(30% - 80px);
        right: 0;
      }
 
    }
-
-  .contact-intro-block.active-animation {
-
-    .intro-container {
-
-      .center-info-container {
-
-        .contact {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-          transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
-        }
-
-        .assistance {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-          transition: opacity 1.0s ease 0.4s, transform 1.0s ease 0.4s;
-        }
-
-        .we-here {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-          transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
-        }
-
-        .add-info {
-
-          .shipping {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: opacity 1.0s ease 0.9s, transform 1.0s ease 0.9s;
-          }
-
-          .faq {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: opacity 1.0s ease 1.1s, transform 1.0s ease 1.1s;
-          }
-
-        }
-
-      }
-
-    }
-
-    .side-line-left {
-      width: 29.2%;
-      transition: width 1.7s ease 0.2s;
-    }
-
-    .side-line-right {
-      width: 29.2%;
-      transition: width 1.7s ease 0.2s;
-    }
-
-  }
 
   .contact-feedback-block {
     position: relative;
@@ -9771,14 +9900,14 @@ $toolbar-height-small: 46px;
       height: calc(100vh - 28px);
 
       .intro-container {
-        height: calc(100% - 105px);
+        height: calc(100% - 350px);
         width: calc(100% - 48px);
         left: 24px;
-        top: 89px;
+        top: 80px;
 
         .center-info-container {
-          width: 450px;
-          height: 270px;
+          width: 600px;
+          height: 150px;
 
           .contact {
             @include fontHelvetica(18px);
@@ -9798,163 +9927,53 @@ $toolbar-height-small: 46px;
           }
 
           .add-info {
-            margin-top: 60px;
-            padding: 0 15px 0 15px;
-
-            .shipping {
-              @include fontHelveticaLight(15px);
-              line-height: 23px;
-
-              span {
-                @include fontHelveticaBoldOblique(15px);
-                line-height: 23px;
-              }
-
-              a {
-                @include fontHelveticaLight(15px);
-                line-height: 23px;
-              }
-            }
-
-            .faq {
-              @include fontHelveticaLight(15px);
-              line-height: 23px;
-
-              span {
-                @include fontHelveticaBoldOblique(15px);
-                line-height: 23px;
-              }
-
-              a {
-                @include fontHelveticaLight(15px);
-                line-height: 23px;
-              }
-            }
-
-          }
-
-        }
-
-      }
-
-      .side-line-left {
-        width: 0;
-        top: calc(50% - 50px);
-      }
-
-      .side-line-right {
-        width: 0;
-        top: calc(50% - 50px);
-      }
-
-    }
-
-    .contact-intro-block.active-animation {
-
-      .intro-container {
-
-        .center-info-container {
-
-          .contact {
-
-          }
-
-          .assistance {
-
-          }
-
-          .we-here {
-
-          }
-
-          .add-info {
-
-            .shipping {
-
-            }
-
-            .faq {
-
-            }
-
-          }
-
-        }
-
-      }
-
-      .side-line-left {
-        width: 22%;
-      }
-
-      .side-line-right {
-        width: 22%;
-      }
-
-    }
-
-    .contact-feedback-block {
-      height: 85vh;
-
-      .center-info-container {
-        top: 25%;
-        width: 600px;
-        height: 160px;
-
-        .title {
-          @include fontCambriaBold(30px);
-          line-height: 30px;
-        }
-
-        .description {
-
-        }
-
-        .add-info {
-          @include fontHelveticaLight(15px);
-          line-height: 23px;
-
-          span {
-            @include fontHelvetica(15px);
-            line-height: 23px;
-          }
-
-          a {
             @include fontHelveticaLight(15px);
             line-height: 23px;
+
+            span {
+              @include fontHelvetica(15px);
+              line-height: 23px;
+            }
+
+            a {
+              @include fontHelveticaLight(15px);
+              line-height: 23px;
+            }
+
           }
+
 
         }
 
-      }
-
-      .contact-details-panel {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, 0);
-        height: 120px;
-        width: 620px;
+        .contact-details-panel {
+          position: absolute;
+          top: 55%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          height: 120px;
+          width: 620px;
 
 
-        .detail-item {
-          width: 170px;
-          margin-right: 55px;
+          .detail-item {
+            width: 170px;
+            margin-right: 55px;
 
-          .icon {
+            .icon {
 
-          }
+            }
 
-          .description {
-            width: 150px;
-            @include fontHelveticaLight(15px);
-            line-height: 45px;
-          }
+            .description {
+              width: 150px;
+              @include fontHelveticaLight(15px);
+              line-height: 45px;
+            }
 
-          .cred {
-            margin-top: 33px;
-            @include fontHelvetica(16px);
-            line-height: 16px;
+            .cred {
+              margin-top: 33px;
+              @include fontHelvetica(16px);
+              line-height: 16px;
+            }
+
           }
 
         }
@@ -9962,33 +9981,13 @@ $toolbar-height-small: 46px;
       }
 
       .side-line-left {
-        width: 0;
-        top: calc(25% - 65px);
-      }
-
-      .side-line-right {
-        width: 0;
-        top: calc(25% - 65px);
-      }
-
-    }
-
-    .contact-feedback-block.active-animation {
-
-      .center-info-container {
-
-      }
-
-      .contact-details-panel {
-
-      }
-
-      .side-line-left {
         width: 22%;
+        top: calc(30% - 75px);
       }
 
       .side-line-right {
         width: 22%;
+        top: calc(30% - 75px);
       }
 
     }
@@ -10001,15 +10000,16 @@ $toolbar-height-small: 46px;
   .contact-us-main-container {
 
     .contact-intro-block {
-      height: calc(100vh - 30px);
+      height: 1400px;
 
       .intro-container {
-        height: calc(100% - 85px);
+        height: calc(100% - 475px);
         width: calc(100% - 26px);
         left: 13px;
         top: 62px;
 
         .center-info-container {
+          top: 20%;
           width: 270px;
           height: 280px;
 
@@ -10029,31 +10029,57 @@ $toolbar-height-small: 46px;
           }
 
           .add-info {
-            margin-top: 50px;
-            padding: 0;
 
-            .shipping {
-              @include fontHelveticaLight(13px);
-
-              span {
-                @include fontHelveticaBoldOblique(13px);
-              }
-
-              a {
-                @include fontHelveticaLight(13px);
-              }
+            .questions {
+              display: block;
             }
 
-            .faq {
+            @include fontHelveticaLight(13px);
+
+            .second-paragraph {
+              margin-top: 20px;
+            }
+
+            span {
+              @include fontHelvetica(13px);
+            }
+
+            a {
               @include fontHelveticaLight(13px);
+            }
 
-              span {
-                @include fontHelveticaBoldOblique(13px);
-              }
+          }
 
-              a {
-                @include fontHelveticaLight(13px);
-              }
+        }
+
+        .contact-details-panel {
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          height: 120px;
+          width: 270px;
+
+
+          .detail-item {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 60px;
+
+            .icon {
+
+            }
+
+            .description {
+              width: 150px;
+              @include fontHelveticaLight(14px);
+              line-height: 45px;
+            }
+
+            .cred {
+              margin-top: 20px;
+              @include fontHelvetica(16px);
+              line-height: 16px;
             }
 
           }
@@ -10074,49 +10100,6 @@ $toolbar-height-small: 46px;
 
     }
 
-    .contact-intro-block.active-animation {
-
-      .intro-container {
-
-        .center-info-container {
-
-          .contact {
-
-          }
-
-          .assistance {
-
-          }
-
-          .we-here {
-
-          }
-
-          .add-info {
-
-            .shipping {
-
-            }
-
-            .faq {
-
-            }
-
-          }
-
-        }
-
-      }
-
-      .side-line-left {
-        width: 10%;
-      }
-
-      .side-line-right {
-        width: 10%;
-      }
-
-    }
 
     .contact-feedback-block {
       height: 1400px;
@@ -11787,6 +11770,7 @@ $toolbar-height-small: 46px;
   }
 
   .custom-section-slider-block {
+
     margin-top: 60px;
 
     .collection-slider-main-block {
@@ -12046,20 +12030,20 @@ $toolbar-height-small: 46px;
 
   .custom-section-instagram-gallery {
 
-    height: 80vh;
+    height: calc(80vh + 250px);
 
     .home-intro-center-line-left {
       width: 23%;
-      top: 15%;
+      top: 10%;
     }
 
     .home-intro-center-line-right {
       width: 23%;
-      top: 15%;
+      top: 10%;
     }
 
     .upper-text-block {
-      top: 15%;
+      top: 10%;
 
       .title {
         @include fontCambriaBold(30px);
@@ -12075,7 +12059,7 @@ $toolbar-height-small: 46px;
 
     .insta-gallery-container {
       width: 100%;
-      top: 30%;
+      top: 25%;
       height: 310px;
       transform: translate(-50%, 0);
 
@@ -12121,7 +12105,7 @@ $toolbar-height-small: 46px;
     }
 
     .bottom-gallery-button {
-      top: 75%;
+      top: 60%;
     }
 
   }
@@ -12621,19 +12605,20 @@ $insta-image-size-not-so-small: 200px;
   }
 
   .custom-section-instagram-gallery {
+    height: calc(80vh + 500px);
 
     .home-intro-center-line-left {
       width: 10%;
-      top: 15%;
+      top: 5%;
     }
 
     .home-intro-center-line-right {
       width: 10%;
-      top: 15%;
+      top: 5%;
     }
 
     .upper-text-block {
-      top: 15%;
+      top: 5%;
 
       .title {
         @include fontCambriaBold(24px);
@@ -12648,7 +12633,7 @@ $insta-image-size-not-so-small: 200px;
 
     .insta-gallery-container {
       width: 100%;
-      top: 30%;
+      top: 17%;
       height: $insta-image-size-not-so-small;
       transform: translate(-50%, 0);
 
@@ -12694,7 +12679,7 @@ $insta-image-size-not-so-small: 200px;
     }
 
     .bottom-gallery-button {
-      top: 80%;
+      top: 40%;
     }
 
   }
@@ -12837,7 +12822,7 @@ $insta-image-size-not-so-small: 200px;
         .arrow-container {
           position: absolute;
           right: 10px;
-          top: calc(15% + 11px);
+          top: calc(15% + 8px);
         }
 
       }

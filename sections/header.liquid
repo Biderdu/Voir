@@ -92,8 +92,8 @@
       <div class="site-header-menu-container">
         <div class="site-header-menu">
           <div id="my-bag-menu-button" class="menu-elem menu-my-bag">
-           <img src="{{ 'my_bag.svg' | asset_url }}">
-            <div class="bag-counter">0</div>
+           <img class="my-bag-icon">
+          <div class="bag-counter">{{ cart.item_count }}</div>
           </div>
           <a href="/account/login">
             {% if customer %}
@@ -173,7 +173,7 @@
             My Bag
           </div>
           <div class="items-count">
-            <span>1</span> Item(s)
+            <span>{{ cart.item_count }}</span> Item(s)
           </div>
         </div>
 
@@ -182,7 +182,38 @@
         </div>
       </div>
       <div class="items-list-container">
+          {% for cart_item in cart.items %}
+            <div class="bag-item">
+              <div class="image-container">
+                <img src="{{ cart_item.image | img_url: 'small' }}">
+              </div>
+              <div class="info-container">
+                <div class="upper-part">
+                  <div class="title">
+                    {{ cart_item.title }}
+                  </div>
+                  <div class="description">
+                    {{ cart_item.product.metafields.c_f.short_description }}
+                  </div>
+                </div>
+                <div class="lower-part">
+                  <div class="count-container">
+                    <div class="counter">{{ cart_item.quantity }}</div>
+                  </div>
+                  <div class="total-price">
+                    <div class="units">
+                      CAD
+                    </div>
+                    <div class="price-check">
+                      ${{ cart_item.line_price | divided_by: 100.00 }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+
+          {% endfor %}
       </div>
       <div class="bag-bottom-panel">
         <div class="price-container">
@@ -199,17 +230,24 @@
               CAD
             </div>
             <div class="count">
-              $35.00
+              ${{ cart.total_price }}
             </div>
           </div>
         </div>
         <div class="button-container">
+
           <div class="view-bug-button">
-            <span>VIEW MY BAG</span>
+            <a href="/cart">
+              VIEW MY BAG
+            </a>
           </div>
+
           <div class="checkout-button">
-            <span>CHECKOUT</span>
+            <a href="/cart">
+              CHECKOUT
+            </a>
           </div>
+
         </div>
         <div class="shipping-container">
           <div class="info">FREE SHIPPING & RETURNS IN CANADA</div>

@@ -964,24 +964,18 @@ theme.Header = (function() {
       $( document ).ready(function() {
         setTimeout(function(){
 
-          animationForScroll(panelsWithAnimations.contact);
 
           $('#contact-navi-item').addClass('active');
 
         }, 500);
       });
 
-      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.contact);
-
       headerPositionChange($(selectors.body).scrollTop());
-      
+
       
       //scroll check
       $(window).scroll( function() {
         headerPositionChange($(selectors.body).scrollTop());
-
-        animationForScroll(panelsWithAnimations.contact);
-        
       });
 
 
@@ -3369,25 +3363,29 @@ function getDocHeight() {
 }
 
 function footerInit() {
-  $(window).scroll(function() {
+  
+  if($('#contact-us-page').length != 0) {
 
-    var testHei = $(window).scrollTop() + $(window).height();
+    $('.site-footer').addClass('active_footer');
 
-    // $("#test_span").text(testHei + "/" + getDocHeight());
+  } else {
+    
+    $(window).scroll(function () {
+      
+      if ($(window).scrollTop() + $(window).height() >= getDocHeight()) {
 
+        $('.site-footer').addClass('active_footer');
+        $('#social-panel-line').addClass('hidden-line');
 
-    if($(window).scrollTop() + $(window).height() >= getDocHeight()) {
+      } else {
 
-      $('.site-footer').addClass('active_footer');
-      $('#social-panel-line').addClass('hidden-line');
-
-    } else {
-
-      $('.site-footer').removeClass('active_footer');
-      $('#social-panel-line').removeClass('hidden-line');
-
-    }
-  });
+        $('.site-footer').removeClass('active_footer');
+        $('#social-panel-line').removeClass('hidden-line');
+      }
+      
+    });
+    
+  }
 
   $('#back-to-top-arrow').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 1000);
@@ -3402,13 +3400,17 @@ function instagramInit() {
 
     var feed = new Instafeed({
       get: 'user',
-      // get: 'tagged',
-      userId: '4775145375',
-      // tagName: 'CreateWithVoir',
-      clientId: '488d6d543a5647b4ab70eef1a48ba9da',
-      accessToken: '4775145375.488d6d5.69f8d4ff2f5342698736325c3d2b0718',
+      // userId: '4775145375',
+      userId: '4482001775',
+
+      // clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
+      clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
+
+      // accessToken: '4775145375.488d6d5.69f8d4ff2f5342698736325c3d2b0718',
+      accessToken: '4482001775.1677ed0.d6759f19a65a42b6aaa6337e416430e4',
+
       resolution: 'standard_resolution',
-      template: '<a href="{{link}}"><div class="insta-image-container"><img src="{{image}}" /></div></a>',
+      template: '<a target="_blank" href="{{link}}"><div class="insta-image-container"><img src="{{image}}" /></div></a>',
       after: function () {
         var slidesToShow = 4;
         var arrows = true;
@@ -3418,7 +3420,7 @@ function instagramInit() {
           arrows = false;
 
           if ($(window).width() < 768) {
-            slidesToShow = 1.7;
+            slidesToShow = 1.65;
             arrows = false;
           }
 
