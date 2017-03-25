@@ -12,6 +12,16 @@
   {%- assign product_description_width = 'medium-up--one-half' -%}
 
   <div class="product-page-intro-panel">
+    <div class="product-page-to-shop-button">
+      <div class="arrow-icon-container">
+        <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
+      </div>
+      <a href="/">
+        <div class="label">
+          TO SHOP
+        </div>
+      </a>
+    </div>
     <div class="product-intro-container">
       <div class="intro-left-side">
         {%- assign featured_img_src = product.featured_image.src -%}
@@ -32,16 +42,7 @@
           <div class="product-edge-line"></div>
 
           <div class="reviews-row">
-            <div class="stars">
-              <div class="star black"></div>
-              <div class="star black"></div>
-              <div class="star black"></div>
-              <div class="star black"></div>
-              <div class="star white"></div>
-            </div>
-            <div class="reviews-count">
-              2 REVIEW(S)
-            </div>
+            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           </div>
 
           <div class="product-price-row">
@@ -117,6 +118,16 @@
 </div>
 
 <div id="product-page-ingredients-panel" class="product-page-ingredients">
+  <div class="product-page-to-shop-button">
+    <div class="arrow-icon-container">
+      <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
+    </div>
+    <a href="/">
+      <div class="label">
+        TO SHOP
+      </div>
+    </a>
+  </div>
   <div class="ingredients-title">
     Ingredients Spotlight
   </div>
@@ -126,7 +137,7 @@
       <img src="{{ product.featured_image.src | img_url: '720x' }}" class="ingredients-image">
     </div>
     <div class="ingredients-panel">
-      <div class="ingredient-pin to-left" style="top: 220px; right: 350px;">
+      <div class="ingredient-pin to-left first-pin">
         <div class="icon">
           <div class="hover-opacity"></div>
           <img>
@@ -143,7 +154,7 @@
           </div>
         </div>
       </div>
-      <div class="ingredient-pin to-right" style="top: 370px; left: 340px;">
+      <div class="ingredient-pin to-right second-pin">
         <div class="icon">
           <div class="hover-opacity"></div>
           <img>
@@ -166,11 +177,31 @@
     </div>
   </div>
 
+  <div class="ingredients-description-mobile">
+    <div class="title">
+      Sunflower Oil and Phospholipid
+    </div>
+    <div class="border-line"></div>
+    <div class="ingredients-details">
+      Nutrient-packed fortifiers that condition hair fibres to leave your tresses looking soft and smooth
+    </div>
+  </div>
+
   <div class="side-line-left"></div>
   <div class="side-line-right"></div>
 </div>
 
 <div id="product-page-use-panel" class="product-page-how-to-use">
+  <div class="product-page-to-shop-button">
+    <div class="arrow-icon-container">
+      <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
+    </div>
+    <a href="/">
+      <div class="label">
+        TO SHOP
+      </div>
+    </a>
+  </div>
   <div class="title-block">
     How to Use
   </div>
@@ -204,10 +235,10 @@
               1. Dispense a small amount onto dry hair and work from roots to tips.
             </div>
             <div id="second-step-description" class="description-block">
-              2. Dispense a small amount onto dry hair and work from roots to tips.
+              2. Apply to wet hair to detangle.
             </div>
             <div id="third-step-description" class="description-block">
-              3. Dispense a small amount onto dry hair and work from roots to tips.
+              3. For deep conditioning, apply generously to damp hair and set with a hot towel for 20 minutes prior to shampooing.
             </div>
           </div>
         </div>

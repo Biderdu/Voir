@@ -3323,7 +3323,6 @@ h1.product-single__title {
 
 @include media-query($small) {
   .template-product .main-content {
-    padding-top: $grid-gutter-mobile;
   }
 
   .thumbnails-slider--active {
@@ -10229,6 +10228,11 @@ a {
     width: 100%;
     top: 105px;
 
+    .product-page-to-shop-button {
+      top: 0;
+      left: 45px;
+    }
+
     .product-intro-container {
       position: absolute;
       width: 100%;
@@ -10321,39 +10325,21 @@ a {
           }
 
           .reviews-row {
-            margin-top: 15px;
-            height: 15px;
+            margin-top: 10px;
+            height: 21px;
             width: 100%;
 
-            .stars {
-              height: 100%;
-              width: 80px;
+            .spr-starrating {
               float: left;
-
-              .star {
-                font-size: 13px;
-                line-height: 13px;
-                height: 13px;
-                width: 16px;
-                float: left;
-              }
-
-              .black:before {
-                content: '\267C';
-              }
-
-              .white:before {
-                content: '\267D';
-              }
-
             }
 
-            .reviews-count {
+            .spr-badge-caption {
               height: 100%;
               float: right;
               @include fontHelvetica(13px);
               line-height: 14px;
               color: $voir-gray-2;
+              text-transform: uppercase;
             }
 
           }
@@ -10546,10 +10532,43 @@ a {
   }
 }
 
+.product-page-to-shop-button {
+  position: absolute;
+  height: 15px;
+  cursor: pointer;
+
+  .arrow-icon-container {
+    position: relative;
+    top: 50%;
+    float: left;
+    height: 19px;
+    transform: translate(0,-50%) rotate(180deg);
+
+    img {
+      height: 100%;
+    }
+
+  }
+
+  .label {
+    float: left;
+    @include fontHelveticaBold(13px);
+    color: $voir-gray-2;
+    line-height: 15px;
+    margin-left: 10px;
+  }
+
+}
+
 .product-page-ingredients {
   position: relative;
   height: 100vh;
   width: 100%;
+
+  .product-page-to-shop-button {
+    top: calc(25% - 45px);
+    left: 45px;
+  }
 
   .ingredients-title {
     @include fontCambriaBold(36px);
@@ -10718,6 +10737,16 @@ a {
 
       }
 
+      .first-pin {
+        top: 220px;
+        right: 380px;
+      }
+
+      .second-pin {
+        top: 370px;
+        left: 370px;
+      }
+
       .ingredient-pin.to-left {
 
         .icon {
@@ -10765,6 +10794,10 @@ a {
 
     }
 
+  }
+
+  .ingredients-description-mobile {
+    display: none;
   }
 
 }
@@ -10864,6 +10897,11 @@ a {
   position: relative;
   height: 100vh;
   width: 100%;
+
+  .product-page-to-shop-button {
+    top: calc(22% - 45px);
+    left: 45px;
+  }
 
   .title-block {
     @include fontCambriaBold(36px);
@@ -11348,9 +11386,1206 @@ a {
   width: 100%;
 }
 
-@media (max-width: $screen-tablet) {}
+@media (max-width: $screen-tablet) {
 
-@media (max-width: $screen-mobile) {}
+  .product-page-main-container {
+    height: calc(110vh - 28px);
+
+    .product-page-intro-panel {
+      height: calc(100% - 80px);
+      top: 80px;
+
+      .product-page-to-shop-button {
+        top: 20px;
+        left: 35px;
+      }
+
+      .product-intro-container {
+        height: 100%;
+        top: 0;
+        transform: translate(0, 0);
+
+        .intro-left-side {
+          height: 45%;
+          width: 100%;
+
+          .product-image-container {
+            text-align: center;
+            width: 270px;
+            height: 360px;
+            right: 50%;
+            transform: translate(50%,-50%);
+
+            img.reel-main-image {
+              height: 114px;
+              width: 270px;
+            }
+
+            .border {
+              width: 270px;
+              height: 320px;
+              border: 7px solid #f4f4f4;
+            }
+
+          }
+
+        }
+
+        .intro-right-side {
+          float: right;
+          height: 50%;
+          width: 100%;
+
+          .product-info-container {
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            .product-name {
+              @include fontCambriaBold(30px);
+              line-height: 30px;
+            }
+
+            .product-short-description {
+              @include fontHelvetica(18px);
+              line-height: 18px;
+            }
+
+            .product-form-container {
+              .product-form {
+
+                .product-form-quantity {
+
+                  .quantity-input-container {
+
+                    input {
+                     background: #fbfbfb;
+                    }
+
+                  }
+
+                }
+
+                .product-form-button-submit {
+
+                  .product-btn-submit {
+                    background: #fbfbfb;
+                  }
+
+                }
+
+              }
+            }
+
+            .detail-info-row {
+
+              .info-container {
+                text-align: justify;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-to-shop-button {
+
+    .arrow-icon-container {
+
+    }
+
+    .label {
+
+    }
+
+  }
+
+  .product-page-ingredients {
+    height: 75vh;
+
+    .product-page-to-shop-button {
+      top: calc(10% + 70px);
+      left: 35px;
+    }
+
+    .ingredients-title {
+      @include fontCambriaBold(30px);
+      line-height: 30px;
+      top: 10%;
+    }
+
+    .side-line-left {
+      width: 22.2%;
+      top: 10%;
+    }
+
+    .side-line-right {
+      width: 22.2%;
+      top: 10%;
+    }
+
+    .ingredients-container {
+      top: 15%;
+
+      .image-container {
+        img {
+
+        }
+      }
+
+      .ingredients-panel {
+
+        .ingredient-pin {
+
+          .icon {
+
+            .hover-opacity {
+
+            }
+
+            img {
+
+            }
+
+          }
+
+          .mid-line {
+            display: none;
+          }
+
+          .description {
+            display: none;
+          }
+
+          &:hover {
+
+            .description {
+
+            }
+
+          }
+
+        }
+
+        .first-pin {
+
+        }
+
+        .second-pin {
+
+        }
+
+        .full-list {
+
+        }
+
+      }
+
+    }
+
+    .ingredients-description-mobile {
+      display: block;
+      position: absolute;
+      top: calc(15% + 550px);
+      left: 50%;
+      transform: translate(-50%,0);
+      width: 450px;
+      text-align: center;
+
+      .title {
+        position: relative;
+        width: 100%;
+        @include fontHelveticaBold(18px);
+        color: $voir-gray-1;
+        line-height: 18px;
+        margin-bottom: 20px;
+      }
+
+      .border-line {
+        position: relative;
+        width: 405px;
+        height: 2px;
+        margin: auto;
+        background: #c8c9c7;
+      }
+
+      .ingredients-details {
+        position: relative;
+        width: 100%;
+        @include fontHelveticaLight(15px);
+        color: $voir-gray-1;
+        padding: 0 15px 0 15px;
+        line-height: 23px;
+        margin-top: 20px;
+      }
+
+
+    }
+
+
+
+  }
+
+  .product-modal-panel {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    &.active {
+      display: block;
+    }
+
+    .modal-overlay {
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .info-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 450px;
+      background: #ffffff;
+
+      .title {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include fontCambriaBold(28px, 400, 1px);
+        line-height: 36px;
+        color: $voir-gray-1;
+        text-align: center;
+      }
+
+      .short-description {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include fontHelveticaBold(14px, 400, 1px);
+        line-height: 14px;
+        color: $voir-gray-2;
+        text-align: center;
+      }
+
+      .center-line {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 300px;
+        height: 2px;
+        background: #c8c9c7;
+      }
+
+      .ingredients-list {
+        width: 450px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include fontHelvetica(14px, 400, 1px);
+        line-height: 23px;
+        color: $voir-gray-2;
+        text-align: center;
+      }
+
+      .close-button {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+      }
+
+    }
+
+  }
+
+  .product-page-how-to-use {
+    height: 900px;
+
+    .product-page-to-shop-button {
+      top: calc(10% + 70px);
+      left: 35px;
+    }
+
+    .title-block {
+      @include fontCambriaBold(30px);
+      line-height: 30px;
+      top: 10%;
+
+    }
+
+    .side-line-left {
+      width: 22.2%;
+      top: 10%;
+    }
+
+    .side-line-right {
+      width: 22.2%;
+      top: 10%;
+    }
+
+    .info-block {
+      height: 700px;
+      bottom: 0;
+      top: auto;
+
+      .left-side {
+        height: 70%;
+        width: 100%;
+
+        .video-container {
+          height: 480px;
+          width: 690px;
+          margin: auto;
+          float: none;
+
+          video {
+            position: relative;
+            top: 50%;
+            transform: translate(0,-50%);
+            height: auto;
+            width: 100%;
+          }
+
+        }
+
+      }
+
+      .right-side {
+        height: 40%;
+        width: 100%;
+
+        .info-panel {
+
+          margin-left: 40px;
+          width: 680px;
+
+          .title {
+            @include fontCambriaBold(30px);
+            line-height: 30px;
+          }
+
+          .description {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            @include fontHelvetica(18px);
+            line-height: 18px;
+          }
+
+          .detail-description {
+
+            .tabs-row {
+              margin-bottom: 25px;
+
+              .tab {
+                @include fontHelvetica(15px, 400, 1px);
+
+                line-height: 15px;
+                margin-right: 40px;
+
+                &.active {
+                  @include fontHelveticaBold(15px, 400, 1px);
+                }
+
+              }
+
+            }
+
+            .details-row {
+
+              .description-block {
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .product-page-about-art {
+    height: 95vh;
+
+
+    .about-art-container {
+      position: absolute;
+      bottom: 41px;
+      left: 31px;
+      right: 31px;
+      top: 90px;
+
+      .art-back {
+
+      }
+
+      .art-description-container {
+        height: 250px;
+
+        .icon {
+
+        }
+
+        .art-title {
+          @include fontCambriaBold(30px,400,1px);
+          line-height: 30px;
+        }
+
+        .art-description {
+          @include fontHelvetica(15px);
+          line-height: 23px;
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-reviews {
+
+  }
+
+  .product-page-footer-spacer {
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+  .product-page-main-container {
+    height: 1050px;
+
+    .product-page-intro-panel {
+      height: calc(100% - 60px);
+      top: 60px;
+
+      .product-intro-container {
+
+        .intro-left-side {
+          height: 30%;
+
+          .product-image-container {
+            width: 196px;
+            height: 250px;
+
+            img.reel-main-image {
+              height: 90px;
+              width: 196px;
+            }
+
+            .border {
+              width: 196px;
+              height: 227px;
+              border: 5px solid #f4f4f4;
+            }
+
+          }
+
+        }
+
+        .intro-right-side {
+          height: 65%;
+
+          .product-info-container {
+
+            width: 270px;
+            height: 100%;
+            left: 50%;
+            transform: translate(-50%,0);
+
+            .product-name {
+              @include fontCambriaBold(24px);
+              line-height: 24px;
+            }
+
+            .product-short-description {
+              @include fontHelvetica(16px);
+              line-height: 16px;
+              margin-bottom: 20px;
+            }
+
+            .product-edge-line {
+              width: 100%;
+              height: 1px;
+              background: #e3e3e3;
+            }
+
+            .reviews-row {
+              margin-top: 10px;
+              height: 15px;
+              width: 100%;
+
+              .spr-starrating {
+                transform: scale(0.7) translate(-18%,0);
+              }
+
+              .spr-badge-caption {
+                @include fontHelvetica(10px);
+                line-height: 10px;
+              }
+
+            }
+
+            .product-price-row {
+              height: 18px;
+              margin-top: 15px;
+              margin-bottom: 15px;
+
+              .size-info {
+                @include fontHelveticaLight(13px);
+                line-height: 13px;
+              }
+
+              .price-info {
+                @include fontHelveticaBold(13px);
+                line-height: 13px;
+
+                span {
+                  @include fontHelvetica(13px);
+                }
+              }
+            }
+
+            .product-form-container {
+              height: 110px;
+              margin: 15px 0 20px 0;
+
+              .product-form {
+                margin: 0;
+                width: 235px;
+                margin-left: auto;
+                margin-right: auto;
+
+                .product-form-quantity {
+                  width: 235px;
+
+                  .label {
+
+                  }
+
+                  .quantity-input-container {
+                    width: 190px;
+                  }
+
+                }
+
+                .product-form-button-submit {
+                  width: 235px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  margin-top: 20px;
+
+                  .product-btn-submit {
+
+                  }
+
+                }
+
+              }
+            }
+
+            .detail-info-row {
+              height: 400px;
+
+              .info-tabs {
+
+                .tab {
+                  float: left;
+                  @include fontHelvetica(10px);
+                  line-height: 10px;
+                  margin-right: 24px;
+
+                  &.active {
+                    @include fontHelveticaBold(10px);
+                  }
+
+                  &:last-child {
+                    margin-right: 0;
+                  }
+
+                }
+
+              }
+
+              .info-container {
+                @include fontHelveticaLight(13px, 400, 1.0px);
+                line-height: 23px;
+
+                .view-toggle {
+                  @include fontHelvetica(10px);
+                  line-height: 23px;
+
+                  &.active {
+                    display: block;
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-to-shop-button {
+    display: none;
+  }
+
+  .product-page-ingredients {
+    height: 100vh;
+
+
+    .ingredients-title {
+      @include fontCambriaBold(24px);
+      line-height: 32px;
+      text-align: center;
+      top: 10%;
+    }
+
+    .side-line-left {
+      width: 14%;
+      top: 10%;
+    }
+
+    .side-line-right {
+      width: 14%;
+      top: 10%;
+    }
+
+    .ingredients-container {
+      top: 15%;
+      height: 320px;
+
+      .image-container {
+        width: 320px;
+
+        img {
+
+        }
+      }
+
+      .ingredients-panel {
+        width: 320px;
+
+        .ingredient-pin {
+
+          .icon {
+
+            .hover-opacity {
+
+            }
+
+            img {
+              transform: scale3d(0.9,0.9,0.9) translate(-50%,-50%);
+            }
+
+          }
+
+          .mid-line {
+            display: none;
+          }
+
+          .description {
+            display: none;
+          }
+
+          &:hover {
+
+            .icon {
+
+              img {
+                transform: scale3d(1.05,1.05,1.05) translate(-44%,-44%);
+              }
+
+            }
+
+            .description {
+
+            }
+
+          }
+
+        }
+
+        .first-pin {
+          top: 150px;
+          right: 240px;
+        }
+
+        .second-pin {
+          top: 220px;
+          left: 240px;
+        }
+
+        .full-list {
+          @include fontHelvetica(10px);
+          line-height: 10px;
+        }
+
+      }
+
+    }
+
+    .ingredients-description-mobile {
+
+      top: calc(15% + 350px);
+      width: 320px;
+
+      .title {
+        @include fontHelveticaBold(15px);
+        color: $voir-gray-1;
+        line-height: 15px;
+        margin-bottom: 15px;
+      }
+
+      .border-line {
+        width: 270px;
+        height: 1px;
+      }
+
+      .ingredients-details {
+        width: 270px;
+        margin: auto;
+        @include fontHelveticaLight(13px);
+        color: $voir-gray-1;
+        padding: 0;
+        line-height: 23px;
+        margin-top: 20px;
+      }
+
+
+    }
+
+  }
+
+  .product-modal-panel {
+
+    .info-container {
+      width: 310px;
+      height: 450px;
+
+      .title {
+        width: 100%;
+        top: 10%;
+        @include fontCambriaBold(20px, 400, 1px);
+        line-height: 28px;
+
+      }
+
+      .short-description {
+        top: 15%;
+        @include fontHelveticaBold(12px, 400, 1px);
+        line-height: 12px;
+      }
+
+      .center-line {
+        top: 25%;
+        width: 240px;
+      }
+
+      .ingredients-list {
+        width: 280px;
+        top: 60%;
+        @include fontHelvetica(12px, 400, 1px);
+        line-height: 16px;
+
+      }
+
+      .close-button {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+      }
+
+    }
+
+  }
+
+  .product-page-how-to-use {
+    height: 500px;
+
+    .title-block {
+      @include fontCambriaBold(24px);
+      line-height: 24px;
+      top: 10%;
+    }
+
+    .side-line-left {
+      width: 14%;
+      top: 10%;
+    }
+
+    .side-line-right {
+      width: 14%;
+      top: 10%;
+    }
+
+    .info-block {
+      height: 400px;
+      bottom: 0;
+      top: auto;
+
+      .left-side {
+        height: 45%;
+        width: 100%;
+
+        .video-container {
+          height: 160px;
+          width: 270px;
+        }
+
+      }
+
+      .right-side {
+        height: 55%;
+        width: 100%;
+
+        .info-panel {
+
+          margin-left: 25px;
+          width: 270px;
+
+          .title {
+            @include fontCambriaBold(24px);
+            line-height: 24px;
+          }
+
+          .description {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            @include fontHelvetica(16px);
+            line-height: 16px;
+          }
+
+          .detail-description {
+
+            .tabs-row {
+              margin-bottom: 20px;
+
+              .tab {
+                @include fontHelvetica(13px, 400, 1px);
+                line-height: 13px;
+                margin-right: 25px;
+
+                &.active {
+                  @include fontHelveticaBold(13px, 400, 1px);
+                }
+
+              }
+
+            }
+
+            .details-row {
+
+              .description-block {
+                @include fontHelvetica(13px, 400, 1px);
+                line-height: 23px;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .product-page-about-art {
+    height: 95vh;
+
+
+    .about-art-container {
+      bottom: 20px;
+      left: 15px;
+      right: 15px;
+      top: 30px;
+
+      .art-back {
+
+      }
+
+      .art-description-container {
+        height: 200px;
+
+        .icon {
+          margin-top: 20px;
+          height: 20px;
+          width: 20px;
+        }
+
+        .art-title {
+          @include fontCambriaBold(24px,400,1px);
+          line-height: 30px;
+          margin-top: 15px;
+        }
+
+        .art-description {
+          width: 270px;
+          @include fontHelvetica(13px);
+          line-height: 23px;
+          margin-top: 20px;
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-reviews {
+    position: relative;
+    min-height: 50vh;
+    width: 100%;
+    z-index: 1000;
+    display: block;
+
+    .reviews-container {
+      position: relative;
+      width: calc(100% - 30px);
+      left: 15px;
+
+
+      #shopify-product-reviews{
+
+        .spr-container {
+          padding: 0;
+          border: none;
+
+          .spr-header-title {
+            @include fontCambriaBold(24px);
+            color: $voir-gray-1;
+            line-height: 24px;
+            text-transform: none;
+            text-align: start;
+          }
+
+          .spr-summary-actions-newreview {
+            @include fontHelveticaBold(13px);
+            color: $voir-gray-1;
+            line-height: 13px;
+          }
+
+          .spr-summary {
+            text-align: start;
+          }
+
+          .spr-form {
+
+            form {
+              position: relative;
+              width: 700px;
+              height: 500px;
+              margin: auto;
+
+              .spr-form-title {
+                @include fontCambriaBold(30px, 400, 1px);
+                color: $voir-gray-1;
+                line-height: 30px;
+                text-align: center;
+                margin-bottom: 70px;
+              }
+
+              .spr-form-contact {
+                padding: 0 30px 0 30px;
+
+                .spr-form-contact-name {
+                  width: 300px;
+                  float: left;
+
+                  label {
+                    display: none;
+                  }
+
+                  input {
+                    border: none;
+                    border-bottom: 1px solid $voir-gray-3;
+                    height: 45px;
+                    padding: 15px 0 15px 0;
+                    @include fontHelvetica(14px, 400, 1px);
+                    line-height: 45px;
+                    color: #a8aaaa;
+                    border-radius: 0;
+
+                    &:focus {
+                      outline: none;
+                    }
+
+                  }
+
+                }
+
+                .spr-form-contact-email {
+                  width: 300px;
+                  float: left;
+                  margin-left: 30px;
+
+
+                  label {
+                    display: none;
+                  }
+
+                  input {
+                    border: none;
+                    border-bottom: 1px solid $voir-gray-3;
+                    height: 45px;
+                    padding: 15px 0 15px 0;
+                    @include fontHelvetica(14px, 400, 1px);
+                    line-height: 45px;
+                    color: #a8aaaa;
+                    border-radius: 0;
+
+                    &:focus {
+                      outline: none;
+                    }
+
+                  }
+                }
+
+              }
+
+              .spr-form-review {
+
+                .spr-form-review-rating {
+                  position: absolute;
+                  top: 50px;
+                  left: 50%;
+                  transform: translate(-50%,0);
+                  width: 230px;
+
+                  .spr-form-label {
+                    float: left;
+                    @include fontHelveticaBold(14px);
+                    color: $voir-gray-2;
+                  }
+
+                  .spr-starrating {
+                    float: right;
+                  }
+
+                }
+
+              }
+
+              .spr-form-review-title {
+                padding: 0 30px 0 30px;
+
+                label {
+                  display: none;
+                }
+
+                input {
+                  border: none;
+                  border-bottom: 1px solid $voir-gray-3;
+                  height: 45px;
+                  padding: 15px 0 15px 0;
+                  @include fontHelvetica(14px, 400, 1px);
+                  line-height: 45px;
+                  color: #a8aaaa;
+                  border-radius: 0;
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                }
+
+              }
+
+              .spr-form-review-body {
+                padding: 0 30px 0 30px;
+
+                label {
+                  display: none;
+                }
+
+                textarea {
+                  border: none;
+                  border-bottom: 1px solid $voir-gray-3;
+                  height: 45px;
+                  padding: 15px 0 15px 0;
+                  @include fontHelvetica(14px, 400, 1px);
+                  line-height: 45px;
+                  color: #a8aaaa;
+                  border-radius: 0;
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                }
+              }
+
+              .spr-form-actions {
+                text-align: center;
+
+                .spr-button-primary {
+                  float: none;
+                  height: 45px;
+                  width: 350px;
+                  background: #ffffff;
+                  @include fontHelveticaBold(13px);
+                  color: $voir-gray-1;
+                  border: 1px solid $voir-gray-1;
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .product-page-footer-spacer {
+
+  }
+}
 
 //product page end
 
