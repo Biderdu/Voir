@@ -3590,17 +3590,6 @@ function homeBagInit() {
       }
     });
 
-    // jQuery.post(
-    //   '/cart/add.js',
-    //   {
-    //     quantity: 1,
-    //     id: productData.id
-    //   },
-    //   function(response) {
-    //     console.log('response: ', response);
-    //     location.reload();
-    //   });
-
   })
 
 }

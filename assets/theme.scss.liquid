@@ -6133,6 +6133,12 @@ $toolbar-height-small: 46px;
   }
 }
 
+a {
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .home-intro-block {
   position: relative;
   height: calc(100vh - 36px);
@@ -10619,17 +10625,27 @@ $toolbar-height-small: 46px;
           position: relative;
           height: 100%;
           width: 30px;
-          font-size: 24px;
-          color: $voir-gray-2;
           transform: translate3d(0,0,0);
-          transition: color 1.0s ease, font-size 1.0s ease;
           cursor: pointer;
 
-          span {
+          .hover-opacity {
             position: absolute;
-            top: 50%;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: background 1.0s ease;
+          }
+
+          img {
+            content: url("{{ 'selected_circle_plus_icon.svg' | asset_url }}");
+            position: absolute;
+            top: 55%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: scale3d(1.0,1.0,1.0) translate(-50%,-50%);
+            transition: transform 1.0s ease;
+            width: 30px;
+            height: 30px;
           }
 
         }
@@ -10675,9 +10691,16 @@ $toolbar-height-small: 46px;
 
         &:hover {
 
+          .hover-opacity {
+            background: rgba(255,255,255,0);
+          }
+
           .icon {
-            font-size: 30px;
-            color: $voir-gray-1;
+
+            img {
+              transform: scale3d(1.2,1.2,1.2) translate(-44%,-44%);
+            }
+
           }
 
           .description {
@@ -11112,17 +11135,16 @@ $toolbar-height-small: 46px;
 
 .product-page-reviews {
   position: relative;
-  height: 100vh;
+  min-height: 50vh;
   width: 100%;
   z-index: 1000;
+  display: block;
 
   .reviews-container {
-    height: 75%;
+    position: relative;
     width: calc(100% - 128px);
-    position: absolute;
     left: 64px;
-    top: 50%;
-    transform: translate(0,-50%);
+
 
     #shopify-product-reviews{
 
