@@ -3391,6 +3391,14 @@ function footerInit() {
     return false;
   });
 
+  $('#site-header-mobile-menu-button').on('click', function() {
+    $('#mobile-header-menu-panel').toggleClass('active-modal');
+  });
+
+  $('#mobile-menu-close-button').on('click', function() {
+    $('#mobile-header-menu-panel').toggleClass('active-modal');
+  });
+
 }
 
 function instagramInit() {
