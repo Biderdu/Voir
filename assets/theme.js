@@ -3641,7 +3641,7 @@ function bagInit() {
 
     var productData = $(this).data();
     var currentCount = parseInt($('#cart-item-quantity-' + productData.id).text());
-
+    
     var newCount = currentCount - 1;
 
     var currentTotalCount = parseInt($('#cart-total-items-counter').text());
@@ -3664,8 +3664,19 @@ function bagInit() {
         if(newCount < 1) {
           $('#bag-item-' + productData.id).remove();
         } else {
+
+          var newPrice = 0;
+
+          if(responseData.items) {
+            responseData.items.forEach(function (item) {
+              if(item.variant_id == productData.id) {
+                newPrice = item.line_price;
+              }
+            })
+          }
+
           parseInt($('#cart-item-quantity-' + productData.id).text(newCount));
-          $('#cart-item-total-price-' + productData.id).text((responseData.total_price / 100).toFixed(1));
+          $('#cart-item-total-price-' + productData.id).text((newPrice / 100).toFixed(1));
         }
 
         setTotalCartCounter(newTotalCount);
