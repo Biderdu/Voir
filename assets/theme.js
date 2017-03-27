@@ -3711,6 +3711,8 @@ $(document).ready(function() {
       homeSliderInit();
     }
 
+  } else if($('#product-page-panel').length != 0) {
+    homeBagInit();
   } else if($('#about-us-page').length != 0) {
 
     if($(window).width() > 1024) {
