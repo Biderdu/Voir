@@ -4169,6 +4169,24 @@ h1.product-single__title {
               border-radius: 1px;
               margin-top: 10px;
 
+              .qty-control {
+                position: absolute;
+                transform: translate(0,-50%);
+                top: 47%;
+                width: 10px;
+                @include fontHelvetica(12px);
+                color: #a7a8aa;
+                line-height: 12px;
+                cursor: pointer;
+              }
+
+              .qty-control.minus {
+                left: 8px;
+              }
+
+              .qty-control.plus {
+                right: 8px;
+              }
 
               .counter {
                 position: absolute;

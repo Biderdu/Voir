@@ -92,9 +92,10 @@
       <div class="site-header-menu-container">
         <div class="site-header-menu">
           <div id="my-bag-menu-button" class="menu-elem menu-my-bag">
-           <img class="my-bag-icon">
-          <div class="bag-counter">{{ cart.item_count }}</div>
+            <img class="my-bag-icon">
+            <div id="header-bag-counter" class="bag-counter">{{ cart.item_count }}</div>
           </div>
+
           <a href="/account/login">
             {% if customer %}
               <div class="menu-elem">
@@ -173,7 +174,7 @@
             My Bag
           </div>
           <div class="items-count">
-            <span>{{ cart.item_count }}</span> Item(s)
+            <span id="cart-total-items-counter">{{ cart.item_count }}</span> Item(s)
           </div>
         </div>
 
@@ -183,7 +184,7 @@
       </div>
       <div class="items-list-container">
           {% for cart_item in cart.items %}
-            <div class="bag-item">
+            <div id="bag-item-{{ cart_item.variant_id }}" class="bag-item">
               <div class="image-container">
                 <img src="{{ cart_item.image | img_url: 'small' }}">
               </div>
@@ -198,21 +199,21 @@
                 </div>
                 <div class="lower-part">
                   <div class="count-container">
-                    <div class="counter">{{ cart_item.quantity }}</div>
+                    <div data-id="{{ cart_item.variant_id }}" id="cart-item-minus-{{ cart_item.variant_id }}" class="cart-item-minus qty-control minus">-</div>
+                    <div data-id="{{ cart_item.variant_id }}" id="cart-item-quantity-{{ cart_item.variant_id }}" class="cart-item-counter counter">{{ cart_item.quantity }}</div>
+                    <div data-id="{{ cart_item.variant_id }}" id="cart-item-plus-{{ cart_item.variant_id }}" class="cart-item-plus qty-control plus">+</div>
                   </div>
                   <div class="total-price">
                     <div class="units">
                       CAD
                     </div>
                     <div class="price-check">
-                      ${{ cart_item.line_price | divided_by: 100.00 }}
+                      $<span id="cart-item-total-price-{{ cart_item.variant_id }}" class="cart-item-total-price">{{ cart_item.line_price | divided_by: 100.00 }}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
           {% endfor %}
       </div>
       <div class="bag-bottom-panel">
@@ -230,7 +231,7 @@
               CAD
             </div>
             <div class="count">
-              ${{ cart.total_price | divided_by: 100.00 }}
+              $<span id="cart-total-price">{{ cart.total_price | divided_by: 100.00 }}</span>
             </div>
           </div>
         </div>
