@@ -892,6 +892,7 @@ theme.Header = (function() {
           $('#about-us-page').addClass('animation-start');
 
           $('#about-navi-item').addClass('active');
+          $('#mobile-menu-about-button').addClass('active');
           
           animationForScroll(panelsWithAnimations.about);
 
@@ -966,6 +967,7 @@ theme.Header = (function() {
 
 
           $('#contact-navi-item').addClass('active');
+          $('#mobile-menu-contact-button').addClass('active');
 
         }, 500);
       });
@@ -1070,13 +1072,13 @@ theme.Header = (function() {
   } else if($('#home-intro-block').length != 0)  {           //home page
 
       console.log('home');
-
-
+      
       $( document ).ready(function() {
         setTimeout(function(){
           $('#home-intro-block').addClass('animation-start');
 
           $('#shop-navi-item').addClass('active');
+          $('#mobile-menu-shop-button').addClass('active');
           
           socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
@@ -1107,6 +1109,10 @@ theme.Header = (function() {
 
     if(windowWidth > 1024) {
       headerEventsInit();
+    } else {
+      $('#mobile-menu-shop-button').on('click', function() {
+        $('#mobile-menu-shop-sub-menu').toggleClass('active-sub-list');
+      })
     }
 
   }

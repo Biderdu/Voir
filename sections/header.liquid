@@ -286,6 +286,73 @@
     {% endif %}
   </style>
 </div>
+<div class="modal-container">
+  <div id="mobile-header-menu-panel" class="mobile-header-menu-panel">
+    <div id="mobile-menu-close-button" class="close-button"><img src="{{ 'close_icon_white.svg' | asset_url  }}"></div>
+    <div class="menu-container">
+      <div class="information-block">
+        <div class="title">
+          INFORMATION
+        </div>
+        <div class="list-container">
+          <div id="mobile-menu-shop-button" class="list-item">
+            SHOP
+            <div class="down-arrow">
+              <img>
+            </div>
+          </div>
+          <a href="/">
+            <div id="mobile-menu-shop-sub-menu" class="list-sub-menu">
+              <div class="sub-menu-item">Our Collection</div>
+              {% for product in collection.products %}
+                <div class="sub-menu-item">
+                  {{ product.metafields.c_f.short_description }}
+                </div>
+              {% endfor %}
+              <div class="sub-menu-item">
+                Studio Set
+              </div>
+            </div>
+          </a>
+          <a href="/pages/about">
+            <div id="mobile-menu-about-button" class="list-item">ABOUT THE BRAND</div>
+          </a>
+          <a href="/pages/contact-us">
+            <div id="mobile-menu-contact-button" class="list-item">CONTACT US</div>
+          </a>
+          <a href="/">
+            <div class="list-item">THE STUDIO</div>
+          </a>
+        </div>
+      </div>
+      <div class="service-block">
+        <div class="title">
+          CUSTOMER SERVICE
+        </div>
+        <div class="list-container">
+          <a href="/pages/general-faq#faq">
+            <div class="list-item">
+              GENERAL FAQ
+            </div>
+          </a>
+          <a href="/pages/general-faq#shipping">
+            <div class="list-item">
+              SHIPPING & RETURNS
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bottom-block">
+        <a href="/pages/general-faq#privacy">
+          <div class="bottom-item">PRIVACY POLICY</div>
+        </a>
+        <a href="/pages/general-faq#terms">
+          <div class="bottom-item">TERMS OF SERVICE</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% schema %}
   {
