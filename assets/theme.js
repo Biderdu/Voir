@@ -1025,7 +1025,7 @@ theme.Header = (function() {
           animationForScroll(panelsWithAnimations.product);
 
           if(windowWidth > 1024) {
-            productIngredientsMouseMoveAnimationInit();
+            // productIngredientsMouseMoveAnimationInit();
           } else {
             $('.ingredients-pin-icon').on('click', function() {
               productSetIngredientsDetails($(this).data().id);
@@ -1219,8 +1219,8 @@ theme.Header = (function() {
     //
     // $('#product-ingredients-illustrations-container').mousemove( function(event) {
     //
-    //   addLeftOffset = ((ingrFirstWidth - event.clientX)/ingrFirstWidth) * 5;
-    //   addTopOffset = ((ingrFirstHeight - event.clientY)/ingrFirstHeight) * 5;
+    //   addLeftOffset = ((event.clientX - ingrFirstWidth)/ingrFirstWidth) * 3;
+    //   addTopOffset = (( event.clientY - ingrFirstHeight)/ingrFirstHeight) * 3;
     //
     //   imageFirstElem.css({ 'margin-top': addTopOffset + 'px', 'margin-left': addLeftOffset + 'px'  });
     // });

@@ -1349,7 +1349,33 @@ $grid-breakpoints: (
 }
 
 
-
+@-webkit-keyframes ingredients-illustration-hover-1 {
+  0%   {
+    transform: translate3d(-50%, -50%, 0) rotate(-70deg);
+    top: 60%;
+    left: 32%;
+  }
+  25%   {
+    transform: translate3d(-50%, -50%, 0) rotate(-75deg);
+    top: 63%;
+    left: 30%;
+  }
+  50%  {
+    transform: translate3d(-50%, -50%, 0) rotate(-70deg);
+    top: 60%;
+    left: 32%;
+  }
+  75%  {
+    transform: translate3d(-50%, -50%, 0) rotate(-65deg);
+    top: 57%;
+    left: 30%;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(-70deg);
+    top: 60%;
+    left: 32%;
+  }
+}
 
 
 @-webkit-keyframes fade-keyword-5 {
@@ -10922,6 +10948,12 @@ a {
           height: 140px;
           top: 60%;
           left: 32%;
+
+          &:hover {
+
+          }
+
+
         }
 
         .second {
