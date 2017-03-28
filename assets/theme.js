@@ -1194,8 +1194,6 @@ theme.Header = (function() {
     var ingrHeight = $('#product-page-ingredients-panel').height()/2;
     var ingrWidth = $('#product-page-ingredients-panel').width()/2;
 
-    console.log(ingrHeight,ingrWidth);
-
     var addTopOffset = 0;
     var addLeftOffset = 0;
 
@@ -1203,15 +1201,30 @@ theme.Header = (function() {
 
     $('#product-page-ingredients-panel').mousemove( function(event) {
 
-      // console.log(event.clientX, event.clientY);
-
-      addLeftOffset = ((ingrWidth - event.clientX)/ingrWidth) * 15;
-      addTopOffset = ((ingrHeight - event.clientY)/ingrHeight) * 15;
+      addLeftOffset = ((ingrWidth - event.clientX)/ingrWidth) * 10;
+      addTopOffset = ((ingrHeight - event.clientY)/ingrHeight) * 10;
 
       imageElem.css({ top: 'calc(50% + ' + addTopOffset + 'px)', left: 'calc(50% + ' + addLeftOffset + 'px)'  });
-
-
     });
+
+    // var ingrFirstHeight = $('#product-ingredients-illustrations-container').height()*0.6;
+    // var ingrFirstWidth = $('#product-ingredients-illustrations-container').width()*0.32;
+    //
+    // var addTopOffset = 0;
+    // var addLeftOffset = 0;
+    //
+    // var imageFirstElem = $('#product-ingredients-first-illustration');
+    // var imageSecondElem = $('#product-ingredients-second-illustration');
+    // var imageThirdElem = $('#product-ingredients-third-illustration');
+    //
+    // $('#product-ingredients-illustrations-container').mousemove( function(event) {
+    //
+    //   addLeftOffset = ((ingrFirstWidth - event.clientX)/ingrFirstWidth) * 5;
+    //   addTopOffset = ((ingrFirstHeight - event.clientY)/ingrFirstHeight) * 5;
+    //
+    //   imageFirstElem.css({ 'margin-top': addTopOffset + 'px', 'margin-left': addLeftOffset + 'px'  });
+    // });
+
   }
 
   function productSetIngredientsDetails(id) {
