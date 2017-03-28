@@ -1024,6 +1024,15 @@ theme.Header = (function() {
 
           animationForScroll(panelsWithAnimations.product);
 
+          if(windowWidth > 1024) {
+            productIngredientsMouseMoveAnimationInit();
+          } else {
+            $('.ingredients-pin-icon').on('click', function() {
+              productSetIngredientsDetails($(this).data().id);
+            })
+          }
+
+
         }, 500);
       });
 
@@ -1072,7 +1081,7 @@ theme.Header = (function() {
   } else if($('#home-intro-block').length != 0)  {           //home page
 
       console.log('home');
-      
+
       $( document ).ready(function() {
         setTimeout(function(){
           $('#home-intro-block').addClass('animation-start');
@@ -1178,6 +1187,38 @@ theme.Header = (function() {
 
     $('.spr-form').css("top", parseInt($('.spr-form').css("top"),10) + 80 + topOffset - topElemOffset);
 
+  }
+
+  function productIngredientsMouseMoveAnimationInit() {
+
+    var ingrHeight = $('#product-page-ingredients-panel').height()/2;
+    var ingrWidth = $('#product-page-ingredients-panel').width()/2;
+
+    console.log(ingrHeight,ingrWidth);
+
+    var addTopOffset = 0;
+    var addLeftOffset = 0;
+
+    var imageElem = $('#product-ingredients-image');
+
+    $('#product-page-ingredients-panel').mousemove( function(event) {
+
+      // console.log(event.clientX, event.clientY);
+
+      addLeftOffset = ((ingrWidth - event.clientX)/ingrWidth) * 15;
+      addTopOffset = ((ingrHeight - event.clientY)/ingrHeight) * 15;
+
+      imageElem.css({ top: 'calc(50% + ' + addTopOffset + 'px)', left: 'calc(50% + ' + addLeftOffset + 'px)'  });
+
+
+    });
+  }
+
+  function productSetIngredientsDetails(id) {
+
+    $('#product-ingredients-mobile-title').text($('#' + id + '-pin-title').text());
+    $('#product-ingredients-mobile-details').text($('#' + id + '-pin-details').text());
+    
   }
 
   //

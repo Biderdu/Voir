@@ -134,40 +134,58 @@
 
   <div class="ingredients-container">
     <div class="image-container">
-      <img src="{{ product.featured_image.src | img_url: '720x' }}" class="ingredients-image">
+      <div class="illustrations-container">
+        <img class="first illustration" src="{{ 'oil-jojoba-transparent.png' | asset_url }}" >
+        <img class="second illustration" src="{{ 'oil-soybean-transparent.png' | asset_url }}" >
+        <img class="third illustration" src="{{ 'oil-sunflower-transparent.png' | asset_url }}" >
+      </div>
+      <img id="product-ingredients-image" src="{{ product.featured_image.src | img_url: '720x' }}" class="ingredients-image">
     </div>
     <div class="ingredients-panel">
       <div class="ingredient-pin to-left first-pin">
-        <div class="icon">
+        <div data-id="first" class="icon ingredients-pin-icon">
           <div class="hover-opacity"></div>
           <img>
         </div>
         <div class="mid-line"></div>
         <div class="description">
-          <div class="title">
+          <div id="first-pin-title" class="title">
             Soybean-Based Biolipid Complex
           </div>
-          <div class="details">
+          <div id="first-pin-details" class="details">
+            A plant-based conditioner that coats each strand for a sleek, frizz-free finish.
+          </div>
+        </div>
+      </div>
+      <div class="ingredient-pin to-right second-pin">
+        <div data-id="second" class="icon ingredients-pin-icon">
+          <div class="hover-opacity"></div>
+          <img>
+        </div>
+        <div class="mid-line"></div>
+        <div class="description">
+          <div id="second-pin-title" class="title">
+            Sunflower Oil and Phospholipids
+          </div>
+          <div id="second-pin-details" class="details">
             Nutrient-packed fortifiers that condition
             hair fibres to leave your tresses looking
             soft and smooth.
           </div>
         </div>
       </div>
-      <div class="ingredient-pin to-right second-pin">
-        <div class="icon">
+      <div class="ingredient-pin to-left third-pin">
+        <div data-id="third" class="icon ingredients-pin-icon">
           <div class="hover-opacity"></div>
           <img>
         </div>
         <div class="mid-line"></div>
         <div class="description">
-          <div class="title">
-            Soybean-Based Biolipid Complex
+          <div id="third-pin-title" class="title">
+            Natural and Exotic Oils
           </div>
-          <div class="details">
-            Nutrient-packed fortifiers that condition
-            hair fibres to leave your tresses looking
-            soft and smooth.
+          <div id="third-pin-details" class="details">
+            An array of nourishing oils from jojoba, buriti, avocado, and more for unparalleled softness and shine.   FULL
           </div>
         </div>
       </div>
@@ -178,11 +196,11 @@
   </div>
 
   <div class="ingredients-description-mobile">
-    <div class="title">
+    <div id="product-ingredients-mobile-title" class="title">
       Sunflower Oil and Phospholipid
     </div>
     <div class="border-line"></div>
-    <div class="ingredients-details">
+    <div id="product-ingredients-mobile-details" class="ingredients-details">
       Nutrient-packed fortifiers that condition hair fibres to leave your tresses looking soft and smooth
     </div>
   </div>
