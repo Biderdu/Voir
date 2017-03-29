@@ -1025,7 +1025,7 @@ theme.Header = (function() {
           animationForScroll(panelsWithAnimations.product);
 
           if(windowWidth > 1024) {
-            // productIngredientsMouseMoveAnimationInit();
+            productIngredientsMouseMoveAnimationInit();
           } else {
             $('.ingredients-pin-icon').on('click', function() {
               productSetIngredientsDetails($(this).data().id);
@@ -1191,39 +1191,122 @@ theme.Header = (function() {
 
   function productIngredientsMouseMoveAnimationInit() {
 
-    var ingrHeight = $('#product-page-ingredients-panel').height()/2;
-    var ingrWidth = $('#product-page-ingredients-panel').width()/2;
+    var imageFirstElem = $('#product-ingredients-first-illustration');
+    var imageSecondElem = $('#product-ingredients-second-illustration');
+    var imageThirdElem = $('#product-ingredients-third-illustration');
 
-    var addTopOffset = 0;
-    var addLeftOffset = 0;
+    var firstElemCenterY = (imageFirstElem.position().top) + (imageFirstElem.height()/2);
+    var firstElemCenterX = (imageFirstElem.position().left + 30 + $('#product-image-container').position().left) + (imageFirstElem.width()/2);
 
-    var imageElem = $('#product-ingredients-image');
+    var secondElemCenterY = (imageSecondElem.position().top) + (imageSecondElem.height()/2);
+    var secondElemCenterX = (imageSecondElem.position().left + 30 + $('#product-image-container').position().left) + (imageSecondElem.width()/2);
 
-    $('#product-page-ingredients-panel').mousemove( function(event) {
+    var thirdElemCenterY = (imageThirdElem.position().top) - 40 + (imageThirdElem.height()/2);
+    var thirdElemCenterX = (imageThirdElem.position().left + 50 + $('#product-image-container').position().left) + (imageThirdElem.width()/2);
 
-      addLeftOffset = ((ingrWidth - event.clientX)/ingrWidth) * 10;
-      addTopOffset = ((ingrHeight - event.clientY)/ingrHeight) * 10;
+    // $('#test-pointer').css({top: thirdElemCenterY, left: thirdElemCenterX});
 
-      imageElem.css({ top: 'calc(50% + ' + addTopOffset + 'px)', left: 'calc(50% + ' + addLeftOffset + 'px)'  });
+    var ContainerTopOffset = $('#product-ingredients-container').offset().top;
+
+    var addTopOffset1 = 0;
+    var addLeftOffset1 = 0;
+
+    var addTopOffset2 = 0;
+    var addLeftOffset2 = 0;
+
+    var addTopOffset3 = 0;
+    var addLeftOffset3 = 0;
+
+    var radius = 50;
+    var ratio = 15;
+
+    $('#product-ingredients-container').mousemove( function(event) {
+
+      var distX1 = event.clientX - firstElemCenterX;
+      var distY1 = (event.pageY - ContainerTopOffset) - firstElemCenterY;
+
+      var absdistX1 = Math.abs(distX1);
+      var absdistY1 = Math.abs(distY1);
+
+      var rad = Math.sqrt(distX1 * distX1 + distY1 * distY1);
+      
+      if(rad < radius * 2) {
+        if(absdistX1 < radius) {
+          addLeftOffset1 = distX1/ratio;
+        } else {
+          addLeftOffset1 = (absdistX1/distX1)*((radius*2) - absdistX1) / ratio;
+        }
+
+        if(absdistY1 < radius) {
+          addTopOffset1 = distY1/ratio;
+        } else {
+          addTopOffset1 = (absdistY1/distY1)*((radius*2) - absdistY1) / ratio;
+        }
+      } else {
+        addLeftOffset1 = 0;
+        addTopOffset1 = 0;
+      }
+
+      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px'  });
+
+
+
+      var distX2 = event.clientX - secondElemCenterX;
+      var distY2 = (event.pageY - ContainerTopOffset) - secondElemCenterY;
+
+      var absdistX2 = Math.abs(distX2);
+      var absdistY2 = Math.abs(distY2);
+
+      rad = Math.sqrt(distX2 * distX2 + distY2 * distY2);
+
+      if(rad < radius * 2) {
+        if(absdistX2 < radius) {
+          addLeftOffset2 = distX2/ratio;
+        } else {
+          addLeftOffset2 = (absdistX2/distX2)*((radius*2) - absdistX2) / ratio;
+        }
+
+        if(absdistY2 < radius) {
+          addTopOffset2 = distY2/ratio;
+        } else {
+          addTopOffset2 = (absdistY2/distY2)*((radius*2) - absdistY2) / ratio;
+        }
+      } else {
+        addLeftOffset2 = 0;
+        addTopOffset2 = 0;
+      }
+
+      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px'  });
+
+
+      var distX3 = event.clientX - thirdElemCenterX;
+      var distY3 = (event.pageY - ContainerTopOffset) - thirdElemCenterY;
+
+      var absdistX3 = Math.abs(distX3);
+      var absdistY3 = Math.abs(distY3);
+
+      rad = Math.sqrt(distX3 * distX3 + distY3 * distY3);
+
+      if(rad < radius * 2) {
+        if(absdistX3 < radius) {
+          addLeftOffset3 = distX3/ratio;
+        } else {
+          addLeftOffset3 = (absdistX3/distX3)*((radius*2) - absdistX3) / ratio;
+        }
+
+        if(absdistY3 < radius) {
+          addTopOffset3 = distY3/ratio;
+        } else {
+          addTopOffset3 = (absdistY3/distY3)*((radius*2) - absdistY3) / ratio;
+        }
+      } else {
+        addLeftOffset3 = 0;
+        addTopOffset3 = 0;
+      }
+
+      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px'  });
+
     });
-
-    // var ingrFirstHeight = $('#product-ingredients-illustrations-container').height()*0.6;
-    // var ingrFirstWidth = $('#product-ingredients-illustrations-container').width()*0.32;
-    //
-    // var addTopOffset = 0;
-    // var addLeftOffset = 0;
-    //
-    // var imageFirstElem = $('#product-ingredients-first-illustration');
-    // var imageSecondElem = $('#product-ingredients-second-illustration');
-    // var imageThirdElem = $('#product-ingredients-third-illustration');
-    //
-    // $('#product-ingredients-illustrations-container').mousemove( function(event) {
-    //
-    //   addLeftOffset = ((event.clientX - ingrFirstWidth)/ingrFirstWidth) * 3;
-    //   addTopOffset = (( event.clientY - ingrFirstHeight)/ingrFirstHeight) * 3;
-    //
-    //   imageFirstElem.css({ 'margin-top': addTopOffset + 'px', 'margin-left': addLeftOffset + 'px'  });
-    // });
 
   }
 
