@@ -126,9 +126,11 @@
             Our Collection
           </div>
           {% for product in collection.products %}
+          <a href="{{ product.url }}">
             <div class="list-item">
               {{ product.metafields.c_f.short_description }}
             </div>
+          </a>
           {% endfor %}
           <div class="list-item">
             Studio Set
@@ -301,19 +303,19 @@
               <img>
             </div>
           </div>
-          <a href="/">
-            <div id="mobile-menu-shop-sub-menu" class="list-sub-menu">
+          <div id="mobile-menu-shop-sub-menu" class="list-sub-menu">
               <div class="sub-menu-item">Our Collection</div>
               {% for product in collection.products %}
-                <div class="sub-menu-item">
-                  {{ product.metafields.c_f.short_description }}
-                </div>
+                <a href="{{ product.url }}">
+                  <div class="sub-menu-item">
+                    {{ product.metafields.c_f.short_description }}
+                  </div>
+                </a>
               {% endfor %}
               <div class="sub-menu-item">
                 Studio Set
               </div>
             </div>
-          </a>
           <a href="/pages/about">
             <div id="mobile-menu-about-button" class="list-item">ABOUT THE BRAND</div>
           </a>
