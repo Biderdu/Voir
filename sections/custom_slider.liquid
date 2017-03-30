@@ -13,7 +13,12 @@
           <div class="product-info-container">
             <div class="product-left-side">
               <div class="image-container">
-                <div class="background-border"></div>
+                <div class="background-border">
+                  <div class="top-side border"></div>
+                  <div class="right-side border"></div>
+                  <div class="bottom-side border"></div>
+                  <div class="left-side border"></div>
+                </div>
                 <a href="{{ product.url }}">
                   <img class="product-item-image" src="{{ product.featured_image.src | img_url: '720x' }}" alt="{{ product.featured_image.alt }}">
                 </a>

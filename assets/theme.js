@@ -794,7 +794,6 @@ theme.Header = (function() {
 
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
-  var startScroll = $(selectors.body).scrollTop();
 
   var socPanelActiveBlocks = {
     home: [2,3],
@@ -810,7 +809,7 @@ theme.Header = (function() {
 
     panelsWithAnimations = {
       about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
-      home: [],
+      home: ['home-slider-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
       product: ['product-page-art-panel']
@@ -820,7 +819,7 @@ theme.Header = (function() {
 
     panelsWithAnimations = {
       about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
-      home: ['home-collection-panel'],
+      home: ['home-collection-panel','home-slider-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
       product: ['product-page-collection-panel', 'product-page-art-panel']
@@ -1198,7 +1197,7 @@ theme.Header = (function() {
     var firstElemCenterY = (imageFirstElem.position().top) + (imageFirstElem.height()/2);
     var firstElemCenterX = (imageFirstElem.position().left + 30 + $('#product-image-container').position().left) + (imageFirstElem.width()/2);
 
-    var secondElemCenterY = (imageSecondElem.position().top) + (imageSecondElem.height()/2);
+    var secondElemCenterY = (imageSecondElem.position().top) - 20 + (imageSecondElem.height()/2);
     var secondElemCenterX = (imageSecondElem.position().left + 30 + $('#product-image-container').position().left) + (imageSecondElem.width()/2);
 
     var thirdElemCenterY = (imageThirdElem.position().top) - 40 + (imageThirdElem.height()/2);
@@ -1229,7 +1228,9 @@ theme.Header = (function() {
       var absdistY1 = Math.abs(distY1);
 
       var rad = Math.sqrt(distX1 * distX1 + distY1 * distY1);
-      
+
+      var scale1 = 1.0;
+
       if(rad < radius * 2) {
         if(absdistX1 < radius) {
           addLeftOffset1 = distX1/ratio;
@@ -1242,12 +1243,15 @@ theme.Header = (function() {
         } else {
           addTopOffset1 = (absdistY1/distY1)*((radius*2) - absdistY1) / ratio;
         }
+
+        scale1 = 1.15;
+
       } else {
         addLeftOffset1 = 0;
         addTopOffset1 = 0;
       }
 
-      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px'  });
+      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-70deg) scale(' + scale1 + ')'  });
 
 
 
@@ -1258,6 +1262,8 @@ theme.Header = (function() {
       var absdistY2 = Math.abs(distY2);
 
       rad = Math.sqrt(distX2 * distX2 + distY2 * distY2);
+
+      var scale2 = 1.0;
 
       if(rad < radius * 2) {
         if(absdistX2 < radius) {
@@ -1271,12 +1277,15 @@ theme.Header = (function() {
         } else {
           addTopOffset2 = (absdistY2/distY2)*((radius*2) - absdistY2) / ratio;
         }
+
+        scale2 = 1.15;
+
       } else {
         addLeftOffset2 = 0;
         addTopOffset2 = 0;
       }
 
-      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px'  });
+      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-40deg) scale(' + scale2 + ')'  });
 
 
       var distX3 = event.clientX - thirdElemCenterX;
@@ -1286,6 +1295,8 @@ theme.Header = (function() {
       var absdistY3 = Math.abs(distY3);
 
       rad = Math.sqrt(distX3 * distX3 + distY3 * distY3);
+
+      var scale3 = 1.0;
 
       if(rad < radius * 2) {
         if(absdistX3 < radius) {
@@ -1299,12 +1310,15 @@ theme.Header = (function() {
         } else {
           addTopOffset3 = (absdistY3/distY3)*((radius*2) - absdistY3) / ratio;
         }
+
+        scale3 = 1.15;
+
       } else {
         addLeftOffset3 = 0;
         addTopOffset3 = 0;
       }
 
-      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px'  });
+      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(50deg) scale(' + scale3 + ')'  });
 
     });
 
