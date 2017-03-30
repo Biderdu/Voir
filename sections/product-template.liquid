@@ -289,7 +289,7 @@
   </div>
 </div>
 
-<div id="product-page-collection-panel" class="custom-section-collection-block">
+<div id="product-page-collection-panel" class="product-page-collection-block">
 
   {%- assign collection = collections[section.settings.collection] -%}
 
@@ -313,11 +313,6 @@
             <div class="image-container">
               <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
             </div>
-            <div class="hover-container">
-              <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
-                <span>Add to bag</span>
-              </div>
-            </div>
           </div>
           <div class="product-bottom-side">
             <div class="short-info">
@@ -330,6 +325,9 @@
             </div>
             <div class="price-info">
               ${{ product.price | divided_by: 100.00 }}
+            </div>
+            <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
+              Add to bag
             </div>
           </div>
         </div>

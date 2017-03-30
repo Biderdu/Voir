@@ -11877,6 +11877,242 @@ a {
 
 }
 
+.product-page-collection-block {
+  height: 100vh;
+  position: relative;
+  margin-top: 60px;
+
+  .home-intro-center-line-left {
+    background: #c8c9c7;
+    height: 2px;
+    width: 0;
+    transition: width 0.2s ease 0.2s;
+    position: absolute;
+    top: 25%;
+    left: 0;
+  }
+
+  .home-intro-center-line-right {
+    background: #c8c9c7;
+    height: 2px;
+    width: 0;
+    transition: width 0.2s ease 0.2s;
+    position: absolute;
+    top: 25%;
+    right: 0;
+  }
+
+  .upper-title-block {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .title {
+      @include fontCambriaBold(36px);
+      color: $voir-gray-1;
+
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+    }
+
+    .description {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 15px);
+
+      @include fontHelvetica(18px);
+      color: $voir-gray-1;
+
+      opacity: 0;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+    }
+
+  }
+
+  .collections-block-container {
+    position: absolute;
+    height: 320px;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    .collection-list {
+      position: absolute;
+      bottom: 0;
+      width: 1120px;
+      height: 320px;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .product-item-container {
+        position: relative;
+        float: left;
+        width: 250px;
+        height: 320px;
+        margin-right: 40px;
+
+        opacity: 0;
+        transform: translate3d(0, 45px, 0);
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        .product-top-side {
+          position: relative;
+          height: 275px;
+          width: 100%;
+          background: #f2f2f2;
+
+          .image-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: calc(100% - 16px);
+            width: calc(100% - 16px);
+            border: 2px #ffffff solid;
+
+            img {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              max-width: 90%;
+              max-height: 90%;
+            }
+
+          }
+
+          &:hover {
+            .hover-container {
+              opacity: 1;
+            }
+          }
+
+        }
+
+        .product-bottom-side {
+          position: absolute;
+          width: 100%;
+          height: 33px;
+          left: 0;
+          bottom: 0;
+
+          .short-info {
+            float: left;
+            text-align: left;
+            width: 75%;
+            height: 100%;
+
+            .name {
+              @include fontCambriaBold(13px);
+              color: $voir-gray-2;
+            }
+
+            .descr {
+              @include fontHelvetica(11px);
+              color: $voir-gray-2;
+
+              span {
+                display: none;
+              }
+
+            }
+
+          }
+
+          .price-info {
+            height: 100%;
+            float: left;
+            width: 25%;
+            @include fontHelveticaBold(13px);
+            color: $voir-gray-2;
+          }
+
+          .add-button {
+            width: 100%;
+            float: left;
+            position: relative;
+            height: 40px;
+            cursor: pointer;
+            background: #ffffff;
+            border: 1px solid $voir-gray-1;
+            border-radius: 1px;
+            transition: background 0.2s ease-out, color 0.2s ease-out;
+            margin-top: 20px;
+
+            @include fontHelveticaBold(12px, 400, 0.02em);
+            color: $voir-gray-1;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 40px;
+
+            &:hover {
+              background: $voir-gray-1;
+              color: #ffffff;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+}
+
+.product-page-collection-block.active-animation {
+  .home-intro-center-line-left {
+    width: 30%;
+    transition: width 1.5s ease 0.2s;
+  }
+
+  .home-intro-center-line-right {
+    width: 30%;
+    transition: width 1.5s ease 0.2s;
+  }
+
+  .upper-title-block {
+    .title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+    }
+
+    .description {
+      opacity: 1;
+      transform: translate(-50%, 0);
+      transition: opacity 1.0s ease 0.4s, transform 1.0s ease 0.4s;
+    }
+  }
+
+  .collections-block-container {
+    .collection-list {
+
+      @for $i from 1 through 4 {
+
+        .product-item-container:nth-child(#{$i}) {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          transition: opacity 1.0s ease #{0.4 + (0.2 * $i)}s, transform 1.0s ease #{0.4 + (0.2 * $i)}s;
+        }
+
+      }
+
+    }
+  }
+}
+
 .product-page-footer-spacer {
   position: relative;
   height: 300px;
@@ -12393,6 +12629,106 @@ a {
 
   .product-page-reviews {
 
+  }
+
+  .product-page-collection-block {
+    height: 100vh;
+    position: relative;
+
+    .home-intro-center-line-left {
+      width: 0;
+      top: 10%;
+    }
+
+    .home-intro-center-line-right {
+      width: 0;
+      top: 10%;
+    }
+
+    .upper-title-block {
+      left: 50%;
+      top: 10%;
+
+      .title {
+        @include fontCambriaBold(30px);
+      }
+
+      .description {
+        width: 95%;
+        @include fontHelvetica(14px);
+      }
+
+    }
+
+    .collections-block-container {
+      top: 14%;
+
+      .collection-list {
+        position: absolute;
+        top: 0;
+        width: 540px;
+        left: 50%;
+        transform: translate(-50%,0);
+
+        .product-item-container {
+          margin-top: 80px;
+          position: relative;
+          margin-left: auto;
+          margin-right: auto;
+
+          &:nth-child(odd) {
+            margin-right: 40px;
+          }
+
+          .product-bottom-side {
+
+            .add-button {
+              background: #fbfbfb;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-collection-block.active-animation {
+    .home-intro-center-line-left {
+      width: 20%;
+    }
+
+    .home-intro-center-line-right {
+      width: 20%;
+    }
+
+    .upper-title-block {
+      .title {
+
+      }
+
+      .description {
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .collections-block-container {
+      .collection-list {
+
+        @for $i from 1 through 4 {
+
+          .product-item-container:nth-child(#{$i}) {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: opacity 1.0s ease #{0.4 + (0.2 * $i)}s, transform 1.0s ease #{0.4 + (0.2 * $i)}s;
+          }
+
+        }
+
+      }
+    }
   }
 
   .product-page-footer-spacer {
@@ -13124,6 +13460,107 @@ a {
 
   }
 
+  .product-page-collection-block {
+    height: 1950px;
+    position: relative;
+
+    .home-intro-center-line-left {
+      width: 15%;
+      top: 5%;
+    }
+
+    .home-intro-center-line-right {
+      width: 15%;
+      top: 5%;
+    }
+
+    .upper-title-block {
+      left: 50%;
+      top: 5%;
+
+      .title {
+        @include fontCambriaBold(24px);
+        opacity: 1;
+        transform: translate3d(0,0,0);
+      }
+
+      .description {
+        width: 95%;
+        @include fontHelvetica(12px);
+        opacity: 1;
+        transform: translate3d(-50%,0,0);
+      }
+
+    }
+
+    .collections-block-container {
+      top: 9%;
+
+      .collection-list {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        left: 50%;
+        transform: translate(-50%,0);
+
+        .product-item-container {
+          margin-top: 80px;
+          position: relative;
+          left: 50%;
+          transform: translate(-50%,0);
+          width: 250px;
+          height: 320px;
+          margin-right: auto;
+          margin-left: auto;
+          opacity: 1;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  .product-page-collection-block.active-animation {
+    .home-intro-center-line-left {
+      width: 15%;
+    }
+
+    .home-intro-center-line-right {
+      width: 15%;
+    }
+
+    .upper-title-block {
+      .title {
+
+      }
+
+      .description {
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .collections-block-container {
+      .collection-list {
+
+        @for $i from 1 through 4 {
+
+          .product-item-container:nth-child(#{$i}) {
+            opacity: 1;
+            transform: translate3d(-50%, 0, 0);
+            transition: opacity 1.0s ease #{0.4 + (0.2 * $i)}s, transform 1.0s ease #{0.4 + (0.2 * $i)}s;
+          }
+
+        }
+
+      }
+    }
+  }
+
   .product-page-footer-spacer {
 
   }
@@ -13365,7 +13802,7 @@ a {
 
           .register-continue-button {
             height: 45px;
-            width: 350px;
+            width: 100%;
             @include fontHelveticaBold(13px);
             color: $voir-gray-1;
             background: #ffffff;
@@ -13441,9 +13878,329 @@ a {
   margin-top: 120px;
 }
 
-@media (max-width: $screen-tablet) {}
+@media (max-width: $screen-tablet) {
 
-@media (max-width: $screen-mobile) {}
+  .login-page-main-container {
+    height: calc(100vh - 28px);
+    background: #ffffff;
+
+    .inner-login-container {
+      height: calc(100vh - 80px);
+      top: 80px;
+
+      .left-side {
+        height: 50%;
+        width: 100%;
+
+        .login-block-container {
+          position: relative;
+          height: 350px;
+          width: 350px;
+          right: 50%;
+          top: 50%;
+          float: right;
+          transform: translate(50%, -50%);
+
+          .login-form-container {
+
+            .login-title {
+              @include fontCambriaBold(36px);
+              color: $voir-gray-1;
+              line-height: 36px;
+              text-align: start;
+              margin-bottom: 40px;
+            }
+
+            .login-input-mail {
+              width: 100%;
+              height: 45px;
+              border: none;
+              border-bottom: 1px solid #c8c9c7;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              border-radius: 0;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+
+            .login-input-pass {
+              width: 100%;
+              height: 45px;
+              border: none;
+              border-bottom: 1px solid #c8c9c7;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              border-radius: 0;
+              margin-bottom: 10px;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+
+            .login-action-block {
+
+              p {
+                text-align: right;
+                margin-bottom: 30px;
+
+                a {
+                  @include fontHelvetica(12px, 400, 1px);
+                  line-height: 12px;
+                  color: $voir-gray-3;
+                }
+
+              }
+
+              input {
+                height: 45px;
+                width: 350px;
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-1;
+                background: #ffffff;
+                border: 1px solid $voir-gray-1;
+                transition: color 0.4s ease, background 0.4s ease;
+
+                &:focus {
+                  outline: none;
+                }
+
+                &:hover {
+                  opacity: 1;
+                  background: $voir-gray-1;
+                  color: #ffffff;
+                }
+
+              }
+
+            }
+
+          }
+
+          .reset-container {
+            .reset-title {
+              @include fontCambriaBold(36px, 400, 0.001em);
+              color: $voir-gray-1;
+              line-height: 36px;
+              text-align: start;
+              margin-bottom: 40px;
+            }
+
+            .reset-input-mail {
+              width: 100%;
+              height: 45px;
+              border: none;
+              border-bottom: 1px solid #c8c9c7;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              border-radius: 0;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+
+            .reset-action-block {
+
+              p {
+                width: 170px;
+                float: left;
+
+                input {
+                  height: 45px;
+                  width: 350px;
+                  @include fontHelveticaBold(13px);
+                  color: $voir-gray-1;
+                  background: #ffffff;
+                  border: 1px solid $voir-gray-1;
+                  transition: color 0.4s ease, background 0.4s ease;
+
+                  &:focus {
+                    outline: none;
+                  }
+
+                  &:hover {
+                    opacity: 1;
+                    background: $voir-gray-1;
+                    color: #ffffff;
+                  }
+
+                }
+
+              }
+
+              button {
+                float: right;
+                width: 170px;
+                height: 45px;
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-1;
+                background: #ffffff;
+                border: none;
+                transition: color 0.4s ease, background 0.4s ease;
+
+                &:focus {
+                  outline: none;
+                }
+
+                &:hover {
+                  opacity: 1;
+                  background: $voir-gray-1;
+                  color: #ffffff;
+                }
+              }
+
+            }
+          }
+
+        }
+
+      }
+
+      .right-side {
+        height: 50%;
+        width: 100%;
+
+        .register-block-container {
+          height: 350px;
+          width: 350px;
+          left: 50%;
+          top: 0;
+          transform: translate(-50%, 0);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+
+  .login-page-main-container {
+    height: 1400px;
+    background: #ffffff;
+
+    .inner-login-container {
+      height: calc(100% - 60px);
+      top: 60px;
+
+      .left-side {
+        height: 30%;
+        width: 100%;
+
+        .login-block-container {
+          width: 270px;
+          top: 50%;
+          transform: translate(50%, -50%);
+
+          .login-form-container {
+
+            .login-title {
+              @include fontCambriaBold(28px);
+              line-height: 28px;
+              margin-bottom: 30px;
+            }
+
+            .login-input-mail {
+              @include fontHelvetica(12px, 400, 1px);
+              line-height: 14px;
+            }
+
+            .login-input-pass {
+              @include fontHelvetica(12px, 400, 1px);
+              line-height: 12px;
+            }
+
+            .login-action-block {
+
+              p {
+
+                a {
+                  @include fontHelvetica(10px, 400, 1px);
+                  line-height: 12px;
+                }
+
+              }
+
+              input {
+
+                @include fontHelveticaBold(11px);
+
+              }
+
+            }
+
+          }
+
+          .reset-container {
+            .reset-title {
+              @include fontCambriaBold(28px, 400, 0.001em);
+              line-height: 28px;
+              margin-bottom: 30px;
+            }
+
+            .reset-input-mail {
+              @include fontHelvetica(12px, 400, 1px);
+              line-height: 12px;
+            }
+
+            .reset-action-block {
+
+              p {
+                width: 130px;
+
+                input {
+                  width: 130px;
+                  @include fontHelveticaBold(11px);
+                  color: $voir-gray-1;
+                }
+
+              }
+
+              button {
+
+                width: 130px;
+                @include fontHelveticaBold(11px);
+
+              }
+
+            }
+          }
+
+        }
+
+      }
+
+      .right-side {
+
+        .register-block-container {
+          height: 350px;
+          width: 270px;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
 
 //login page end
 

@@ -900,13 +900,10 @@ theme.Header = (function() {
 
       //first check
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.about);
-
-      headerPositionChange($(selectors.body).scrollTop());
       
-
+      
       //scroll check
       $(window).scroll( function() {
-        headerPositionChange($(selectors.body).scrollTop());
 
         animationForScroll(panelsWithAnimations.about);
 
@@ -970,16 +967,7 @@ theme.Header = (function() {
 
         }, 500);
       });
-
-      headerPositionChange($(selectors.body).scrollTop());
-
       
-      //scroll check
-      $(window).scroll( function() {
-        headerPositionChange($(selectors.body).scrollTop());
-      });
-
-
       
     } else if($('#product-page-panel').length != 0) {   //product page
 
@@ -1036,10 +1024,7 @@ theme.Header = (function() {
       });
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.product);
-
-      headerPositionChange($(selectors.body).scrollTop());
-
-
+      
       $('#ingredients-full-list-button').on('click', productModalPanelToggle);
 
       $('#product-page-modal-overlay').on('click', productModalPanelToggle);
@@ -1051,7 +1036,6 @@ theme.Header = (function() {
 
       //scroll check
       $(window).scroll( function() {
-        headerPositionChange($(selectors.body).scrollTop());
 
         animationForScroll(panelsWithAnimations.product);
 
@@ -1072,11 +1056,10 @@ theme.Header = (function() {
             $('#register-hidden-block').addClass('active');
             $('#register-continue-button').addClass('hidden');
           })
-
+          
         }, 500);
       });
       
-
   } else if($('#home-intro-block').length != 0)  {           //home page
 
       console.log('home');
@@ -1096,21 +1079,24 @@ theme.Header = (function() {
       });
 
 
-      headerPositionChange($(selectors.body).scrollTop());
+      
       headerStyleChange($(selectors.body).scrollTop(), windowHeight);
 
       $(window).scroll( function() {
-        headerPositionChange($(selectors.body).scrollTop());
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
         animationForScroll(panelsWithAnimations.home);
       });
 
     }
 
-
+    headerPositionChange($(selectors.body).scrollTop());
+    
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
 
     $(window).scroll( function() {
+      
+      headerPositionChange($(selectors.body).scrollTop());
+      
       socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
     });
 
