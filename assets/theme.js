@@ -1089,6 +1089,8 @@ theme.Header = (function() {
 
     }
 
+
+
     headerPositionChange($(selectors.body).scrollTop());
     
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
