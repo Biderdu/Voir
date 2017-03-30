@@ -7014,9 +7014,6 @@ a {
 
     }
 
-    .mobile-bottom-indicator {
-      display: none;
-    }
   }
 
 
@@ -8831,7 +8828,7 @@ a {
     .packaging-image {
       position: absolute;
       height: 400px;
-      width: 720px;
+      width: calc(100% - 150px);
       top: 7%;
       right: 50%;
       transform: translate(50%,0);
@@ -8854,7 +8851,7 @@ a {
       height: 300px;
       width: 400px;
       top: 55%;
-      left: 100px;
+      left: 75px;
       transform: translate(0,0);
       text-align: left;
 
@@ -14451,58 +14448,27 @@ a {
           display: none;
         }
 
-      }
+        .slick-dots {
+          display: block;
+          left: 50%;
+          transform: translate(-50%,0);
 
-      .social-panel-container {
-        display: none;
+          li button:before {
+            color: $voir-gray-3;
+          }
+
+          li.slick-active button:before {
+            color: $voir-gray-1;
+          }
+
+        }
+
       }
 
       .carousel-indicator-container {
         display: none;
       }
 
-      .mobile-bottom-indicator {
-        display: block;
-        position: absolute;
-        bottom: 4%;
-        width: 100%;
-        height: 20px;
-
-        .line-left {
-          background: $voir-gray-3;
-          height: 2px;
-          width: 75%;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translate(0, -50%);
-        }
-
-        .counter-block {
-          position: absolute;
-          top: 50%;
-          right: 5%;
-          transform: translate(0, -50%);
-          height: 100%;
-
-          span {
-            @include fontHelvetica(16px);
-            color: $voir-gray-3;
-          }
-
-          .current {
-            @include fontHelveticaBold(16px);
-            color: $voir-gray-2;
-            margin-right: 5px;
-          }
-
-          .all {
-            margin-left: 5px;
-          }
-
-        }
-
-      }
     }
 
   }
@@ -15120,48 +15086,6 @@ $insta-image-size-not-so-small: 200px;
         display: none;
       }
 
-      .mobile-bottom-indicator {
-        display: block;
-        position: absolute;
-        bottom: 4%;
-        width: 100%;
-        height: 20px;
-
-        .line-left {
-          background: #c8c9c7;
-          height: 2px;
-          width: 60%;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translate(0, -50%);
-        }
-
-        .counter-block {
-          position: absolute;
-          top: 50%;
-          right: 5%;
-          transform: translate(0, -50%);
-          height: 100%;
-
-          span {
-            @include fontHelvetica(14px);
-            color: $voir-gray-3;
-          }
-
-          .current {
-            @include fontHelveticaBold(14px);
-            color: $voir-gray-2;
-            margin-right: 5px;
-          }
-
-          .all {
-            margin-left: 5px;
-          }
-
-        }
-
-      }
     }
 
   }

@@ -3360,23 +3360,14 @@ function homeSliderInit() {
 
   var slick = $('#home-collection-slider-container');
 
-  var slickLength = slick.find('.product-item-container').length;
+  var dots = false;
+
 
   slick.slick({
     slidesToShow: 1,
-    dots: false,
+    dots: true,
     infinite: false,
     arrows: false
-  });
-  
-  $("#current-slide").text("01");
-
-  $('.collection-slider-container').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    
-    var slide_count = nextSlide + 1;
-
-    $("#current-slide").text("0" + slide_count);
-
   });
 
 }
