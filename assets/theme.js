@@ -1132,6 +1132,8 @@ theme.Header = (function() {
     $('#detail-add-info-less').toggleClass('active');
     $('#detail-add-info-more').toggleClass('active');
     $('#detail-add-info-block').toggleClass('active');
+
+    $('#product-page-ingredients-panel').toggleClass('down-step');
   }
 
   function productModalPanelToggle() {
@@ -3562,6 +3564,7 @@ function footerInit() {
   if($('#contact-us-page').length != 0) {
 
     $('.site-footer').addClass('active_footer');
+    $('.back-arrow-container.header-arrow').addClass('hidden');
 
   } else {
     
@@ -3571,18 +3574,20 @@ function footerInit() {
 
         $('.site-footer').addClass('active_footer');
         $('#social-panel-line').addClass('hidden-line');
+        $('.back-arrow-container.header-arrow').addClass('hidden');
 
       } else {
 
         $('.site-footer').removeClass('active_footer');
         $('#social-panel-line').removeClass('hidden-line');
+        $('.back-arrow-container.header-arrow').removeClass('hidden');
       }
       
     });
     
   }
 
-  $('#back-to-top-arrow').click(function(){
+  $('.back-arrow-container').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 1000);
     return false;
   });

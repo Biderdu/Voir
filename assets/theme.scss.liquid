@@ -7019,7 +7019,7 @@ a {
 
 }
 
-.custom-section-slider-block.active-animation {  //slick-current
+.custom-section-slider-block.active-animation {
 
   .collection-slider-main-block {
 
@@ -7033,7 +7033,7 @@ a {
 
       }
 
-      .product-item-container {
+      .product-item-container.slick-current {
 
         .product-info-container {
 
@@ -7800,6 +7800,25 @@ a {
   }
 
 }
+
+.back-arrow-container.header-arrow {
+  position: fixed;
+  z-index: 10;
+  bottom: 50px;
+  right: 35px;
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.1s, opacity 0.4s ease 0.1s;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s ease 0.4s, opacity 0.4s ease;
+  }
+
+}
+
 
 
 
@@ -9144,7 +9163,10 @@ a {
 
     .image-container {
       left: 0;
-      width: 100%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: calc(100% - 20px);
       height: 70%;
 
       img {
@@ -9164,7 +9186,7 @@ a {
   }
 
   .about-ingredients-block-container {
-    height: 90vh;
+    height: 520px;
 
     .ingr-block-background {
       bottom: 5px;
@@ -9270,18 +9292,18 @@ a {
   }
 
   .about-packaging-block-container {
-    height: 120vh;
+    height: 560px;
 
     .packaging-image {
-      height: 290px;
-      width: 300px;
-      top: 25%;
+      height: 160px;
+      width: calc(100% - 20px);
+      top: 20%;
       right: 50%;
       transform: translate(50%, -50%);
 
       img {
-        width: auto;
-        max-height: 100%;
+        height: auto;
+        width: 100%;
       }
 
     }
@@ -9289,7 +9311,7 @@ a {
     .packaging-block-info {
       height: 250px;
       width: 270px;
-      top: 55%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%,0);
 
@@ -11576,7 +11598,7 @@ a {
       transform: translate3d(0,50%,0);
       height: 280px;
       width: 100%;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.8);
       opacity: 0;
       transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
@@ -11670,9 +11692,8 @@ a {
 
 .product-page-reviews {
   position: relative;
-  min-height: 50vh;
+  min-height: 20vh;
   width: 100%;
-  z-index: 1000;
   display: block;
 
   .reviews-container {
@@ -12122,7 +12143,7 @@ a {
 @media (max-width: $screen-tablet) {
 
   .product-page-main-container {
-    height: calc(110vh - 28px);
+    height: 1050px;
 
     .product-page-intro-panel {
       height: calc(100% - 80px);
@@ -12240,7 +12261,7 @@ a {
   }
 
   .product-page-ingredients {
-    height: 75vh;
+    height: 860px;
 
     .product-page-to-shop-button {
       top: calc(10% + 70px);
@@ -12537,9 +12558,10 @@ a {
         width: 100%;
 
         .info-panel {
-
-          margin-left: 40px;
+          margin-left: auto;
+          margin-right: auto;
           width: 680px;
+          float: none;
 
           .title {
             @include fontCambriaBold(30px);
@@ -12739,7 +12761,7 @@ a {
 
 @media (max-width: $screen-mobile) {
   .product-page-main-container {
-    height: 1050px;
+    height: 825px;
 
     .product-page-intro-panel {
       height: calc(100% - 60px);
@@ -12748,7 +12770,7 @@ a {
       .product-intro-container {
 
         .intro-left-side {
-          height: 30%;
+          height: 40%;
 
           .product-image-container {
             width: 196px;
@@ -12770,7 +12792,7 @@ a {
         }
 
         .intro-right-side {
-          height: 65%;
+          height: 60%;
 
           .product-info-container {
 
@@ -12872,6 +12894,7 @@ a {
 
             .detail-info-row {
               height: 400px;
+              margin-top: 15px;
 
               .info-tabs {
 
@@ -12895,7 +12918,8 @@ a {
 
               .info-container {
                 @include fontHelveticaLight(13px, 400, 1.0px);
-                line-height: 23px;
+                line-height: 20px;
+                margin-top: 15px;
 
                 .view-toggle {
                   @include fontHelvetica(10px);
@@ -12925,8 +12949,12 @@ a {
   }
 
   .product-page-ingredients {
-    height: 100vh;
+    height: 560px;
 
+
+    &.down-step {
+      margin-top: 140px;
+    }
 
     .ingredients-title {
       @include fontCambriaBold(24px);
@@ -13087,7 +13115,7 @@ a {
       }
 
       .short-description {
-        top: 15%;
+        top: 18%;
         @include fontHelveticaBold(12px, 400, 1px);
         line-height: 12px;
       }
@@ -13095,10 +13123,11 @@ a {
       .center-line {
         top: 25%;
         width: 240px;
+        height: 1px;
       }
 
       .ingredients-list {
-        width: 280px;
+        width: 270px;
         top: 60%;
         @include fontHelvetica(12px, 400, 1px);
         line-height: 16px;
@@ -13157,19 +13186,18 @@ a {
 
         .info-panel {
 
-          margin-left: 25px;
           width: 270px;
 
           .title {
-            @include fontCambriaBold(24px);
-            line-height: 24px;
+            @include fontCambriaBold(22px);
+            line-height: 22px;
           }
 
           .description {
             margin-top: 10px;
             margin-bottom: 20px;
-            @include fontHelvetica(16px);
-            line-height: 16px;
+            @include fontHelvetica(14px);
+            line-height: 14px;
           }
 
           .detail-description {
@@ -13251,11 +13279,6 @@ a {
   }
 
   .product-page-reviews {
-    position: relative;
-    min-height: 50vh;
-    width: 100%;
-    z-index: 1000;
-    display: block;
 
     .reviews-container {
       position: relative;
@@ -14473,7 +14496,7 @@ a {
 
   }
 
-  .custom-section-slider-block.active-animation {  //slick-current
+  .custom-section-slider-block.active-animation {
 
     .collection-slider-main-block {
 
@@ -14487,7 +14510,7 @@ a {
 
         }
 
-        .product-item-container {
+        .product-item-container.slick-current {
 
           .product-info-container {
 
@@ -14547,7 +14570,7 @@ a {
   }
 
   .custom-section-collection-block {
-    height: 100vh;
+    height: 1024px;
     position: relative;
 
     .home-intro-center-line-left {
@@ -14644,7 +14667,7 @@ a {
 
   .custom-section-instagram-gallery {
 
-    height: calc(80vh + 250px);
+    height: 1080px;;
 
     .home-intro-center-line-left {
       width: 23%;
@@ -14877,6 +14900,11 @@ a {
 
   }
 
+  .back-arrow-container.header-arrow {
+    bottom: 30px;
+    right: 25px;
+  }
+
 }
 
 $insta-image-size-small: 170px;
@@ -14952,7 +14980,7 @@ $insta-image-size-not-so-small: 200px;
 
     .description {
       width: 250px;
-      top: 155%;
+      top: 180%;
 
       @include fontHelveticaLight(13px);
       line-height: 20px;
@@ -14970,7 +14998,7 @@ $insta-image-size-not-so-small: 200px;
 
     .collection-slider-main-block {
       width: calc(100% - 16px);
-      height: 470px;
+      height: calc(100% - 70px);
       border-radius: 0;
 
       .collection-slider-container {
@@ -15439,6 +15467,11 @@ $insta-image-size-not-so-small: 200px;
 
     }
 
+  }
+
+  .back-arrow-container.header-arrow {
+    bottom: 20px;
+    right: 15px;
   }
 
 }
