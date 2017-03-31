@@ -122,9 +122,11 @@
 
       <div id="shop-additional-menu" class="shop-menu-panel">
         <div class="prod-list-container">
-          <div class="list-item our-collection">
-            Our Collection
-          </div>
+          <a href="collections/all">
+            <div class="list-item our-collection">
+              Our Collection
+            </div>
+          </a>
           {% for product in collection.products %}
           <a href="{{ product.url }}">
             <div class="list-item">
