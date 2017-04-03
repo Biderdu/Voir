@@ -337,3 +337,49 @@
     ]
   }
 {% endschema %}
+
+
+
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+
+  <div class="list-view-items">
+    {% for product in collection.products %}
+      <a href="{{ product.url | within: collection }}" class="list-view-item">
+        {% include 'product-card-list', product: product %}
+      </a>
+
+      {% if collection.handle == 'all' %}
+        {% for i in (1..4) %}
+          <a href="#" class="list-view-item">
+            <div class="list-view-item__image-column">
+              <div class="list-view-item__image-wrapper">
+                <div class="list-view-item__image">
+                  {%- assign placeholder = 'placeholder-product-' | append: i -%}
+                  {% include placeholder %}
+                </div>
+              </div>
+            </div>
+
+            <div class="list-view-item__title-column">
+              <div class="list-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+            </div>
+
+            <div class="list-view-item__price-column">
+              <span class="product-price__price">$19.99</span>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+
+{% schema %}
+{
+"name": "Collection pages",
+"settings": [
+
+]
+}
+{% endschema %}

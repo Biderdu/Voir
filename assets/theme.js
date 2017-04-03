@@ -1060,7 +1060,44 @@ theme.Header = (function() {
         }, 500);
       });
       
-  } else if($('#home-intro-block').length != 0)  {           //home page
+    } else if($('#collections-list-page').length != 0) {
+
+      if ($(window).width() > 1024) {
+        $( document ).ready(function() {
+
+          var slidesToShow = 4;
+          var arrows = true;
+
+          if ($(window).width() < 1025) {
+            slidesToShow = 2;
+            arrows = false;
+
+          }
+
+
+          $('#collection-list-container').slick({
+            dots: false,
+            infinite: false,
+            arrows: arrows,
+            slidesToShow: slidesToShow,
+            centerMode: true,
+            centerPadding: '20px',
+            lazyLoad: 'ondemand',
+            nextArrow: '<div class="slider-arrow right-arrow"><img></div>',
+            prevArrow: '<div class="slider-arrow left-arrow"><img></div>'
+          });
+
+          setTimeout(function(){
+
+
+
+          }, 500);
+        });
+      }
+
+
+
+    } else if($('#home-intro-block').length != 0)  {           //home page
 
       console.log('home');
 
