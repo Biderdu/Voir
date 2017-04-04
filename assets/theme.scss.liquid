@@ -11709,181 +11709,159 @@ a {
 
         border: none;
 
-        .spr-header-title {
-          @include fontCambriaBold(36px);
-          color: $voir-gray-1;
-          line-height: 36px;
-          text-transform: none;
-        }
+        .spr-header {
+          .spr-header-title {
+            @include fontCambriaBold(36px);
+            color: $voir-gray-1;
+            line-height: 36px;
+            text-transform: uppercase;
+          }
 
-        .spr-summary-actions-newreview {
-          @include fontHelveticaBold(13px);
-          color: $voir-gray-1;
-          line-height: 13px;
-        }
+          .spr-summary {
+            height: 60px;
+            border-bottom: 2px solid #dcdcdc;
 
-        .spr-form {
+            .spr-summary-starrating {
 
-          form {
-            position: relative;
-            width: 700px;
-            height: 500px;
-            margin: auto;
-
-            .spr-form-title {
-              @include fontCambriaBold(30px, 400, 1px);
-              color: $voir-gray-1;
-              line-height: 30px;
-              text-align: center;
-              margin-bottom: 70px;
-            }
-
-            .spr-form-contact {
-              padding: 0 30px 0 30px;
-
-              .spr-form-contact-name {
-                width: 300px;
-                float: left;
-
-                label {
-                  display: none;
-                }
-
-                input {
-                  border: none;
-                  border-bottom: 1px solid $voir-gray-3;
-                  height: 45px;
-                  padding: 15px 0 15px 0;
-                  @include fontHelvetica(14px, 400, 1px);
-                  line-height: 45px;
-                  color: #a8aaaa;
-                  border-radius: 0;
-
-                  &:focus {
-                    outline: none;
-                  }
-
-                }
-
-              }
-
-              .spr-form-contact-email {
-                width: 300px;
-                float: left;
-                margin-left: 30px;
-
-
-                label {
-                  display: none;
-                }
-
-                input {
-                  border: none;
-                  border-bottom: 1px solid $voir-gray-3;
-                  height: 45px;
-                  padding: 15px 0 15px 0;
-                  @include fontHelvetica(14px, 400, 1px);
-                  line-height: 45px;
-                  color: #a8aaaa;
-                  border-radius: 0;
-
-                  &:focus {
-                    outline: none;
-                  }
-
-                }
-              }
-
-            }
-
-            .spr-form-review {
-
-              .spr-form-review-rating {
-                position: absolute;
-                top: 50px;
-                left: 50%;
-                transform: translate(-50%,0);
-                width: 230px;
-
-                .spr-form-label {
-                  float: left;
-                  @include fontHelveticaBold(14px);
+              .spr-icon {
+                &::before {
                   color: $voir-gray-2;
+                  width: 19px;
+                  font-size: 13px;
                 }
-
-                .spr-starrating {
-                  float: right;
-                }
-
               }
 
             }
 
-            .spr-form-review-title {
-              padding: 0 30px 0 30px;
-
-              label {
-                display: none;
-              }
-
-              input {
-                border: none;
-                border-bottom: 1px solid $voir-gray-3;
-                height: 45px;
-                padding: 15px 0 15px 0;
-                @include fontHelvetica(14px, 400, 1px);
-                line-height: 45px;
-                color: #a8aaaa;
-                border-radius: 0;
-
-                &:focus {
-                  outline: none;
-                }
-
-              }
-
+            .spr-summary-caption {
+              @include fontHelvetica(14px);
+              color: $voir-gray-1;
             }
 
-            .spr-form-review-body {
-              padding: 0 30px 0 30px;
-
-              label {
-                display: none;
-              }
-
-              textarea {
-                border: none;
-                border-bottom: 1px solid $voir-gray-3;
-                height: 45px;
-                padding: 15px 0 15px 0;
-                @include fontHelvetica(14px, 400, 1px);
-                line-height: 45px;
-                color: #a8aaaa;
-                border-radius: 0;
-
-                &:focus {
-                  outline: none;
-                }
-
-              }
-            }
-
-            .spr-form-actions {
+            .spr-summary-actions-newreview {
+              width: 270px;
+              height: 45px;
+              border: 1px solid black;
+              border-radius: 1px;
               text-align: center;
+              background: #ffffff;
+              margin-top: -15px;
 
-              .spr-button-primary {
-                float: none;
-                height: 45px;
-                width: 350px;
-                background: #ffffff;
-                @include fontHelveticaBold(13px);
-                color: $voir-gray-1;
-                border: 1px solid $voir-gray-1;
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-1;
+              line-height: 45px;
+
+              transition: background 0.3s ease-out, color 0.3s ease-out;
+
+              &:hover {
+                background: $voir-gray-1;
+                color: #ffffff;
               }
 
             }
 
           }
+
+
+        }
+
+
+
+        .spr-content {
+
+          .spr-reviews {
+            display: flex;
+            flex-wrap: wrap;
+
+            .spr-review {
+              position: relative;
+              -webkit-box-flex: 0;
+              width: 100%;
+              flex: 0 0 30%;
+              max-width: 30%;
+              margin-right: 5%;
+              margin-top: 25px;
+              padding: 0;
+
+              border: none;
+              border-bottom: 2px solid #dcdcdc;
+
+              &:nth-child(3) {
+                margin-right: 0;
+              }
+
+              .spr-review-header-starratings {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                width: 100%;
+                margin-left: -3px;
+
+                .spr-icon {
+
+                  &::before {
+                    color: $voir-gray-2;
+                    width: 19px;
+                    font-size: 13px;
+                  }
+
+                }
+
+              }
+
+              .spr-review-header-byline {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: rgba(255,255,255,0);
+
+                strong:first-child {
+                  @include fontHelvetica(12px);
+                  color: $voir-gray-2;
+                  float: left;
+                  text-decoration: none;
+                  font-style: normal;
+                }
+
+                strong:last-child {
+                  @include fontHelvetica(12px);
+                  color: $voir-gray-2;
+                  float: right;
+                  text-decoration: none;
+                  font-style: normal;
+                }
+
+              }
+
+              .spr-review-content {
+                margin-bottom: 30px;
+                min-height: 150px;
+
+                .spr-review-header-title {
+                  @include fontHelveticaBold(13px);
+                  line-height: 14px;
+                  color: $voir-gray-2;
+                  text-transform: uppercase;
+                }
+
+                .spr-review-content-body {
+                  margin-top: 40px;
+                  @include fontHelvetica(12px, 400, 0.025em);
+                  line-height: 16px;
+                  color: $voir-gray-2;
+                }
+
+              }
+
+              .spr-review-footer {
+                display: none;
+              }
+
+            }
+
+          }
+
+
 
         }
 
@@ -11893,7 +11871,268 @@ a {
 
     }
 
+  }
 
+}
+
+.product-modal-container-review {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  &.active {
+    display: block;
+  }
+
+  .modal-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .review-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 570px;
+    background: #ffffff;
+
+    .spr-form {
+      display: block!important;
+      margin-top: 15px;
+      border: none;
+
+      form {
+        position: relative;
+        width: 700px;
+        height: 500px;
+        margin: auto;
+
+        .spr-form-title {
+          @include fontCambriaBold(30px, 400, 1px);
+          color: $voir-gray-1;
+          line-height: 30px;
+          text-align: center;
+          margin-bottom: 70px;
+
+          &.hidden {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+          }
+
+        }
+
+        .spr-form-contact {
+          padding: 0 30px 0 30px;
+
+          .spr-form-contact-name {
+            width: 300px;
+            float: left;
+
+            label {
+              display: none;
+            }
+
+            input {
+              border: none;
+              border-bottom: 1px solid $voir-gray-3;
+              height: 45px;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 45px;
+              color: #a8aaaa;
+              border-radius: 0;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+
+          }
+
+          .spr-form-contact-email {
+            width: 300px;
+            float: left;
+            margin-left: 30px;
+
+
+            label {
+              display: none;
+            }
+
+            input {
+              border: none;
+              border-bottom: 1px solid $voir-gray-3;
+              height: 45px;
+              padding: 15px 0 15px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 45px;
+              color: #a8aaaa;
+              border-radius: 0;
+
+              &:focus {
+                outline: none;
+              }
+
+            }
+          }
+
+        }
+
+        .spr-form-review {
+
+          .spr-form-review-rating {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 230px;
+
+            .spr-form-label {
+              float: left;
+              @include fontHelveticaBold(14px);
+              color: $voir-gray-2;
+            }
+
+            .spr-starrating {
+              float: right;
+            }
+
+          }
+
+        }
+
+        .spr-form-review-title {
+          padding: 0 30px 0 30px;
+
+          label {
+            display: none;
+          }
+
+          input {
+            border: none;
+            border-bottom: 1px solid $voir-gray-3;
+            height: 45px;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px, 400, 1px);
+            line-height: 45px;
+            color: #a8aaaa;
+            border-radius: 0;
+
+            &:focus {
+              outline: none;
+            }
+
+          }
+
+        }
+
+        .spr-form-review-body {
+          padding: 0 30px 0 30px;
+
+          label {
+            display: none;
+          }
+
+          textarea {
+            border: none;
+            border-bottom: 1px solid $voir-gray-3;
+            height: 140px;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px, 400, 1px);
+            line-height: 45px;
+            color: #a8aaaa;
+            border-radius: 0;
+
+            &:focus {
+              outline: none;
+            }
+
+          }
+        }
+
+        .spr-form-actions {
+          text-align: center;
+          margin-top: 15px;
+
+          .spr-button-primary {
+            float: none;
+            height: 45px;
+            width: 350px;
+            background: #ffffff;
+            @include fontHelveticaBold(13px);
+            color: $voir-gray-1;
+            border: 1px solid $voir-gray-1;
+          }
+
+        }
+
+        .spr-form-message-success {
+
+          opacity: 0;
+          transition: opacity 0.4s ease;
+
+          &.active {
+            opacity: 1;
+          }
+
+          .success-title {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,0);
+
+            width: 300px;
+
+            @include fontCambriaBold(24px, 400, 1px);
+            color: $voir-gray-1;
+            line-height: 32px;
+            text-align: center;
+
+            margin-bottom: 30px;
+
+          }
+
+          .success-message {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 300px;
+            @include fontHelvetica(15px, 400, 0.035em);
+            line-height: 24px;
+            color: $voir-gray-2;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px solid $voir-gray-3;
+          }
+
+
+        }
+
+      }
+
+    }
+
+    .close-button {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
 
   }
 

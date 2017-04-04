@@ -1020,7 +1020,62 @@ theme.Header = (function() {
           }
 
 
+          var target = document.getElementById('shopify-product-reviews');
+
+          var observerRev = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+
+              var element = $('.spr-content .spr-form');
+
+              if(element[0]) {
+
+                observerRev.disconnect();
+
+                element.detach();
+
+                $('#product-page-modal-panel-review .review-container').append(element);
+
+                $('.spr-summary-actions-newreview').on('click', productReviewPanelToggle);
+
+                $('#product-page-review-overlay').on('click', productReviewPanelToggle);
+
+                $('#product-page-review-modal-close-button').on('click', productReviewPanelToggle);
+
+
+                $('.spr-form-actions input').on('click', function() {
+
+                  setTimeout(function(){
+
+                    if($('.spr-form .spr-form-message-success')[0]){
+                      
+                      $('.spr-form .spr-form-title').addClass('hidden');
+
+                      $('.spr-form .spr-form-message-success').addClass('active');
+                      
+                    }
+
+                  }, 700);
+
+                });
+
+              }
+
+            });
+          });
+
+          // конфигурация нашего observer:
+          var config = { attributes: true, childList: true, characterData: true };
+
+          // передаём в качестве аргументов целевой элемент и его конфигурацию
+          observerRev.observe(target, config);
+
         }, 500);
+
+
+
+
+          // $('#product-page-modal-close-button').on('click', productReviewPanelToggle);
+
       });
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.product);
@@ -1175,6 +1230,10 @@ theme.Header = (function() {
 
   function productModalPanelToggle() {
     $('#product-page-modal-panel').toggleClass('active');
+  }
+
+  function productReviewPanelToggle() {
+    $('#product-page-modal-panel-review').toggleClass('active');
   }
 
   function howToUseInit() {
