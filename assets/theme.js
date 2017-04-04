@@ -799,7 +799,7 @@ theme.Header = (function() {
     home: [2,3],
     about: [2,3,4,5,6,7],
     contact: [2],
-    product: [1,2,3,6]
+    product: [1,2,3]
   };
 
   var panelsWithAnimations = {};
@@ -1054,7 +1054,7 @@ theme.Header = (function() {
                       
                     }
 
-                  }, 700);
+                  }, 1500);
 
                 });
 
