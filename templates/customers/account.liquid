@@ -1,7 +1,174 @@
 <div id="account-page-main-block" class="account-page-main-container">
   <div class="account-main-block">
     <div class="upper-side">
+      <div class="left-side">
+        <div class="welcome-container">
+          <div class="hello">
+            HELLO, {{ customer.first_name }}
+          </div>
+          <div class="title">
+            My Account
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="menu">
+          <div id="info-show-button" class="account-page-tab-selector menu-item active">
+            ACCOUNT DETAIL
+          </div>
+          <div id="orders-show-button" class="account-page-tab-selector menu-item">
+            ORDER HISTORY
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-side">
+      <div class="left-side">
+        <div class="account-info-container">
+          <div class="title">
+            Account Information
+          </div>
+          <div class="info">
+            <div class="info-item street">
+              <span class="street">{{ customer.default_address.address1 }}</span>
+            </div>
+            <div class="info-item state">
+              <span class="city">{{ customer.default_address.city }},</span><span class="province">{{ customer.default_address.province }}</span>
+            </div>
+            <div class="info-item zip">
+              <span class="zip">{{ customer.default_address.zip }}</span>
+            </div>
+            <div class="info-item phone">
+              {{ customer.default_address.phone }}
+            </div>
+          </div>
+          <div class="edit">
+            Edit
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div id="info-tab-block" class="account-page-tab-container active">
+          <div class="account-details">
+            <div class="title">ACCOUNT DETAIL</div>
+            <div class="info-field name-row">
+              <div class="label">
+                Name
+              </div>
+              <div class="field-data">
+                {{ customer.first_name }}
+              </div>
+              <div class="edit">
+                edit
+              </div>
+            </div>
+            <div class="info-field mail-row">
+              <div class="label">
+                Email
+              </div>
+              <div class="field-data">
+                {{ customer.email }}
+              </div>
+              <div class="edit">
+                edit
+              </div>
+            </div>
+            <div class="info-field pass-row">
+              <div class="label">
+                Password
+              </div>
+              <div class="field-data">
+                -
+              </div>
+              <div class="edit">
+                edit
+              </div>
+            </div>
+          </div>
+          <div class="addresses-list">
+            <div class="header-panel">
+              <div class="title">
+                YOUR ADDRESS
+              </div>
+              <div class="new-address">
+                ADD A NEW ADDRESS
+              </div>
+            </div>
+            <div class="list-container">
+              {% for address in customer.addresses %}
+                <div class="address-row">
+                  <div class="label">
+                    Address {{ forloop.index }}
+                  </div>
+                  <div class="field-data">
+                    {{ address.address1 }}, {{ address.city }}, {{ address.province }}, {{ address.zip }} <span class="phone">{{ address.phone }}</span>
+                  </div>
+                  <div class="delete">
+                    delete
+                  </div>
+                  <div class="edit">
+                    edit
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div id="orders-tab-block" class="account-page-tab-container">
+          <div class="orders-block">
+            <div class="title">
+              ORDER HISTORY
+            </div>
+            <div class="orders-table">
+              <div class="orders-row header-row">
+                <div class="col first-col">
+                  ORDER #
+                </div>
+                <div class="col second-col">
+                  ORDER DATE
+                </div>
+                <div class="col third-col">
+                  TOTAL
+                </div>
+                <div class="col fourth-col">
+                  TRACKING #
+                </div>
+                <div class="col fifth-col">
+                  ORDER STATUS
+                </div>
+                <div class="sixth-col"></div>
+              </div>
+              {% for order in customer.orders %}
+                <div class="orders-row">
+                  <div class="col first-col">
+                    {{ order.order_number }}
+                  </div>
+                  <div class="col second-col">
+                    {{ order.created_at | date: "%b %d, %y" }}
+                  </div>
+                  <div class="col third-col">
+                    <span>{{ order.total_price | money }}</span> CAD
+                  </div>
+                  <div class="col fourth-col">
+                   -
+                  </div>
+                  <div class="col fifth-col">
+                    {{ order.fulfillment_status_label }}
+                  </div>
+                  <div class="col sixth-col">
+                      <div class="reorder">
+                        <a href="{{ order.customer_url }}">
+                          RE-ORDER
+                        </a>
+                      </div>
+                  </div>
+                </div>
 
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

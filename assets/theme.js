@@ -832,6 +832,8 @@ theme.Header = (function() {
 
   var headerTop = 36;
 
+  var showShipping = true;
+
   if(windowWidth < 1025) {
     headerTop = 28;
 
@@ -919,6 +921,8 @@ theme.Header = (function() {
       $('.shipping-container').addClass("hidden-shipping");
 
       $(selectors.siteHeader).css({ top: '0px' });
+
+      showShipping = false;
 
       //tabs change
       if(!window.location.hash) {
@@ -1115,6 +1119,23 @@ theme.Header = (function() {
         }, 500);
       });
       
+    } else if($('#account-page-main-block').length != 0)  {           //login page
+
+      $('.shipping-container').addClass("hidden-shipping");
+
+      $(selectors.siteHeader).css({ top: '0px' });
+
+      showShipping = false;
+      
+      $('#info-show-button').on('click', function(){
+        toggleAccountPanels('info');
+      });
+
+      $('#orders-show-button').on('click', function(){
+        toggleAccountPanels('orders');
+      });
+
+      
     } else if($('#collections-list-page').length != 0) {
 
       if ($(window).width() > 1024) {
@@ -1183,14 +1204,19 @@ theme.Header = (function() {
 
 
 
-    headerPositionChange($(selectors.body).scrollTop());
+    if(showShipping) {
+      headerPositionChange($(selectors.body).scrollTop());
+    }
+
     
     socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
 
     $(window).scroll( function() {
-      
-      headerPositionChange($(selectors.body).scrollTop());
-      
+
+      if(showShipping) {
+        headerPositionChange($(selectors.body).scrollTop());
+      }
+
       socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
     });
 
@@ -1419,9 +1445,17 @@ theme.Header = (function() {
 
   //
 
-  //login page
+  //account page
 
+  function toggleAccountPanels(id) {
 
+    $('.account-page-tab-selector').removeClass('active');
+    $('#' + id + '-show-button').addClass('active');
+
+    $('.account-page-tab-container').removeClass('active');
+    $('#' + id + '-tab-block').addClass('active');
+
+  }
 
   //
 
@@ -3660,6 +3694,10 @@ function footerInit() {
   if($('#contact-us-page').length != 0) {
 
     $('.site-footer').addClass('active_footer');
+    $('.back-arrow-container.header-arrow').addClass('hidden');
+
+  } else if($('#account-page-main-block').length != 0) {
+    
     $('.back-arrow-container.header-arrow').addClass('hidden');
 
   } else {
