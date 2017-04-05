@@ -96,17 +96,20 @@
             <div id="header-bag-counter" class="bag-counter">{{ cart.item_count }}</div>
           </div>
 
-          <a href="/account/login">
-            {% if customer %}
+          {% if customer %}
+            <a href="/account">
               <div class="menu-elem">
                 {{ customer.first_name }}
               </div>
-            {% else %}
+            </a>
+          {% else %}
+            <a href="/account/login">
               <div class="menu-elem">
                 SIGN UP
               </div>
-            {% endif %}
-          </a>
+            </a>
+          {% endif %}
+
           <div class="menu-elem">
             THE STUDIO
           </div>
