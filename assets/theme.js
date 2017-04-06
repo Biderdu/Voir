@@ -1119,7 +1119,7 @@ theme.Header = (function() {
         }, 500);
       });
       
-    } else if($('#account-page-main-block').length != 0)  {           //login page
+    } else if($('#account-page-main-block').length != 0)  {           //account page
 
       $('.shipping-container').addClass("hidden-shipping");
 
@@ -1136,6 +1136,16 @@ theme.Header = (function() {
       });
 
       
+    } else if($('#order-info-page-panel').length != 0)  {           //order page
+
+      
+      $('.shipping-container').addClass("hidden-shipping");
+
+      $(selectors.siteHeader).css({ top: '0px' });
+
+      showShipping = false;
+
+
     } else if($('#collections-list-page').length != 0) {
 
       if ($(window).width() > 1024) {
