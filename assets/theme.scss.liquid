@@ -15281,7 +15281,200 @@ a {
 //order info page end
 
 
+//lauch page
 
+.launch-page-main-container {
+  position: relative;
+  width: 100%;
+
+  .launch-intro-block {
+    position: relative;
+    width: 100%;
+    margin-top: 130px;
+
+    .intro-image-container {
+      overflow: hidden;
+      width: 800px;
+      height: 325px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      background-image: url("{{ 'rhythm_of_the_rain.jpg' | asset_url }}");
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    .launch-info-container {
+      margin-top: 60px;
+      width: 600px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .title-block {
+
+        .heading {
+          @include fontCambriaBold(46px);
+          line-height: 46px;
+          color: $voir-gray-1;
+        }
+
+        .subheading {
+          margin-top: 15px;
+          @include fontHelvetica(20px);
+          line-height: 20px;
+          color: $voir-gray-1;
+        }
+
+
+      }
+
+      .info-text-block {
+        position: relative;
+        width: 100%;
+        margin-top: 45px;
+
+        @include fontHelveticaLight(20px);
+        color: $voir-gray-1;
+        line-height: 28px;
+
+        .second-paragraph {
+          margin-top: 25px;
+        }
+
+      }
+
+    }
+
+    .footer-spacer {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+
+  }
+
+}
+
+
+@media (max-width: $screen-tablet) {
+
+  .launch-page-main-container {
+
+    .launch-intro-block {
+      margin-top: 120px;
+
+      .intro-image-container {
+        width: 700px;
+        height: 280px;
+      }
+
+      .launch-info-container {
+        margin-top: 60px;
+        width: 560px;
+
+        .title-block {
+
+          .heading {
+            @include fontCambriaBold(42px);
+            line-height: 42px;
+          }
+
+          .subheading {
+            @include fontHelvetica(18px);
+            line-height: 18px;
+          }
+
+
+        }
+
+        .info-text-block {
+
+          @include fontHelveticaLight(16px);
+          line-height: 26px;
+
+          .second-paragraph {
+
+          }
+
+        }
+
+      }
+
+      .footer-spacer {
+
+      }
+
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+
+  .launch-page-main-container {
+
+    .launch-intro-block {
+
+      margin-top: 90px;
+
+      .intro-image-container {
+        width: 280px;
+        height: 280px;
+      }
+
+      .launch-info-container {
+        margin-top: 60px;
+        width: 280px;
+
+        .title-block {
+
+          .heading {
+            @include fontCambriaBold(26px);
+            line-height: 26px;
+          }
+
+          .subheading {
+            @include fontHelvetica(14px);
+            line-height: 14px;
+          }
+
+
+        }
+
+        .info-text-block {
+          margin-top: 35px;
+
+          @include fontHelveticaLight(14px);
+          line-height: 22px;
+
+          .second-paragraph {
+
+          }
+
+        }
+
+      }
+
+      .footer-spacer {
+        height: 450px;
+      }
+
+
+    }
+
+  }
+
+}
+
+//lauch page end
 
 
 //collections page

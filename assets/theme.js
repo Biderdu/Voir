@@ -799,7 +799,8 @@ theme.Header = (function() {
     home: [2,3],
     about: [2,3,4,5,6,7],
     contact: [2],
-    product: [1,2,3]
+    product: [1,2,3],
+    launch: [1,2]
   };
 
   var panelsWithAnimations = {};
@@ -973,6 +974,20 @@ theme.Header = (function() {
       });
       
       
+    } else if($('#launch-page-panel').length != 0) {   //launch page
+
+      socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.launch);
+
+      $( document ).ready(function() {
+        setTimeout(function(){
+
+          $('#launch-navi-item').addClass('active');
+          $('#mobile-menu-launch-button').addClass('active');
+
+        }, 500);
+      });
+
+
     } else if($('#product-page-panel').length != 0) {   //product page
 
       console.log('product');
@@ -1103,7 +1118,7 @@ theme.Header = (function() {
 
 
 
-    } else if($('#login-page-panel').length != 0)  {           //login page
+    } else if($('#login-page-panel').length != 0)  {      //login page
 
       console.log('login');
 
