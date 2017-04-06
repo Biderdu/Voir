@@ -14709,9 +14709,17 @@ a {
               text-align: center;
               cursor: pointer;
 
+              a {
+                color: $voir-gray-1;
+              }
+
               &:hover {
                 background: $voir-gray-1;
                 color: #ffffff;
+
+                a {
+                  color: #ffffff;
+                }
               }
             }
 
@@ -15033,8 +15041,8 @@ a {
               color: $voir-gray-1;
             }
 
-            .street-zip {
-
+            .street {
+              margin-top: 5px;
             }
 
             .state {
@@ -15092,66 +15100,26 @@ a {
               }
 
               .first-col {
-                width: 120px;
-                color: #4889e2;
+                width: 340px;
               }
 
               .second-col {
-                width: 145px;
+                width: 210px;
+                height: 100%;
               }
 
               .third-col {
-                width: 120px;
+                width: 210px;
+              }
+
+              .fourth-col {
+                width: 90px;
+                text-align: right;
 
                 span {
                   @include fontHelveticaBold(12px);
                 }
-
               }
-
-              .fourth-col {
-                width: 145px;
-                color: #4889e2;
-              }
-
-              .fifth-col {
-                width: 170px;
-                @include fontHelveticaBold(12px);
-                text-transform: uppercase;
-              }
-
-              .sixth-col {
-                width: 150px;
-                position: relative;
-                height: 80px;
-
-                .reorder {
-                  height: 45px;
-                  width: 150px;
-                  border: 1px solid $voir-gray-1;
-                  border-radius: 1px;
-                  background: #ffffff;
-                  transition: background 0.3s ease-out, color 0.3s ease-out;
-
-                  @include fontHelveticaBold(13px);
-                  line-height: 40px;
-                  color: $voir-gray-1;
-                  text-align: center;
-
-                  position: relative;
-                  top: 50%;
-                  transform: translate(0,-50%);
-
-                  &:hover {
-                    background: $voir-gray-1;
-                    color: #ffffff;
-                  }
-
-                }
-
-              }
-
-
             }
 
             .header-row {
@@ -15178,10 +15146,113 @@ a {
               }
 
               .fourth-col {
+                padding-right: 20px;
+              }
+
+            }
+
+            .bottom-row {
+              height: 110px;
+              width: 850px;
+              border-bottom: 2px solid #b4b4b4;
+
+              .left-bottom-side {
+                width: 50%;
+                float: left;
+                height: 100%;
+                text-align: start;
+
+                .first-row {
+                  @include fontHelveticaBold(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                  margin-top: 15px;
+                }
+
+                .second-row {
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                }
+
+                .third-row {
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                }
 
               }
 
-              .fifth-col {
+              .right-bottom-side {
+                width: 50%;
+                float: right;
+                height: 100%;
+                text-align: right;
+
+                .first-row {
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                  margin-top: 15px;
+                  text-align: right;
+
+                  span {
+                    @include fontHelveticaBold(13px);
+                  }
+
+                }
+
+                .second-row {
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                  text-align: right;
+                }
+
+                .third-row {
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 25px;
+                  width: 100%;
+                  text-align: right;
+                }
+
+
+              }
+
+            }
+
+            .summary-row {
+              width: 850px;
+              height: 45px;
+              border-bottom: 2px solid #e3e3e3;
+
+              .left-bottom-side {
+                width: 50%;
+                float: left;
+
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-2;
+                line-height: 45px;
+              }
+
+              .right-bottom-side {
+                width: 50%;
+                float: right;
+                text-align: right;
+
+                @include fontHelvetica(13px);
+                color: $voir-gray-2;
+                line-height: 45px;
+
+                span {
+                  @include fontHelveticaBold(13px);
+                }
 
               }
 

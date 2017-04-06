@@ -52,49 +52,66 @@
             <div class="orders-table">
               <div class="orders-row header-row">
                 <div class="col first-col">
-                  ORDER #
+                  PRODUCT
                 </div>
                 <div class="col second-col">
-                  ORDER DATE
+                  SKU
                 </div>
                 <div class="col third-col">
-                  TOTAL
+                  QUANTITY
                 </div>
                 <div class="col fourth-col">
-                  TRACKING #
+                  PRICE
                 </div>
-                <div class="col fifth-col">
-                  ORDER STATUS
-                </div>
-                <div class="sixth-col"></div>
               </div>
-              {% for order in customer.orders %}
+              {% for line_item in  order.line_items %}
                 <div class="orders-row">
                   <div class="col first-col">
-                    {{ order.order_number }}
+                    {{ line_item.product.metafields.c_f.short_description }}
                   </div>
                   <div class="col second-col">
-                    {{ order.created_at | date: "%b %d, %Y" }}
+                    {{ line_item.sku }}
                   </div>
                   <div class="col third-col">
-                    <span>{{ order.total_price | money }}</span> CAD
+                    {{ line_item.quantity }}
                   </div>
                   <div class="col fourth-col">
-                    -
-                  </div>
-                  <div class="col fifth-col">
-                    {{ order.fulfillment_status_label }}
-                  </div>
-                  <div class="col sixth-col">
-                    <div class="reorder">
-                      <a href="{{ order.customer_url }}">
-                        RE-ORDER
-                      </a>
-                    </div>
+                    <span>{{ line_item.price | money }}</span> CAD
                   </div>
                 </div>
-
               {% endfor %}
+              <div class="bottom-row">
+                <div class="left-bottom-side">
+                  <div class="first-row">
+                    SUBTOTAL
+                  </div>
+                  <div class="second-row">
+                    TAXES(13%)
+                  </div>
+                  <div class="third-row">
+                    SHIPPING
+                  </div>
+                </div>
+                <div class="right-bottom-side">
+                  <div class="first-row">
+                    <span>{{ order.subtotal_price | money }}</span> CAD
+                  </div>
+                  <div class="second-row">
+                    {{ order.subtotal_price | times: 0.13 | money }} CAD
+                  </div>
+                  <div class="third-row">
+                    $0.00 CAD
+                  </div>
+                </div>
+              </div>
+              <div class="summary-row">
+                <div class="left-bottom-side">
+                  TOTAL
+                </div>
+                <div class="right-bottom-side">
+                  <span>{{ order.subtotal_price | times: 1.13 | money }}</span> CAD
+                </div>
+              </div>
             </div>
           </div>
         </div>
