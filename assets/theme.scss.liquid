@@ -14544,6 +14544,10 @@ a {
 
         }
 
+        .menu-mobile {
+          display: none;
+        }
+
       }
 
     }
@@ -14916,6 +14920,10 @@ a {
 
         }
 
+        .footer-spacer {
+          display: none;
+        }
+
       }
 
     }
@@ -14926,9 +14934,724 @@ a {
 
 @media (max-width: $screen-tablet) {
 
+  .account-page-main-container {
+
+    .account-main-block {
+      height: calc(100% - 60px);
+      top: 60px;
+
+      .upper-side {
+        height: 205px;
+
+
+        .left-side {
+          position: relative;
+          height: 160px;
+          width: 100%;
+          float: left;
+          border-bottom: 2px solid #e3e3e3;
+
+          .welcome-container {
+            position: relative;
+            left: 50px;
+            top: 50%;
+            transform: translate(0,-50%);
+
+            .hello {
+              @include fontHelvetica(14px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              text-transform: uppercase;
+              text-align: start;
+              margin-bottom: 10px;
+            }
+
+            .title {
+              @include fontCambriaBold(26px);
+              line-height: 26px;
+              color: $voir-gray-1;
+            }
+
+          }
+
+        }
+
+        .right-side {
+          position: relative;
+          height: 45px;
+          width: 100%;
+          float: right;
+
+          .menu {
+            display: none;
+          }
+
+          .menu-mobile {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            .menu-select {
+              position: relative;
+              margin-left: 50px;
+              @include fontHelvetica(13px);
+              color: $voir-gray-2;
+              line-height: 45px;
+
+              span {
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-2;
+              }
+
+              .arrow-icon-container {
+                position: absolute;
+                right: 30px;
+                top: 7px;
+                width: 15px;
+                height: 30px;
+                transform: rotate(90deg);
+                cursor: pointer;
+
+                .down-arrow-icon {
+                  content: url('{{ "Right_Slide_Arrow.svg" | asset_url }}');
+                  height: 100%;
+                  width: 100%;
+                }
+
+              }
+
+            }
+
+            .menu-select-list {
+              width: 100%;
+              position: absolute;
+              z-index: 1;
+              top: 100%;
+              height: 0;
+              overflow: hidden;
+              background: #ffffff;
+              transition: visibility 0.2s ease, height 0.4s ease 0.2s;
+              box-shadow: 0 1px 2px $voir-gray-3;
+
+              .list-item {
+                position: relative;
+                width: 100%;
+                @include fontHelvetica(13px);
+                color: #a7a8aa;
+                line-height: 40px;
+                padding-left: 45px;
+
+                a {
+                  color: #a7a8aa;
+                }
+
+                span {
+                  @include fontHelveticaBold(13px);
+                  color: #a7a8aa;
+                }
+
+              }
+
+            }
+
+            .menu-select-list.active-list {
+              height: 80px;
+            }
+
+          }
+
+        }
+
+      }
+
+      .bottom-side {
+
+
+        .left-side {
+          display: none;
+        }
+
+        .right-side {
+          width: calc(100vw - 80px);
+          left: 50px;
+          float: left;
+
+          .account-details {
+            width: 100%;
+
+            .title {
+              @include fontHelveticaBold(18px);
+              line-height: 18px;
+              color: $voir-gray-1;
+            }
+
+            .info-field {
+              width: 100%;
+
+              .label {
+
+              }
+
+              .field-data {
+
+              }
+
+              .edit {
+
+              }
+
+            }
+
+            .name-row {
+
+            }
+
+          }
+
+          .addresses-list {
+            width: 100%;
+
+            .header-panel {
+
+              .title {
+
+              }
+
+              .new-address {
+                background: rgba(255,255,255,0);
+              }
+
+            }
+
+            .list-container {
+
+              .address-row {
+
+                width: 100%;
+
+
+                .label {
+
+                }
+
+                .field-data {
+
+                  .phone {
+
+                  }
+
+                }
+
+                .edit {
+
+                }
+
+                .delete {
+
+                }
+
+                &:first-child {
+
+                }
+
+              }
+
+            }
+
+          }
+
+          .orders-block {
+            width: 100%;
+
+            .title {
+
+            }
+
+            .orders-table {
+
+              .orders-row {
+                border-bottom: 2px solid #e3e3e3;
+                height: 80px;
+
+                .col {
+                  @include fontHelvetica(12px);
+                  line-height: 80px;
+                  color: $voir-gray-2;
+                  float: left;
+                }
+
+                .first-col {
+                  width: 100px;
+                }
+
+                .second-col {
+                  width: 120px;
+                }
+
+                .third-col {
+                  width: 95px;
+                }
+
+                .fourth-col {
+                  width: 120px;
+                }
+
+                .fifth-col {
+                  width: 130px;
+                }
+
+                .sixth-col {
+                  width: 120px;
+                  position: relative;
+                  height: 80px;
+
+                  .reorder {
+                    height: 45px;
+                    width: 120px;
+                    border: 1px solid $voir-gray-1;
+                    border-radius: 1px;
+                    background: #ffffff;
+                    transition: background 0.3s ease-out, color 0.3s ease-out;
+
+                    @include fontHelveticaBold(13px);
+                    line-height: 40px;
+                    color: $voir-gray-1;
+                    text-align: center;
+
+                    position: relative;
+                    top: 50%;
+                    transform: translate(0,-50%);
+
+                    &:hover {
+                      background: $voir-gray-1;
+                      color: #ffffff;
+                    }
+
+                  }
+
+                }
+
+              }
+
+              .header-row {
+                border-top: 2px solid #e3e3e3;
+                height: 60px;
+
+                .col {
+                  @include fontHelveticaBold(14px);
+                  color: $voir-gray-2;
+                  line-height: 55px;
+                }
+
+
+                .first-col {
+
+                }
+
+                .second-col {
+
+                }
+
+                .third-col {
+
+                }
+
+                .fourth-col {
+
+                }
+
+                .fifth-col {
+
+                }
+
+              }
+
+            }
+
+          }
+
+          .footer-spacer {
+            display: block;
+            position: relative;
+            height: 400px;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
 }
 
 @media (max-width: $screen-mobile) {
+
+  .account-page-main-container {
+
+    height: 1500px;
+
+    .account-main-block {
+      height: calc(100% - 60px);
+      top: 60px;
+
+      .upper-side {
+        height: 205px;
+
+
+        .left-side {
+          position: relative;
+          height: 160px;
+          width: 100%;
+          float: left;
+          border-bottom: 2px solid #e3e3e3;
+
+          .welcome-container {
+            position: relative;
+            left: 30px;
+            top: 50%;
+            transform: translate(0,-50%);
+
+            .hello {
+              @include fontHelvetica(14px);
+              line-height: 14px;
+              color: $voir-gray-2;
+              text-transform: uppercase;
+              text-align: start;
+              margin-bottom: 10px;
+            }
+
+            .title {
+              @include fontCambriaBold(26px);
+              line-height: 26px;
+              color: $voir-gray-1;
+            }
+
+          }
+
+        }
+
+        .right-side {
+          position: relative;
+          height: 45px;
+          width: 100%;
+          float: right;
+
+          .menu {
+            display: none;
+          }
+
+          .menu-mobile {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            .menu-select {
+              position: relative;
+              margin-left: 30px;
+              @include fontHelvetica(13px);
+              color: $voir-gray-2;
+              line-height: 45px;
+
+              span {
+                @include fontHelveticaBold(13px);
+                color: $voir-gray-2;
+              }
+
+              .arrow-icon-container {
+                position: absolute;
+                right: 30px;
+                top: 7px;
+                width: 15px;
+                height: 30px;
+                transform: rotate(90deg);
+                cursor: pointer;
+
+                .down-arrow-icon {
+                  content: url('{{ "Right_Slide_Arrow.svg" | asset_url }}');
+                  height: 100%;
+                  width: 100%;
+                }
+
+              }
+
+            }
+
+            .menu-select-list {
+              width: 100%;
+              position: absolute;
+              z-index: 1;
+              top: 100%;
+              height: 0;
+              overflow: hidden;
+              background: #ffffff;
+              transition: visibility 0.2s ease, height 0.4s ease 0.2s;
+              box-shadow: 0 1px 2px $voir-gray-3;
+
+              .list-item {
+                position: relative;
+                width: 100%;
+                @include fontHelvetica(13px);
+                color: #a7a8aa;
+                line-height: 40px;
+                padding-left: 45px;
+
+                a {
+                  color: #a7a8aa;
+                }
+
+                span {
+                  @include fontHelveticaBold(13px);
+                  color: #a7a8aa;
+                }
+
+              }
+
+            }
+
+            .menu-select-list.active-list {
+              height: 80px;
+            }
+
+          }
+
+        }
+
+      }
+
+      .bottom-side {
+
+        .left-side {
+          display: none;
+        }
+
+        .right-side {
+          width: calc(100vw - 60px);
+          left: 30px;
+          float: left;
+
+          .account-details {
+            margin-top: 30px;
+            width: 100%;
+
+            .title {
+              @include fontHelveticaBold(18px);
+              line-height: 18px;
+              color: $voir-gray-1;
+            }
+
+            .info-field {
+              width: 100%;
+              height: 65px;
+
+              .label {
+                width: 100%;
+                @include fontHelvetica(12px);
+                line-height: 20px;
+                margin-top: 10px;
+              }
+
+              .field-data {
+                @include fontHelveticaBold(12px);
+                line-height: 20px;
+                margin-bottom: 10px;
+              }
+
+              .edit {
+                @include fontHelvetica(12px);
+                line-height: 20px;
+                margin-bottom: 10px;
+              }
+
+            }
+
+            .name-row {
+              margin-top: 30px;
+            }
+
+          }
+
+          .addresses-list {
+            width: 100%;
+
+            .header-panel {
+              height: 120px;
+
+              .title {
+                width: 100%;
+              }
+
+              .new-address {
+                width: 100%;
+                margin-top: 30px;
+              }
+
+            }
+
+            .list-container {
+
+              .address-row {
+                width: 100%;
+                height: 140px;
+
+                .label {
+                  @include fontHelvetica(12px);
+                  line-height: 30px;
+                  width: 100%;
+                }
+
+                .field-data {
+
+                  .phone {
+
+                  }
+
+                }
+
+                .edit {
+
+                }
+
+                .delete {
+
+                }
+
+                &:first-child {
+
+                }
+
+              }
+
+            }
+
+          }
+
+          .orders-block {
+            width: 100%;
+
+            .title {
+
+            }
+
+            .orders-table {
+
+              .orders-row {
+                border-bottom: 2px solid #e3e3e3;
+                height: 80px;
+
+                .col {
+                  @include fontHelvetica(12px);
+                  line-height: 80px;
+                  color: $voir-gray-2;
+                  float: left;
+                }
+
+                .first-col {
+                  width: 100px;
+                }
+
+                .second-col {
+                  width: 120px;
+                }
+
+                .third-col {
+                  width: 95px;
+                }
+
+                .fourth-col {
+                  width: 120px;
+                }
+
+                .fifth-col {
+                  width: 130px;
+                }
+
+                .sixth-col {
+                  width: 120px;
+                  position: relative;
+                  height: 80px;
+
+                  .reorder {
+                    height: 45px;
+                    width: 120px;
+                    border: 1px solid $voir-gray-1;
+                    border-radius: 1px;
+                    background: #ffffff;
+                    transition: background 0.3s ease-out, color 0.3s ease-out;
+
+                    @include fontHelveticaBold(13px);
+                    line-height: 40px;
+                    color: $voir-gray-1;
+                    text-align: center;
+
+                    position: relative;
+                    top: 50%;
+                    transform: translate(0,-50%);
+
+                    &:hover {
+                      background: $voir-gray-1;
+                      color: #ffffff;
+                    }
+
+                  }
+
+                }
+
+              }
+
+              .header-row {
+                border-top: 2px solid #e3e3e3;
+                height: 60px;
+
+                .col {
+                  @include fontHelveticaBold(14px);
+                  color: $voir-gray-2;
+                  line-height: 55px;
+                }
+
+
+                .first-col {
+
+                }
+
+                .second-col {
+
+                }
+
+                .third-col {
+
+                }
+
+                .fourth-col {
+
+                }
+
+                .fifth-col {
+
+                }
+
+              }
+
+            }
+
+          }
+
+          .footer-spacer {
+            display: block;
+            position: relative;
+            height: 400px;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
 
 }
 
