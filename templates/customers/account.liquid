@@ -115,7 +115,7 @@
                     Address {{ forloop.index }}
                   </div>
                   <div class="field-data">
-                    {{ address.address1 }}, {{ address.city }}, {{ address.province }}, {{ address.zip }} <span class="phone">{{ address.phone }}</span>
+                    <span class="address-span">{{ address.address1 }},</span><span class="city-span">{{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone">{{ address.phone }}</span>
                   </div>
                   <div class="delete">
                     delete

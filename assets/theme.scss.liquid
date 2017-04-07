@@ -4893,7 +4893,15 @@ h1.product-single__title {
       }
 
       .site-header-menu-container {
-        display: none;
+
+        .menu-my-bag {
+          right: 80px;
+        }
+
+        a {
+          display: none;
+        }
+
       }
 
     }
@@ -4958,7 +4966,14 @@ h1.product-single__title {
 
       .site-header-menu-container {
 
-        display: none;
+        .menu-my-bag {
+          right: 65px;
+        }
+
+        a {
+          display: none;
+        }
+
 
       }
 
@@ -14473,6 +14488,7 @@ a {
 
 .account-page-main-container {
   height: 100vh;
+  width: 100%;
 
   .account-main-block {
     position: relative;
@@ -14483,7 +14499,7 @@ a {
     .upper-side {
       position: relative;
       width: 100%;
-      height: 150px;
+      height: 140px;
       border-bottom: 2px solid #e3e3e3;
 
       .left-side {
@@ -15290,8 +15306,8 @@ a {
 @media (max-width: $screen-mobile) {
 
   .account-page-main-container {
-
-    height: 1500px;
+    display: inline-block;
+    height: auto;
 
     .account-main-block {
       height: calc(100% - 60px);
@@ -15495,7 +15511,7 @@ a {
 
               .address-row {
                 width: 100%;
-                height: 140px;
+                height: 130px;
 
                 .label {
                   @include fontHelvetica(12px);
@@ -15504,19 +15520,43 @@ a {
                 }
 
                 .field-data {
+                  line-height: 20px;
+
+                  .address-span {
+                    display: block;
+                  }
+
+                  .city-span {
+                    display: block;
+                  }
+
+                  .zip-span {
+                    display: block;
+                  }
 
                   .phone {
-
+                    display: block;
+                    @include fontHelveticaBold(14px);
                   }
 
                 }
 
                 .edit {
-
+                  @include fontHelvetica(11px);
+                  position: absolute;
+                  line-height: 20px;
+                  top: 30px;
+                  right: 0;
+                  margin-right: 0;
                 }
 
                 .delete {
-
+                  @include fontHelvetica(11px);
+                  position: absolute;
+                  line-height: 20px;
+                  top: 50px;
+                  right: 0;
+                  margin-right: 0;
                 }
 
                 &:first-child {
@@ -15530,6 +15570,7 @@ a {
           }
 
           .orders-block {
+            margin-top: 30px;
             width: 100%;
 
             .title {
@@ -15642,7 +15683,7 @@ a {
           .footer-spacer {
             display: block;
             position: relative;
-            height: 400px;
+            height: 500px;
           }
 
         }

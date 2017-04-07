@@ -1498,8 +1498,6 @@ theme.Header = (function() {
     $('.account-page-tab-container').removeClass('active');
     $('#' + id + '-tab-block').addClass('active');
 
-    console.log(id);
-
     $('#account-tab-selected-panel').html($('#account-' + id + '-list-item').html());
 
   }
