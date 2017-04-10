@@ -4390,7 +4390,7 @@ h1.product-single__title {
     .items-list-container {
       position: relative;
       width: 100%;
-      height: calc(100% - 320px);
+      height: calc(100% - 260px);
       overflow: auto;
 
       .bag-item {
@@ -4526,15 +4526,14 @@ h1.product-single__title {
       border-top: 1px solid #e3e3e3;
       position: relative;
       width: 100%;
-      height: 210px;
+      height: 150px;
 
       .price-container {
         position: absolute;
-        left: 50%;
         top: 20px;
         height: 20%;
-        width: 270px;
-        transform: translate(-50%, 0);
+        left: 35px;
+        right: 35px;
 
         .info {
           float: left;
@@ -4580,11 +4579,10 @@ h1.product-single__title {
 
       .button-container {
         position: absolute;
-        left: 50%;
-        top: calc(20% + 30px);
-        height: 50%;
-        width: 270px;
-        transform: translate(-50%, 0);
+        left: 35px;
+        right: 35px;
+        top: calc(20% + 35px);
+        height: 45px;
 
         .view-bug-button {
           position: relative;
@@ -4628,7 +4626,6 @@ h1.product-single__title {
           cursor: pointer;
           border: 1px $voir-gray-1 solid;
           border-radius: 2px;
-          margin-top: 15px;
 
           @include fontHelveticaBold(13px);
           text-transform: uppercase;
@@ -4657,7 +4654,7 @@ h1.product-single__title {
 
       }
 
-      .shipping-container {
+      .bag-shipping-container {
         position: absolute;
         left: 50%;
         bottom: 14px;
@@ -4841,6 +4838,40 @@ h1.product-single__title {
 
 @media (max-width: $screen-tablet) {
 
+  .my-bag-modal {
+
+    .hide-layer {
+      width: calc(100% - 384px);
+    }
+
+    .my-bag-panel {
+      width: 384px;
+      transform: translateX(384px);
+
+      .upper-panel {
+
+      }
+
+      .items-list-container {
+
+      }
+
+      .bag-bottom-panel {
+
+        .button-container {
+
+        }
+
+        .bag-shipping-container {
+
+        }
+
+      }
+
+    }
+
+  }
+
   .shipping-container {
     height: 28px;
     background: #f4f4f4;
@@ -4911,6 +4942,40 @@ h1.product-single__title {
 }
 
 @media (max-width: $screen-mobile) {
+
+  .my-bag-modal {
+
+    .hide-layer {
+      width: 0;
+    }
+
+    .my-bag-panel {
+      width: 100%;
+      transform: translateX(0);
+
+      .upper-panel {
+
+      }
+
+      .items-list-container {
+
+      }
+
+      .bag-bottom-panel {
+
+        .button-container {
+
+        }
+
+        .bag-shipping-container {
+
+        }
+
+      }
+
+    }
+
+  }
 
   .shipping-container {
     height: 30px;

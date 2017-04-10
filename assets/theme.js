@@ -1275,6 +1275,22 @@ theme.Header = (function() {
     });
 
 
+    //my bag button
+    $("#my-bag-menu-button").click(function () {
+      $('#my-bag-container').addClass('active-modal');
+    });
+
+    $('.hide-layer').click(function () {
+      $('#my-bag-container').removeClass('active-modal');
+    });
+
+    $('#bag-close-button').click(function () {
+      $('#my-bag-container').removeClass('active-modal');
+    });
+
+    //
+
+
     if(windowWidth > 1024) {
       headerEventsInit();
     } else {
@@ -1617,19 +1633,6 @@ theme.Header = (function() {
     $("#shop-additional-menu").mouseleave(function () {
       $("#shop-additional-menu").removeClass("active");
       $(selectors.siteHeader).removeClass("bright-hover");
-
-    });
-
-    $("#my-bag-menu-button").click(function () {
-      $('#my-bag-container').addClass('active-modal');
-    });
-
-    $('.hide-layer').click(function () {
-      $('#my-bag-container').removeClass('active-modal');
-    });
-
-    $('#bag-close-button').click(function () {
-      $('#my-bag-container').removeClass('active-modal');
     });
   }
 
