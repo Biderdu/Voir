@@ -27,12 +27,15 @@
         {%- assign featured_img_src = product.featured_image.src -%}
         <div class="product-image-container">
           <div class="border"></div>
-          <!--img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image"-->
-          <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '300x300' }},{% if forloop.last == true %}{{ image.src | img_url: '300x300' }}{% endif %}{% endif %}{% endfor %}"  >
-          <div id="reel-controls" class="reel-controls-container">
-            <div id="reel-prev-button" class="prev-button"><img></div>
-            <div id="reel-next-button" class="next-button"><img></div>
-          </div>
+          {% if  product.title != 'Studio Set'%}
+            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '300x300' }},{% if forloop.last == true %}{{ image.src | img_url: '300x300' }}{% endif %}{% endif %}{% endfor %}"  >
+            <div id="reel-controls" class="reel-controls-container">
+              <div id="reel-prev-button" class="prev-button"><img></div>
+              <div id="reel-next-button" class="next-button"><img></div>
+            </div>
+          {% else %}
+            <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image">
+          {% endif %}
         </div>
       </div>
 
@@ -121,6 +124,7 @@
   </div>
 </div>
 
+{% if  product.title != 'Studio Set'%}
 <div id="product-page-ingredients-panel" class="product-page-ingredients">
   <div class="product-page-to-shop-button">
     <div class="arrow-icon-container">
@@ -286,7 +290,7 @@
     </div>
   </div>
 </div>
-
+{% endif %}
 <div id="product-page-reviews-panel" class="product-page-reviews">
   <div class="reviews-container">
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
