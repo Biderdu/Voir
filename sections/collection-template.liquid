@@ -32,7 +32,7 @@
                 </div>
               </div>
               <div class="price-info">
-                ${{ product.price | divided_by: 100.00 }}
+                {{ product.price | money }}
               </div>
               <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
                 Add to bag

@@ -51,7 +51,7 @@
 
           <div class="product-price-row">
             <div class="size-info"><span>100mL</span> / <span>3.4 fl.oz.</span></div>
-            <div class="price-info">${{ current_variant.price | divided_by: 100.00 }} <span>CAD</span></div>
+            <div class="price-info">{{ current_variant.price | money }} <span>CAD</span></div>
           </div>
 
           <div class="product-edge-line"></div>
@@ -328,7 +328,7 @@
               </div>
             </div>
             <div class="price-info">
-              ${{ product.price | divided_by: 100.00 }}
+              {{ product.price | money }}
             </div>
             <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
               Add to bag

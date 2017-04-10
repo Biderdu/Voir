@@ -227,7 +227,7 @@
                       CAD
                     </div>
                     <div class="price-check">
-                      $<span id="cart-item-total-price-{{ cart_item.variant_id }}" class="cart-item-total-price">{{ cart_item.line_price | divided_by: 100.00 }}</span>
+                      <span id="cart-item-total-price-{{ cart_item.variant_id }}" class="cart-item-total-price">{{ cart_item.line_price | money }}</span>
                     </div>
                   </div>
                 </div>
@@ -250,7 +250,7 @@
               CAD
             </div>
             <div class="count">
-              $<span id="cart-total-price">{{ cart.total_price | divided_by: 100.00 }}</span>
+              <span id="cart-total-price">{{ cart.total_price | money }}</span>
             </div>
           </div>
         </div>
