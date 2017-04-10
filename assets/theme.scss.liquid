@@ -4974,7 +4974,6 @@ h1.product-single__title {
           display: none;
         }
 
-
       }
 
     }
@@ -10743,10 +10742,10 @@ a {
 
         .product-image-container {
           text-align: center;
-          width: 310px;
-          height: 440px;
+          width: 340px;
+          height: 490px;
           position: absolute;
-          top: 50%;
+          top: 40%;
           right: 15%;
           transform: translate(0,-50%);
 
@@ -10757,12 +10756,13 @@ a {
           }
 
           img.reel-main-image {
-            height: 350px;
-            width: 290px;
+            height: 450px;
+            width: 320px;
           }
 
 
           .border {
+            display: none;
             position: absolute;
             width: 310px;
             height: 360px;
@@ -10780,6 +10780,48 @@ a {
             transform: translate(-50%,-50%);
             max-height: 100%;
             max-width: 100%;
+          }
+
+          .reel-controls-container {
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translate(-50%,0);
+
+            width: 90px;
+            height: 25px;
+            
+            .prev-button {
+              position: relative;
+              width: 30px;
+              height: 25px;
+              float: left;
+              transform: rotate(180deg);
+              cursor: pointer;
+
+              img {
+                height: 100%;
+                width: 100%;
+                content: url('{{ "arrow_right_icon.svg" | asset_url}}');
+              }
+
+            }
+
+            .next-button {
+              position: relative;
+              width: 30px;
+              height: 25px;
+              float: left;
+              margin-left: 30px;
+              cursor: pointer;
+
+              img {
+                height: 100%;
+                width: 100%;
+                content: url('{{ "arrow_right_icon.svg" | asset_url}}');
+              }
+            }
+            
           }
 
         }
@@ -12398,6 +12440,7 @@ a {
 
   .product-page-main-container {
     height: 1050px;
+    background: #ffffff;
 
     .product-page-intro-panel {
       height: calc(100% - 80px);
@@ -12419,20 +12462,48 @@ a {
 
           .product-image-container {
             text-align: center;
-            width: 270px;
-            height: 360px;
+            width: 290px;
+            height: 390px;
             right: 50%;
             transform: translate(50%,-50%);
 
             img.reel-main-image {
-              height: 305px;
-              width: 250px;
+              height: 355px;
+              width: 290px;
             }
 
             .border {
               width: 270px;
               height: 320px;
               border: 7px solid #f4f4f4;
+            }
+
+            .reel-controls-container {
+              bottom: -20px;
+
+              width: 75px;
+              height: 20px;
+
+              .prev-button {
+                width: 25px;
+                height: 20px;
+
+                img {
+
+                }
+
+              }
+
+              .next-button {
+                width: 25px;
+                height: 20px;
+                margin-left: 25px;
+
+                img {
+
+                }
+              }
+
             }
 
           }
@@ -12467,7 +12538,7 @@ a {
                   .quantity-input-container {
 
                     input {
-                     background: #fbfbfb;
+                     background: #ffffff;
                     }
 
                   }
@@ -12477,7 +12548,7 @@ a {
                 .product-form-button-submit {
 
                   .product-btn-submit {
-                    background: #fbfbfb;
+                    background: #ffffff;
                   }
 
                 }
@@ -12516,6 +12587,7 @@ a {
 
   .product-page-ingredients {
     height: 860px;
+    background: #ffffff;
 
     .product-page-to-shop-button {
       top: calc(10% + 70px);
@@ -12757,6 +12829,7 @@ a {
 
   .product-page-how-to-use {
     height: 900px;
+    background: #ffffff;
 
     .product-page-to-shop-button {
       top: calc(10% + 70px);
@@ -12868,7 +12941,7 @@ a {
 
   .product-page-about-art {
     height: 95vh;
-
+    background: #ffffff;
 
     .about-art-container {
       position: absolute;
@@ -12904,12 +12977,16 @@ a {
   }
 
   .product-page-reviews {
-
+    background: #ffffff;
+    margin-top: -15px;
+    margin-bottom: -15px;
   }
 
   .product-page-collection-block {
     height: 100vh;
     position: relative;
+    background: #ffffff;
+    margin-top: 0;
 
     .home-intro-center-line-left {
       width: 0;
@@ -12959,7 +13036,7 @@ a {
           .product-bottom-side {
 
             .add-button {
-              background: #fbfbfb;
+              background: #ffffff;
             }
 
           }
@@ -13008,7 +13085,7 @@ a {
   }
 
   .product-page-footer-spacer {
-
+    background: #ffffff;
   }
 
 }
@@ -13027,17 +13104,17 @@ a {
           height: 40%;
 
           .product-image-container {
-            width: 196px;
-            height: 250px;
+            width: 210px;
+            height: 270px;
 
             img.reel-main-image {
-              height: 215px;
-              width: 185px;
+              height: 245px;
+              width: 200px;
             }
 
             .border {
-              width: 196px;
-              height: 227px;
+              width: 210px;
+              height: 270px;
               border: 5px solid #f4f4f4;
             }
 
@@ -17003,6 +17080,11 @@ a {
 
   .main-content {
     background: #fbfbfb;
+
+    &.bright-background {
+      background: #ffffff;
+    }
+
   }
 
   .home-intro-block {
@@ -17653,6 +17735,11 @@ $insta-image-size-not-so-small: 200px;
 
   .main-content {
     background: #fbfbfb;
+
+    &.bright-background {
+      background: #ffffff;
+    }
+
   }
 
   .home-intro-block {

@@ -29,6 +29,10 @@
           <div class="border"></div>
           <!--img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image"-->
           <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '300x300' }},{% if forloop.last == true %}{{ image.src | img_url: '300x300' }}{% endif %}{% endif %}{% endfor %}"  >
+          <div id="reel-controls" class="reel-controls-container">
+            <div id="reel-prev-button" class="prev-button"><img></div>
+            <div id="reel-next-button" class="next-button"><img></div>
+          </div>
         </div>
       </div>
 

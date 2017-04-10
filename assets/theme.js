@@ -1088,10 +1088,21 @@ theme.Header = (function() {
           // передаём в качестве аргументов целевой элемент и его конфигурацию
           observerRev.observe(target, config);
 
-        }, 500);
+          
+          //init next et prev
+
+          $('#reel-prev-button').click(function(){
+            $('#my-picture').trigger('stepLeft');
+          });
+
+          $('#reel-next-button').click(function(){
+            $('#my-picture').trigger('stepRight');
+          });
+
+      }, 500);
 
 
-
+        $('#MainContent').addClass('bright-background');
 
           // $('#product-page-modal-close-button').on('click', productReviewPanelToggle);
 
