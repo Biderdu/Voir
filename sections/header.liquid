@@ -97,11 +97,21 @@
           </div>
 
           {% if customer %}
-            <a href="/account">
-              <div class="menu-elem">
-                {{ customer.first_name }}
+            <div id="header-menu-account-button" class="menu-elem account-elem">
+              {{ customer.first_name }}
+              <div id="account-menu-dropdown-list" class="account-menu-dropdown-list">
+                <a href="/account">
+                  <div class="list-item">
+                    My Account
+                  </div>
+                </a>
+                <a href="/account/logout">
+                  <div class="list-item">
+                    Log Out
+                  </div>
+                </a>
               </div>
-            </a>
+            </div>
           {% else %}
             <a href="/account/login">
               <div class="menu-elem">

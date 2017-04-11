@@ -1634,6 +1634,11 @@ theme.Header = (function() {
       $("#shop-additional-menu").removeClass("active");
       $(selectors.siteHeader).removeClass("bright-hover");
     });
+
+    $('#header-menu-account-button').on('click', function() {
+      $('#account-menu-dropdown-list').toggleClass('active');
+    });
+
   }
 
   function socialPanelShowSetPos(activeBlocks) {
