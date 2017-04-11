@@ -18,9 +18,11 @@
         {% for product in collection.products %}
           <div class="product-item-container">
             <div class="product-top-side">
-              <div class="image-container">
-                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-              </div>
+              <a href="{{ product.url }}">
+                <div class="image-container">
+                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+                </div>
+              </a>
             </div>
             <div class="product-bottom-side">
               <div class="short-info">

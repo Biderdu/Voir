@@ -11174,6 +11174,10 @@ a {
   height: 100vh;
   width: 100%;
 
+  &.hidden-panel {
+    display: none;
+  }
+
   .product-page-to-shop-button {
     top: calc(25% - 45px);
     left: 45px;
@@ -11546,6 +11550,10 @@ a {
   height: 100vh;
   width: 100%;
 
+  &.hidden-panel {
+    display: none;
+  }
+
   .product-page-to-shop-button {
     top: calc(22% - 45px);
     left: 45px;
@@ -11701,6 +11709,10 @@ a {
   position: relative;
   height: 100vh;
   width: 100%;
+
+  &.hidden-panel {
+    display: none;
+  }
 
   .about-art-container {
     position: absolute;
@@ -16859,6 +16871,50 @@ a {
               width: 150px;
               height: 140px;
               padding: 25px 0 25px 15px;
+
+              .quantity-input-container {
+                position: relative;
+                height: 40px;
+                width: 120px;
+                float: left;
+                border: 1px solid $voir-gray-2;
+
+                .qty-control {
+                  position: absolute;
+                  transform: translate(0,-50%);
+                  top: 45%;
+                  width: 10px;
+                  @include fontHelvetica(18px);
+                  color: #a7a8aa;
+                  line-height: 18px;
+                  cursor: pointer;
+                }
+
+                .qty-control.minus {
+                  left: 15px;
+                }
+
+                .qty-control.plus {
+                  right: 15px;
+                }
+
+                input {
+                  text-align: center;
+                  width: 60px;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  height: 35px;
+                  border: none;
+                  transform: translate(-50%,-50%);
+                  @include fontHelvetica(18px);
+                  line-height: 18px;
+                  color: $voir-gray-1;
+                }
+
+              }
+
+
             }
 
             .remove-container {

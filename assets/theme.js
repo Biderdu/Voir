@@ -799,7 +799,7 @@ theme.Header = (function() {
     home: [2,3],
     about: [2,3,4,5,6,7],
     contact: [2],
-    product: [1,2,3],
+    product: [1,2],
     launch: [1,2]
   };
 
@@ -4063,7 +4063,7 @@ function bagInit() {
 
         setTotalCartCounter(currentTotalCount + 1);
 
-        $('#cart-item-total-price-' + productData.id).text((responseData.line_price / 100).toFixed(1));
+        $('#cart-item-total-price-' + productData.id).text('$' + (responseData.line_price / 100).toFixed(2));
 
         recalcTotalPrice();
       }
@@ -4109,7 +4109,7 @@ function bagInit() {
           }
 
           parseInt($('#cart-item-quantity-' + productData.id).text(newCount));
-          $('#cart-item-total-price-' + productData.id).text((newPrice / 100).toFixed(1));
+          $('#cart-item-total-price-' + productData.id).text('$' + (newPrice / 100).toFixed(2));
         }
 
         setTotalCartCounter(newTotalCount);
@@ -4131,12 +4131,137 @@ function bagInit() {
     var totalPrice = 0;
 
     $('.cart-item-total-price').each(function() {
+      totalPrice += parseFloat($(this).text().replace(/\$/g,' '));
+    });
+
+    $('#cart-total-price').text('$' + totalPrice.toFixed(2));
+
+  }
+
+}
+
+function bagPageControlsInit() {
+
+  $('.bag-page-plus').on('click', function() {
+
+    var productData = $(this).data();
+
+
+    var currentCount = parseInt($('.bag-page-quantity-' + productData.id).val());
+
+    var newCount = currentCount + 1;
+
+    $.ajax({
+      type: "POST",
+      url: '/cart/add.js',
+      data: {
+        quantity: 1,
+        id: productData.id
+      },
+      success: function(response) {
+
+      },
+      error:   function(jqXHR, textStatus, errorThrown) {
+
+        var responseData = JSON.parse(jqXHR.responseText);
+
+        parseInt($('.bag-page-quantity-' + productData.id).val(newCount));
+
+
+        $('#bag-page-total-price-' + productData.id).text('$' + (responseData.line_price / 100).toFixed(2));
+
+        bagPagerecalcTotalPrice();
+      }
+    });
+  });
+
+  $('.bag-page-minus').on('click', function() {
+
+    var productData = $(this).data();
+    var currentCount = parseInt($('.bag-page-quantity-' + productData.id).val());
+
+    var newCount = currentCount - 1;
+
+   $.ajax({
+      type: "POST",
+      url: '/cart/change.js',
+      data: {
+        quantity: newCount,
+        id: productData.id
+      },
+      success: function(response) {
+
+      },
+      error:   function(jqXHR, textStatus, errorThrown) {
+
+        var responseData = JSON.parse(jqXHR.responseText);
+
+        console.log(responseData);
+
+        if(newCount < 1) {
+          parseInt($('.bag-page-quantity-' + productData.id).val(0));
+
+          $('#bag-page-total-price-' + productData.id).text('$0.00');
+
+          newCount = 0;
+
+        } else {
+
+          var newPrice = 0;
+
+          if(responseData.items) {
+            responseData.items.forEach(function (item) {
+              if(item.variant_id == productData.id) {
+                newPrice = item.line_price;
+              }
+            })
+          }
+
+          parseInt($('.bag-page-quantity-' + productData.id).val(newCount));
+
+
+          $('#bag-page-total-price-' + productData.id).text('$' + (newPrice / 100).toFixed(2));
+        }
+
+
+        bagPagerecalcTotalPrice();
+
+      }
+    });
+
+  });
+
+  function setTotalCartCounter(newCount) {
+
+    $('#cart-total-items-counter').text(newCount);
+    $('#header-bag-counter').text(newCount);
+  }
+
+  function recalcTotalPrice() {
+
+    var totalPrice = 0;
+
+    $('.cart-item-total-price').each(function() {
       totalPrice += parseFloat($(this).text());
     });
 
     $('#cart-total-price').text(totalPrice.toFixed(2));
 
   }
+
+}
+
+function bagPagerecalcTotalPrice() {
+
+  var totalPrice = 0;
+
+  $('.bag-page-total-price').each(function() {
+    totalPrice += parseFloat($(this).text().replace(/\$/g,' '));
+  });
+
+  $('#bag-page-sub-price').text('$' + totalPrice.toFixed(2));
+  $('#bag-page-taxes-price').text('$' + (totalPrice * 0.13).toFixed(2));
+  $('#bag-page-total-price').text('$' + (totalPrice * 1.13).toFixed(2));
 
 }
 
@@ -4176,6 +4301,10 @@ $(document).ready(function() {
     if($(window).width() > 1024) {
       aboutArtNatureSlider();
     }
+
+  } else if($('#cart-page-main-panel').length != 0) {
+
+    bagPageControlsInit();
 
   }
 

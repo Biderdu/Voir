@@ -124,8 +124,7 @@
   </div>
 </div>
 
-{% if  product.title != 'Studio Set'%}
-<div id="product-page-ingredients-panel" class="product-page-ingredients">
+<div id="product-page-ingredients-panel" class="product-page-ingredients {% if  product.title == 'Studio Set'%} hidden-panel {% endif %}">
   <div class="product-page-to-shop-button">
     <div class="arrow-icon-container">
       <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
@@ -218,7 +217,7 @@
   <div class="side-line-right"></div>
 </div>
 
-<div id="product-page-use-panel" class="product-page-how-to-use">
+<div id="product-page-use-panel" class="product-page-how-to-use {% if  product.title == 'Studio Set'%} hidden-panel {% endif %}">
   <div class="product-page-to-shop-button">
     <div class="arrow-icon-container">
       <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
@@ -277,7 +276,7 @@
   <div class="side-line-right"></div>
 </div>
 
-<div id="product-page-art-panel" class="product-page-about-art">
+<div id="product-page-art-panel" class="product-page-about-art {% if  product.title == 'Studio Set'%} hidden-panel {% endif %}">
   <div class="about-art-container">
     <div class="art-back" style="background-image: url('{{ product.metafields.c_f.art_image_name | asset_url }}');">
     </div>
@@ -290,7 +289,7 @@
     </div>
   </div>
 </div>
-{% endif %}
+
 <div id="product-page-reviews-panel" class="product-page-reviews">
   <div class="reviews-container">
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>

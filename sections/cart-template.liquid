@@ -36,12 +36,11 @@
               </div>
             </td>
             <td class="quantity-container">
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove medium-up--hide">{{ 'cart.general.remove' | t }}</a>
-              <div class="cart__qty">
-                <label for="updates_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
-                <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+              <div class="cart__qty quantity-input-container">
+                <div data-id="{{ item.variant_id }}" id="bag-page-minus-{{ item.variant_id }}" class="bag-page-minus qty-control minus">-</div>
+                <input data-id="{{ item.variant_id }}" class="bag-page-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                <div data-id="{{ item.variant_id }}" id="bag-page-plus-{{ cart_item.variant_id }}" class="bag-page-plus qty-control plus">+</div>
               </div>
-              <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}">
             </td>
             <td class="remove-container">
               <p class="icon-container">
@@ -53,7 +52,7 @@
 
             <td class="price-container">
               <div class="price">
-                {{ item.line_price | money }}<span class="units">CAD</span>
+                <span id="bag-page-total-price-{{ item.variant_id }}" class="bag-page-total-price">{{ item.line_price | money }}</span><span class="units">CAD</span>
               </div>
             </td>
           </tr>
@@ -67,13 +66,13 @@
             <div class="price-block">
               <div class="row-container">
                 <div class="title">{{ 'cart.general.subtotal' | t }}</div>
-                <div class="price"><span>{{ cart.total_price | money }}</span> CAD</div>
+                <div class="price"><span id="bag-page-sub-price">{{ cart.total_price | money }}</span> CAD</div>
               </div>
             </div>
             <div class="taxes-block">
               <div class="row-container">
                 <div class="title">TAXES (13%)</div>
-                <div class="price"><span>{{ cart.total_price | times: 0.13 | money }}</span> CAD</div>
+                <div class="price"><span id="bag-page-taxes-price">{{ cart.total_price | times: 0.13 | money }}</span> CAD</div>
               </div>
             </div>
             <div class="shipping-block">
@@ -85,7 +84,7 @@
             <div class="total-price-block">
               <div class="row-container">
                 <div class="title">Total</div>
-                <div class="price"><span>{{ cart.total_price | times: 1.13 | money }}</span> CAD</div>
+                <div class="price"><span id="bag-page-total-price">{{ cart.total_price | times: 1.13 | money }}</span> CAD</div>
               </div>
             </div>
             <div class="controls-block">
