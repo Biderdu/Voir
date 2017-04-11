@@ -11905,7 +11905,6 @@ a {
 
         }
 
-
         .spr-content {
 
           .spr-reviews {
@@ -12005,8 +12004,6 @@ a {
         }
 
       }
-
-
 
     }
 
@@ -13063,6 +13060,112 @@ a {
     background: #ffffff;
     margin-top: -15px;
     margin-bottom: -15px;
+
+    .reviews-container {
+      width: calc(100% - 60px);
+      left: 30px;
+
+      #shopify-product-reviews{
+
+        .spr-container {
+
+          .spr-header {
+
+            .spr-header-title {
+              @include fontCambriaBold(30px);
+              line-height: 30px;
+              text-transform: none;
+              margin: 0;
+            }
+
+            .spr-summary {
+
+              .spr-summary-starrating {
+
+                .spr-icon {
+                  &::before {
+
+                  }
+                }
+
+              }
+
+              .spr-summary-caption {
+
+              }
+
+              .spr-summary-actions-newreview {
+
+              }
+
+            }
+
+          }
+
+          .spr-content {
+
+            .spr-reviews {
+
+              .spr-review {
+                width: 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-right: 0;
+                margin-top: 25px;
+
+                .spr-review-header-starratings {
+
+                  .spr-icon {
+
+                    &::before {
+
+                    }
+
+                  }
+
+                }
+
+                .spr-review-header-byline {
+
+                  strong:first-child {
+
+                  }
+
+                  strong:last-child {
+
+                  }
+
+                }
+
+                .spr-review-content {
+                  min-height: 100px;
+
+                  .spr-review-header-title {
+
+                  }
+
+                  .spr-review-content-body {
+
+                  }
+
+                }
+
+                .spr-review-footer {
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
   .product-page-collection-block {
@@ -13695,10 +13798,8 @@ a {
   .product-page-reviews {
 
     .reviews-container {
-      position: relative;
       width: calc(100% - 30px);
       left: 15px;
-
 
       #shopify-product-reviews{
 
@@ -13706,181 +13807,251 @@ a {
           padding: 0;
           border: none;
 
-          .spr-header-title {
-            @include fontCambriaBold(24px);
-            color: $voir-gray-1;
-            line-height: 24px;
-            text-transform: none;
-            text-align: start;
-          }
+          .spr-header {
 
-          .spr-summary-actions-newreview {
-            @include fontHelveticaBold(13px);
-            color: $voir-gray-1;
-            line-height: 13px;
-          }
+            .spr-header-title {
+              @include fontCambriaBold(24px);
+              color: $voir-gray-1;
+              line-height: 24px;
+              text-transform: none;
+              text-align: start;
+            }
 
-          .spr-summary {
-            text-align: start;
-          }
+            .spr-summary-actions-newreview {
+              @include fontHelveticaBold(13px);
+              color: $voir-gray-1;
+              line-height: 13px;
+            }
 
-          .spr-form {
+            .spr-summary {
+              height: 110px;
+              text-align: start;
 
-            form {
-              position: relative;
-              width: 700px;
-              height: 500px;
-              margin: auto;
-
-              .spr-form-title {
-                @include fontCambriaBold(30px, 400, 1px);
-                color: $voir-gray-1;
-                line-height: 30px;
-                text-align: center;
-                margin-bottom: 70px;
+              .spr-summary-actions-newreview {
+                float: right;
+                width: 100%;
+                margin-top: 15px;
               }
 
-              .spr-form-contact {
-                padding: 0 30px 0 30px;
+            }
 
-                .spr-form-contact-name {
-                  width: 300px;
-                  float: left;
+            .spr-form {
 
-                  label {
-                    display: none;
-                  }
+              form {
+                position: relative;
+                width: 700px;
+                height: 500px;
+                margin: auto;
 
-                  input {
-                    border: none;
-                    border-bottom: 1px solid $voir-gray-3;
-                    height: 45px;
-                    padding: 15px 0 15px 0;
-                    @include fontHelvetica(14px, 400, 1px);
-                    line-height: 45px;
-                    color: #a8aaaa;
-                    border-radius: 0;
-
-                    &:focus {
-                      outline: none;
-                    }
-
-                  }
-
-                }
-
-                .spr-form-contact-email {
-                  width: 300px;
-                  float: left;
-                  margin-left: 30px;
-
-
-                  label {
-                    display: none;
-                  }
-
-                  input {
-                    border: none;
-                    border-bottom: 1px solid $voir-gray-3;
-                    height: 45px;
-                    padding: 15px 0 15px 0;
-                    @include fontHelvetica(14px, 400, 1px);
-                    line-height: 45px;
-                    color: #a8aaaa;
-                    border-radius: 0;
-
-                    &:focus {
-                      outline: none;
-                    }
-
-                  }
-                }
-
-              }
-
-              .spr-form-review {
-
-                .spr-form-review-rating {
-                  position: absolute;
-                  top: 50px;
-                  left: 50%;
-                  transform: translate(-50%,0);
-                  width: 230px;
-
-                  .spr-form-label {
-                    float: left;
-                    @include fontHelveticaBold(14px);
-                    color: $voir-gray-2;
-                  }
-
-                  .spr-starrating {
-                    float: right;
-                  }
-
-                }
-
-              }
-
-              .spr-form-review-title {
-                padding: 0 30px 0 30px;
-
-                label {
-                  display: none;
-                }
-
-                input {
-                  border: none;
-                  border-bottom: 1px solid $voir-gray-3;
-                  height: 45px;
-                  padding: 15px 0 15px 0;
-                  @include fontHelvetica(14px, 400, 1px);
-                  line-height: 45px;
-                  color: #a8aaaa;
-                  border-radius: 0;
-
-                  &:focus {
-                    outline: none;
-                  }
-
-                }
-
-              }
-
-              .spr-form-review-body {
-                padding: 0 30px 0 30px;
-
-                label {
-                  display: none;
-                }
-
-                textarea {
-                  border: none;
-                  border-bottom: 1px solid $voir-gray-3;
-                  height: 45px;
-                  padding: 15px 0 15px 0;
-                  @include fontHelvetica(14px, 400, 1px);
-                  line-height: 45px;
-                  color: #a8aaaa;
-                  border-radius: 0;
-
-                  &:focus {
-                    outline: none;
-                  }
-
-                }
-              }
-
-              .spr-form-actions {
-                text-align: center;
-
-                .spr-button-primary {
-                  float: none;
-                  height: 45px;
-                  width: 350px;
-                  background: #ffffff;
-                  @include fontHelveticaBold(13px);
+                .spr-form-title {
+                  @include fontCambriaBold(30px, 400, 1px);
                   color: $voir-gray-1;
-                  border: 1px solid $voir-gray-1;
+                  line-height: 30px;
+                  text-align: center;
+                  margin-bottom: 70px;
+                }
+
+                .spr-form-contact {
+                  padding: 0 30px 0 30px;
+
+                  .spr-form-contact-name {
+                    width: 300px;
+                    float: left;
+
+                    label {
+                      display: none;
+                    }
+
+                    input {
+                      border: none;
+                      border-bottom: 1px solid $voir-gray-3;
+                      height: 45px;
+                      padding: 15px 0 15px 0;
+                      @include fontHelvetica(14px, 400, 1px);
+                      line-height: 45px;
+                      color: #a8aaaa;
+                      border-radius: 0;
+
+                      &:focus {
+                        outline: none;
+                      }
+
+                    }
+
+                  }
+
+                  .spr-form-contact-email {
+                    width: 300px;
+                    float: left;
+                    margin-left: 30px;
+
+
+                    label {
+                      display: none;
+                    }
+
+                    input {
+                      border: none;
+                      border-bottom: 1px solid $voir-gray-3;
+                      height: 45px;
+                      padding: 15px 0 15px 0;
+                      @include fontHelvetica(14px, 400, 1px);
+                      line-height: 45px;
+                      color: #a8aaaa;
+                      border-radius: 0;
+
+                      &:focus {
+                        outline: none;
+                      }
+
+                    }
+                  }
+
+                }
+
+                .spr-form-review {
+
+                  .spr-form-review-rating {
+                    position: absolute;
+                    top: 50px;
+                    left: 50%;
+                    transform: translate(-50%,0);
+                    width: 230px;
+
+                    .spr-form-label {
+                      float: left;
+                      @include fontHelveticaBold(14px);
+                      color: $voir-gray-2;
+                    }
+
+                    .spr-starrating {
+                      float: right;
+                    }
+
+                  }
+
+                }
+
+                .spr-form-review-title {
+                  padding: 0 30px 0 30px;
+
+                  label {
+                    display: none;
+                  }
+
+                  input {
+                    border: none;
+                    border-bottom: 1px solid $voir-gray-3;
+                    height: 45px;
+                    padding: 15px 0 15px 0;
+                    @include fontHelvetica(14px, 400, 1px);
+                    line-height: 45px;
+                    color: #a8aaaa;
+                    border-radius: 0;
+
+                    &:focus {
+                      outline: none;
+                    }
+
+                  }
+
+                }
+
+                .spr-form-review-body {
+                  padding: 0 30px 0 30px;
+
+                  label {
+                    display: none;
+                  }
+
+                  textarea {
+                    border: none;
+                    border-bottom: 1px solid $voir-gray-3;
+                    height: 45px;
+                    padding: 15px 0 15px 0;
+                    @include fontHelvetica(14px, 400, 1px);
+                    line-height: 45px;
+                    color: #a8aaaa;
+                    border-radius: 0;
+
+                    &:focus {
+                      outline: none;
+                    }
+
+                  }
+                }
+
+                .spr-form-actions {
+                  text-align: center;
+
+                  .spr-button-primary {
+                    float: none;
+                    height: 45px;
+                    width: 350px;
+                    background: #ffffff;
+                    @include fontHelveticaBold(13px);
+                    color: $voir-gray-1;
+                    border: 1px solid $voir-gray-1;
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+          .spr-content {
+
+            .spr-reviews {
+
+              .spr-review {
+                width: 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-right: 0;
+                margin-top: 25px;
+
+                .spr-review-header-starratings {
+
+                  .spr-icon {
+
+                    &::before {
+
+                    }
+
+                  }
+
+                }
+
+                .spr-review-header-byline {
+
+                  strong:first-child {
+
+                  }
+
+                  strong:last-child {
+
+                  }
+
+                }
+
+                .spr-review-content {
+                  min-height: 100px;
+
+                  .spr-review-header-title {
+
+                  }
+
+                  .spr-review-content-body {
+
+                  }
+
+                }
+
+                .spr-review-footer {
+
                 }
 
               }
@@ -13891,6 +14062,171 @@ a {
 
         }
 
+      }
+
+    }
+
+  }
+
+  .product-modal-container-review {
+
+    .modal-overlay {
+
+    }
+
+    .review-container {
+      transform: translate(-50%, -50%);
+      width: 270px;
+      height: 450px;
+
+      .spr-form {
+        margin-top: 5px;
+
+        form {
+          width: 270px;
+          height: 450px;
+
+          .spr-form-title {
+            @include fontCambriaBold(18px, 400, 1px);
+            line-height: 18px;
+            margin-bottom: 20px;
+          }
+
+          .spr-form-contact {
+            padding: 0;
+            margin-top: 35px;
+
+            .spr-form-contact-name {
+              width: 250px;
+              float: left;
+              margin-left: 10px;
+
+              input {
+                height: 35px;
+                padding: 10px 0 10px 0;
+                @include fontHelvetica(12px, 400, 1px);
+                line-height: 35px;
+              }
+
+            }
+
+            .spr-form-contact-email {
+              width: 250px;
+              float: left;
+              margin-left: 10px;
+
+              input {
+                height: 35px;
+                padding: 10px 0 10px 0;
+                @include fontHelvetica(12px, 400, 1px);
+                line-height: 35px;
+              }
+            }
+
+          }
+
+          .spr-form-review {
+
+            .spr-form-review-rating {
+
+              top: 30px;
+              width: 210px;
+
+              .spr-form-label {
+                @include fontHelveticaBold(12px);
+              }
+
+              .spr-starrating {
+
+                .spr-icon {
+                  line-height: 15px;
+
+                  &::before {
+                    color: $voir-gray-2;
+                    width: 15px;
+                    font-size: 12px;
+                  }
+                }
+
+              }
+
+            }
+
+          }
+
+          .spr-form-review-title {
+            padding: 0;
+            margin-left: 10px;
+            width: 250px;
+
+            input {
+              border-bottom: 1px solid $voir-gray-3;
+              height: 30px;
+              padding: 10px 0 10px 0;
+              @include fontHelvetica(12px, 400, 1px);
+              line-height: 30px;
+            }
+
+          }
+
+          .spr-form-review-body {
+            padding: 0;
+            margin-left: 10px;
+            width: 250px;
+
+            textarea {
+              height: 120px;
+              padding: 10px 0 10px 0;
+              @include fontHelvetica(14px, 400, 1px);
+              line-height: 30px;
+              color: #a8aaaa;
+              border-radius: 0;
+            }
+          }
+
+          .spr-form-actions {
+            text-align: center;
+            margin-top: 15px;
+
+            .spr-button-primary {
+              float: none;
+              height: 40px;
+              width: 250px;
+            }
+
+          }
+
+          .spr-form-message-success {
+
+            .success-title {
+              width: 250px;
+
+              @include fontCambriaBold(18px, 400, 1px);
+              line-height: 20px;
+              margin-bottom: 20px;
+
+            }
+
+            .success-message {
+              width: 250px;
+              @include fontHelvetica(15px, 400, 0.035em);
+              line-height: 24px;
+              padding-top: 30px;
+              border-top: 1px solid $voir-gray-3;
+            }
+
+
+          }
+
+        }
+
+      }
+
+      .close-button {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
       }
 
     }
