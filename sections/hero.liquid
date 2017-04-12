@@ -4,9 +4,8 @@
 
 <div id="home-intro-block" class="home-intro-block">
   <div class="home-intro-video-background">
-    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" autoplay muted loop style="pointer-events: none;">
-      <source src="https://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-      <source src="https://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+    <video poster="{{ 'video_poster.png' | asset_url }}" id="bgvid" autoplay muted loop style="pointer-events: none;">
+      <source src="{{ 'voir_home_background.webm' | asset_url  }}" type="video/webm">
     </video>
     <div class="home-intro-bottom-line-block">
       <div class="add-line"></div>

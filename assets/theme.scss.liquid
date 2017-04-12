@@ -4132,28 +4132,39 @@ h1.product-single__title {
         @include fontHelveticaBold(22px, 400, 1px);
         line-height: 55px;
         color: #ffffff;
-        border-bottom: 1px solid #c8c9c7;
         text-transform: uppercase;
       }
 
       .list-container {
+
+        a {
+
+          .list-item {
+            border-top: 1px solid #c8c9c7;
+          }
+
+          &:last-child {
+
+            .list-item {
+              border-bottom: 1px solid #c8c9c7;
+            }
+
+          }
+
+        }
 
         .list-item {
           position: relative;
           @include fontHelvetica(20px, 400, 1px);
           line-height: 55px;
           color: #e6e6e6;
-          border-top: 1px solid #c8c9c7;
-          border-bottom: 1px solid #c8c9c7;
+
+
           text-transform: uppercase;
 
           &.active {
             @include fontHelveticaBold(20px, 400, 1px);
             color: #ffffff;
-          }
-
-          &:last-child {
-            border-bottom: 2px solid #c8c9c7;
           }
 
           .down-arrow {
@@ -4173,9 +4184,10 @@ h1.product-single__title {
 
         .list-sub-menu {
           position: relative;
-          transition: height 0.8s ease;
           overflow: hidden;
           height: 0;
+          border-top: 0px solid #c8c9c7;
+          transition: height 0.8s ease, border-top 0s ease 0.8s;
 
           .sub-menu-item {
             @include fontHelvetica(16px, 400, 1px);
@@ -4184,6 +4196,8 @@ h1.product-single__title {
           }
 
           &.active-sub-list {
+            transition: height 0.8s ease, border-top 0s ease;
+            border-top: 1px solid #c8c9c7;
             height: 240px;
           }
 
@@ -4799,6 +4813,7 @@ h1.product-single__title {
         }
 
       }
+
     }
 
   }
@@ -4970,6 +4985,10 @@ h1.product-single__title {
 
         .menu-my-bag {
           right: 80px;
+        }
+
+        .account-elem.menu-elem {
+          display: none;
         }
 
         a {

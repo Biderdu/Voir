@@ -4360,26 +4360,28 @@ $(theme.init);
 function onYouTubeIframeAPIReady() {
 
   var player1, player2, player3;
-  player1 = new YT.Player('first-step-description-video-frame', {
-    playerVars: { 'autoplay': 0, 'controls': 1 },
-    events: {
-      'onStateChange': youtubeOnPlayerStateChangeFirst
-    }
-  });
+  if($('#product-page-use-descriptions-videos')) {
+    player1 = new YT.Player('first-step-description-video-frame', {
+      playerVars: { 'autoplay': 0, 'controls': 1 },
+      events: {
+        'onStateChange': youtubeOnPlayerStateChangeFirst
+      }
+    });
 
-  player2 = new YT.Player('second-step-description-video-frame', {
-    playerVars: { 'autoplay': 0, 'controls': 1 },
-    events: {
-      'onStateChange': youtubeOnPlayerStateChangeSecond
-    }
-  });
+    player2 = new YT.Player('second-step-description-video-frame', {
+      playerVars: {'autoplay': 0, 'controls': 1},
+      events: {
+        'onStateChange': youtubeOnPlayerStateChangeSecond
+      }
+    });
 
-  player3 = new YT.Player('third-step-description-video-frame', {
-    playerVars: { 'autoplay': 0, 'controls': 1 },
-    events: {
-      'onStateChange': youtubeOnPlayerStateChangeThird
-    }
-  });
+    player3 = new YT.Player('third-step-description-video-frame', {
+      playerVars: {'autoplay': 0, 'controls': 1},
+      events: {
+        'onStateChange': youtubeOnPlayerStateChangeThird
+      }
+    });
+  }
 
   function youtubeOnPlayerStateChangeFirst(evt) {
     if(evt.data == 0) {
