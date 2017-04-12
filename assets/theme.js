@@ -1116,9 +1116,6 @@ theme.Header = (function() {
 
       $('#product-page-modal-close-button').on('click', productModalPanelToggle);
 
-      howToUseInit();
-
-
       //scroll check
       $(window).scroll( function() {
 
@@ -1332,27 +1329,7 @@ theme.Header = (function() {
     $('#product-page-modal-panel-review').toggleClass('active');
   }
 
-  function howToUseInit() {
-    $('#first-step-tab').on('click', function() {
-      howToUseTabSwitch('first')
-    });
-    $('#second-step-tab').on('click', function(){
-      howToUseTabSwitch('second')
-    });
-    $('#third-step-tab').on('click', function(){
-      howToUseTabSwitch('third')
-    });
-  }
 
-  function howToUseTabSwitch(tab) {
-
-    $('#product-page-use-tabs').children().removeClass('active');
-    $('#product-page-use-descriptions').children().removeClass('active');
-
-    $('#' + tab + '-step-tab').addClass('active');
-    $('#' + tab + '-step-description').addClass('active');
-
-  }
 
   function reviewsFormPositioning() {
 
@@ -2235,9 +2212,9 @@ theme.Slideshow = (function() {
 
 // Youtube API callback
 // eslint-disable-next-line no-unused-vars
-function onYouTubeIframeAPIReady() {
-  theme.SlideshowVideo.loadVideos();
-}
+// function onYouTubeIframeAPIReady() {
+//   theme.SlideshowVideo.loadVideos();
+// }
 
 theme.SlideshowVideo = (function() {
   var autoplayCheckComplete = false;
@@ -4278,6 +4255,31 @@ function bagPagerecalcTotalPrice() {
 
 }
 
+
+function howToUseInit() {
+  $('#first-step-tab').on('click', function() {
+    howToUseTabSwitch('first');
+  });
+  $('#second-step-tab').on('click', function(){
+    howToUseTabSwitch('second');
+  });
+  $('#third-step-tab').on('click', function(){
+    howToUseTabSwitch('third');
+  });
+}
+
+function howToUseTabSwitch(tab) {
+
+  $('#product-page-use-tabs').children().removeClass('active');
+  $('#product-page-use-descriptions').children().removeClass('active');
+  $('#product-page-use-descriptions-videos').children().removeClass('active');
+
+  $('#' + tab + '-step-tab').addClass('active');
+  $('#' + tab + '-step-description').addClass('active');
+  $('#' + tab + '-step-description-video').addClass('active');
+
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -4304,6 +4306,8 @@ $(document).ready(function() {
   } else if($('#product-page-panel').length != 0) {
     
     homeBagInit();
+
+    howToUseInit();
     
   } else if($('#collections-list-page').length != 0) {
     
@@ -4351,3 +4355,55 @@ theme.init = function() {
 };
 
 $(theme.init);
+
+
+function onYouTubeIframeAPIReady() {
+
+  var player1, player2, player3;
+  player1 = new YT.Player('first-step-description-video-frame', {
+    playerVars: { 'autoplay': 0, 'controls': 1 },
+    events: {
+      'onStateChange': youtubeOnPlayerStateChangeFirst
+    }
+  });
+
+  player2 = new YT.Player('second-step-description-video-frame', {
+    playerVars: { 'autoplay': 0, 'controls': 1 },
+    events: {
+      'onStateChange': youtubeOnPlayerStateChangeSecond
+    }
+  });
+
+  player3 = new YT.Player('third-step-description-video-frame', {
+    playerVars: { 'autoplay': 0, 'controls': 1 },
+    events: {
+      'onStateChange': youtubeOnPlayerStateChangeThird
+    }
+  });
+
+  function youtubeOnPlayerStateChangeFirst(evt) {
+    if(evt.data == 0) {
+      howToUseTabSwitch('second');
+
+      player2.playVideo();
+    }
+  }
+
+  function youtubeOnPlayerStateChangeSecond(evt) {
+    if(evt.data == 0) {
+      howToUseTabSwitch('third');
+
+      player3.playVideo();
+    }
+  }
+
+  function youtubeOnPlayerStateChangeThird(evt) {
+    if(evt.data == 0) {
+      // console.log('Third video END');
+    }
+  }
+
+}
+
+
+

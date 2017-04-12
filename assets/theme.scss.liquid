@@ -11657,12 +11657,26 @@ a {
       float: left;
 
       .video-container {
+        display: none;
         position: relative;
         height: 100%;
         width: 650px;
+
         float: right;
         border-radius: 3px;
         overflow: hidden;
+
+        &.active {
+          display: block;
+        }
+
+        iframe {
+          height: 100%;
+          width: 100%;
+          position: relative;
+          border: none;
+          outline: none;
+        }
 
         video {
           height: 100%;
