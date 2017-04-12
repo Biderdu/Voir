@@ -3789,13 +3789,11 @@ function footerInit() {
 
           $('.site-footer').addClass('active_footer');
           $('#social-panel-line').addClass('hidden-line');
-          $('.back-arrow-container.header-arrow').addClass('hidden');
 
         } else {
 
           $('.site-footer').removeClass('active_footer');
           $('#social-panel-line').removeClass('hidden-line');
-          $('.back-arrow-container.header-arrow').removeClass('hidden');
 
         }
 
@@ -3819,10 +3817,20 @@ function footerInit() {
         $('.back-arrow-container.header-arrow').removeClass('hidden');
         
       }
+
+      if ($(window).scrollTop() < $(window).height()) {
+        $('.back-arrow-container.header-arrow').addClass('hidden');
+      }
       
     });
+
+    if ($(window).scrollTop() < $(window).height()) {
+      $('.back-arrow-container.header-arrow').addClass('hidden');
+    }
     
   }
+
+
 
   $('.back-arrow-container').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 1000);

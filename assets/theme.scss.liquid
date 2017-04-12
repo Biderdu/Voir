@@ -6611,10 +6611,10 @@ a {
   display: block;
   z-index: 10;
   position: fixed;
-  left: 16px;
+  left: 26px;
   top: 35%;
   height: 392px;
-  width: 60pt;
+  width: 60px;
 
   .social-bar-container {
     position: absolute;
@@ -6626,6 +6626,11 @@ a {
       position: relative;
       margin-bottom: 20px;
       cursor: pointer;
+
+      a {
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
 
       a:hover {
         opacity: 1;
@@ -7071,7 +7076,7 @@ a {
       left: 0;
       top: 0;
       height: 100%;
-      width: 60pt;
+      width: 60px;
 
       .social-bar-container {
         position: absolute;
@@ -7900,6 +7905,15 @@ a {
         position: relative;
         margin-left: 25px;
         float: right;
+
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+
+
 
         img {
           position: relative;
@@ -11878,6 +11892,9 @@ a {
   position: relative;
   min-height: 20vh;
   width: 100%;
+  max-width: 1366px;
+  left: 50%;
+  transform: translate(-50%,0);
   display: block;
 
   .reviews-container {
@@ -15038,8 +15055,12 @@ a {
     .upper-side {
       position: relative;
       width: 100%;
+      max-width: 1366px;
       height: 140px;
       border-bottom: 2px solid #e3e3e3;
+
+      left: 50%;
+      transform: translate(-50%,0);
 
       .left-side {
         position: relative;
@@ -15110,6 +15131,9 @@ a {
     .bottom-side {
       position: relative;
       width: 100%;
+      max-width: 1366px;
+      left: 50%;
+      transform: translate(-50%,0);
 
       .left-side {
         position: relative;
