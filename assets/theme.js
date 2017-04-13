@@ -4299,8 +4299,10 @@ $(document).ready(function() {
 
     if($(window).width() > 1024) {
       homeSliderDesctopInit();
-    } else {
+    } else if($(window).width() > 767) {
       homeSliderInit();
+    } else {
+      
     }
 
   } else if($('#product-page-panel').length != 0) {

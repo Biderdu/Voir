@@ -4190,6 +4190,7 @@ h1.product-single__title {
           transition: height 0.8s ease, border-top 0s ease 0.8s;
 
           .sub-menu-item {
+            text-transform: uppercase;
             @include fontHelvetica(16px, 400, 1px);
             line-height: 40px;
             color: #e6e6e6;
@@ -6964,7 +6965,6 @@ a {
                 image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
               }
             }
-
 
           }
 
@@ -15091,6 +15091,7 @@ a {
       max-width: 1366px;
       height: 140px;
       border-bottom: 2px solid #e3e3e3;
+      z-index: 1;
 
       left: 50%;
       transform: translate(-50%,0);
@@ -16009,7 +16010,7 @@ a {
                 @include fontHelvetica(13px);
                 color: #a7a8aa;
                 line-height: 40px;
-                padding-left: 45px;
+                padding-left: 30px;
 
                 a {
                   color: #a7a8aa;
@@ -18384,11 +18385,14 @@ $insta-image-size-not-so-small: 200px;
 
   .custom-section-slider-block {
     margin-top: 60px;
+    height: calc(400vh - 80px);
 
     .collection-slider-main-block {
       width: calc(100% - 16px);
-      height: calc(100% - 70px);
+      height: 100%;
       border-radius: 0;
+      top: 50%;
+      background: rgba(255,255,255,0);
 
       .collection-slider-container {
         width: 100%;
@@ -18406,6 +18410,13 @@ $insta-image-size-not-so-small: 200px;
         }
 
         .product-item-container {
+          margin-top: 40px;
+          height: calc(100vh - 65px);
+          background: #f4f4f4;
+
+          &:first-child {
+            margin-top: 0;
+          }
 
           .product-info-container {
             width: 100%;
@@ -18424,25 +18435,30 @@ $insta-image-size-not-so-small: 200px;
 
                   .top-side {
                     height: 4px;
+                    width: 100%;
                   }
 
                   .right-side {
                     width: 4px;
+                    height: 100%;
                   }
 
                   .bottom-side {
                     height: 4px;
+                    width: 100%;
                   }
 
                   .left-side {
                     width: 4px;
+                    height: 100%;
                   }
 
                 }
 
                 .product-item-image {
-                 max-height: 90%;
-                 max-width: 90%;
+                  max-height: 90%;
+                  max-width: 90%;
+                  opacity: 1;
                 }
               }
 
@@ -18460,12 +18476,16 @@ $insta-image-size-not-so-small: 200px;
                 margin-top: 5px;
                 width: 100%;
                 line-height: 26px;
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
               }
 
               .product-description {
                 width: 95%;
                 @include fontHelvetica(14px);
                 margin-top: 7px;
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
 
                 p {
                   @include fontHelvetica(16px);
@@ -18508,6 +18528,7 @@ $insta-image-size-not-so-small: 200px;
   }
 
   .custom-section-collection-block {
+    display: none;
     height: 1800px;
     position: relative;
 
