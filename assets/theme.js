@@ -4021,8 +4021,10 @@ function aboutArtNatureSlider() {
 
 function homeBagInit() {
 
-  $('.collection-add-to-bag-button').on('click', function() {
+  $('.collection-add-to-bag-button').on('click', function(event) {
     console.log('variant id: ', $(this).data().id);
+
+    event.stopPropagation();
 
     var productData = $(this).data();
 
