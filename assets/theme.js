@@ -3778,28 +3778,48 @@ function footerInit() {
     }
     
   } else {
-    
-    $(window).scroll(function () {
-      
-      if ($(window).scrollTop() + $(window).height() >= getDocHeight()) {
 
-        $('.site-footer').addClass('active_footer');
-        $('#social-panel-line').addClass('hidden-line');
-        $('.back-arrow-container.header-arrow').addClass('hidden');
+    if($(window).width() < 768) {
 
-      } else {
+      $(window).scroll(function () {
 
-        $('.site-footer').removeClass('active_footer');
-        $('#social-panel-line').removeClass('hidden-line');
-        $('.back-arrow-container.header-arrow').removeClass('hidden');
-        
-      }
+        if ($(window).scrollTop() + $(window).height() >= (getDocHeight() - 360)) {
+          $('.back-arrow-container.header-arrow').addClass('hidden');
+        } else {
+          $('.back-arrow-container.header-arrow').removeClass('hidden');
+        }
 
-      if ($(window).scrollTop() < $(window).height()) {
-        $('.back-arrow-container.header-arrow').addClass('hidden');
-      }
-      
-    });
+        if ($(window).scrollTop() < $(window).height()) {
+          $('.back-arrow-container.header-arrow').addClass('hidden');
+        }
+
+      });
+
+    } else {
+      $(window).scroll(function () {
+
+        if ($(window).scrollTop() + $(window).height() >= getDocHeight()) {
+
+          $('.site-footer').addClass('active_footer');
+          $('#social-panel-line').addClass('hidden-line');
+          $('.back-arrow-container.header-arrow').addClass('hidden');
+
+        } else {
+
+          $('.site-footer').removeClass('active_footer');
+          $('#social-panel-line').removeClass('hidden-line');
+          $('.back-arrow-container.header-arrow').removeClass('hidden');
+
+        }
+
+        if ($(window).scrollTop() < $(window).height()) {
+          $('.back-arrow-container.header-arrow').addClass('hidden');
+        }
+
+      });
+    }
+
+
 
     if ($(window).scrollTop() < $(window).height()) {
       $('.back-arrow-container.header-arrow').addClass('hidden');

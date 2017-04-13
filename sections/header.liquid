@@ -100,16 +100,19 @@
             <div id="header-menu-account-button" class="menu-elem account-elem">
               {{ customer.first_name }}
               <div id="account-menu-dropdown-list" class="account-menu-dropdown-list">
-                <a href="/account">
-                  <div class="list-item">
-                    My Account
-                  </div>
-                </a>
-                <a href="/account/logout">
-                  <div class="list-item">
-                    Log Out
-                  </div>
-                </a>
+                <div class="arrow-block"></div>
+                <div class="links-container">
+                  <a href="/account">
+                    <div class="list-item">
+                      My Account
+                    </div>
+                  </a>
+                  <a href="/account/logout">
+                    <div class="list-item">
+                      Log Out
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           {% else %}
@@ -145,7 +148,7 @@
           {% for product in collection.products %}
           <a href="{{ product.url }}">
             <div class="list-item">
-              {{ product.metafields.c_f.short_description }}
+              {{ product.metafields.c_f.menu_name }}
             </div>
           </a>
           {% endfor %}
@@ -321,19 +324,23 @@
             </div>
           </div>
           <div id="mobile-menu-shop-sub-menu" class="list-sub-menu">
-              <div class="sub-menu-item">Our Collection</div>
-              {% for product in collection.products %}
-                <a href="{{ product.url }}">
-                  <div class="sub-menu-item">
-                    {{ product.metafields.c_f.short_description }}
-                  </div>
-                </a>
-              {% endfor %}
-              <a href="/product/studio-set">
+            <a href="/collection/all">
+              <div class="sub-menu-item">
+                Our Collection
+              </div>
+            </a>
+            {% for product in collection.products %}
+              <a href="{{ product.url }}">
                 <div class="sub-menu-item">
-                  Studio Set
+                  {{ product.metafields.c_f.menu_name }}
                 </div>
               </a>
+            {% endfor %}
+            <a href="/product/studio-set">
+              <div class="sub-menu-item">
+                Studio Set
+              </div>
+            </a>
             </div>
           <a href="/pages/about">
             <div id="mobile-menu-about-button" class="list-item">ABOUT THE BRAND</div>
