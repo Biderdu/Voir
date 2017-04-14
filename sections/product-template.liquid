@@ -8,8 +8,6 @@
   {% endcomment %}
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
-  {%- assign product_image_width = 'medium-up--one-half' -%}
-  {%- assign product_description_width = 'medium-up--one-half' -%}
 
   <div class="product-page-intro-panel">
     <div class="product-page-to-shop-button">
@@ -27,16 +25,21 @@
         {%- assign featured_img_src = product.featured_image.src -%}
         <div class="product-image-container">
           <div class="border"></div>
-          {% if  product.title != 'Studio Set'%}
-            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '300x300' }},{% if forloop.last == true %}{{ image.src | img_url: '300x300' }}{% endif %}{% endif %}{% endfor %}"  >
+          {% if  product.title == 'Studio Set'%}
+            <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image">
+          {% else %}
+            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
             <div id="reel-controls" class="reel-controls-container">
               <div id="reel-prev-button" class="prev-button"><img></div>
               <div id="reel-next-button" class="next-button"><img></div>
             </div>
-          {% else %}
-            <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image">
           {% endif %}
         </div>
+        {% if  product.title != 'Studio Set'%}
+          <div class="product-zoomed-image-container">
+            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture-zoomed" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
+          </div>
+        {% endif %}
       </div>
 
       <div class="intro-right-side">

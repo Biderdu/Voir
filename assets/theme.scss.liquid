@@ -10995,6 +10995,40 @@ a {
 
         }
 
+        .product-zoomed-image-container {
+          display: none;
+          text-align: center;
+          width: 450px;
+          height: 650px;
+          position: absolute;
+          z-index: 10;
+          top: 40%;
+          right: 15%;
+          transform: translate(0,-50%);
+
+          div.reel-main-image {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+          }
+
+          img.reel-main-image {
+            height: 600px;
+            width: 430px;
+          }
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            max-height: 100%;
+            max-width: 100%;
+          }
+
+
+        }
+
       }
 
       .intro-right-side {
