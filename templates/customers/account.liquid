@@ -91,10 +91,8 @@
               <div class="title">
                 YOUR ADDRESS
               </div>
-              <div class="new-address">
-                <a href="/account/addresses">
-                  ADD A NEW ADDRESS
-                </a>
+              <div class="new-address" id="new-address-button">
+                ADD A NEW ADDRESS
               </div>
             </div>
             <div class="list-container">
@@ -168,6 +166,48 @@
                 </div>
 
               {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div id="address-tab-block" class="account-page-tab-container">
+          <div class="address-edit-block">
+            <div class="title">
+              ADD A NEW ADDRESS
+            </div>
+            <div class="edit-form">
+              {% form 'customer_address', customer.new_address %}
+                <div class="input-item left">
+                  <input placeholder="Address 1" id="new-address-address-1">
+                </div>
+                <div class="input-item">
+                  <input placeholder="Address 2" id="new-address-address-2">
+                </div>
+                <div class="input-item left">
+                  <input placeholder="City" id="new-address-city">
+                </div>
+                <div class="input-item">
+                  <select id="new-address-country" title="country" name="address[country]">{{ country_option_tags }}</select>
+                </div>
+                <div id="new-address-province-container" class="input-item full">
+                  <select id="new-address-province" title='province' name="address[province]"></select>
+                </div>
+                <div class="input-item left">
+                  <input placeholder="Postal Code" id="new-address-zip">
+                </div>
+                <div class="input-item ">
+                  <input placeholder="Phone Number" id="new-address-phone">
+                </div>
+              {% endform %}
+
+              <div class="new-address-button-container">
+                <div class="default-setting-container">
+                  <input title="set as default" id="new-address-default-checkbox" type="checkbox">
+                  <span>Set as default address</span>
+                </div>
+                <div id="new-address-default-button" class="new-address-button">
+                  ADD ADDRESS
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -114,8 +114,8 @@
               </div>
             </div>
             <div class="info-container">
-              Radiant and uplifting, our luminous hair oil is like liquid sunshine. The light golden elixir is packed with fortifying natural oils from rosehip, avocado, and jojoba that tame frizz and nourish each
-              <span id="detail-add-info-block" class="additional-info">strand for hair that’s instantly soft, smooth, and shining to perfection. Use it as a quick fix for unruly flyaways, a detangler, or pre-shampoo treatment, or leave it on overnight for deep conditioning—a few drops will go a long way.</span>
+              {{ product.metafields.c_f.romance_description }}
+              <span id="detail-add-info-block" class="additional-info">{{ product.metafields.c_f.romance_description_spart }}</span>
               <span id="detail-add-info-more" class="view-toggle active">VIEW MORE</span>
               <span id="detail-add-info-less" class="view-toggle">VIEW LESS</span>
             </div>
@@ -161,14 +161,14 @@
         <div class="mid-line"></div>
         <div class="description">
           <div id="first-pin-title" class="title">
-            Soybean-Based Biolipid Complex
+            {{ product.metafields.c_f.first_ingredient_title }}
           </div>
           <div id="first-pin-details" class="details">
-            A plant-based conditioner that coats each strand for a sleek, frizz-free finish.
+            {{ product.metafields.c_f.first_ingredient_description }}
           </div>
         </div>
       </div>
-      <div class="ingredient-pin to-right second-pin">
+      <div class="ingredient-pin to-left second-pin">
         <div data-id="second" class="icon ingredients-pin-icon">
           <div class="hover-opacity"></div>
           <img>
@@ -176,16 +176,14 @@
         <div class="mid-line"></div>
         <div class="description">
           <div id="second-pin-title" class="title">
-            Sunflower Oil and Phospholipids
+              {{ product.metafields.c_f.second_ingredient_title }}
           </div>
           <div id="second-pin-details" class="details">
-            Nutrient-packed fortifiers that condition
-            hair fibres to leave your tresses looking
-            soft and smooth.
+              {{ product.metafields.c_f.second_ingredient_description }}
           </div>
         </div>
       </div>
-      <div class="ingredient-pin to-left third-pin">
+      <div class="ingredient-pin to-right third-pin">
         <div data-id="third" class="icon ingredients-pin-icon">
           <div class="hover-opacity"></div>
           <img>
@@ -193,10 +191,10 @@
         <div class="mid-line"></div>
         <div class="description">
           <div id="third-pin-title" class="title">
-            Natural and Exotic Oils
+              {{ product.metafields.c_f.third_ingredient_title }}
           </div>
           <div id="third-pin-details" class="details">
-            An array of nourishing oils from jojoba, buriti, avocado, and more for unparalleled softness and shine.
+              {{ product.metafields.c_f.third_ingredient_description }}
           </div>
         </div>
       </div>
@@ -237,14 +235,8 @@
 
   <div class="info-block">
     <div id="product-page-use-descriptions-videos" class="left-side">
-      <div id="first-step-description-video" class="video-container active">
-        <iframe id="first-step-description-video-frame" src="https://www.youtube.com/embed/6vCxBQy2SOk?enablejsapi=1"></iframe>
-      </div>
-      <div id="second-step-description-video" class="video-container">
-        <iframe id="second-step-description-video-frame" src="https://www.youtube.com/embed/pICAha0nsb0?enablejsapi=1"></iframe>
-      </div>
-      <div id="third-step-description-video" class="video-container">
-        <iframe id="third-step-description-video-frame" src="https://www.youtube.com/embed/vbttZVTSJRU?enablejsapi=1"></iframe>
+      <div id="how-to-use-description-video" class="video-container active">
+        <iframe id="first-step-description-video-frame" src="{{ product.metafields.c_f.how_to_use_video_link }}"></iframe>
       </div>
     </div>
     <div class="right-side">

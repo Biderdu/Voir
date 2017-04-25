@@ -1150,6 +1150,10 @@ theme.Header = (function() {
 
       showShipping = false;
 
+        $('#new-address-button').on('click', function(){
+            toggleAccountPanels('address');
+        });
+
       if(windowWidth > 1024) {
         $('#info-show-button').on('click', function(){
           toggleAccountPanels('info');
@@ -4294,11 +4298,32 @@ function howToUseTabSwitch(tab) {
 
   $('#product-page-use-tabs').children().removeClass('active');
   $('#product-page-use-descriptions').children().removeClass('active');
-  $('#product-page-use-descriptions-videos').children().removeClass('active');
+  // $('#product-page-use-descriptions-videos').children().removeClass('active');
 
   $('#' + tab + '-step-tab').addClass('active');
   $('#' + tab + '-step-description').addClass('active');
-  $('#' + tab + '-step-description-video').addClass('active');
+  // $('#' + tab + '-step-description-video').addClass('active');
+
+}
+
+function setProvincesForNewAddress() {
+    var provines_list = $('#new-address-country :selected').data().provinces;
+
+    $('#new-address-province').empty();
+
+    if(provines_list.length > 0) {
+
+      $('#new-address-province-container').removeClass('hidden');
+
+      $.each(provines_list, function(key, value) {
+          $('<option value="' + value[1] + '">' + value[0] + '</option>')
+              .appendTo($('#new-address-province'));
+      });
+
+    } else {
+      $('#new-address-province-container').addClass('hidden');
+    }
+
 
 }
 
@@ -4347,6 +4372,13 @@ $(document).ready(function() {
 
     bagPageControlsInit();
 
+  } else if($('#account-page-main-block').length != 0) {
+
+      setProvincesForNewAddress();
+
+    $('#new-address-country').change(function(event){
+        setProvincesForNewAddress();
+    });
   }
 
   bagInit();
@@ -4381,55 +4413,55 @@ theme.init = function() {
 $(theme.init);
 
 
-function onYouTubeIframeAPIReady() {
-
-  var player1, player2, player3;
-  if($('#product-page-use-descriptions-videos')) {
-    player1 = new YT.Player('first-step-description-video-frame', {
-      playerVars: { 'autoplay': 0, 'controls': 1 },
-      events: {
-        'onStateChange': youtubeOnPlayerStateChangeFirst
-      }
-    });
-
-    player2 = new YT.Player('second-step-description-video-frame', {
-      playerVars: {'autoplay': 0, 'controls': 1},
-      events: {
-        'onStateChange': youtubeOnPlayerStateChangeSecond
-      }
-    });
-
-    player3 = new YT.Player('third-step-description-video-frame', {
-      playerVars: {'autoplay': 0, 'controls': 1},
-      events: {
-        'onStateChange': youtubeOnPlayerStateChangeThird
-      }
-    });
-  }
-
-  function youtubeOnPlayerStateChangeFirst(evt) {
-    if(evt.data == 0) {
-      howToUseTabSwitch('second');
-
-      player2.playVideo();
-    }
-  }
-
-  function youtubeOnPlayerStateChangeSecond(evt) {
-    if(evt.data == 0) {
-      howToUseTabSwitch('third');
-
-      player3.playVideo();
-    }
-  }
-
-  function youtubeOnPlayerStateChangeThird(evt) {
-    if(evt.data == 0) {
-      // console.log('Third video END');
-    }
-  }
-
-}
+// function onYouTubeIframeAPIReady() {
+//
+//   var player1, player2, player3;
+//   if($('#product-page-use-descriptions-videos')) {
+//     player1 = new YT.Player('first-step-description-video-frame', {
+//       playerVars: { 'autoplay': 0, 'controls': 1 },
+//       events: {
+//         'onStateChange': youtubeOnPlayerStateChangeFirst
+//       }
+//     });
+//
+//     player2 = new YT.Player('second-step-description-video-frame', {
+//       playerVars: {'autoplay': 0, 'controls': 1},
+//       events: {
+//         'onStateChange': youtubeOnPlayerStateChangeSecond
+//       }
+//     });
+//
+//     player3 = new YT.Player('third-step-description-video-frame', {
+//       playerVars: {'autoplay': 0, 'controls': 1},
+//       events: {
+//         'onStateChange': youtubeOnPlayerStateChangeThird
+//       }
+//     });
+//   }
+//
+//   function youtubeOnPlayerStateChangeFirst(evt) {
+//     if(evt.data == 0) {
+//       howToUseTabSwitch('second');
+//
+//       player2.playVideo();
+//     }
+//   }
+//
+//   function youtubeOnPlayerStateChangeSecond(evt) {
+//     if(evt.data == 0) {
+//       howToUseTabSwitch('third');
+//
+//       player3.playVideo();
+//     }
+//   }
+//
+//   function youtubeOnPlayerStateChangeThird(evt) {
+//     if(evt.data == 0) {
+//       // console.log('Third video END');
+//     }
+//   }
+//
+// }
 
 
 
