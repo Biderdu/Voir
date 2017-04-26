@@ -1163,6 +1163,36 @@ theme.Header = (function() {
           toggleAccountPanels('orders');
         });
       } else {
+
+          if(windowWidth < 768) {
+              $('.orders-mobile-button .plus').on('click', function() {
+                  var id = $(this).data().id;
+
+                  console.log(id);
+
+
+
+                  $('.orders-row-mobile').removeClass('active');
+
+                  $('#' + id + '-orders-mobile-row-block').addClass('active');
+
+                  $(this).removeClass('active');
+                  $('#' + id + '-orders-mobile-button .minus').addClass('active');
+
+              });
+
+              $('.orders-mobile-button .minus').on('click', function() {
+                  var id = $(this).data().id;
+
+
+                  $('.orders-row-mobile').removeClass('active');
+
+                  $(this).removeClass('active');
+                  $('#' + id + '-orders-mobile-button .plus').addClass('active');
+
+              });
+          }
+
         $('#account-info-list-item').on('click', function(){
           toggleAccountPanels('info');
         });

@@ -406,6 +406,7 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 $voir-gray-1: #53565a;
 $voir-gray-2: #75787b;
 $voir-gray-3: #a7a8aa;
+$voir-blue: #4889e2;
 
 // Text colors
 $color-text: {{ settings.color_text }};
@@ -9734,7 +9735,7 @@ a {
             margin-top: 15px;
             @include fontHelvetica(16px);
             line-height: 16px;
-            color: #4889e2;
+            color: $voir-blue
           }
 
         }
@@ -9753,7 +9754,7 @@ a {
             margin-top: 15px;
             @include fontHelvetica(16px);
             line-height: 16px;
-            color: #4889e2;
+            color: $voir-blue;
           }
 
         }
@@ -9808,7 +9809,7 @@ a {
             }
 
             .mail {
-              color: #4889e2;
+              color: $voir-blue;
             }
 
             a {
@@ -10019,7 +10020,7 @@ a {
               }
 
               .mail {
-                color: #4889e2;
+                color: $voir-blue;
               }
 
             }
@@ -10135,7 +10136,7 @@ a {
               }
 
               .mail {
-                color: #4889e2;
+                color: $voir-blue;
               }
 
             }
@@ -15494,7 +15495,7 @@ a {
 
               .first-col {
                 width: 120px;
-                color: #4889e2;
+                color: $voir-blue;
               }
 
               .second-col {
@@ -15512,7 +15513,7 @@ a {
 
               .fourth-col {
                 width: 145px;
-                color: #4889e2;
+                color: $voir-blue;
               }
 
               .fifth-col {
@@ -15553,6 +15554,10 @@ a {
               }
 
 
+            }
+
+            .orders-row-mobile {
+              display: none;
             }
 
             .header-row {
@@ -16119,7 +16124,8 @@ a {
     height: auto;
 
     .account-main-block {
-      height: calc(100% - 60px);
+      height: auto;
+      display: inline-block;
       top: 60px;
 
       .upper-side {
@@ -16389,61 +16395,100 @@ a {
             .orders-table {
 
               .orders-row {
-                border-bottom: 2px solid #e3e3e3;
+                display: none;
+              }
+
+              .orders-row-mobile {
+                display: block;
+                border-top: 2px solid #e3e3e3;
                 height: 80px;
+                padding: 10px 0 0 0;
+                overflow: hidden;
+                transition: height 0.4s ease;
 
-                .col {
-                  @include fontHelvetica(12px);
-                  line-height: 80px;
-                  color: $voir-gray-2;
-                  float: left;
+                &.active {
+                  height: 260px;
                 }
 
-                .first-col {
-                  width: 100px;
+                &:last-child {
+                  border-bottom: 2px solid #e3e3e3;
                 }
 
-                .second-col {
-                  width: 120px;
-                }
+                .main-part {
+                  height: 70px;
 
-                .third-col {
-                  width: 95px;
-                }
-
-                .fourth-col {
-                  width: 120px;
-                }
-
-                .fifth-col {
-                  width: 130px;
-                }
-
-                .sixth-col {
-                  width: 120px;
-                  position: relative;
-                  height: 80px;
-
-                  .reorder {
-                    height: 45px;
-                    width: 120px;
-                    border: 1px solid $voir-gray-1;
-                    border-radius: 1px;
-                    background: #ffffff;
-                    transition: background 0.3s ease-out, color 0.3s ease-out;
-
-                    @include fontHelveticaBold(13px);
-                    line-height: 40px;
-                    color: $voir-gray-1;
-                    text-align: center;
-
+                  .top-line {
+                    height: 30px;
+                    width: 100%;
+                    line-height: 30px;
                     position: relative;
-                    top: 50%;
-                    transform: translate(0,-50%);
 
-                    &:hover {
-                      background: $voir-gray-1;
-                      color: #ffffff;
+                    .title {
+                      float: left;
+                      @include fontHelveticaBold(13px);
+                      color: $voir-gray-2;
+                      line-height: 30px;
+                    }
+
+                    .open-button {
+                      float: right;
+                      @include fontHelvetica(34px);
+                      color: $voir-gray-2;
+                      line-height: 20px;
+
+                      .plus, .minus {
+                        display: none;
+
+                        &.active {
+                          display: block;
+                        }
+
+                      }
+
+                    }
+
+                  }
+
+                  .bottom-line {
+                    height: 30px;
+                    width: 100%;
+                    line-height: 30px;
+                    position: relative;
+
+                    .order-number {
+                      float: left;
+                      @include fontHelveticaBold(13px);
+                      color: $voir-blue;
+                      line-height: 30px;
+                    }
+
+                  }
+
+                }
+
+                .additional-info-block {
+                  position: relative;
+                  width: 100%;
+                  height: 180px;
+
+                  .info-row {
+                    position: relative;
+                    height: 45px;
+                    width: 100%;
+                    border-top: 2px solid #e3e3e3;
+
+                    .title {
+                      float: left;
+                      @include fontHelveticaBold(13px);
+                      color: $voir-gray-2;
+                      line-height: 45px;
+                    }
+
+                    .value {
+                      float: right;
+                      @include fontHelveticaBold(13px);
+                      color: $voir-gray-2;
+                      line-height: 45px;
                     }
 
                   }
@@ -16453,36 +16498,7 @@ a {
               }
 
               .header-row {
-                border-top: 2px solid #e3e3e3;
-                height: 60px;
-
-                .col {
-                  @include fontHelveticaBold(14px);
-                  color: $voir-gray-2;
-                  line-height: 55px;
-                }
-
-
-                .first-col {
-
-                }
-
-                .second-col {
-
-                }
-
-                .third-col {
-
-                }
-
-                .fourth-col {
-
-                }
-
-                .fifth-col {
-
-                }
-
+                display: none;
               }
 
             }
@@ -16493,6 +16509,61 @@ a {
             display: block;
             position: relative;
             height: 500px;
+          }
+
+          .address-edit-block {
+            width: 100%;
+
+            .title {
+              @include fontHelveticaBold(18px);
+              line-height: 18px;
+              color: $voir-gray-1;
+            }
+
+            .edit-form {
+              display: inline-block;
+
+              form {
+                display: inline-block;
+              }
+
+              .input-item {
+
+                width: 100%;
+                height: 45px;
+                float: left;
+                border-bottom: 1px solid #c8c9c7;
+                margin-top: 20px;
+
+                input, select {
+                  @include fontHelvetica(14px);
+                }
+
+                &.left {
+                  margin-right: 0;
+                }
+
+              }
+
+              .new-address-button-container {
+
+                .default-setting-container {
+
+                  span {
+
+                  }
+
+                }
+
+                .new-address-button {
+                  width: 100%;
+                  margin-top: 15px;
+                }
+
+              }
+
+            }
+
           }
 
         }
@@ -16844,7 +16915,256 @@ a {
 }
 
 @media (max-width: $screen-tablet) {
+  .order-info-main-container {
+    height: 100vh;
 
+    .order-info-block {
+      height: calc(100% - 60px);
+      top: 60px;
+
+      .upper-side {
+
+        .left-side {
+          height: 50%;
+          width: 100%;
+
+          .welcome-container {
+
+            left: 50px;
+            top: 60%;
+            transform: translate(0, 0);
+
+            .title {
+
+            }
+
+          }
+
+        }
+
+        .right-side {
+          height: 50%;
+          width: 100%;
+
+          .menu {
+            left: 50px;
+            width: 100%;
+            top: 0;
+            transform: translate(0, 0);
+
+            .menu-item {
+              float: left;
+              @include fontHelvetica(14px);
+              line-height: 26px;
+              color: $voir-gray-1;
+            }
+
+          }
+
+        }
+
+      }
+
+      .bottom-side {
+
+        .left-side {
+          width: calc(100% - 80px);
+          left: 50px;
+          padding-left: 0;
+
+          .return-to-orders {
+            display: none;
+          }
+
+          .account-info-container {
+
+            .title {
+              @include fontHelveticaBold(16px);
+              line-height: 16px;
+            }
+
+            .info {
+              margin-top: 20px;
+
+              .info-item {
+                @include fontHelveticaLight(16px);
+                line-height: 16px;
+              }
+
+            }
+
+          }
+
+        }
+
+        .right-side {
+          width: calc(100% - 80px);
+          right: 30px;
+          padding-left: 0;
+
+          .account-page-tab-container {
+
+          }
+
+          .orders-block {
+            width: 100%;
+            margin-top: 50px;
+
+            .orders-table {
+              width: 100%;
+
+              .orders-row {
+                border-bottom: 2px solid #e3e3e3;
+                height: 60px;
+
+                .col {
+                  @include fontHelvetica(12px);
+                  line-height: 60px;
+                }
+
+                .first-col {
+                  width: 43.5%;
+                }
+
+                .second-col {
+                  width: 24.7%;
+                }
+
+                .third-col {
+                  width: 19.7%;
+                }
+
+                .fourth-col {
+                  width: 12.1%;
+                }
+              }
+
+              .header-row {
+
+                .col {
+                  @include fontHelveticaBold(14px);
+                  color: $voir-gray-2;
+                  line-height: 55px;
+                }
+
+              }
+
+              .bottom-row {
+
+                width: 100%;
+                border-bottom: 2px solid #b4b4b4;
+
+                .left-bottom-side {
+                  width: 50%;
+                  float: left;
+                  height: 100%;
+                  text-align: start;
+
+                  .first-row {
+                    @include fontHelveticaBold(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                    margin-top: 15px;
+                  }
+
+                  .second-row {
+                    @include fontHelvetica(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                  }
+
+                  .third-row {
+                    @include fontHelvetica(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                  }
+
+                }
+
+                .right-bottom-side {
+                  width: 50%;
+                  float: right;
+                  height: 100%;
+                  text-align: right;
+
+                  .first-row {
+                    @include fontHelvetica(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                    margin-top: 15px;
+                    text-align: right;
+
+                    span {
+                      @include fontHelveticaBold(13px);
+                    }
+
+                  }
+
+                  .second-row {
+                    @include fontHelvetica(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                    text-align: right;
+                  }
+
+                  .third-row {
+                    @include fontHelvetica(13px);
+                    color: $voir-gray-2;
+                    line-height: 25px;
+                    width: 100%;
+                    text-align: right;
+                  }
+
+                }
+
+              }
+
+              .summary-row {
+                width: 100%;
+                height: 45px;
+                border-bottom: 2px solid #e3e3e3;
+
+                .left-bottom-side {
+                  width: 50%;
+                  float: left;
+
+                  @include fontHelveticaBold(13px);
+                  color: $voir-gray-2;
+                  line-height: 45px;
+                }
+
+                .right-bottom-side {
+                  width: 50%;
+                  float: right;
+                  text-align: right;
+
+                  @include fontHelvetica(13px);
+                  color: $voir-gray-2;
+                  line-height: 45px;
+
+                  span {
+                    @include fontHelveticaBold(13px);
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+  }
 }
 
 @media (max-width: $screen-mobile) {

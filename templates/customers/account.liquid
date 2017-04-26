@@ -164,7 +164,53 @@
                       </div>
                   </div>
                 </div>
-
+                <div id="{{ order.order_number }}-orders-mobile-row-block" class="orders-row-mobile">
+                  <div class="main-part">
+                    <div class="top-line">
+                      <div class="title">ORDER #</div>
+                      <div id="{{ order.order_number }}-orders-mobile-button" class="orders-mobile-button open-button"><span data-id="{{ order.order_number }}" class="plus active">+</span><span data-id="{{ order.order_number }}" class="minus">-</span></div>
+                    </div>
+                    <div class="bottom-line">
+                      <div class="order-number">
+                          {{ order.order_number }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="additional-info-block">
+                    <div class="info-row">
+                      <div class="title">
+                        ORDER DATE
+                      </div>
+                      <div class="value">
+                        {{ order.created_at | date: "%b %d, %Y" }}
+                      </div>
+                    </div>
+                    <div class="info-row">
+                      <div class="title">
+                        TOTAL
+                      </div>
+                      <div class="value">
+                        {{ order.total_price | money }}
+                      </div>
+                    </div>
+                    <div class="info-row">
+                      <div class="title">
+                        TRACKING #
+                      </div>
+                      <div class="value">
+                        -
+                      </div>
+                    </div>
+                    <div class="info-row">
+                      <div class="title">
+                        ORDER STATUS
+                      </div>
+                      <div class="value">
+                          {{ order.fulfillment_status_label }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               {% endfor %}
             </div>
           </div>
