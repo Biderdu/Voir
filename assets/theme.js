@@ -3862,7 +3862,6 @@ function footerInit() {
   }
 
 
-
   $('.back-arrow-container').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 1000);
     return false;
@@ -3875,6 +3874,13 @@ function footerInit() {
   $('#mobile-menu-close-button').on('click', function() {
     $('#mobile-header-menu-panel').toggleClass('active-modal');
   });
+
+  // $('#footer-email-sub-container input').keypress(function (e) {
+  //     if(e.which == 13) {
+  //       console.log('TESt');
+  //         $('#footer-email-sub-container form').submit();
+  //     }
+  // });
 
 }
 

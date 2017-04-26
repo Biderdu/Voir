@@ -98,7 +98,12 @@
 
           {% if customer %}
             <div id="header-menu-account-button" class="menu-elem account-elem">
-              {{ customer.first_name }}
+              {% if customer.first_name != '' %}
+                {{ customer.first_name }}
+              {% else %}
+                ACCOUNT
+              {% endif %}
+              <div class="down-arrow"><img></div>
               <div id="account-menu-dropdown-list" class="account-menu-dropdown-list">
                 <div class="arrow-block"></div>
                 <div class="links-container">

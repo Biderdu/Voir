@@ -99,8 +99,13 @@
       <div class="title-sub">
         Subscribe
       </div>
-      <div class="email-field">
-        <input placeholder="Email Address">
+      <div id="footer-email-sub-container" class="email-field">
+          {% form 'customer' %}
+            <div id="email" class="clearfix large_form">
+              <input type="email" value="" placeholder="Email Address" name="customer[email]" id="email" class="long" size="30">
+            </div>
+          {% endform %}
+        <!--input placeholder="Email Address"-->
         <div class="arrow-container">
           <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
         </div>

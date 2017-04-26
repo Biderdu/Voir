@@ -3971,6 +3971,8 @@ h1.product-single__title {
           }
 
           &.account-elem {
+            padding-right: 20px;
+            text-align: start;
 
             .account-menu-dropdown-list {
               box-shadow: 1px 2px 4px #e3e3e3;
@@ -4028,6 +4030,18 @@ h1.product-single__title {
                 transition: height 0.4s ease, visibility 0s ;
               }
 
+            }
+
+            .down-arrow {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 15px;
+
+              img {
+                width: 100%;
+                content: url('{{ "menu_dropdown_icon.svg" | asset_url}}');
+              }
             }
 
           }
@@ -4199,7 +4213,6 @@ h1.product-single__title {
               width: 100%;
               content: url('{{ "menu_dropdown_icon.svg" | asset_url}}');
             }
-
           }
 
 
