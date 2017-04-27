@@ -46,7 +46,7 @@
 
           <div class="product-edge-line"></div>
 
-          <div class="reviews-row">
+          <div id="product-page-intro-reviews-row" class="reviews-row">
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           </div>
 
@@ -110,9 +110,11 @@
             </div>
             <div class="info-container">
               {{ product.metafields.c_f.romance_description }}
+              {% if product.metafields.c_f.romance_description_spart %}
               <span id="detail-add-info-block" class="additional-info">{{ product.metafields.c_f.romance_description_spart }}</span>
               <span id="detail-add-info-more" class="view-toggle active">VIEW MORE</span>
               <span id="detail-add-info-less" class="view-toggle">VIEW LESS</span>
+              {% endif %}
             </div>
           </div>
 

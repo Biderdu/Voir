@@ -7589,7 +7589,7 @@ a {
 }
 
 .custom-section-instagram-gallery {
-  height: calc(100vh + 250px);
+  height: calc(100vh + 400px);
   position: relative;
 
   .home-intro-center-line-left {
@@ -7639,7 +7639,7 @@ a {
     opacity: 1;
     position: absolute;
     width: 85%;
-    top: 30%;
+    top: 28%;
     left: 50%;
     height: 270px;
     transform: translate(-50%, 0);
@@ -7713,7 +7713,7 @@ a {
 
   .bottom-gallery-button {
     position: absolute;
-    top: 63%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,0);
     height: 45px;
@@ -11076,11 +11076,12 @@ a {
           }
 
           .product-short-description {
-            @include fontHelvetica(20px);
+            @include fontHelvetica(18px);
             color: $voir-gray-2;
             line-height: 20px;
             margin-top: 7px;
             margin-bottom: 13px;
+            text-transform: uppercase;
           }
 
           .product-edge-line {
@@ -11208,11 +11209,22 @@ a {
                   width: 100%;
                   border: 1px solid $voir-gray-2;
                   background: #ffffff;
+                  transition: background 0.4s ease;
 
                   span {
                     @include fontHelveticaBold(13px);
                     line-height: 13px;
                     color: $voir-gray-1;
+                    transition: color 0.4s ease;
+                  }
+
+                  &:hover {
+                    background: $voir-gray-1;
+
+                    span {
+                      color: #ffffff;
+                    }
+
                   }
 
                 }
@@ -11811,9 +11823,10 @@ a {
           margin-top: 10px;
           margin-bottom: 25px;
           width: 100%;
-          @include fontHelvetica(20px);
+          @include fontHelvetica(18px);
           color: $voir-gray-2;
           line-height: 20px;
+          text-transform: uppercase;
         }
 
         .border-line {
@@ -13971,7 +13984,11 @@ a {
       }
 
       .art-description-container {
-        height: 200px;
+        height: 290px;
+        background: #ffffff;
+        bottom: 0;
+        top: auto;
+        transform: translate3d(0,0,0);
 
         .icon {
           margin-top: 20px;
@@ -13995,6 +14012,52 @@ a {
       }
 
     }
+  }
+
+  .product-page-about-art.active-animation {
+
+    .about-art-container {
+
+      .art-back {
+
+      }
+
+      .art-description-container {
+
+        bottom: 0;
+        top: auto;
+        opacity: 1;
+        transform: translate3d(0,0,0);
+        transition: opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s;
+
+        .icon {
+          opacity: 1;
+          transform: translate(-50%, 0);
+          transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
+        }
+
+        .art-title {
+          opacity: 1;
+          transform: translate3d(0, 0,0);
+          transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
+        }
+
+        .subhead {
+          opacity: 1;
+          transform: translate3d(0, 0,0);
+          transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
+        }
+
+        .art-description {
+          opacity: 1;
+          transform: translate(-50%, 0);
+          transition: opacity 0.7s ease 1.8s, transform 0.7s ease 1.8s;
+        }
+
+      }
+
+    }
+
   }
 
   .product-page-reviews {

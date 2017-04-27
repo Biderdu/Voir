@@ -1079,10 +1079,8 @@ theme.Header = (function() {
             });
           });
 
-          // конфигурация нашего observer:
           var config = { attributes: true, childList: true, characterData: true };
 
-          // передаём в качестве аргументов целевой элемент и его конфигурацию
           observerRev.observe(target, config);
 
           
@@ -1096,7 +1094,41 @@ theme.Header = (function() {
             $('#my-picture').trigger('stepRight');
           });
 
-      }, 500);
+
+          //observer for reviews link
+            var targetReviewsRow = document.getElementById('product-page-intro-reviews-row');
+
+            var observerReviewsRow = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+
+                    var element = $('.spr-badge-caption');
+
+                    if(element[0]) {
+
+                        observerReviewsRow.disconnect();
+
+                        element.click(function(event){
+                            event.preventDefault();
+                            event.stopPropagation();
+
+                            $("html, body").animate({
+                                scrollTop: ($('#product-page-reviews-panel').offset().top - 200)
+                            }, 700)
+
+                        });
+
+
+
+                    }
+
+                });
+            });
+
+            var configRev = { attributes: true, childList: true, characterData: true };
+
+            observerReviewsRow.observe(targetReviewsRow, configRev);
+
+        }, 500);
 
         $('.shop-menu-list-item-product[data-url="' + location.pathname + '"]').addClass('active');
 
