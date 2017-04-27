@@ -146,19 +146,19 @@
       <div id="shop-additional-menu" class="shop-menu-panel">
         <div class="prod-list-container">
           <a href="/collections/all">
-            <div class="list-item">
+            <div id="shop-menu-collection-list-item" class="list-item">
               Our Collection
             </div>
           </a>
           {% for product in collection.products %}
           <a href="{{ product.url }}">
-            <div class="list-item {% if  %} active {% endif %}">
+            <div data-url="{{ product.url }}" class="list-item shop-menu-list-item-product">
               {{ product.metafields.c_f.menu_name }}
             </div>
           </a>
           {% endfor %}
           <a href="/products/studio-set">
-            <div class="list-item">
+            <div data-url="/products/studio-set" class="list-item shop-menu-list-item-product">
               Studio Set
             </div>
           </a>

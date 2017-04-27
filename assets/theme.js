@@ -990,9 +990,6 @@ theme.Header = (function() {
 
     } else if($('#product-page-panel').length != 0) {   //product page
 
-      console.log('product');
-
-
       $( document ).ready(function() {
         setTimeout(function(){
 
@@ -1101,6 +1098,7 @@ theme.Header = (function() {
 
       }, 500);
 
+        $('.shop-menu-list-item-product[data-url="' + location.pathname + '"]').addClass('active');
 
         $('#MainContent').addClass('bright-background');
 
@@ -1127,8 +1125,6 @@ theme.Header = (function() {
 
 
     } else if($('#login-page-panel').length != 0)  {      //login page
-
-      console.log('login');
 
 
       $( document ).ready(function() {
@@ -1229,6 +1225,10 @@ theme.Header = (function() {
           var slidesToShow = 4;
           var arrows = true;
 
+            $('#shop-navi-item').addClass('active');
+
+            $('#shop-menu-collection-list-item').addClass('active');
+
           if ($(window).width() < 1025) {
             slidesToShow = 2;
             arrows = false;
@@ -1266,7 +1266,6 @@ theme.Header = (function() {
         setTimeout(function(){
           $('#home-intro-block').addClass('animation-start');
 
-          $('#shop-navi-item').addClass('active');
           $('#mobile-menu-shop-button').addClass('active');
           
           socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
