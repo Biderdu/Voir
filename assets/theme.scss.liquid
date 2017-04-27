@@ -8030,11 +8030,9 @@ a {
     right: 25px;
 
     height: calc(100% - 125px);
-    background: url('{{ "about_back.jpg" | asset_url }}') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-image: url('{{ "about_back.jpg" | asset_url }}');
     background-size: cover;
+    background-position: center;
 
     .intro-info-container {
       position: absolute;
@@ -8551,7 +8549,7 @@ a {
 
 .about-packaging-block-container {
   position: relative;
-  height: 100vh;
+  height: calc(100vh + 200px);
   width: 100%;
   background: #ffffff;
 
@@ -8559,7 +8557,7 @@ a {
     position: absolute;
     height: 360px;
     width: 400px;
-    top: 50%;
+    top: 40%;
     right: calc(50% + 63px);
     transform: translate(0,-50%);
     text-align: left;
@@ -8582,7 +8580,7 @@ a {
     position: absolute;
     height: 340px;
     width: 450px;
-    top: calc(50% + 15px);
+    top: calc(40% + 15px);
     left: calc(50% + 33px);
     transform: translate(0,-50%);
     text-align: left;
@@ -9035,7 +9033,7 @@ a {
   }
 
   .about-packaging-block-container {
-    height: 90vh;
+    height: 1200px;
 
     .packaging-image {
       position: absolute;
@@ -9062,7 +9060,7 @@ a {
       position: absolute;
       height: 300px;
       width: 400px;
-      top: 55%;
+      top: 48%;
       left: 75px;
       transform: translate(0,0);
       text-align: left;
@@ -9485,12 +9483,12 @@ a {
   }
 
   .about-packaging-block-container {
-    height: 560px;
+    height: 1060px;
 
     .packaging-image {
       height: 160px;
       width: calc(100% - 20px);
-      top: 20%;
+      top: 12%;
       right: 50%;
       transform: translate(50%, -50%);
 
@@ -9504,7 +9502,7 @@ a {
     .packaging-block-info {
       height: 250px;
       width: 270px;
-      top: 40%;
+      top: 26%;
       left: 50%;
       transform: translate(-50%,0);
 

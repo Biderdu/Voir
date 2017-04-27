@@ -809,7 +809,7 @@ theme.Header = (function() {
   if (windowWidth < 768) {
 
     panelsWithAnimations = {
-      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
+      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
       home: ['home-slider-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
@@ -819,7 +819,7 @@ theme.Header = (function() {
   } else {
 
     panelsWithAnimations = {
-      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel', 'about-made-panel'],
+      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
       home: ['home-collection-panel','home-slider-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
