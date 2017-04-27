@@ -4107,10 +4107,10 @@ function homeBagInit() {
         id: productData.id
       },
       success: function(response) {
-        location.reload();
+        window.location.assign(productData.url);
       },
       error:   function(jqXHR, textStatus, errorThrown) {
-        location.reload();
+        window.location.assign(productData.url);
       }
     });
   })

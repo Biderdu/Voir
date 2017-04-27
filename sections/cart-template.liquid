@@ -63,24 +63,6 @@
       <footer class="cart__footer">
         <div class="grid">
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
-            <div class="price-block">
-              <div class="row-container">
-                <div class="title">{{ 'cart.general.subtotal' | t }}</div>
-                <div class="price"><span id="bag-page-sub-price">{{ cart.total_price | money }}</span> CAD</div>
-              </div>
-            </div>
-            <div class="taxes-block">
-              <div class="row-container">
-                <div class="title">TAXES (13%)</div>
-                <div class="price"><span id="bag-page-taxes-price">{{ cart.total_price | times: 0.13 | money }}</span> CAD</div>
-              </div>
-            </div>
-            <div class="shipping-block">
-              <div class="row-container">
-                <div class="title">SHIPPING</div>
-                <div class="price">$0.00 CAD</div>
-              </div>
-            </div>
             <div class="total-price-block">
               <div class="row-container">
                 <div class="title">Total</div>

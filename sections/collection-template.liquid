@@ -30,13 +30,13 @@
                   {{ product.title }}
                 </div>
                 <div class="descr">
-                  {{ product.description }}
+                  {{ product.metafields.c_f.short_description }}
                 </div>
               </div>
               <div class="price-info">
                 {{ product.price | money }}
               </div>
-              <div data-id="{{ product.first_available_variant.id }}" class="add-button collection-add-to-bag-button">
+              <div data-id="{{ product.first_available_variant.id }}" data-url="{{ product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
                 Add to bag
               </div>
             </div>
