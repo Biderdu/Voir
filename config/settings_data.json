@@ -79,7 +79,7 @@
         "settings": {
           "footer_linklist": "",
           "footer_linklist_two": "",
-          "footer_newsletter_enable": false,
+          "footer_newsletter_enable": true,
           "show_payment_icons": false
         }
       },

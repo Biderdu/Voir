@@ -104,7 +104,7 @@
           <div class="truck-icon">
             <img src="{{ 'shipping_icon.svg' | asset_url }}">
           </div>
-          <a href="pages/general-faq#shipping">
+          <a href="/pages/general-faq#shipping">
             <div class="info">
               FREE SHIPPING & RETURNS IN CANADA
             </div>
@@ -127,11 +127,15 @@
           Full Ingredients List
         </div>
         <div id="modal-short-description" class="short-description">
-          Luxury Hair Oil
+          {% if product %}
+            {{ product.metafields.c_f.short_description }}
+          {% endif %}
         </div>
         <div class="center-line"></div>
         <div id="modal-ingredients-list" class="ingredients-list">
-          Isododecane, Isohexadecane, Isoamyl Laurate, Coconut Alkanes, Ethylene/Propylene/Styrene Copolymer, Simmondsia Chinensis (Jojoba) Oil, Helianthus Annuus (Sunflower) Oil, Mauritia Flexuosa (Buriti) Oil, Persea Gratissima (Avocado), Rosa Canina (Rosehip) Fruit Oil, Butylene/Ethylene/Styrene Copolymer, Coco-Caprylate/Caprate, Fragrance (Parfum), Citronellyl Methylcrotonate, Phospholipids, Glycine Soja (Soybean) Oil, Phenoxyethanol, Glycolipids, Glycine Soja (Soybean) Sterols.
+            {% if product %}
+                {{ product.metafields.c_f.full_ingredients_list }}
+            {% endif %}
         </div>
       </div>
     </div>

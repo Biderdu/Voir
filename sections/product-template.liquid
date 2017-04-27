@@ -26,20 +26,15 @@
         <div class="product-image-container">
           <div class="border"></div>
           {% if  product.title == 'Studio Set'%}
-            <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image">
+            <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image studio-set">
           {% else %}
-            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
+            <img class="reel reel-main-image" src="{{ product.images[1].src | img_url: '720x'}}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
             <div id="reel-controls" class="reel-controls-container">
               <div id="reel-prev-button" class="prev-button"><img></div>
               <div id="reel-next-button" class="next-button"><img></div>
             </div>
           {% endif %}
         </div>
-        {% if  product.title != 'Studio Set'%}
-          <div class="product-zoomed-image-container">
-            <img class="reel reel-main-image" src="{{ featured_img_src | img_url: '720x' }}" id="my-picture-zoomed" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
-          </div>
-        {% endif %}
       </div>
 
       <div class="intro-right-side">
@@ -252,18 +247,22 @@
           <div id="product-page-use-tabs" class="tabs-row">
             <div id="first-step-tab" class="tab active">step 1</div>
             <div id="second-step-tab" class="tab">step 2</div>
-            <div id="third-step-tab" class="tab">step 3</div>
+            {% if product.metafields.c_f.use_step_3 %}
+              <div id="third-step-tab" class="tab">step 3</div>
+            {% endif %}
           </div>
           <div id="product-page-use-descriptions" class="details-row">
             <div id="first-step-description" class="description-block active">
-              1. Dispense a small amount onto dry hair and work from roots to tips.
+              1. {{ product.metafields.c_f.use_step_1 }}
             </div>
             <div id="second-step-description" class="description-block">
-              2. Apply to wet hair to detangle.
+              2. {{ product.metafields.c_f.use_step_2 }}
             </div>
+            {% if product.metafields.c_f.use_step_3 %}
             <div id="third-step-description" class="description-block">
-              3. For deep conditioning, apply generously to damp hair and set with a hot towel for 20 minutes prior to shampooing.
+              3. {{ product.metafields.c_f.use_step_3 }}
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -279,10 +278,12 @@
     <div class="art-back" style="background-image: url('{{ product.metafields.c_f.art_image_name | asset_url }}');">
     </div>
     <div class="art-description-container">
-      <div class="icon"><img src="{{ 'brush_icon.svg' | asset_url }}"></div>
       <div class="art-title">About the Artwork</div>
+      <div class="subhead">
+          {{ product.metafields.c_f.artwork_subhead }}
+      </div>
       <div class="art-description">
-        Inspired by the radiance of the sun, we created a vibrant oil painting for the packaging of our high-shine hair oil
+          {{ product.metafields.c_f.about_artwork }}
       </div>
     </div>
   </div>

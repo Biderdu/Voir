@@ -3875,12 +3875,12 @@ function footerInit() {
     $('#mobile-header-menu-panel').toggleClass('active-modal');
   });
 
-  // $('#footer-email-sub-container input').keypress(function (e) {
-  //     if(e.which == 13) {
-  //       console.log('TESt');
-  //         $('#footer-email-sub-container form').submit();
-  //     }
-  // });
+  $('#footer-email-sub-container input').keypress(function (e) {
+      if(e.which == 13) {
+        console.log('TESt');
+          $('#footer-email-sub-container form').submit();
+      }
+  });
 
 }
 
@@ -4405,6 +4405,16 @@ $(document).ready(function() {
     }
 
   } else if($('#cart-page-main-panel').length != 0) {
+
+    $('#cart-page-to-shop-button').on('click', function() {
+
+        if(document.referrer.indexOf(window.location.hostname) < 0) {
+            window.location = '/';
+        } else {
+            window.history.back();
+        }
+
+    });
 
     bagPageControlsInit();
 

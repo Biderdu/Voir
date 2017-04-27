@@ -1276,16 +1276,16 @@ $grid-breakpoints: (
 @-webkit-keyframes fade-keyword-1 {
   0%   {opacity: 0;}
   1%   {opacity: 1;}
-  17%  {opacity: 1;}
-  20%  {opacity: 0;}
+  22%  {opacity: 1;}
+  25%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
 @keyframes fade-keyword-1 {
   0%   {opacity: 0;}
   1%   {opacity: 1;}
-  17%  {opacity: 1;}
-  20%  {opacity: 0;}
+  22%  {opacity: 1;}
+  25%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
@@ -1293,38 +1293,38 @@ $grid-breakpoints: (
 
 @-webkit-keyframes fade-keyword-2 {
   0%   {opacity: 0;}
-  20%  {opacity: 0;}
-  21%  {opacity: 1;}
-  37%  {opacity: 1;}
-  40%  {opacity: 0;}
+  25%  {opacity: 0;}
+  26%  {opacity: 1;}
+  47%  {opacity: 1;}
+  50%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
 @keyframes fade-keyword-2 {
   0%   {opacity: 0;}
-  20%  {opacity: 0;}
-  21%  {opacity: 1;}
-  37%  {opacity: 1;}
-  40%  {opacity: 0;}
+  25%  {opacity: 0;}
+  26%  {opacity: 1;}
+  47%  {opacity: 1;}
+  50%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
 
 @-webkit-keyframes fade-keyword-3 {
   0%   {opacity: 0;}
-  40%  {opacity: 0;}
-  41%  {opacity: 1;}
-  57%  {opacity: 1;}
-  60%  {opacity: 0;}
+  50%  {opacity: 0;}
+  51%  {opacity: 1;}
+  52%  {opacity: 1;}
+  75%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
 @keyframes fade-keyword-3 {
   0%   {opacity: 0;}
-  40%  {opacity: 0;}
-  41%  {opacity: 1;}
-  57%  {opacity: 1;}
-  60%  {opacity: 0;}
+  50%  {opacity: 0;}
+  51%  {opacity: 1;}
+  52%  {opacity: 1;}
+  75%  {opacity: 0;}
   100% {opacity: 0;}
 }
 
@@ -1333,19 +1333,33 @@ $grid-breakpoints: (
 
 @-webkit-keyframes fade-keyword-4 {
   0%   {opacity: 0;}
-  60%  {opacity: 0;}
-  61%  {opacity: 1;}
-  77%  {opacity: 1;}
-  80%  {opacity: 0;}
+  75%  {opacity: 0;}
+  76%  {opacity: 1;}
+  97%  {opacity: 1;}
   100% {opacity: 0;}
 }
 
 @keyframes fade-keyword-4 {
   0%   {opacity: 0;}
-  60%  {opacity: 0;}
-  61%  {opacity: 1;}
-  77%  {opacity: 1;}
+  75%  {opacity: 0;}
+  76%  {opacity: 1;}
+  97%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes fade-keyword-5 {
+  0%   {opacity: 0;}
   80%  {opacity: 0;}
+  81%  {opacity: 1;}
+  97%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-keyword-5 {
+  0%   {opacity: 0;}
+  80%  {opacity: 0;}
+  81%  {opacity: 1;}
+  97%  {opacity: 1;}
   100% {opacity: 0;}
 }
 
@@ -1376,23 +1390,6 @@ $grid-breakpoints: (
     top: 60%;
     left: 32%;
   }
-}
-
-
-@-webkit-keyframes fade-keyword-5 {
-  0%   {opacity: 0;}
-  80%  {opacity: 0;}
-  81%  {opacity: 1;}
-  97%  {opacity: 1;}
-  100% {opacity: 0;}
-}
-
-@keyframes fade-keyword-5 {
-  0%   {opacity: 0;}
-  80%  {opacity: 0;}
-  81%  {opacity: 1;}
-  97%  {opacity: 1;}
-  100% {opacity: 0;}
 }
 
 /*================ #Basic Styles ================*/
@@ -4081,7 +4078,7 @@ h1.product-single__title {
           text-transform: uppercase;
         }
 
-        .list-item.our-collection {
+        .list-item.active {
           @include fontHelveticaBold(14px);
         }
 
@@ -6626,7 +6623,7 @@ a {
     height: 2px;
     width: 0;
     position: absolute;
-    top: calc(40% - 5px);
+    top: calc(40% + 5px);
     left: 0;
     transition: width 1.2s ease;
   }
@@ -6636,7 +6633,7 @@ a {
     height: 2px;
     width: 0;
     position: absolute;
-    top: calc(40% - 5px);
+    top: calc(40% + 5px);
     right: 0;
     transition: width 1.7s ease;
   }
@@ -6645,11 +6642,11 @@ a {
 
 .home-intro-block.animation-start {
   .home-intro-center-line-left {
-    width: 30%;
+    width: 22%;
   }
 
   .home-intro-center-line-right {
-    width: 30%;
+    width: 22%;
   }
 }
 
@@ -6793,7 +6790,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 160px;
-  width: 600px;
+  width: 800px;
 
   .title {
     position: absolute;
@@ -6803,45 +6800,44 @@ a {
 
     @include fontHelvetica(35px);
     color: #ffffff;
-    text-transform: uppercase;
     text-align: center;
   }
 
   .keywords {
-    @include fontCambriaBold(90px);
+    @include fontCambriaBold(60px);
     color: #ffffff;
+    width: 100%;
+    height: 100%;
 
     .keyword {
       position: absolute;
       left: 50%;
-      transform: translate(-50%,0);
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      text-align: center;
       transition: opacity 0.50s ease-out;
 
     }
 
     .first-word {
-      -webkit-animation: fade-keyword-1 8s infinite;
-      animation: fade-keyword-1 8s infinite;
+      -webkit-animation: fade-keyword-1 6s infinite;
+      animation: fade-keyword-1 6s infinite;
     }
 
     .second-word {
-      -webkit-animation: fade-keyword-2 8s infinite;
-      animation: fade-keyword-2 8s infinite;
+      -webkit-animation: fade-keyword-2 6s infinite;
+      animation: fade-keyword-2 6s infinite;
     }
 
     .third-word {
-      -webkit-animation: fade-keyword-3 8s infinite;
-      animation: fade-keyword-3 8s infinite;
+      -webkit-animation: fade-keyword-3 6s infinite;
+      animation: fade-keyword-3 6s infinite;
     }
 
-     .fourth-word {
-      -webkit-animation: fade-keyword-4 8s infinite;
-      animation: fade-keyword-4 8s infinite;
-    }
-
-     .fifth-word {
-      -webkit-animation: fade-keyword-5 8s infinite;
-      animation: fade-keyword-5 8s infinite;
+    .fourth-word {
+      -webkit-animation: fade-keyword-4 6s infinite;
+      animation: fade-keyword-4 6s infinite;
     }
 
   }
@@ -7106,6 +7102,7 @@ a {
         div.title {
           float: left;
           margin-left: 10px;
+          @include fontHelvetica(12px, 400, 0.035em);
 
           span {
             display: none;
@@ -10939,6 +10936,11 @@ a {
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
+
+            .reel-preloader {
+              display: none;
+            }
+
           }
 
           img.reel-main-image {
@@ -10966,6 +10968,11 @@ a {
             transform: translate(-50%,-50%);
             max-height: 100%;
             max-width: 100%;
+
+            &.studio-set {
+              max-width: 130%;
+            }
+
           }
 
           .reel-controls-container {
@@ -11651,6 +11658,7 @@ a {
       line-height: 14px;
       color: $voir-gray-2;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .center-line {
@@ -11854,6 +11862,14 @@ a {
               @include fontHelvetica(18px,400, 1px);
               color: #424448;
               line-height: 26px;
+
+              p {
+                margin-top: 15px;
+                @include fontHelvetica(18px,400, 1px);
+                color: #424448;
+                line-height: 26px;
+              }
+
             }
 
           }
@@ -11937,11 +11953,25 @@ a {
         transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
       }
 
+      .subhead {
+        position: relative;
+        left: 0;
+        margin-top: 20px;
+        width: 100%;
+        @include fontHelveticaOblique(18px);
+        color: $voir-gray-2;
+        line-height: 24px;
+        text-align: center;
+        opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+      }
+
       .art-description {
         position: relative;
         left: 50%;
-        margin-top: 30px;
-        width: 450px;
+        margin-top: 25px;
+        width: 600px;
         transform: translate(-50%,15px);
         @include fontHelvetica(16px);
         color: $voir-gray-1;
@@ -11977,6 +12007,12 @@ a {
       }
 
       .art-title {
+        opacity: 1;
+        transform: translate3d(0, 0,0);
+        transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
+      }
+
+      .subhead {
         opacity: 1;
         transform: translate3d(0, 0,0);
         transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
@@ -18205,7 +18241,7 @@ a {
       height: 2px;
       width: 0;
       position: absolute;
-      top: calc(45% - 25px);
+      top: 45%;
       left: 0;
     }
 
@@ -18214,7 +18250,7 @@ a {
       height: 2px;
       width: 0;
       position: absolute;
-      top: calc(45% - 25px);
+      top: 45%;
       right: 0;
     }
 
@@ -18259,7 +18295,7 @@ a {
     }
 
     .keywords {
-      @include fontCambriaBold(68px);
+      @include fontCambriaBold(46px);
       line-height: 68px;
     }
 
@@ -18862,7 +18898,7 @@ $insta-image-size-not-so-small: 200px;
       height: 2px;
       width: 0;
       position: absolute;
-      top: calc(45% - 10px);
+      top: 45%;
       left: 0;
     }
 
@@ -18871,7 +18907,7 @@ $insta-image-size-not-so-small: 200px;
       height: 2px;
       width: 0;
       position: absolute;
-      top: calc(45% - 10px);
+      top: 45%;
       right: 0;
     }
 
@@ -18902,14 +18938,14 @@ $insta-image-size-not-so-small: 200px;
   .home-intro-text-container {
 
     height: 60px;
-    width: 300px;
+    width: 230px;
 
     .title {
       @include fontHelvetica(18px);
     }
 
     .keywords {
-      @include fontCambriaBold(42px);
+      @include fontCambriaBold(30px);
       line-height: 36px;
     }
 

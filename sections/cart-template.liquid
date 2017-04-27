@@ -88,15 +88,13 @@
               </div>
             </div>
             <div class="controls-block">
-              <div class="cart-page-to-shop-button">
+              <div id="cart-page-to-shop-button" class="cart-page-to-shop-button">
                 <div class="arrow-icon-container">
                   <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
                 </div>
-                <a href="/">
-                  <div class="label">
-                    Continue shopping
-                  </div>
-                </a>
+                <div class="label">
+                  Continue shopping
+                </div>
               </div>
               <input type="submit" name="checkout" class="checkout-button" value="{{ 'cart.general.checkout' | t }}">
               {% if additional_checkout_buttons %}

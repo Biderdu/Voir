@@ -23,13 +23,10 @@
         <div class="info-title first-row">
           CONTACT US
         </div>
-        <div class="menu-item second-row">
-          1-888-485-5679(VOIR)
-        </div>
-        <div class="email-item third-row">
+        <div class="email-item second-row">
           hello@voirhaircare.com
         </div>
-        <div class="email-item fourth-row">
+        <div class="email-item third-row">
           press@voirhaircare.com
         </div>
       </div>
@@ -100,11 +97,11 @@
         Subscribe
       </div>
       <div id="footer-email-sub-container" class="email-field">
-          {% form 'customer' %}
-            <div id="email" class="clearfix large_form">
-              <input type="email" value="" placeholder="Email Address" name="customer[email]" id="email" class="long" size="30">
-            </div>
-          {% endform %}
+        <form method="post" action="//myshopify.us15.list-manage.com/subscribe/post?u=ec3d8253aa5d88f3c73da2325&amp;id=fa4b23a16b" class="contact-form" id="contact-form" accept-charset="UTF-8">
+          <div id="email" class="clearfix large_form">
+            <input type="email" value="" placeholder="Email Address" name="customer[email]" id="email" class="long" size="30">
+          </div>
+        </form>
         <!--input placeholder="Email Address"-->
         <div class="arrow-container">
           <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
