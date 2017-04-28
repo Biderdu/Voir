@@ -1594,9 +1594,16 @@ theme.Header = (function() {
   function faqHashChanges() {
 
     $('.info-menu .menu-item').removeClass('active');
+    $('.side-menu-item').removeClass('active');
+
+    if(window.location.hash == '#orders') {
+        $('#faq-menu-item').addClass('active');
+    }
 
     $(window.location.hash + '-menu-item').addClass('active');
-    
+
+    $(window.location.hash + '-side-menu-item').addClass('active');
+
     if(window.location.hash) {
       $('#faq-tab-selected-panel').html($(window.location.hash + '-mobile-menu-list-item > a').html());
     }
@@ -3693,7 +3700,9 @@ function homeSliderDesctopInit() {
     $("html, body").animate({
       scrollTop: activeSection * windowHeight
     }, 700, function(){
-      sconfig.state = 'enabled';
+        setTimeout(function() {
+            sconfig.state = 'enabled';
+        }, 200);
     });
   }, 100);
 
@@ -3706,8 +3715,6 @@ function homeSliderDesctopInit() {
     }
 
     var delta = event.originalEvent.deltaY;
-
-
 
 
     if( ((delta > 0) && (activeSection < pageSections.home) ) || ((delta < 0) && (activeSection > 0) ) ) {
@@ -3723,7 +3730,11 @@ function homeSliderDesctopInit() {
         $("html, body").animate({
           scrollTop: activeSection * windowHeight
         }, 700, function(){
-          sconfig.state = 'enabled';
+
+          setTimeout(function() {
+              sconfig.state = 'enabled';
+          }, 300);
+
         });
       }, 50);
 
@@ -3772,8 +3783,7 @@ function homeSliderDesctopInit() {
           e.preventDefault();
           e.stopPropagation();
           slick.slick('slickPrev');
-        }
-        else {
+        } else {
           if (slick.slick('slickCurrentSlide') == slickLength - 1) {
             return
           }
@@ -4008,7 +4018,9 @@ function aboutArtNatureSlider() {
         $("html, body").animate({
           scrollTop: sliderElemTop
         }, 500, function(){
-          sconfig.state = 'enabled';
+            setTimeout(function() {
+                sconfig.state = 'enabled';
+            }, 300);
         });
       }, 100);
 
