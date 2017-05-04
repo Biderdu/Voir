@@ -810,7 +810,7 @@ theme.Header = (function() {
 
     panelsWithAnimations = {
       about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
-      home: ['home-slider-panel'],
+      home: ['home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
       product: ['product-page-art-panel']
@@ -820,7 +820,7 @@ theme.Header = (function() {
 
     panelsWithAnimations = {
       about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
-      home: ['home-collection-panel','home-slider-panel'],
+      home: ['home-collection-panel','home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
       product: ['product-page-collection-panel', 'product-page-art-panel']
@@ -1293,7 +1293,6 @@ theme.Header = (function() {
 
     } else if($('#home-intro-block').length != 0)  {           //home page
 
-      console.log('home');
 
       $( document ).ready(function() {
         setTimeout(function(){
@@ -1303,13 +1302,13 @@ theme.Header = (function() {
           
           socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
-          animationForScroll(panelsWithAnimations.home);
+            animationForScroll(panelsWithAnimations.home);
 
-        }, 500);
+        }, 200);
       });
 
 
-      
+
       headerStyleChange($(selectors.body).scrollTop(), windowHeight);
 
       $(window).scroll( function() {
@@ -3636,7 +3635,7 @@ function homeSliderInit() {
 
 }
 
-function homeSliderDesctopInit() {
+function homeSliderDesktopInit() {
 
   var slides = $('#home-collection-slider-container > .product-item-container');
 
@@ -3697,15 +3696,15 @@ function homeSliderDesctopInit() {
 
   var activeSection = parseInt(docViewTop / windowHeight);
 
-  setTimeout(function(){
-    $("html, body").animate({
-      scrollTop: activeSection * windowHeight
-    }, 700, function(){
-        setTimeout(function() {
-            sconfig.state = 'enabled';
-        }, 500);
-    });
-  }, 100);
+
+  $("html, body").animate({
+    scrollTop: activeSection * windowHeight
+  }, 700, function(){
+      setTimeout(function() {
+          sconfig.state = 'enabled';
+      }, 500);
+  });
+
 
   $(window).on('mousewheel', function (event) {
 
@@ -3773,7 +3772,7 @@ function homeSliderDesctopInit() {
       }
     }, 600);
 
-    slick.on('mousewheel', function (e) {
+    $('#home-slider-panel').on('mousewheel', function (e) {
 
       if (!didScroll && sconfig.state != 'locked') {
         if (e.originalEvent.deltaY < 0) {
@@ -3797,6 +3796,18 @@ function homeSliderDesctopInit() {
         e.preventDefault();
         e.stopPropagation();
       }
+
+    });
+
+    $('.carousel-indicator-container .indicator-fill').each(function() {
+
+      var bar = $(this);
+
+      var index = bar.data().index - 1;
+
+      bar.on('click', function() {
+          slick.slick('slickGoTo', index);
+      });
 
     });
 
@@ -3855,6 +3866,12 @@ function footerInit() {
     
   } else {
 
+    var hiddenTop = $(window).height();
+
+    if($('#home-intro-block').length != 0) {
+        hiddenTop = $(window).height() * 2;
+    }
+
     if($(window).width() < 768) {
 
       $(window).scroll(function () {
@@ -3888,7 +3905,7 @@ function footerInit() {
 
         }
 
-        if ($(window).scrollTop() < $(window).height()) {
+        if ($(window).scrollTop() < hiddenTop) {
           $('.back-arrow-container.header-arrow').addClass('hidden');
         }
 
@@ -3896,8 +3913,7 @@ function footerInit() {
     }
 
 
-
-    if ($(window).scrollTop() < $(window).height()) {
+    if ($(window).scrollTop() < hiddenTop) {
       $('.back-arrow-container.header-arrow').addClass('hidden');
     }
     
@@ -3961,7 +3977,7 @@ function instagramInit() {
 
         $('#instafeed').slick({
           dots: false,
-          infinite: true,
+          infinite: false,
           arrows: arrows,
           slidesToShow: slidesToShow,
           centerMode: true,
@@ -4429,7 +4445,7 @@ $(document).ready(function() {
     homeBagInit();
 
     if($(window).width() > 1024) {
-      homeSliderDesctopInit();
+      homeSliderDesktopInit();
     } else if($(window).width() > 767) {
       homeSliderInit();
     } else {

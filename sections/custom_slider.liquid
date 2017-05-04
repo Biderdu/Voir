@@ -49,7 +49,7 @@
       {% for product in collection.products %}
 
         <div class="carousel-indicator">
-          <div class="indicator-fill"></div>
+          <div data-index="{{ forloop.index }}" class="indicator-fill"></div>
         </div>
 
       {% endfor %}

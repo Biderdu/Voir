@@ -6855,7 +6855,7 @@ a {
   }
 
   .description {
-    width: 520px;
+    width: 540px;
     position: absolute;
     top: 120%;
     left: 50%;
@@ -7115,6 +7115,7 @@ a {
           float: left;
           margin-left: 10px;
           @include fontHelvetica(12px, 400, 0.035em);
+          text-transform: uppercase;
 
           span {
             display: none;
@@ -7180,7 +7181,6 @@ a {
         height: 50px;
         width: 5px;
 
-
         .indicator-fill {
           position: absolute;
           bottom: 0;
@@ -7188,6 +7188,7 @@ a {
           height: 28px;
           width: 100%;
           transition: all 0.5s ease-out;
+          cursor: pointer;
         }
 
       }
@@ -7234,29 +7235,29 @@ a {
 
                 .top-side {
                   width: 100%;
-                  transition: width 0.5s ease-out 0.2s;
+                  transition: width 0.45s ease-out 0.2s;
                 }
 
                 .right-side {
                   height: 100%;
-                  transition: height 0.5s ease-out 0.7s;
+                  transition: height 0.45s ease-out 0.65s;
                 }
 
                 .bottom-side {
                   width: 100%;
-                  transition: width 0.5s ease-out 1.2s;
+                  transition: width 0.45s ease-out 1.1s;
                 }
 
                 .left-side {
                   height: 100%;
-                  transition: height 0.5s ease-out 1.7s;
+                  transition: height 0.45s ease-out 1.55s;
                 }
 
               }
 
               .product-item-image {
                 opacity: 1;
-                transition: opacity 1.8s ease-out 0.7s;
+                transition: opacity 1.6s ease-out 0.6s;
               }
             }
 
@@ -7269,19 +7270,19 @@ a {
             .product-title {
               opacity: 1;
               transform: translate3d(0, 0, 0);
-              transition: opacity 0.5s ease-out 1.6s, transform 0.5s ease-out 1.6s;
+              transition: opacity 0.4s ease-out 1.4s, transform 0.4s ease-out 1.4s;
             }
 
             .product-description {
               opacity: 1;
               transform: translate3d(0, 0, 0);
-              transition:  opacity 0.5s ease-out 2.0s, transform 0.5s ease-out 2.0s;
+              transition:  opacity 0.4s ease-out 1.9s, transform 0.4s ease-out 1.9s;
             }
 
             .learn-button {
               opacity: 1;
               transform: translate3d(0, 0, 0);
-              transition: background 0.3s ease, opacity 0.5s ease-out 2.5s, transform 0.5s ease-out 2.5s;
+              transition: background 0.3s ease, opacity 0.45s ease-out 2.3s, transform 0.45s ease-out 2.3s;
             }
 
           }
@@ -7495,6 +7496,7 @@ a {
             .descr {
               @include fontHelvetica(11px);
               color: $voir-gray-2;
+              text-transform: uppercase;
 
               span {
                 display: none;
@@ -7607,18 +7609,20 @@ a {
   .home-intro-center-line-left {
     background: #c8c9c7;
     height: 2px;
-    width: 30%;
+    width: 0;
+    transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 15%;
+    top: 17%;
     left: 0;
   }
 
   .home-intro-center-line-right {
     background: #c8c9c7;
     height: 2px;
-    width: 30%;
+    width: 0;
+    transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 15%;
+    top: 17%;
     right: 0;
   }
 
@@ -7626,23 +7630,30 @@ a {
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 15%;
+    top: 17%;
     transform: translate(-50%, -50%);
     text-align: center;
 
     .title {
       @include fontCambriaBold(36px);
       color: $voir-gray-1;
+
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
     .description {
       position: absolute;
       left: 50%;
       top: 100%;
-      transform: translate(-50%, 0);
+      transform: translate(-50%, 15px);
 
       @include fontHelvetica(18px);
       color: $voir-gray-1;
+
+      opacity: 0;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     }
 
   }
@@ -7675,9 +7686,12 @@ a {
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%) translate3d(0, 40px, 0);
           height: 270px;
           width: 270px;
+
+          opacity: 0;
+          transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
 
           img {
             max-height: 100%;
@@ -7733,11 +7747,12 @@ a {
     cursor: pointer;
     border: 1px $voir-gray-1 solid;
     border-radius: 1px;
-    transition: backgroud 0.3s ease, color 0.3s ease;
+    transition: backgroud 0.3s ease, color 0.3s ease, opacity 0.2s ease 0.2s;
     @include fontHelveticaBold(13px);
     text-transform: uppercase;
     text-align: center;
     line-height: 45px;
+    opacity: 0;
 
     a {
       opacity: 1;
@@ -7759,6 +7774,84 @@ a {
 
     }
 
+  }
+
+}
+
+
+.custom-section-instagram-gallery.active-animation {
+
+  .home-intro-center-line-left {
+    width: 30%;
+    transition: width 1.5s ease 0.2s;
+  }
+
+  .home-intro-center-line-right {
+    width: 30%;
+    transition: width 1.5s ease 0.2s;
+  }
+
+  .upper-text-block {
+
+    .title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 1.0s ease 0.2s, transform 1.0s ease 0.2s;
+    }
+
+    .description {
+      opacity: 1;
+      transform: translate(-50%, 0);
+      transition: opacity 1.0s ease 0.4s, transform 1.0s ease 0.4s;
+    }
+
+  }
+
+  .insta-gallery-container {
+
+    .slick-list {
+
+      a {
+
+        .insta-image-container {
+          transform: translate(-50%, -50%) translate3d(0, 0, 0);
+          opacity: 1;
+        }
+
+
+        &:nth-child(4n+0) {
+          .insta-image-container {
+            transition: opacity 1.0s ease 1.2s, transform 1.0s ease 1.2s;
+          }
+        }
+
+        &:nth-child(4n+1) {
+          .insta-image-container {
+            transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
+          }
+        }
+
+        &:nth-child(4n+2) {
+          .insta-image-container {
+            transition: opacity 1.0s ease 0.8s, transform 1.0s ease 0.8s;
+          }
+        }
+
+        &:nth-child(4n+3) {
+          .insta-image-container {
+            transition: opacity 1.0s ease 1.0s, transform 1.0s ease 1.0s;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .bottom-gallery-button {
+    opacity: 1;
+    transition: opacity 1.0s ease 1s;
   }
 
 }
@@ -19250,12 +19343,12 @@ a {
     height: 1080px;;
 
     .home-intro-center-line-left {
-      width: 23%;
+      width: 0;
       top: 10%;
     }
 
     .home-intro-center-line-right {
-      width: 23%;
+      width: 0;
       top: 10%;
     }
 
@@ -19323,6 +19416,58 @@ a {
 
     .bottom-gallery-button {
       top: 60%;
+    }
+
+  }
+
+  .custom-section-instagram-gallery.active-animation {
+
+    .home-intro-center-line-left {
+      width: 23%;
+    }
+
+    .home-intro-center-line-right {
+      width: 23%;
+    }
+
+    .upper-text-block {
+
+    }
+
+    .insta-gallery-container {
+
+      .slick-list {
+
+        a {
+
+          &:nth-child(4n+2) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 1.2s, transform 1.0s ease 1.2s;
+            }
+          }
+
+          &:nth-child(4n+3) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
+            }
+          }
+
+          &:nth-child(4n+0) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 0.8s, transform 1.0s ease 0.8s;
+            }
+          }
+
+          &:nth-child(4n+1) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 1.0s, transform 1.0s ease 1.0s;
+            }
+          }
+
+        }
+
+      }
+
     }
 
   }
@@ -19827,12 +19972,12 @@ $insta-image-size-not-so-small: 200px;
     height: calc(80vh + 500px);
 
     .home-intro-center-line-left {
-      width: 10%;
+      width: 0;
       top: 5%;
     }
 
     .home-intro-center-line-right {
-      width: 10%;
+      width: 0;
       top: 5%;
     }
 
@@ -19899,6 +20044,52 @@ $insta-image-size-not-so-small: 200px;
 
     .bottom-gallery-button {
       top: 40%;
+    }
+
+  }
+
+  .custom-section-instagram-gallery.active-animation {
+
+    .home-intro-center-line-left {
+      width: 10%;
+    }
+
+    .home-intro-center-line-right {
+      width: 10%;
+    }
+
+    .upper-text-block {
+
+    }
+
+    .insta-gallery-container {
+
+      .slick-list {
+
+        a {
+
+          &:nth-child(3n+1) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 1.2s, transform 1.0s ease 1.2s;
+            }
+          }
+
+          &:nth-child(3n+2) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 0.6s, transform 1.0s ease 0.6s;
+            }
+          }
+
+          &:nth-child(3n+0) {
+            .insta-image-container {
+              transition: opacity 1.0s ease 0.8s, transform 1.0s ease 0.8s;
+            }
+          }
+
+        }
+
+      }
+
     }
 
   }
