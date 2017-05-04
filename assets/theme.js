@@ -955,8 +955,8 @@ theme.Header = (function() {
         $("#privacy-view-more").removeClass('hidden');
         $("#privacy-view-less").addClass('hidden');
       });
-      
-      
+
+
       
     } else if($('#contact-us-page').length != 0) {   //contact-us
 
@@ -981,6 +981,7 @@ theme.Header = (function() {
       $( document ).ready(function() {
         setTimeout(function(){
 
+          $('#header-launch-item').addClass('active');
           $('#launch-navi-item').addClass('active');
           $('#mobile-menu-launch-button').addClass('active');
 
@@ -4111,20 +4112,22 @@ function homeBagInit() {
 
     var productData = $(this).data();
 
-    $.ajax({
-      type: "POST",
-      url: '/cart/add.js',
-      data: {
-        quantity: 1,
-        id: productData.id
-      },
-      success: function(response) {
-        window.location.assign(productData.url);
-      },
-      error:   function(jqXHR, textStatus, errorThrown) {
-        window.location.assign(productData.url);
-      }
-    });
+      window.location.assign(productData.url);
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: '/cart/add.js',
+    //   data: {
+    //     quantity: 1,
+    //     id: productData.id
+    //   },
+    //   success: function(response) {
+    //     window.location.assign(productData.url);
+    //   },
+    //   error:   function(jqXHR, textStatus, errorThrown) {
+    //     window.location.assign(productData.url);
+    //   }
+    // });
   })
 
 }

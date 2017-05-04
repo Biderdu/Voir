@@ -1314,7 +1314,7 @@ $grid-breakpoints: (
   0%   {opacity: 0;}
   50%  {opacity: 0;}
   51%  {opacity: 1;}
-  52%  {opacity: 1;}
+  72%  {opacity: 1;}
   75%  {opacity: 0;}
   100% {opacity: 0;}
 }
@@ -1323,13 +1323,10 @@ $grid-breakpoints: (
   0%   {opacity: 0;}
   50%  {opacity: 0;}
   51%  {opacity: 1;}
-  52%  {opacity: 1;}
+  72%  {opacity: 1;}
   75%  {opacity: 0;}
   100% {opacity: 0;}
 }
-
-
-
 
 @-webkit-keyframes fade-keyword-4 {
   0%   {opacity: 0;}
@@ -3922,9 +3919,11 @@ h1.product-single__title {
       right: 0;
       top: 50%;
       transform: translate(0,-50%);
+      height: 100%;
 
       .site-header-menu {
         text-align: right;
+        height: 100%;
 
         .menu-elem {
           float: right;
@@ -3936,12 +3935,24 @@ h1.product-single__title {
           cursor: pointer;
           line-height: 28px;
           position: relative;
+          top: 50%;
+          transform: translate(0,-50%);
+
+          &.launch-item {
+            height: 100%;
+            line-height: 80px;
+
+            &.active {
+              border-bottom: 2px solid #53565a;
+            }
+
+          }
 
           &.menu-my-bag {
             position: relative;
-            top: -3px;
             height: 25px;
             width: 20px;
+            top: 49%;
 
             .my-bag-icon {
               content: url('{{ "my_bag_white.svg" | asset_url }}');
@@ -3976,7 +3987,7 @@ h1.product-single__title {
               position: absolute;
               top: 100%;
               left: 50%;
-              transform: translate(-50%,15px);
+              transform: translate(-50%,0);
               width: 130px;
               background: #ffffff;
               text-align: end;
@@ -6822,23 +6833,23 @@ a {
     }
 
     .first-word {
-      -webkit-animation: fade-keyword-1 6s infinite;
-      animation: fade-keyword-1 6s infinite;
+      -webkit-animation: fade-keyword-1 12s infinite;
+      animation: fade-keyword-1 12s infinite;
     }
 
     .second-word {
-      -webkit-animation: fade-keyword-2 6s infinite;
-      animation: fade-keyword-2 6s infinite;
+      -webkit-animation: fade-keyword-2 12s infinite;
+      animation: fade-keyword-2 12s infinite;
     }
 
     .third-word {
-      -webkit-animation: fade-keyword-3 6s infinite;
-      animation: fade-keyword-3 6s infinite;
+      -webkit-animation: fade-keyword-3 12s infinite;
+      animation: fade-keyword-3 12s infinite;
     }
 
     .fourth-word {
-      -webkit-animation: fade-keyword-4 6s infinite;
-      animation: fade-keyword-4 6s infinite;
+      -webkit-animation: fade-keyword-4 12s infinite;
+      animation: fade-keyword-4 12s infinite;
     }
 
   }
@@ -8013,7 +8024,9 @@ a {
 
 }
 
-
+.event-prevent-class {
+  pointer-events: none;
+}
 
 
 //about page
@@ -17316,7 +17329,7 @@ a {
 
     .launch-info-container {
       margin-top: 60px;
-      width: 600px;
+      width: 800px;
 
       position: relative;
       left: 50%;
@@ -17326,7 +17339,7 @@ a {
 
         .heading {
           @include fontCambriaBold(46px);
-          line-height: 46px;
+          line-height: 56px;
           color: $voir-gray-1;
         }
 
@@ -17343,14 +17356,93 @@ a {
       .info-text-block {
         position: relative;
         width: 100%;
-        margin-top: 45px;
+        margin-top: 40px;
+        margin-bottom: 40px;
 
-        @include fontHelveticaLight(20px);
+        @include fontHelvetica(18px, 400, 0.035em);
         color: $voir-gray-1;
         line-height: 28px;
 
+        .intro {
+          @include fontHelveticaLight(22px, 400, 1px);
+          color: $voir-gray-1;
+          line-height: 28px;
+          margin-bottom: 50px;
+        }
+
+        .first-paragraph {
+          margin-bottom: 20px;
+        }
+
+        .italic-paragraph {
+          @include fontHelveticaBoldOblique(18px, 400, 0.035em);
+          color: $voir-gray-1;
+          line-height: 28px;
+          margin-top: 30px;
+          margin-bottom: 50px;
+        }
+
+        .subheading {
+          @include fontHelveticaBold(18px);
+          line-height: 20px;
+          color: $voir-gray-1;
+          margin-bottom: 25px;
+          text-transform: uppercase;
+        }
+
         .second-paragraph {
           margin-top: 25px;
+        }
+
+      }
+
+      .subscribe-block {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        margin-bottom: 45px;
+
+        .input-container {
+          position: relative;
+          width: 380px;
+          height: 45px;
+          border-bottom: 2px solid #c8c9c7;
+          float: left;
+
+          input {
+            @include fontHelvetica(16px);
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding: 10px 0;
+          }
+
+        }
+
+        .button-submit {
+          float: right;
+          width: 270px;
+          height: 45px;
+          @include fontHelveticaBold(13px);
+          color: $voir-gray-1;
+          background: #ffffff;
+          border: 1px solid $voir-gray-1;
+          transition: color 0.4s ease, background 0.4s ease;
+          cursor: pointer;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 2px;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            opacity: 1;
+            color: #ffffff;
+            background: $voir-gray-1;
+          }
         }
 
       }
@@ -17383,7 +17475,7 @@ a {
 
       .launch-info-container {
         margin-top: 60px;
-        width: 560px;
+        width: 690px;
 
         .title-block {
 
@@ -17405,8 +17497,37 @@ a {
           @include fontHelveticaLight(16px);
           line-height: 26px;
 
-          .second-paragraph {
+          .intro {
+            @include fontHelveticaLight(18px, 400, 1px);
+          }
 
+          .first-paragraph {
+
+          }
+
+          .italic-paragraph {
+            @include fontHelveticaBoldOblique(16px, 400, 0.035em);
+          }
+
+          .subheading {
+            @include fontHelveticaBold(16px);
+          }
+
+
+        }
+
+        .subscribe-block {
+
+          .input-container {
+
+            input {
+              background: #fbfbfb;
+            }
+
+          }
+
+          .button-submit {
+            background: #fbfbfb;
           }
 
         }
@@ -17445,7 +17566,7 @@ a {
 
           .heading {
             @include fontCambriaBold(26px);
-            line-height: 26px;
+            line-height: 36px;
           }
 
           .subheading {
@@ -17462,8 +17583,36 @@ a {
           @include fontHelveticaLight(14px);
           line-height: 22px;
 
-          .second-paragraph {
+          .intro {
+            @include fontHelveticaLight(16px, 400, 1px);
+            line-height: 22px;
+          }
 
+          .first-paragraph {
+
+          }
+
+          .italic-paragraph {
+            @include fontHelveticaBoldOblique(14px, 400, 0.035em);
+            line-height: 22px;
+          }
+
+          .subheading {
+            @include fontHelveticaBold(14px);
+          }
+
+        }
+
+        .subscribe-block {
+
+          .input-container {
+            width: 100%;
+          }
+
+          .button-submit {
+            width: 100%;
+
+            margin-top: 25px;
           }
 
         }
@@ -17471,7 +17620,7 @@ a {
       }
 
       .footer-spacer {
-        height: 450px;
+        height: 520px;
       }
 
 

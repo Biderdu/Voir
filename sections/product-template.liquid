@@ -84,9 +84,9 @@
               </div>
 
               <div class="product-form-button-submit">
-                <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="product-btn-submit">
+                <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="product-btn-submit event-prevent-class">
                   <span id="AddToCartText-{{ section.id }}">
-                    ADD TO BAG
+                    COMING SOON
                   </span>
                 </button>
               </div>
@@ -255,14 +255,14 @@
           </div>
           <div id="product-page-use-descriptions" class="details-row">
             <div id="first-step-description" class="description-block active">
-              1. {{ product.metafields.c_f.use_step_1 }}
+              {{ product.metafields.c_f.use_step_1 }}
             </div>
             <div id="second-step-description" class="description-block">
-              2. {{ product.metafields.c_f.use_step_2 }}
+              {{ product.metafields.c_f.use_step_2 }}
             </div>
             {% if product.metafields.c_f.use_step_3 %}
             <div id="third-step-description" class="description-block">
-              3. {{ product.metafields.c_f.use_step_3 }}
+              {{ product.metafields.c_f.use_step_3 }}
             </div>
             {% endif %}
           </div>
@@ -337,7 +337,7 @@
               {{ product.price | money }}
             </div>
             <div data-id="{{ product.first_available_variant.id }}" data-url="{{ product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
-              Add to bag
+              Coming soon
             </div>
           </div>
         </div>
