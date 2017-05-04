@@ -3703,7 +3703,7 @@ function homeSliderDesctopInit() {
     }, 700, function(){
         setTimeout(function() {
             sconfig.state = 'enabled';
-        }, 200);
+        }, 500);
     });
   }, 100);
 
@@ -3734,7 +3734,7 @@ function homeSliderDesctopInit() {
 
           setTimeout(function() {
               sconfig.state = 'enabled';
-          }, 300);
+          }, 500);
 
         });
       }, 50);
@@ -4021,7 +4021,7 @@ function aboutArtNatureSlider() {
         }, 500, function(){
             setTimeout(function() {
                 sconfig.state = 'enabled';
-            }, 300);
+            }, 400);
         });
       }, 100);
 
@@ -4087,7 +4087,9 @@ function aboutArtNatureSlider() {
         $("html, body").animate({
           scrollTop: sliderElemTop
         }, 500, function(){
-          sconfig.state = 'enabled';
+            setTimeout(function() {
+                sconfig.state = 'enabled';
+            }, 400);
         });
       }, 100);
 
