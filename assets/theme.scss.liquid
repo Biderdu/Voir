@@ -6996,9 +6996,9 @@ a {
 
                 image-rendering: crisp-edges;
                 -ms-interpolation-mode: nearest-neighbor;
-                image-rendering: -moz-crisp-edges;         /* Firefox */
-                image-rendering:   -o-crisp-edges;         /* Opera */
-                image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+                image-rendering: -moz-crisp-edges;
+                image-rendering:   -o-crisp-edges;
+                image-rendering: -webkit-optimize-contrast;
               }
             }
 
@@ -7492,7 +7492,7 @@ a {
             }
 
             .descr {
-              @include fontHelvetica(11px);
+              @include fontHelvetica(10px);
               color: $voir-gray-2;
               text-transform: uppercase;
               width: 133%;
@@ -11028,6 +11028,7 @@ a {
           width: 340px;
           height: 490px;
           position: absolute;
+          z-index: 1;
           top: 40%;
           right: 15%;
           transform: translate(0,-50%);
@@ -11046,6 +11047,7 @@ a {
           img.reel-main-image {
             height: 450px;
             width: 320px;
+            //cursor: url("{{ 'zoom_in_small.png' | asset_url }}"), default;
           }
 
 
@@ -11070,7 +11072,7 @@ a {
             max-width: 100%;
 
             &.studio-set {
-              max-width: 130%;
+              max-width: 150%;
             }
 
           }
@@ -11078,10 +11080,10 @@ a {
           .reel-controls-container {
             position: absolute;
             left: 50%;
-            bottom: -20px;
+            bottom: -35px;
             transform: translate(-50%,0);
 
-            width: 90px;
+            width: 150px;
             height: 25px;
             
             .prev-button {
@@ -11096,6 +11098,23 @@ a {
                 height: 100%;
                 width: 100%;
                 content: url('{{ "arrow_right_icon.svg" | asset_url}}');
+              }
+
+            }
+
+            .zoom-button {
+              position: relative;
+              width: 30px;
+              height: 25px;
+              float: left;
+              cursor: pointer;
+              margin-left: 30px;
+              opacity: 0.5;
+
+              img {
+                height: 100%;
+                width: 100%;
+                content: url('{{ "selected_circle_plus_icon.svg" | asset_url}}');
               }
 
             }
@@ -11119,37 +11138,37 @@ a {
 
         }
 
-        .product-zoomed-image-container {
+        .product-image-container-zoom {
           display: none;
           text-align: center;
-          width: 450px;
-          height: 650px;
+          width: 340px;
+          height: 495px;
           position: absolute;
           z-index: 10;
-          top: 40%;
+          top: calc(40% + 3px);
           right: 15%;
           transform: translate(0,-50%);
-
-          div.reel-main-image {
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-          }
-
-          img.reel-main-image {
-            height: 600px;
-            width: 430px;
-          }
+          overflow: hidden;
+          cursor: url("{{ 'zoom_out_small.png' | asset_url }}"), default;
 
           img {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            max-height: 100%;
-            max-width: 100%;
+            max-width: initial;
+            pointer-events: none;
+
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;
+            image-rendering: -moz-crisp-edges;
+            image-rendering:   -o-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
           }
 
+          &.active {
+            display: block
+          }
 
         }
 
@@ -11503,6 +11522,12 @@ a {
         transform: translate(-50%, -50%);
         max-height: 75%;
         max-width: 75%;
+
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: -moz-crisp-edges;
+        image-rendering:   -o-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
       }
 
       .illustrations-container {
@@ -11514,6 +11539,12 @@ a {
         .illustration {
           position: absolute;
           transition: transform 0.35s ease-out;
+
+          image-rendering: crisp-edges;
+          -ms-interpolation-mode: nearest-neighbor;
+          image-rendering: -moz-crisp-edges;
+          image-rendering:   -o-crisp-edges;
+          image-rendering: -webkit-optimize-contrast;
         }
 
         .first {
@@ -11914,9 +11945,9 @@ a {
 
         .title {
           width: 100%;
-          @include fontCambriaBold(36px);
+          @include fontCambriaBold(32px);
           color: $voir-gray-1;
-          line-height: 36px;
+          line-height: 32px;
         }
 
         .description {
@@ -12730,8 +12761,10 @@ a {
             }
 
             .descr {
-              @include fontHelvetica(11px);
+              @include fontHelvetica(10px);
               color: $voir-gray-2;
+              text-transform: uppercase;
+              width: 133%;
 
               span {
                 display: none;
@@ -12865,6 +12898,10 @@ a {
             img.reel-main-image {
               height: 355px;
               width: 290px;
+            }
+
+            img.studio-set {
+              max-width: 140%;
             }
 
             .border {
@@ -13611,6 +13648,10 @@ a {
             img.reel-main-image {
               height: 245px;
               width: 200px;
+            }
+
+            img.studio-set {
+              max-width: 130%;
             }
 
             .border {
@@ -17888,8 +17929,10 @@ a {
             }
 
             .descr {
-              @include fontHelvetica(11px);
+              @include fontHelvetica(10px);
               color: $voir-gray-2;
+              text-transform: uppercase;
+              width: 133%;
 
               span {
                 display: none;
@@ -18927,6 +18970,89 @@ a {
   height: 582px;
 }
 
+.subscription-modal-panel {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  &.active {
+    display: block;
+  }
+
+  .modal-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .info-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 450px;
+    background: #ffffff;
+
+    .title {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontCambriaBold(28px, 400, 1px);
+      line-height: 36px;
+      color: $voir-gray-1;
+      text-align: center;
+      width: 300px;
+    }
+
+    .center-line {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 300px;
+      height: 2px;
+      background: #c8c9c7;
+    }
+
+    .ingredients-list {
+      width: 450px;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontHelvetica(14px, 400, 1px);
+      line-height: 23px;
+      color: $voir-gray-2;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+  }
+
+}
+
+
+
 @media (max-width: $screen-tablet) {
 
   .main-content {
@@ -19629,6 +19755,10 @@ a {
     right: 25px;
   }
 
+  .subscription-modal-panel {
+
+  }
+
 }
 
 $insta-image-size-small: 170px;
@@ -20267,6 +20397,40 @@ $insta-image-size-not-so-small: 200px;
   .back-arrow-container.header-arrow {
     bottom: 20px;
     right: 15px;
+  }
+
+  .subscription-modal-panel {
+
+    .info-container {
+      width: 310px;
+      height: 450px;
+
+      .title {
+        @include fontCambriaBold(20px, 400, 1px);
+        line-height: 26px;
+        width: 100%;
+      }
+
+      .center-line {
+        width: 240px;
+        height: 1px;
+      }
+
+      .ingredients-list {
+        width: 270px;
+        @include fontHelvetica(12px, 400, 1px);
+        line-height: 16px;
+      }
+
+      .close-button {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+      }
+
+    }
+
   }
 
 }

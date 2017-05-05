@@ -14,7 +14,7 @@
       <div class="arrow-icon-container">
         <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
       </div>
-      <a href="/">
+      <a href="/collections/all">
         <div class="label">
           TO SHOP
         </div>
@@ -31,9 +31,13 @@
             <img class="reel reel-main-image" src="{{ product.images[1].src | img_url: '720x'}}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
             <div id="reel-controls" class="reel-controls-container">
               <div id="reel-prev-button" class="prev-button"><img></div>
+              <div id="reel-zoom-button" class="zoom-button"><img></div>
               <div id="reel-next-button" class="next-button"><img></div>
             </div>
           {% endif %}
+        </div>
+        <div id="product-image-container-zoom" class="product-image-container-zoom">
+          <img id="product-zoomed-image">
         </div>
       </div>
 
@@ -101,12 +105,18 @@
               <div id="info-tab-description" class="tab active">
                 DESCRIPTION
               </div>
-              <div id="info-tab-ingredients" class="tab">
-                INGREDIENTS
-              </div>
-              <div id="info-tab-how-to-use" class="tab">
-                HOW TO USE
-              </div>
+              {% if  product.title == 'Studio Set'%}
+                <div id="studio-inside-tab-ingredients" class="tab">
+                  WHAT'S INSIDE
+                </div>
+              {% else %}
+                <div id="info-tab-ingredients" class="tab">
+                  INGREDIENTS
+                </div>
+                <div id="info-tab-how-to-use" class="tab">
+                  HOW TO USE
+                </div>
+              {% endif %}
             </div>
             <div class="info-container">
               {{ product.metafields.c_f.romance_description }}
@@ -129,7 +139,7 @@
     <div class="arrow-icon-container">
       <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
     </div>
-    <a href="/">
+    <a href="/collections/all">
       <div class="label">
         TO SHOP
       </div>
@@ -220,7 +230,7 @@
     <div class="arrow-icon-container">
       <img src="{{ 'arrow_right_icon.svg' | asset_url }}">
     </div>
-    <a href="/">
+    <a href="/collections/all">
       <div class="label">
         TO SHOP
       </div>

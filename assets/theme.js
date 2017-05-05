@@ -985,6 +985,20 @@ theme.Header = (function() {
           $('#launch-navi-item').addClass('active');
           $('#mobile-menu-launch-button').addClass('active');
 
+
+            //email subscription
+            var form = $('form#contact-launch-form');
+
+            $('#launch-subscription-submit-button').on('click',function() {
+                registerMailchimpSubscription(form);
+            });
+
+
+            $('#subscription-launch-modal-overlay').on('click', subscriptionLaunchModalPanelToggle);
+
+            $('#subscription-launch-modal-close-button').on('click', subscriptionLaunchModalPanelToggle);
+
+
         }, 500);
       });
 
@@ -1008,6 +1022,12 @@ theme.Header = (function() {
 
           $('#detail-add-info-more').on('click', function() {
             productAddInfoToggle();
+          });
+
+          $('#studio-inside-tab-ingredients').on('click', function() {
+            $('html, body').animate({
+                scrollTop: $("#product-page-collection-panel").offset().top + 70
+            }, 700);
           });
 
           $('#info-tab-ingredients').on('click', function() {
@@ -1095,6 +1115,80 @@ theme.Header = (function() {
             $('#my-picture').trigger('stepRight');
           });
 
+
+          var zoomImageContainer = $('#product-image-container-zoom');
+          var zoomImage = $('#product-image-container-zoom img');
+
+          var contWidth = zoomImageContainer.width()/2;
+          var contHeight = zoomImageContainer.height()/2;
+
+          var imgWidth = zoomImage.width()/2;
+          var imgHeight = zoomImage.height()/2;
+
+
+          $('#reel-zoom-button').click(function(){
+
+            zoomImage.attr('src', $('#my-picture-reel .reel-main-image').attr('src'));
+
+            zoomImageContainer.toggleClass('active');
+
+            imgWidth = zoomImage.width()/2;
+            imgHeight = zoomImage.height()/2;
+
+          });
+
+
+          zoomImageContainer.on('mousemove', function(event) {
+
+            var widthDif = (imgWidth - contWidth);
+            var heightDif = (imgHeight - contHeight);
+
+            var offY = event.offsetY;
+            var offX = event.offsetX;
+
+            var stepY = heightDif*((contHeight - offY)/contHeight);
+            var stepX = widthDif*((contWidth - offX)/contWidth);
+
+            zoomImage.css('transform', 'translate( calc(-50% + ' + stepX + 'px), calc(-50% + ' + stepY + 'px))');
+
+
+
+          });
+
+          zoomImageContainer.on('click', function() {
+              zoomImageContainer.removeClass('active');
+          });
+
+          //
+
+          var delta = 0;
+          var last_position = {};
+
+          // $('#my-picture-reel .reel-main-image').on('mousedown', function() {
+          //
+          //     last_position = {
+          //         x : event.clientX,
+          //         y : event.clientY
+          //     };
+          //
+          //     $('#my-picture-reel .reel-main-image').on('mousemove', function(event) {
+          //       console.log(e);
+          //
+          //
+          //     });
+          // });
+          //
+          // $('#my-picture-reel .reel-main-image').on('mouseup', function() {
+          //     $('#my-picture-reel .reel-main-image').off('mousemove');
+          //     last_position = {};
+          // });
+          //
+          //   $('#my-picture-reel .reel-main-image').on('mouseleave', function() {
+          //       $('#my-picture-reel .reel-main-image').off('mousemove');
+          //       last_position = {};
+          //   });
+
+          //
 
           //observer for reviews link
             var targetReviewsRow = document.getElementById('product-page-intro-reviews-row');
@@ -1591,6 +1685,35 @@ theme.Header = (function() {
     }
 
   }
+
+  //
+
+  //launch page
+
+    function subscriptionLaunchModalPanelToggle() {
+        $('#subscription-launch-modal-panel').toggleClass('active');
+    }
+
+    function registerMailchimpSubscription(form) {
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            cache       : false,
+            dataType    : 'json',
+            contentType: "application/json; charset=utf-8",
+            error       : function(err) {
+                console.log("Could not connect to the registration server. Please try again later.");
+            },
+            success     : function(data) {
+                if (data.result != "success") {
+                    // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                } else {
+                    subscriptionLaunchModalPanelToggle();
+                }
+            }
+        });
+    }
 
   //
 
@@ -3897,16 +4020,59 @@ function footerInit() {
     $('#mobile-header-menu-panel').toggleClass('active-modal');
   });
 
-  $('#footer-email-sub-container input').keypress(function (e) {
-      if(e.which == 13) {
-          $('#footer-email-sub-container form').submit();
+
+  //email subscription
+    var form = $('form#mailchimp-contact-form');
+
+    if ( form.length > 0 ) {
+        $('form input[type="submit"]').bind('click', function ( event ) {
+            if ( event ) event.preventDefault();
+        });
+    }
+
+    function register(form) {
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            cache       : false,
+            dataType    : 'json',
+            contentType: "application/json; charset=utf-8",
+            error       : function(err) {
+                console.log("Could not connect to the registration server. Please try again later.");
+            },
+            success     : function(data) {
+                if (data.result != "success") {
+                    // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                } else {
+                    subscriptionModalPanelToggle();
+                }
+            }
+        });
+    }
+
+    $('#subscription-modal-overlay').on('click', subscriptionModalPanelToggle);
+
+    $('#subscription-modal-close-button').on('click', subscriptionModalPanelToggle);
+
+    $('#footer-email-sub-container input').keypress(function (event) {
+
+      if(event.which == 13) {
+          event.preventDefault();
+          // $('#footer-email-sub-container form').submit();
+          register(form);
       }
-  });
+    });
 
-  $('#footer-subscription-arrow').on('click', function() {
-      $('#footer-email-sub-container form').submit();
-  })
+    $('#footer-subscription-arrow').on('click', function(event) {
+      register(form);
+    })
+    //
 
+}
+
+function subscriptionModalPanelToggle() {
+    $('#subscription-modal-panel').toggleClass('active');
 }
 
 function instagramInit() {
