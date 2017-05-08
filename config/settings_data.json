@@ -89,7 +89,8 @@
           "image_size": "medium",
           "show_quantity_selector": true,
           "show_variant_labels": true,
-          "collection": "frontpage"
+          "collection": "frontpage",
+          "collection_studio": "studio-set"
         }
       },
       "1488547337137": {

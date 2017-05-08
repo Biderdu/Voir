@@ -310,6 +310,7 @@
 <div id="product-page-collection-panel" class="product-page-collection-block">
 
   {%- assign collection = collections[section.settings.collection] -%}
+  {%- assign studio_set_product = collections[section.settings.collection_studio].products[0] -%}
 
   <div class="upper-title-block">
     <div class="title">
@@ -325,33 +326,60 @@
 
   <div class="collections-block-container">
     <div class="collection-list">
-      {% for product in collection.products %}
-        <div class="product-item-container">
-          <div class="product-top-side">
-            <a href="{{ product.url }}">
-              <div class="image-container">
-                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+      {% for product_col in collection.products %}
+        {% if product_col.title != product.title %}
+          <div class="product-item-container">
+            <div class="product-top-side">
+              <a href="{{ product_col.url }}">
+                <div class="image-container">
+                  <img src="{{ product_col.featured_image.src | img_url: 'large' }}" alt="{{ product_col.featured_image.alt }}">
+                </div>
+              </a>
+            </div>
+            <div class="product-bottom-side">
+              <div class="short-info">
+                <div class="name">
+                  {{ product_col.title }}
+                </div>
+                <div class="descr">
+                  {{ product_col.metafields.c_f.short_description }}
+                </div>
               </div>
-            </a>
+              <div class="price-info">
+                {{ product_col.price | money }}
+              </div>
+              <div data-id="{{ product_col.first_available_variant.id }}" data-url="{{ product_col.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
+                Coming soon
+              </div>
+            </div>
           </div>
-          <div class="product-bottom-side">
-            <div class="short-info">
-              <div class="name">
-                {{ product.title }}
-              </div>
-              <div class="descr">
-                {{ product.metafields.c_f.short_description }}
-              </div>
+        {% endif %}
+      {% endfor %}
+      <div class="product-item-container">
+        <div class="product-top-side">
+          <a href="{{ studio_set_product.url }}">
+            <div class="image-container">
+              <img src="{{ studio_set_product.featured_image.src | img_url: 'large' }}" alt="{{ studio_set_product.featured_image.alt }}">
             </div>
-            <div class="price-info">
-              {{ product.price | money }}
+          </a>
+        </div>
+        <div class="product-bottom-side">
+          <div class="short-info">
+            <div class="name">
+                {{ studio_set_product.title }}
             </div>
-            <div data-id="{{ product.first_available_variant.id }}" data-url="{{ product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
-              Coming soon
+            <div class="descr">
+                {{ studio_set_product.metafields.c_f.short_description }}
             </div>
+          </div>
+          <div class="price-info">
+              {{ studio_set_product.price | money }}
+          </div>
+          <div data-id="{{ studio_set_product.first_available_variant.id }}" data-url="{{ studio_set_product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
+            Coming soon
           </div>
         </div>
-      {% endfor %}
+      </div>
     </div>
   </div>
 
@@ -409,6 +437,11 @@
         "id": "collection",
         "type": "collection",
         "label": "Collection"
+      },
+      {
+        "id": "collection_studio",
+        "type": "collection",
+        "label": "Collection for studio set"
       }
     ]
   }
