@@ -813,7 +813,7 @@ theme.Header = (function() {
       home: ['home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
-      product: ['product-page-art-panel']
+      product: []
     };
 
   } else {
@@ -823,7 +823,7 @@ theme.Header = (function() {
       home: ['home-collection-panel','home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
-      product: ['product-page-collection-panel', 'product-page-art-panel']
+      product: ['product-page-collection-panel']
     };
 
   }
@@ -915,9 +915,6 @@ theme.Header = (function() {
       
       
     } else if($('#general-faq-page').length != 0) {   //general-faq
-
-      console.log('faq');
-
 
       $('.shipping-container').addClass("hidden-shipping");
 
@@ -1024,10 +1021,20 @@ theme.Header = (function() {
             productAddInfoToggle();
           });
 
+          $('#info-tab-description').on('click', function() {
+              $('#info-tab-description').addClass('active');
+              $('#studio-inside-tab-ingredients').removeClass('active');
+
+              $('#product-intro-what-inside-container').removeClass('active');
+              $('#product-intro-main-info-container').addClass('active');
+          });
+
           $('#studio-inside-tab-ingredients').on('click', function() {
-            $('html, body').animate({
-                scrollTop: $("#product-page-collection-panel").offset().top + 70
-            }, 700);
+            $('#info-tab-description').removeClass('active');
+            $('#studio-inside-tab-ingredients').addClass('active');
+
+            $('#product-intro-main-info-container').removeClass('active');
+            $('#product-intro-what-inside-container').addClass('active');
           });
 
           $('#info-tab-ingredients').on('click', function() {
@@ -1050,10 +1057,24 @@ theme.Header = (function() {
 
           if(windowWidth > 1024) {
             productIngredientsMouseMoveAnimationInit();
+
+            var artOffset = $('#product-page-art-panel')[0].offsetTop;
+
+            $(window).scroll( function() {
+
+              if($(window).scrollTop() > artOffset - 150) {
+                $('#product-page-art-panel').addClass('active-animation');
+              }
+            });
+
+
           } else {
             $('.ingredients-pin-icon').on('click', function() {
               productSetIngredientsDetails($(this).data().id);
-            })
+            });
+
+            $('#product-page-art-panel').addClass('active-animation');
+
           }
 
 
@@ -1094,6 +1115,10 @@ theme.Header = (function() {
                   }, 1500);
 
                 });
+
+                if($('.spr-review').length < 1) {
+                  $('.for-first-review-container').addClass('active');
+                }
 
               }
 
@@ -1572,7 +1597,7 @@ theme.Header = (function() {
         addTopOffset1 = 0;
       }
 
-      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-70deg) scale(' + scale1 + ')'  });
+      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-65deg) scale(' + scale1 + ')'  });
 
 
 
@@ -1606,7 +1631,7 @@ theme.Header = (function() {
         addTopOffset2 = 0;
       }
 
-      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-40deg) scale(' + scale2 + ')'  });
+      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-15deg) scale(' + scale2 + ')'  });
 
 
       var distX3 = event.clientX - thirdElemCenterX;
@@ -1639,7 +1664,7 @@ theme.Header = (function() {
         addTopOffset3 = 0;
       }
 
-      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(50deg) scale(' + scale3 + ')'  });
+      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(42deg) scale(' + scale3 + ')'  });
 
     });
 
@@ -1721,9 +1746,12 @@ theme.Header = (function() {
 
     $('.info-menu .menu-item').removeClass('active');
     $('.side-menu-item').removeClass('active');
+    $('.faq-main-container .left-side .info-select').removeClass('active');
 
-    if(window.location.hash == '#orders') {
+    if(window.location.hash == '#orders' || window.location.hash == '#faq') {
         $('#faq-menu-item').addClass('active');
+        $('.faq-main-container .left-side .info-select').addClass('active');
+
     }
 
     $(window.location.hash + '-menu-item').addClass('active');

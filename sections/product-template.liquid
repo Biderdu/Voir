@@ -118,13 +118,16 @@
                 </div>
               {% endif %}
             </div>
-            <div class="info-container">
+            <div id="product-intro-main-info-container" class="info-container active">
               {{ product.metafields.c_f.romance_description }}
               {% if product.metafields.c_f.romance_description_spart %}
               <span id="detail-add-info-block" class="additional-info">{{ product.metafields.c_f.romance_description_spart }}</span>
               <span id="detail-add-info-more" class="view-toggle active">VIEW MORE</span>
               <span id="detail-add-info-less" class="view-toggle">VIEW LESS</span>
               {% endif %}
+            </div>
+            <div id="product-intro-what-inside-container" class="info-container">
+                {{ product.metafields.c_f.what_inside }}
             </div>
           </div>
 
@@ -357,31 +360,33 @@
           </div>
         {% endif %}
       {% endfor %}
-      <div class="product-item-container">
-        <div class="product-top-side">
-          <a href="{{ studio_set_product.url }}">
-            <div class="image-container">
-              <img src="{{ studio_set_product.featured_image.src | img_url: 'large' }}" alt="{{ studio_set_product.featured_image.alt }}">
+      {% if  product.title != 'Studio Set'%}
+        <div class="product-item-container">
+          <div class="product-top-side">
+            <a href="{{ studio_set_product.url }}">
+              <div class="image-container">
+                <img src="{{ studio_set_product.featured_image.src | img_url: 'large' }}" alt="{{ studio_set_product.featured_image.alt }}">
+              </div>
+            </a>
+          </div>
+          <div class="product-bottom-side">
+            <div class="short-info">
+              <div class="name">
+                  {{ studio_set_product.title }}
+              </div>
+              <div class="descr">
+                  {{ studio_set_product.metafields.c_f.short_description }}
+              </div>
             </div>
-          </a>
+            <div class="price-info">
+                {{ studio_set_product.price | money }}
+            </div>
+            <div data-id="{{ studio_set_product.first_available_variant.id }}" data-url="{{ studio_set_product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
+              Coming soon
+            </div>
+          </div>
         </div>
-        <div class="product-bottom-side">
-          <div class="short-info">
-            <div class="name">
-                {{ studio_set_product.title }}
-            </div>
-            <div class="descr">
-                {{ studio_set_product.metafields.c_f.short_description }}
-            </div>
-          </div>
-          <div class="price-info">
-              {{ studio_set_product.price | money }}
-          </div>
-          <div data-id="{{ studio_set_product.first_available_variant.id }}" data-url="{{ studio_set_product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
-            Coming soon
-          </div>
-        </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 

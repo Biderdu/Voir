@@ -9810,6 +9810,11 @@ a {
         height: 75px;
         left: 75px;
         margin-top: 50px;
+        display: none;
+
+        &.active {
+          display: block;
+        }
 
         .select-item {
           @include fontHelveticaLight(18px);
@@ -11383,12 +11388,17 @@ a {
             }
 
             .info-container {
+              display: none;
               margin-top: 15px;
               position: relative;
               width: 100%;
               @include fontHelveticaLight(16px, 400, 1.0px);
               line-height: 24px;
               color: #424448;
+
+              &.active {
+                display: block;
+              }
 
               .additional-info {
                 display: none;
