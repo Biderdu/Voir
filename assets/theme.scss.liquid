@@ -11520,8 +11520,8 @@ a {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        max-height: 75%;
-        max-width: 75%;
+        max-height: 85%;
+        max-width: 85%;
 
         image-rendering: crisp-edges;
         -ms-interpolation-mode: nearest-neighbor;
@@ -11548,24 +11548,24 @@ a {
         }
 
         .first {
-          transform: translate3d(-50%, -50%, 0) rotate(-70deg);
-          height: 150px;
-          top: 60%;
-          left: 32%;
+          transform: translate3d(-50%, -50%, 0) rotate(-65deg);
+          height: 165px;
+          top: 64%;
+          left: 28%;
         }
 
         .second {
-          transform: translate3d(-50%, -50%, 0) rotate(-40deg);
-          height: 150px;
-          top: 35%;
-          left: 32%;
+          transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+          height: 175px;
+          top: 36%;
+          left: 30%;
         }
 
         .third {
-          transform: translate3d(-50%, -50%, 0) rotate(50deg);
-          height: 190px;
-          top: 50%;
-          left: 72%;
+          transform: translate3d(-50%, -50%, 0) rotate(42deg);
+          height: 250px;
+          top: 52%;
+          left: 75%;
         }
 
       }
@@ -11684,18 +11684,18 @@ a {
       }
 
       .first-pin {
-        top: 320px;
-        right: 350px;
+        top: 350px;
+        right: 380px;
       }
 
       .second-pin {
         top: 190px;
-        right: 350px;
+        right: 390px;
       }
 
       .third-pin {
-        top: 290px;
-        left: 345px;
+        top: 300px;
+        left: 400px;
       }
 
       .ingredient-pin.to-left {
@@ -12142,30 +12142,30 @@ a {
 
       opacity: 1;
       transform: translate3d(0,-50%,0);
-      transition: opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s;
+      transition: opacity 1.2s ease 0.5s, transform 1.2s ease;
 
       .icon {
         opacity: 1;
         transform: translate(-50%, 0);
-        transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
+        transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.4s;
       }
 
       .art-title {
         opacity: 1;
         transform: translate3d(0, 0,0);
-        transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
+        transition: opacity 0.7s ease 1.3s, transform 0.7s ease 0.8s;
       }
 
       .subhead {
         opacity: 1;
         transform: translate3d(0, 0,0);
-        transition: opacity 0.7s ease 1.3s, transform 0.7s ease 1.3s;
+        transition: opacity 0.7s ease 1.3s, transform 0.7s ease 0.8s;
       }
 
       .art-description {
         opacity: 1;
         transform: translate(-50%, 0);
-        transition: opacity 0.7s ease 1.8s, transform 0.7s ease 1.8s;
+        transition: opacity 0.7s ease 1.8s, transform 0.7s ease 1.3s;
       }
 
     }
@@ -12349,6 +12349,24 @@ a {
 
         }
 
+      }
+
+    }
+
+    .for-first-review-container {
+      display: none;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+
+      @include fontHelveticaBold(14px);
+      color: $voir-gray-1;
+      line-height: 14px;
+      text-align: center;
+      text-transform: uppercase;
+
+      &.active {
+        display: block;
       }
 
     }
@@ -14213,6 +14231,7 @@ a {
   }
 
   .product-page-reviews {
+    min-height: 30vh;
 
     .reviews-container {
       width: calc(100% - 30px);
@@ -14479,6 +14498,11 @@ a {
 
         }
 
+      }
+
+      .for-first-review-container {
+        top: 110%;
+        @include fontHelvetica(12px);
       }
 
     }

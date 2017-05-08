@@ -243,7 +243,8 @@
   <div class="info-block">
     <div id="product-page-use-descriptions-videos" class="left-side">
       <div id="how-to-use-description-video" class="video-container active">
-        <iframe id="first-step-description-video-frame" src="{{ product.metafields.c_f.how_to_use_video_link }}"></iframe>
+        <iframe src="https://player.vimeo.com/video/{{ product.metafields.c_f.how_to_use_video_link }}" width="650" height="366" frameborder="0"></iframe>
+        {#<iframe id="first-step-description-video-frame" src="{{ product.metafields.c_f.how_to_use_video_link }}"></iframe>#}
       </div>
     </div>
     <div class="right-side">
@@ -304,6 +305,7 @@
 <div id="product-page-reviews-panel" class="product-page-reviews">
   <div class="reviews-container">
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    <div class="for-first-review-container">Be the first to review this product</div>
   </div>
 </div>
 
