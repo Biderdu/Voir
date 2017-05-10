@@ -3878,6 +3878,11 @@ function homeSliderDesktopInit() {
         activeSection--;
       }
 
+      if(activeSection == pageSections.home) {
+          $(window).off('mousewheel');
+          $('#home-slider-panel').off('mousewheel');
+      }
+
       setTimeout(function(){
         $("html, body").animate({
           scrollTop: activeSection * windowHeight

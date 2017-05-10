@@ -11124,13 +11124,12 @@ a {
               width: 30px;
               height: 25px;
               float: left;
-              transform: rotate(180deg);
               cursor: pointer;
 
               img {
                 height: 100%;
                 width: 100%;
-                content: url('{{ "arrow_right_icon.svg" | asset_url}}');
+                content: url('{{ "arrow_back_icon.svg" | asset_url}}');
               }
 
             }
@@ -11142,12 +11141,11 @@ a {
               float: left;
               cursor: pointer;
               margin-left: 30px;
-              opacity: 0.5;
 
               img {
                 height: 100%;
                 width: 100%;
-                content: url('{{ "selected_circle_plus_icon.svg" | asset_url}}');
+                content: url('{{ "zoom_in_outline.svg" | asset_url}}');
               }
 
             }
@@ -11163,7 +11161,7 @@ a {
               img {
                 height: 100%;
                 width: 100%;
-                content: url('{{ "arrow_right_icon.svg" | asset_url}}');
+                content: url('{{ "arrow_forward_icon.svg" | asset_url}}');
               }
             }
             
@@ -13071,6 +13069,7 @@ a {
   }
 
   .product-page-to-shop-button {
+    display: none;
 
     .arrow-icon-container {
 
@@ -13923,7 +13922,8 @@ a {
         width: 320px;
 
         img {
-
+          max-height: 90%;
+          max-width: 90%;
         }
 
         .illustrations-container {
@@ -13987,18 +13987,18 @@ a {
         }
 
         .first-pin {
-          top: 200px;
-          right: 205px;
+          top: 220px;
+          right: 240px;
         }
 
         .second-pin {
-          top: 120px;
-          right: 220px;
+          top: 130px;
+          right: 240px;
         }
 
         .third-pin {
           top: 180px;
-          left: 220px;
+          left: 240px;
         }
 
         .full-list {
