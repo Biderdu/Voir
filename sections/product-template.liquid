@@ -28,7 +28,7 @@
           {% if  product.title == 'Studio Set'%}
             <img src="{{ featured_img_src | img_url: '720x' }}" class="featured-image studio-set">
           {% else %}
-            <img class="reel reel-main-image" src="{{ product.images[1].src | img_url: '720x'}}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '600x600' }},{% if forloop.last == true %}{{ image.src | img_url: '600x600' }}{% endif %}{% endif %}{% endfor %}"  >
+            <img class="reel reel-main-image" src="{{ product.images[1].src | img_url: '720x'}}" id="my-picture" data-clickfree="false" data-cursor="pointer"  data-images="{% for image in product.images %}{% if forloop.first == false %}{{ image.src | img_url: '900x' }},{% if forloop.last == true %}{{ image.src | img_url: '900x' }}{% endif %}{% endif %}{% endfor %}"  >
             <div id="reel-controls" class="reel-controls-container">
               <div id="reel-prev-button" class="prev-button"><img></div>
               <div id="reel-zoom-button" class="zoom-button"><img></div>

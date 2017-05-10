@@ -176,12 +176,12 @@
 
     <div class="social-bar-container">
       <div class="icon-container ">
-        <a target="_blank" href="https://www.instagram.com/voirhaircare/">
+        <a target="_blank" {% if product.metafields.c_f.instagram_link %} href="{{ product.metafields.c_f.instagram_link }}" {% else %} href="https://www.instagram.com/voirhaircare/" {% endif %} >
           <img src="{{ 'instagram_icon.svg' | asset_url }}">
         </a>
       </div>
       <div class="icon-container">
-        <a target="_blank" href="https://www.facebook.com/voirhaircare">
+        <a target="_blank" {% if product.metafields.c_f.facebook_link %} href="{{ product.metafields.c_f.facebook_link }}" {% else %} href="https://www.facebook.com/voirhaircare {% endif %} ">
           <img src="{{ 'facebook_icon.svg' | asset_url }}">
         </a>
       </div>
