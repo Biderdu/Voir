@@ -4,7 +4,8 @@
 
 <div id="home-intro-block" class="home-intro-block">
   <div class="home-intro-video-background">
-    <video poster="{{ 'video_poster.png' | asset_url }}" id="bgvid" autoplay muted loop style="pointer-events: none;">
+    <video poster="{{ 'video_poster.png' | asset_url }}" id="bgvid" autoplay preload="true" muted loop playsinline style="pointer-events: none;">
+      <source src="{{ 'voir_home_background.mp4' | asset_url  }}" type="video/mp4">
       <source src="{{ 'voir_home_background.webm' | asset_url  }}" type="video/webm">
     </video>
     <div class="home-intro-bottom-line-block">
