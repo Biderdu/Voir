@@ -154,45 +154,92 @@
 
   <div id="product-ingredients-container" class="ingredients-container">
     <div id="product-image-container" class="image-container">
-      <div class="illustrations-container">
+      <div class="illustrations-container illustrations-container-style-{{ product.metafields.c_f.ingredients_style }}">
         <img id="product-ingredients-first-illustration" class="first illustration" src="{{ product.metafields.c_f.first_illustration | asset_url }}" >
         <img id="product-ingredients-second-illustration" class="second illustration" src="{{ product.metafields.c_f.second_illustration | asset_url }}" >
         <img id="product-ingredients-third-illustration" class="third illustration" src="{{ product.metafields.c_f.third_illustration | asset_url }}" >
       </div>
       <img id="product-ingredients-image" src="{{ product.featured_image.src | img_url: '720x' }}" class="ingredients-image">
     </div>
-    <div id="product-ingredients-illustrations-container" class="ingredients-panel">
-      <div class="ingredient-pin to-left first-pin">
-        <div data-id="first" class="icon ingredients-pin-icon">
-          <div class="hover-opacity"></div>
-          <img>
-        </div>
-        <div class="mid-line"></div>
-        <div class="description">
-          <div id="first-pin-title" class="title">
-            {{ product.metafields.c_f.first_ingredient_title }}
+    <div id="product-ingredients-illustrations-container" class="ingredients-panel ingredients-panel-style-{{ product.metafields.c_f.ingredients_style }}">
+      {% if product.metafields.c_f.ingredients_style == '2' or product.metafields.c_f.ingredients_style == '3' %}
+        <div class="ingredient-pin to-right first-pin">
+          <div data-id="first" class="icon ingredients-pin-icon">
+            <div class="hover-opacity"></div>
+            <img>
           </div>
-          <div id="first-pin-details" class="details">
-            {{ product.metafields.c_f.first_ingredient_description }}
-          </div>
-        </div>
-      </div>
-      <div class="ingredient-pin to-left second-pin">
-        <div data-id="second" class="icon ingredients-pin-icon">
-          <div class="hover-opacity"></div>
-          <img>
-        </div>
-        <div class="mid-line"></div>
-        <div class="description">
-          <div id="second-pin-title" class="title">
-              {{ product.metafields.c_f.second_ingredient_title }}
-          </div>
-          <div id="second-pin-details" class="details">
-              {{ product.metafields.c_f.second_ingredient_description }}
+          <div class="mid-line"></div>
+          <div class="description">
+            <div id="first-pin-title" class="title">
+                {{ product.metafields.c_f.first_ingredient_title }}
+            </div>
+            <div id="first-pin-details" class="details">
+                {{ product.metafields.c_f.first_ingredient_description }}
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ingredient-pin to-right third-pin">
+        <div class="ingredient-pin to-right second-pin">
+          <div data-id="second" class="icon ingredients-pin-icon">
+            <div class="hover-opacity"></div>
+            <img>
+          </div>
+          <div class="mid-line"></div>
+          <div class="description">
+            <div id="second-pin-title" class="title">
+                {{ product.metafields.c_f.second_ingredient_title }}
+            </div>
+            <div id="second-pin-details" class="details">
+                {{ product.metafields.c_f.second_ingredient_description }}
+            </div>
+          </div>
+        </div>
+        <div class="ingredient-pin to-left third-pin">
+          <div data-id="third" class="icon ingredients-pin-icon">
+            <div class="hover-opacity"></div>
+            <img>
+          </div>
+          <div class="mid-line"></div>
+          <div class="description">
+            <div id="third-pin-title" class="title">
+                {{ product.metafields.c_f.third_ingredient_title }}
+            </div>
+            <div id="third-pin-details" class="details">
+                {{ product.metafields.c_f.third_ingredient_description }}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="ingredient-pin to-left first-pin">
+          <div data-id="first" class="icon ingredients-pin-icon">
+            <div class="hover-opacity"></div>
+            <img>
+          </div>
+          <div class="mid-line"></div>
+          <div class="description">
+            <div id="first-pin-title" class="title">
+              {{ product.metafields.c_f.first_ingredient_title }}
+            </div>
+            <div id="first-pin-details" class="details">
+              {{ product.metafields.c_f.first_ingredient_description }}
+            </div>
+          </div>
+        </div>
+        <div class="ingredient-pin to-left second-pin">
+          <div data-id="second" class="icon ingredients-pin-icon">
+            <div class="hover-opacity"></div>
+            <img>
+          </div>
+          <div class="mid-line"></div>
+          <div class="description">
+            <div id="second-pin-title" class="title">
+                {{ product.metafields.c_f.second_ingredient_title }}
+            </div>
+            <div id="second-pin-details" class="details">
+                {{ product.metafields.c_f.second_ingredient_description }}
+            </div>
+          </div>
+        </div>
+        <div class="ingredient-pin to-right third-pin">
         <div data-id="third" class="icon ingredients-pin-icon">
           <div class="hover-opacity"></div>
           <img>
@@ -207,6 +254,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       <div id="ingredients-full-list-button" class="full-list">
         Full Ingredients List
       </div>

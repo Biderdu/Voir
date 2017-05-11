@@ -4290,15 +4290,10 @@ h1.product-single__title {
       width: 550px;
 
       .bottom-item {
-        float: left;
-        @include fontHelvetica(20px, 400, 1px);
-        line-height: 22px;
+        @include fontHelveticaLight(20px, 400, 1px);
+        line-height: 20px;
         color: #e6e6e6;
-
-        &:first-child {
-          margin-right: 40px;
-        }
-
+        margin-bottom: 15px;
       }
 
     }
@@ -4390,10 +4385,7 @@ h1.product-single__title {
         .bottom-item {
           @include fontHelvetica(12px, 400, 1px);
           line-height: 18px;
-
-          &:first-child {
-            margin-right: 20px;
-          }
+          margin-bottom: 5px;
 
         }
 
@@ -10374,7 +10366,7 @@ a {
          left: 50%;
          transform: translate(-50%, 0);
          height: 120px;
-         width: 460px;
+         width: 720px;
 
 
          .detail-item {
@@ -10765,7 +10757,7 @@ a {
           left: 50%;
           transform: translate(-50%, 0);
           height: 120px;
-          width: 400px;
+          width: 620px;
 
 
           .detail-item {
@@ -10786,6 +10778,12 @@ a {
               margin-top: 33px;
               @include fontHelvetica(16px);
               line-height: 16px;
+
+              a {
+                @include fontHelvetica(16px);
+                line-height: 16px;
+              }
+
             }
 
           }
@@ -10814,7 +10812,7 @@ a {
   .contact-us-main-container {
 
     .contact-intro-block {
-      height: 1150px;
+      height: 1350px;
 
       .intro-container {
         height: calc(100% - 475px);
@@ -10874,7 +10872,6 @@ a {
           height: 120px;
           width: 270px;
 
-
           .detail-item {
             width: 100%;
             margin-right: 0;
@@ -10913,7 +10910,6 @@ a {
       }
 
     }
-
 
     .contact-feedback-block {
       height: 1400px;
@@ -11587,25 +11583,74 @@ a {
           image-rendering: -webkit-optimize-contrast;
         }
 
-        .first {
-          transform: translate3d(-50%, -50%, 0) rotate(-65deg);
-          height: 165px;
-          top: 64%;
-          left: 28%;
+
+        &.illustrations-container-style-1 {
+          .first {
+            transform: translate3d(-50%, -50%, 0) rotate(-65deg);
+            height: 165px;
+            top: 64%;
+            left: 28%;
+          }
+
+          .second {
+            transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+            height: 175px;
+            top: 36%;
+            left: 30%;
+          }
+
+          .third {
+            transform: translate3d(-50%, -50%, 0) rotate(42deg);
+            height: 250px;
+            top: 52%;
+            left: 75%;
+          }
         }
 
-        .second {
-          transform: translate3d(-50%, -50%, 0) rotate(-15deg);
-          height: 175px;
-          top: 36%;
-          left: 30%;
+        &.illustrations-container-style-2 {
+          .first {
+            transform: translate3d(-50%, -50%, 0) rotate(65deg) scaleX(-1);
+            height: 150px;
+            top: 70%;
+            left: 72%;
+          }
+
+          .second {
+            transform: translate3d(-50%, -50%, 0) rotate(15deg) scaleX(-1);
+            height: 155px;
+            top: 45%;
+            left: 70%;
+          }
+
+          .third {
+            transform: translate3d(-50%, -50%, 0) rotate(-42deg) scaleX(-1);
+            height: 200px;
+            top: 60%;
+            left: 30%;
+          }
         }
 
-        .third {
-          transform: translate3d(-50%, -50%, 0) rotate(42deg);
-          height: 250px;
-          top: 52%;
-          left: 75%;
+        &.illustrations-container-style-3 {
+          .first {
+            transform: translate3d(-50%, -50%, 0) rotate(55deg) scaleX(-1);
+            height: 180px;
+            top: 65%;
+            left: 68%;
+          }
+
+          .second {
+            transform: translate3d(-50%, -50%, 0) rotate(12deg) scaleX(-1);
+            height: 170px;
+            top: 39%;
+            left: 69%;
+          }
+
+          .third {
+            transform: translate3d(-50%, -50%, 0) rotate(-37deg) scaleX(-1);
+            height: 240px;
+            top: 55%;
+            left: 26%;
+          }
         }
 
       }
@@ -11723,21 +11768,6 @@ a {
 
       }
 
-      .first-pin {
-        top: 350px;
-        right: 380px;
-      }
-
-      .second-pin {
-        top: 190px;
-        right: 390px;
-      }
-
-      .third-pin {
-        top: 300px;
-        left: 400px;
-      }
-
       .ingredient-pin.to-left {
 
         .icon {
@@ -11781,6 +11811,57 @@ a {
         left: 50%;
         transform: translate(-50%,0);
         cursor: pointer;
+      }
+
+      &.ingredients-panel-style-1 {
+         .first-pin {
+           top: 350px;
+           right: 380px;
+         }
+
+         .second-pin {
+           top: 190px;
+           right: 390px;
+         }
+
+         .third-pin {
+           top: 300px;
+           left: 400px;
+         }
+       }
+
+      &.ingredients-panel-style-2 {
+        .first-pin {
+          top: 350px;
+          left: 340px;
+        }
+
+        .second-pin {
+          top: 190px;
+          left: 340px;
+        }
+
+        .third-pin {
+          top: 300px;
+          right: 370px;
+        }
+      }
+
+      &.ingredients-panel-style-3 {
+        .first-pin {
+          top: 340px;
+          left: 370px;
+        }
+
+        .second-pin {
+          top: 190px;
+          left: 370px;
+        }
+
+        .third-pin {
+          top: 300px;
+          right: 350px;
+        }
       }
 
     }
@@ -12044,7 +12125,7 @@ a {
                 display: block;
               }
 
-              @include fontHelvetica(18px,400, 1px);
+              @include fontHelvetica(18px,400, 0.7px);
               color: #424448;
               line-height: 26px;
 
@@ -12612,8 +12693,20 @@ a {
             @include fontHelveticaBold(13px);
             color: $voir-gray-1;
             border: 1px solid $voir-gray-1;
+            transition: color 0.4s ease background 0.4s ease;
+
+            &:hover {
+              background: $voir-gray-1;
+              color: #ffffff;
+            }
+
           }
 
+        }
+
+
+        .spr-form-message-error {
+          display: none;
         }
 
         .spr-form-message-success {
@@ -13947,16 +14040,18 @@ a {
 
         .illustrations-container {
 
-          .first {
-            height: 100px;
-          }
+          &.illustrations-container-style-1, &.illustrations-container-style-2, &.illustrations-container-style-3 {
+            .first {
+              height: 100px;
+            }
 
-          .second {
-            height: 100px;
-          }
+            .second {
+              height: 100px;
+            }
 
-          .third {
-            height: 150px;
+            .third {
+              height: 150px;
+            }
           }
 
         }
@@ -14005,24 +14100,60 @@ a {
 
         }
 
-        .first-pin {
-          top: 220px;
-          right: 240px;
-        }
-
-        .second-pin {
-          top: 130px;
-          right: 240px;
-        }
-
-        .third-pin {
-          top: 180px;
-          left: 240px;
-        }
-
         .full-list {
           @include fontHelvetica(10px);
           line-height: 10px;
+        }
+
+        &.ingredients-panel-style-1 {
+          .first-pin {
+            top: 210px;
+            right: 230px;
+          }
+
+          .second-pin {
+            top: 120px;
+            right: 230px;
+          }
+
+          .third-pin {
+            top: 190px;
+            left: 225px;
+          }
+        }
+
+        &.ingredients-panel-style-2 {
+          .first-pin {
+            top: 225px;
+            left: 210px;
+          }
+
+          .second-pin {
+            top: 140px;
+            left: 210px;
+          }
+
+          .third-pin {
+            top: 200px;
+            right: 220px;
+          }
+        }
+
+        &.ingredients-panel-style-3 {
+          .first-pin {
+            top: 225px;
+            left: 200px;
+          }
+
+          .second-pin {
+            top: 140px;
+            left: 200px;
+          }
+
+          .third-pin {
+            top: 190px;
+            right: 210px;
+          }
         }
 
       }
@@ -14583,7 +14714,7 @@ a {
 
     .review-container {
       transform: translate(-50%, -50%);
-      width: 270px;
+      width: 300px;
       height: 450px;
 
       .spr-form {

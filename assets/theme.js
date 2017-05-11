@@ -975,6 +975,8 @@ theme.Header = (function() {
 
       socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.launch);
 
+      $('#mobile-menu-launch-button').addClass('active');
+
       $( document ).ready(function() {
         setTimeout(function(){
 
@@ -1056,7 +1058,7 @@ theme.Header = (function() {
           animationForScroll(panelsWithAnimations.product);
 
           if(windowWidth > 1024) {
-            productIngredientsMouseMoveAnimationInit();
+            // productIngredientsMouseMoveAnimationInit();
 
             var artOffset = $('#product-page-art-panel')[0].offsetTop;
 
@@ -1128,10 +1130,6 @@ theme.Header = (function() {
           var config = { attributes: true, childList: true, characterData: true };
 
           observerRev.observe(target, config);
-
-          
-
-
 
 
 
@@ -1248,7 +1246,7 @@ theme.Header = (function() {
               delta = 0;
           });
 
-            zoomImageContainer.on('mouseleave', function() {
+          zoomImageContainer.on('mouseleave', function() {
               clearInterval(interval);
               delta = 0;
               zoomImageContainer.removeClass('active');
