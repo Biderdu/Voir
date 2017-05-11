@@ -11065,6 +11065,7 @@ a {
           top: 40%;
           right: 15%;
           transform: translate(0,-50%);
+          cursor: url("{{ 'zoom_in_outline.svg' | asset_url }}"), default;
 
           div.reel-main-image {
             left: 50%;
@@ -11173,14 +11174,16 @@ a {
           display: none;
           text-align: center;
           width: 340px;
-          height: 495px;
+          height: 494px;
           position: absolute;
           z-index: 10;
           top: calc(40% + 3px);
           right: 15%;
           transform: translate(0,-50%);
           overflow: hidden;
-          cursor: url("{{ 'zoom_out_small.png' | asset_url }}"), default;
+          border: 1px solid $voir-gray-3;
+          border-radius: 5px;
+          cursor: url("{{ 'zoom_out_outline.svg' | asset_url }}"), default;
 
           img {
             position: absolute;
@@ -11852,7 +11855,7 @@ a {
     }
 
     .ingredients-list {
-      width: 450px;
+      width: 480px;
       position: absolute;
       top: 60%;
       left: 50%;
@@ -12972,7 +12975,7 @@ a {
             .reel-controls-container {
               bottom: -20px;
 
-              width: 75px;
+              width: 125px;
               height: 20px;
 
               .prev-button {
@@ -12996,11 +12999,22 @@ a {
               }
 
               .zoom-button {
-                display: none;
+                width: 25px;
+                height: 20px;
+                margin-left: 25px;
               }
 
             }
 
+          }
+
+          .product-image-container-zoom {
+            width: 290px;
+            height: 355px;
+            top: calc(40% + 3px);
+            right: auto;
+            left: 50%;
+            transform: translate(-50%,-50%);
           }
 
         }
@@ -13294,7 +13308,7 @@ a {
       }
 
       .ingredients-list {
-        width: 450px;
+        width: 480px;
         position: absolute;
         top: 60%;
         left: 50%;
@@ -13728,6 +13742,11 @@ a {
               border: 5px solid #f4f4f4;
             }
 
+          }
+
+          .product-image-container-zoom {
+            width: 200px;
+            height: 245px;
           }
 
         }
