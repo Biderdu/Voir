@@ -4309,13 +4309,12 @@ function aboutArtNatureSlider() {
 function homeBagInit() {
 
   $('.collection-add-to-bag-button').on('click', function(event) {
-    console.log('variant id: ', $(this).data().id);
 
     event.stopPropagation();
 
     var productData = $(this).data();
 
-      window.location.assign(productData.url);
+    window.location.assign(productData.url);
 
     // $.ajax({
     //   type: "POST",
@@ -4612,6 +4611,50 @@ function setProvincesForNewAddress() {
 
 }
 
+
+function customerNameSave(id) {
+    console.log('/admin/customers/' + id + '.json');
+
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      // url: 'https://f53f7a426127453a599f043e8d338922:79881ad1452003f20ff755ecb2ec2d9f@voirhaircare.com/admin/customers/' + id + '.json',
+      url: '/admin/customers/' + id + '.json',
+      data: {
+          "id": id,
+          "first_name": $('#first-name-input-container input').val()
+      },
+      done: function() {
+          console.log('done1:', arguments);
+      },
+      success: function(response) {
+        window.location.assign(productData.url);
+      },
+      error:   function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR, textStatus, errorThrown);
+
+          $('#first-name-input-container').removeClass('active');
+          $('#first-name-display-container').addClass('active');
+
+          $('#fist-name-save-button').removeClass('active');
+          $('#fist-name-edit-button').addClass('active');
+
+      }
+    }, function() {
+        console.log('done2:', arguments);
+    });
+
+
+}
+
+function customerMailSave() {
+    $('#first-email-input-container').removeClass('active');
+    $('#first-email-display-container').addClass('active');
+
+    $('#fist-email-save-button').removeClass('active');
+    $('#fist-email-edit-button').addClass('active');
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -4669,7 +4712,43 @@ $(document).ready(function() {
 
   } else if($('#account-page-main-block').length != 0) {
 
-      setProvincesForNewAddress();
+    //edit account info
+
+      var customerID = $('#info-tab-block').data().id;
+
+      console.log(customerID);
+
+      $('#fist-name-edit-button').click(function(){
+
+        $('#first-name-display-container').removeClass('active');
+        $('#first-name-input-container').addClass('active');
+
+        $('#fist-name-edit-button').removeClass('active');
+        $('#fist-name-save-button').addClass('active');
+
+      });
+
+      $('#fist-name-save-button').click(function(){
+          customerNameSave(customerID);
+      });
+
+      $('#fist-email-edit-button').click(function(){
+
+          $('#first-email-display-container').removeClass('active');
+          $('#first-email-input-container').addClass('active');
+
+          $('#fist-email-edit-button').removeClass('active');
+          $('#fist-email-save-button').addClass('active');
+
+      });
+
+      $('#fist-email-save-button').click(function(){
+          customerMailSave();
+      });
+
+    //
+
+    setProvincesForNewAddress();
 
     $('#new-address-country').change(function(event){
         setProvincesForNewAddress();

@@ -15879,6 +15879,40 @@ a {
               text-transform: uppercase;
               text-align: start;
               float: left;
+
+              .display-container {
+                display: none;
+                color: $voir-gray-2;
+                @include fontHelveticaBold(14px);
+                text-transform: uppercase;
+                text-align: start;
+
+                &.active {
+                  display: block
+                }
+
+              }
+
+              .input-container {
+                display: none;
+
+                &.active {
+                  display: block
+                }
+
+                input {
+                  border: none;
+                  outline: none;
+                  color: $voir-gray-2;
+                  @include fontHelveticaBold(14px);
+                  text-transform: uppercase;
+                  text-align: start;
+                  height: 40px;
+                  background: #f9f9f9;
+                }
+
+              }
+
             }
 
             .edit {
@@ -15888,6 +15922,13 @@ a {
               text-transform: uppercase;
               float: right;
               margin-right: 5px;
+              cursor: pointer;
+              display: none;
+
+              &.active{
+                display: block;
+              }
+
             }
 
           }

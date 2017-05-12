@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="right-side">
-        <div id="info-tab-block" class="account-page-tab-container active">
+        <div id="info-tab-block" data-id="{{ customer.id }}" class="account-page-tab-container active">
           <div class="account-details">
             <div class="title">ACCOUNT DETAIL</div>
             <div class="info-field name-row">
@@ -68,10 +68,18 @@
                 Name
               </div>
               <div class="field-data">
-                {{ customer.first_name }}
+                <div id="first-name-display-container" class="display-container active">
+                    {{ customer.first_name }}
+                </div>
+                <div id="first-name-input-container" class="input-container">
+                  <input type="text" value="{{ customer.first_name }}">
+                </div>
               </div>
-              <div class="edit">
+              <div id="fist-name-edit-button" class="edit active">
                 edit
+              </div>
+              <div id="fist-name-save-button" class="edit">
+                save
               </div>
             </div>
             <div class="info-field mail-row">
@@ -79,10 +87,18 @@
                 Email
               </div>
               <div class="field-data">
-                {{ customer.email }}
+                <div id="first-email-display-container" class="display-container active">
+                    {{ customer.email }}
+                </div>
+                <div id="first-email-input-container" class="input-container">
+                  <input type="text" value="{{ customer.email }}">
+                </div>
               </div>
-              <div class="edit">
+              <div id="fist-email-edit-button" class="edit active">
                 edit
+              </div>
+              <div id="fist-email-save-button" class="edit">
+                save
               </div>
             </div>
           </div>
@@ -102,7 +118,7 @@
                     Address {{ forloop.index }}
                   </div>
                   <div class="field-data">
-                    <span class="address-span">{{ address.address1 }},</span><span class="city-span">{{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone">{{ address.phone }}</span>
+                    <span class="address-span">{{ address.address1 }},</span><span class="city-span">{{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone"> {{ address.phone }}</span>
                   </div>
                   <div class="delete">
                     delete
