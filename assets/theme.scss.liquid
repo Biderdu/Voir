@@ -11076,7 +11076,7 @@ a {
 
           img.reel-main-image {
             height: 450px;
-            width: 320px;
+            width: 337px;
             //cursor: url("{{ 'zoom_in_small.png' | asset_url }}"), default;
           }
 
@@ -11142,7 +11142,7 @@ a {
               img {
                 height: 100%;
                 width: 100%;
-                content: url('{{ "zoom_in_outline.svg" | asset_url}}');
+                content: url('{{ "zoom_in_icon.svg" | asset_url}}');
               }
 
             }
@@ -11594,6 +11594,29 @@ a {
 
           .second {
             transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+            height: 155px;
+            top: 37%;
+            left: 29%;
+          }
+
+          .third {
+            transform: translate3d(-50%, -50%, 0) rotate(42deg);
+            height: 230px;
+            top: 52%;
+            left: 77%;
+          }
+        }
+
+        &.illustrations-container-style-4 {
+          .first {
+            transform: translate3d(-50%, -50%, 0) rotate(-65deg);
+            height: 165px;
+            top: 64%;
+            left: 28%;
+          }
+
+          .second {
+            transform: translate3d(-50%, -50%, 0) rotate(-15deg);
             height: 175px;
             top: 36%;
             left: 30%;
@@ -11601,32 +11624,32 @@ a {
 
           .third {
             transform: translate3d(-50%, -50%, 0) rotate(42deg);
-            height: 250px;
-            top: 52%;
+            height: 225px;
+            top: 53%;
             left: 75%;
           }
         }
 
         &.illustrations-container-style-2 {
           .first {
-            transform: translate3d(-50%, -50%, 0) rotate(65deg) scaleX(-1);
-            height: 150px;
-            top: 70%;
-            left: 72%;
+            transform: translate3d(-50%, -50%, 0) rotate(66deg) scaleX(-1);
+            height: 135px;
+            top: 73%;
+            left: 69%;
           }
 
           .second {
-            transform: translate3d(-50%, -50%, 0) rotate(15deg) scaleX(-1);
-            height: 155px;
-            top: 45%;
-            left: 70%;
+            transform: translate3d(-50%, -50%, 0) rotate(17deg) scaleX(-1);
+            height: 135px;
+            top: 48%;
+            left: 69%;
           }
 
           .third {
-            transform: translate3d(-50%, -50%, 0) rotate(-42deg) scaleX(-1);
-            height: 200px;
-            top: 60%;
-            left: 30%;
+            transform: translate3d(-50%, -50%, 0) rotate(-38deg) scaleX(-1);
+            height: 180px;
+            top: 62%;
+            left: 29%;
           }
         }
 
@@ -11830,6 +11853,24 @@ a {
          }
        }
 
+      &.ingredients-panel-style-4 {
+        .first-pin {
+          top: 345px;
+          right: 345px;
+        }
+
+        .second-pin {
+          top: 180px;
+          right: 350px;
+        }
+
+        .third-pin {
+          top: 260px;
+          left: 360px;
+        }
+      }
+
+
       &.ingredients-panel-style-2 {
         .first-pin {
           top: 350px;
@@ -11843,7 +11884,7 @@ a {
 
         .third-pin {
           top: 300px;
-          right: 370px;
+          right: 390px;
         }
       }
 
@@ -13021,13 +13062,13 @@ a {
 @media (max-width: $screen-tablet) {
 
   .product-page-main-container {
-    height: 1050px;
+    height: 1100px;
     background: #ffffff;
     max-height: initial;
 
     .product-page-intro-panel {
-      height: calc(100% - 80px);
-      top: 80px;
+      height: calc(100% - 60px);
+      top: 60px;
 
       .product-page-to-shop-button {
         top: 20px;
@@ -13047,11 +13088,12 @@ a {
             text-align: center;
             width: 290px;
             height: 390px;
+            top: 45%;
             right: 50%;
             transform: translate(50%,-50%);
 
             img.reel-main-image {
-              height: 355px;
+              height: 390px;
               width: 290px;
             }
 
@@ -13060,13 +13102,13 @@ a {
             }
 
             .border {
-              width: 270px;
-              height: 320px;
-              border: 7px solid #f4f4f4;
-            }
+               width: 270px;
+               height: 320px;
+               border: 7px solid #f4f4f4;
+             }
 
             .reel-controls-container {
-              bottom: -20px;
+              bottom: -25px;
 
               width: 125px;
               height: 20px;
@@ -13103,8 +13145,8 @@ a {
 
           .product-image-container-zoom {
             width: 290px;
-            height: 355px;
-            top: calc(40% + 3px);
+            height: 390px;
+            top: calc(45% + 3px);
             right: auto;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -13821,8 +13863,8 @@ a {
             height: 270px;
 
             img.reel-main-image {
-              height: 245px;
-              width: 200px;
+              height: 255px;
+              width: 191px;
             }
 
             img.studio-set {
@@ -14040,7 +14082,7 @@ a {
 
         .illustrations-container {
 
-          &.illustrations-container-style-1, &.illustrations-container-style-2, &.illustrations-container-style-3 {
+          &.illustrations-container-style-1, &.illustrations-container-style-2, &.illustrations-container-style-3, &.illustrations-container-style-4 {
             .first {
               height: 100px;
             }
@@ -14119,6 +14161,23 @@ a {
           .third-pin {
             top: 190px;
             left: 225px;
+          }
+        }
+
+        &.ingredients-panel-style-4 {
+          .first-pin {
+            top: 220px;
+            right: 220px;
+          }
+
+          .second-pin {
+            top: 110px;
+            right: 220px;
+          }
+
+          .third-pin {
+            top: 170px;
+            left: 215px;
           }
         }
 
@@ -20051,14 +20110,14 @@ $insta-image-size-not-so-small: 200px;
   .home-intro-text-container {
 
     height: 60px;
-    width: 230px;
+    width: 250px;
 
     .title {
       @include fontHelvetica(18px);
     }
 
     .keywords {
-      @include fontCambriaBold(30px);
+      @include fontCambriaBold(25px);
       line-height: 36px;
     }
 
