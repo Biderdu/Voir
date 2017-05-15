@@ -1058,7 +1058,7 @@ theme.Header = (function() {
           animationForScroll(panelsWithAnimations.product);
 
           if(windowWidth > 1024) {
-            // productIngredientsMouseMoveAnimationInit();
+            productIngredientsMouseMoveAnimationInit();
 
             var artOffset = $('#product-page-art-panel')[0].offsetTop;
 
@@ -1576,8 +1576,11 @@ theme.Header = (function() {
   function productIngredientsMouseMoveAnimationInit() {
 
     var imageFirstElem = $('#product-ingredients-first-illustration');
+    var imageFirstElemImg = $('#product-ingredients-first-illustration img');
     var imageSecondElem = $('#product-ingredients-second-illustration');
+    var imageSecondElemImg = $('#product-ingredients-second-illustration img');
     var imageThirdElem = $('#product-ingredients-third-illustration');
+    var imageThirdElemImg = $('#product-ingredients-third-illustration img');
 
     var firstElemCenterY = (imageFirstElem.position().top) + (imageFirstElem.height()/2);
     var firstElemCenterX = (imageFirstElem.position().left + 30 + $('#product-image-container').position().left) + (imageFirstElem.width()/2);
@@ -1636,7 +1639,7 @@ theme.Header = (function() {
         addTopOffset1 = 0;
       }
 
-      imageFirstElem.css({ 'margin-top': addTopOffset1 + 'px', 'margin-left': addLeftOffset1 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-65deg) scale(' + scale1 + ')'  });
+      imageFirstElemImg.css({ transform: 'translate(' + addLeftOffset1 + 'px,' + addTopOffset1 + 'px) scale(' + scale1 + ')' });
 
 
 
@@ -1670,7 +1673,7 @@ theme.Header = (function() {
         addTopOffset2 = 0;
       }
 
-      imageSecondElem.css({ 'margin-top': addTopOffset2 + 'px', 'margin-left': addLeftOffset2 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(-15deg) scale(' + scale2 + ')'  });
+      imageSecondElemImg.css({ transform: 'translate(' + addLeftOffset2 + 'px,' + addTopOffset2 + 'px) scale(' + scale2 + ')'  });
 
 
       var distX3 = event.clientX - thirdElemCenterX;
@@ -1703,7 +1706,7 @@ theme.Header = (function() {
         addTopOffset3 = 0;
       }
 
-      imageThirdElem.css({ 'margin-top': addTopOffset3 + 'px', 'margin-left': addLeftOffset3 + 'px', transform: 'translate3d(-50%, -50%, 0) rotate(42deg) scale(' + scale3 + ')'  });
+      imageThirdElemImg.css({ transform: 'translate(' + addLeftOffset3 + 'px,' + addTopOffset3 + 'px) scale(' + scale3 + ')'  });
 
     });
 

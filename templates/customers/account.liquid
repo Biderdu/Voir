@@ -239,13 +239,13 @@
             <div class="edit-form">
               {% form 'customer_address', customer.new_address %}
                 <div class="input-item left">
-                  <input placeholder="Address 1" id="new-address-address-1">
+                  <input placeholder="Address 1" id="new-address-address-1" name="address[address1]">
                 </div>
                 <div class="input-item">
-                  <input placeholder="Address 2" id="new-address-address-2">
+                  <input placeholder="Address 2" id="new-address-address-2" name="address[address2]">
                 </div>
                 <div class="input-item left">
-                  <input placeholder="City" id="new-address-city">
+                  <input placeholder="City" id="new-address-city" name="address[city]">
                 </div>
                 <div class="input-item">
                   <select id="new-address-country" title="country" name="address[country]">{{ country_option_tags }}</select>
@@ -254,22 +254,22 @@
                   <select id="new-address-province" title='province' name="address[province]"></select>
                 </div>
                 <div class="input-item left">
-                  <input placeholder="Postal Code" id="new-address-zip">
+                  <input placeholder="Postal Code" id="new-address-zip" name="address[zip]">
                 </div>
                 <div class="input-item ">
-                  <input placeholder="Phone Number" id="new-address-phone">
+                  <input placeholder="Phone Number" id="new-address-phone" name="address[phone]">
                 </div>
-              {% endform %}
 
-              <div class="new-address-button-container">
-                <div class="default-setting-container">
-                  <input title="set as default" id="new-address-default-checkbox" type="checkbox">
-                  <span>Set as default address</span>
+                <div class="new-address-button-container">
+                  <div class="default-setting-container">
+                    <input title="set as default" id="new-address-default-checkbox" type="checkbox" name="address[default]">
+                    <span>Set as default address</span>
+                  </div>
+                  <button id="new-address-default-button" type="submit" class="new-address-button">
+                    ADD ADDRESS
+                  </button>
                 </div>
-                <div id="new-address-default-button" class="new-address-button">
-                  ADD ADDRESS
-                </div>
-              </div>
+                {% endform %}
             </div>
           </div>
         </div>
