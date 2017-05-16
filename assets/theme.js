@@ -4654,6 +4654,24 @@ function customerMailSave() {
     $('#fist-email-edit-button').addClass('active');
 }
 
+function customerAddressAdd() {
+
+    var form = $('#new-address-form-container form');
+
+    $.ajax({
+        type: 'post',
+        url: form.attr('action'),
+        data: form.serialize(),
+        error       : function(err) {
+            console.log("Could not connect to the registration server. Please try again later.");
+            console.log(err);
+        },
+        success     : function(data) {
+            location.reload();
+        }
+    });
+
+}
 
 function customerAddressDelete(id) {
 
@@ -4782,6 +4800,10 @@ $(document).ready(function() {
 
       $('#fist-email-save-button').click(function(){
           customerMailSave();
+      });
+
+      $('#new-address-default-button').click(function() {
+          customerAddressAdd();
       });
 
     //

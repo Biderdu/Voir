@@ -236,7 +236,7 @@
             <div class="title">
               ADD A NEW ADDRESS
             </div>
-            <div class="edit-form">
+            <div class="edit-form" id="new-address-form-container">
               {% form 'customer_address', customer.new_address %}
                 <div class="input-item left">
                   <input placeholder="Address 1" id="new-address-address-1" name="address[address1]">
@@ -256,7 +256,7 @@
                 <div class="input-item left">
                   <input placeholder="Postal Code" id="new-address-zip" name="address[zip]">
                 </div>
-                <div class="input-item ">
+                <div class="input-item">
                   <input placeholder="Phone Number" id="new-address-phone" name="address[phone]">
                 </div>
 
@@ -265,7 +265,7 @@
                     <input title="set as default" id="new-address-default-checkbox" type="checkbox" name="address[default]">
                     <span>Set as default address</span>
                   </div>
-                  <button id="new-address-default-button" type="submit" class="new-address-button">
+                  <button id="new-address-default-button" type="button" class="new-address-button">
                     ADD ADDRESS
                   </button>
                 </div>
