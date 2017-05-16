@@ -1355,10 +1355,6 @@ theme.Header = (function() {
               $('.orders-mobile-button .plus').on('click', function() {
                   var id = $(this).data().id;
 
-                  console.log(id);
-
-
-
                   $('.orders-row-mobile').removeClass('active');
 
                   $('#' + id + '-orders-mobile-row-block').addClass('active');
@@ -4040,7 +4036,7 @@ function footerInit() {
 
     $('.site-footer').addClass('active_footer');
 
-  } else if($('#login-page-panel').length != 0){
+  } else if($('#login-page-panel').length != 0 || $('#account-page-main-block').length != 0){
 
   } else {
     if($(window).width() > 767) {
@@ -4658,6 +4654,47 @@ function customerMailSave() {
     $('#fist-email-edit-button').addClass('active');
 }
 
+
+function customerAddressDelete(id) {
+
+    var n="post",
+        r={_method: 'delete'},
+        i=document.createElement("form");
+
+    i.setAttribute("method",n);
+    i.setAttribute("action","/account/addresses/"+id);
+
+    for(var o in r){
+
+        var a=document.createElement("input");
+
+        a.setAttribute("type","hidden");
+
+        a.setAttribute("name",o);
+
+        a.setAttribute("value",r[o]);
+
+        i.appendChild(a);
+    }
+    document.body.appendChild(i);
+
+    var form = $(i);
+
+    $.ajax({
+        type: 'post',
+        url: form.attr('action'),
+        data: form.serialize(),
+        error       : function(err) {
+            console.log("Could not connect to the registration server. Please try again later.");
+            console.log(err);
+        },
+        success     : function(data) {
+            location.reload();
+        }
+    });
+
+}
+
 $(document).ready(function() {
   var sections = new theme.Sections();
 
@@ -4718,8 +4755,6 @@ $(document).ready(function() {
     //edit account info
 
       var customerID = $('#info-tab-block').data().id;
-
-      console.log(customerID);
 
       $('#fist-name-edit-button').click(function(){
 
@@ -4788,7 +4823,3 @@ theme.init = function() {
 };
 
 $(theme.init);
-
-
-
-

@@ -120,7 +120,7 @@
                   <div class="field-data">
                     <span class="address-span">{{ address.address1 }},</span><span class="city-span">{{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone"> {{ address.phone }}</span>
                   </div>
-                  <div class="delete">
+                  <div class="delete" onclick="customerAddressDelete({{ address.id }})">
                     delete
                   </div>
                   <div class="edit">
