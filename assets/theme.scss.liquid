@@ -17836,8 +17836,8 @@ a {
       .title-block {
 
         .heading {
-          @include fontCambriaBold(46px);
-          line-height: 56px;
+          @include fontCambriaBold(38px);
+          line-height: 48px;
           color: $voir-gray-1;
         }
 
@@ -17857,12 +17857,12 @@ a {
         margin-top: 40px;
         margin-bottom: 40px;
 
-        @include fontHelvetica(18px, 400, 0.035em);
+        @include fontHelvetica(20px, 400, 0.035em);
         color: $voir-gray-1;
         line-height: 28px;
 
         .intro {
-          @include fontHelveticaLight(22px, 400, 1px);
+          @include fontHelveticaLight(24px, 400, 1px);
           color: $voir-gray-1;
           line-height: 28px;
           margin-bottom: 50px;
@@ -17873,7 +17873,7 @@ a {
         }
 
         .italic-paragraph {
-          @include fontHelveticaBoldOblique(18px, 400, 0.035em);
+          @include fontHelveticaBoldOblique(22px, 400, 0.035em);
           color: $voir-gray-1;
           line-height: 28px;
           margin-top: 30px;
@@ -17881,8 +17881,8 @@ a {
         }
 
         .subheading {
-          @include fontHelveticaBold(18px);
-          line-height: 20px;
+          @include fontHelveticaBold(20px);
+          line-height: 22px;
           color: $voir-gray-1;
           margin-bottom: 25px;
           text-transform: uppercase;
@@ -17979,8 +17979,8 @@ a {
         .title-block {
 
           .heading {
-            @include fontCambriaBold(42px);
-            line-height: 42px;
+            @include fontCambriaBold(34px);
+            line-height: 38px;
           }
 
           .subheading {
@@ -17993,11 +17993,11 @@ a {
 
         .info-text-block {
 
-          @include fontHelveticaLight(16px);
+          @include fontHelveticaLight(18px);
           line-height: 26px;
 
           .intro {
-            @include fontHelveticaLight(18px, 400, 1px);
+            @include fontHelveticaLight(20px, 400, 1px);
           }
 
           .first-paragraph {
@@ -18005,11 +18005,11 @@ a {
           }
 
           .italic-paragraph {
-            @include fontHelveticaBoldOblique(16px, 400, 0.035em);
+            @include fontHelveticaBoldOblique(20px, 400, 0.035em);
           }
 
           .subheading {
-            @include fontHelveticaBold(16px);
+            @include fontHelveticaBold(18px);
           }
 
 
@@ -19464,7 +19464,10 @@ a {
   }
 
   .social-panel-container {
-    display: none;
+    left: 15px;
+    top: 30%;
+    height: 392px;
+    width: 60px;
   }
 
   .home-intro-video-background {
@@ -20138,6 +20141,25 @@ $insta-image-size-not-so-small: 200px;
       background: #ffffff;
     }
 
+  }
+
+  .social-panel-container {
+    left: 12px;
+    top: 30%;
+    height: 200px;
+    width: 16px;
+
+    .social-bar-container {
+
+      .icon-container {
+        margin-bottom: 10px;
+      }
+
+    }
+
+    .bottom-line {
+      display: none
+    }
   }
 
   .home-intro-block {
