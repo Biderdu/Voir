@@ -4564,7 +4564,6 @@ function bagPagerecalcTotalPrice() {
 
 }
 
-
 function howToUseInit() {
   $('#first-step-tab').on('click', function() {
     howToUseTabSwitch('first');
@@ -4606,10 +4605,39 @@ function setProvincesForNewAddress() {
     } else {
       $('#new-address-province-container').addClass('hidden');
     }
-
-
 }
 
+function setProvincesForEditAddress(id) {
+
+    var provines_list = $('#edit-address-country-' + id + ' :selected').data().provinces;
+
+    $('#edit-address-province-' + id).empty();
+
+    var setProvince = $('#edit-address-province-' + id).data().province || false;
+
+    if(provines_list.length > 0) {
+
+        $('#edit-address-province-container-' + id).removeClass('hidden');
+
+        var selected = '';
+
+        $.each(provines_list, function(key, value) {
+
+            if(setProvince) {
+              if(value[1] === setProvince) {
+                  selected = 'selected';
+              }
+            }
+
+            $('<option value="' + value[1] + '" ' + selected + '>' + value[0] + '</option>').appendTo($('#edit-address-province-' + id));
+
+            selected = '';
+        });
+
+    } else {
+        $('#edit-address-province-container-' + id).addClass('hidden');
+    }
+}
 
 function customerNameSave(id) {
     console.log('/admin/customers/' + id + '.json');
@@ -4697,6 +4725,47 @@ function customerAddressDelete(id) {
     document.body.appendChild(i);
 
     var form = $(i);
+
+    $.ajax({
+        type: 'post',
+        url: form.attr('action'),
+        data: form.serialize(),
+        error       : function(err) {
+            console.log("Could not connect to the registration server. Please try again later.");
+            console.log(err);
+        },
+        success     : function(data) {
+            location.reload();
+        }
+    });
+
+}
+
+function customerAddressEditShow(id) {
+
+  var country = $('#edit-address-country-' + id).data().country;
+
+  $('#edit-address-country-' + id + ' option').each(function() {
+    $(this).removeAttr("selected");
+
+    if($(this).val() === country) {
+      $(this).attr("selected","selected");
+    }
+  });
+
+  setProvincesForEditAddress(id);
+
+  $('.account-page-tab-container').removeClass('active');
+  $('#address-edit-current-block').addClass('active');
+
+  $('.edit-addresses-form').removeClass('active');
+  $('#address-edit-form-container-' + id).addClass('active');
+
+}
+
+function customerAddressEdit(id) {
+
+    var form = $('#address-edit-form-container-' + id + ' form');
 
     $.ajax({
         type: 'post',
@@ -4806,11 +4875,29 @@ $(document).ready(function() {
           customerAddressAdd();
       });
 
+      $('.edit-address-button').click(function(){
+        var id = $(this).data().id;
+
+        customerAddressEditShow(id);
+      });
+
+      $('.edit-address-country-select').change(function(){
+        var id = $(this).data().id;
+
+        setProvincesForEditAddress(id);
+      });
+
+      $('.edit-form-address-submit-button').click(function(){
+          var id = $(this).data().id;
+
+          customerAddressEdit(id);
+      });
+
     //
 
     setProvincesForNewAddress();
 
-    $('#new-address-country').change(function(event){
+    $('#new-address-country').change(function(){
         setProvincesForNewAddress();
     });
   }

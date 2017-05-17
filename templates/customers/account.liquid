@@ -54,7 +54,7 @@
               {{ customer.default_address.phone }}
             </div>
           </div>
-          <div class="edit">
+          <div class="edit edit-address-button" data-id="{{ customer.default_address.id }}">
             Edit
           </div>
         </div>
@@ -118,12 +118,12 @@
                     Address {{ forloop.index }}
                   </div>
                   <div class="field-data">
-                    <span class="address-span">{{ address.address1 }},</span><span class="city-span">{{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone"> {{ address.phone }}</span>
+                    <span class="address-span">{{ address.address1 }},</span><span class="city-span"> {{ address.city }}, {{ address.province }},</span><span class="zip-span"> {{ address.zip }}</span><span class="phone"> {{ address.phone }}</span>
                   </div>
                   <div class="delete" onclick="customerAddressDelete({{ address.id }})">
                     delete
                   </div>
-                  <div class="edit">
+                  <div class="edit edit-address-button" data-id="{{ address.id }}">
                     edit
                   </div>
                 </div>
@@ -239,13 +239,13 @@
             <div class="edit-form" id="new-address-form-container">
               {% form 'customer_address', customer.new_address %}
                 <div class="input-item left">
-                  <input placeholder="Address 1" id="new-address-address-1" name="address[address1]">
+                  <input placeholder="Address 1" name="address[address1]">
                 </div>
                 <div class="input-item">
-                  <input placeholder="Address 2" id="new-address-address-2" name="address[address2]">
+                  <input placeholder="Address 2" name="address[address2]">
                 </div>
                 <div class="input-item left">
-                  <input placeholder="City" id="new-address-city" name="address[city]">
+                  <input placeholder="City" name="address[city]">
                 </div>
                 <div class="input-item">
                   <select id="new-address-country" title="country" name="address[country]">{{ country_option_tags }}</select>
@@ -254,15 +254,15 @@
                   <select id="new-address-province" title='province' name="address[province]"></select>
                 </div>
                 <div class="input-item left">
-                  <input placeholder="Postal Code" id="new-address-zip" name="address[zip]">
+                  <input placeholder="Postal Code" name="address[zip]">
                 </div>
                 <div class="input-item">
-                  <input placeholder="Phone Number" id="new-address-phone" name="address[phone]">
+                  <input placeholder="Phone Number" name="address[phone]">
                 </div>
 
                 <div class="new-address-button-container">
                   <div class="default-setting-container">
-                    <input title="set as default" id="new-address-default-checkbox" type="checkbox" name="address[default]">
+                    <input title="set as default" type="checkbox" name="address[default]">
                     <span>Set as default address</span>
                   </div>
                   <button id="new-address-default-button" type="button" class="new-address-button">
@@ -271,6 +271,50 @@
                 </div>
                 {% endform %}
             </div>
+          </div>
+        </div>
+        <div id="address-edit-current-block" class="account-page-tab-container">
+          <div class="address-edit-block">
+            <div class="title">
+              Edit
+            </div>
+            {% for address in customer.addresses %}
+              <div class="edit-form edit-addresses-form" id="address-edit-form-container-{{ address.id }}">
+                {% form 'customer_address', address %}
+                  <div class="input-item left">
+                    <input placeholder="Address 1" name="address[address1]" value="{{ address.address1 }}">
+                  </div>
+                  <div class="input-item">
+                    <input placeholder="Address 2" name="address[address2]" value="{{ address.address2 }}">
+                  </div>
+                  <div class="input-item left">
+                    <input placeholder="City" name="address[city]" value="{{ address.city }}">
+                  </div>
+                  <div class="input-item">
+                    <select class="edit-address-country-select" id="edit-address-country-{{ address.id }}" title="country" name="address[country]" data-country="{{ address.country }}" data-id="{{ address.id }}">{{ country_option_tags }}</select>
+                  </div>
+                  <div id="edit-address-province-container-{{ address.id }}" class="input-item full">
+                    <select id="edit-address-province-{{ address.id }}" title='province' name="address[province]" data-province="{{ address.province }}"></select>
+                  </div>
+                  <div class="input-item left">
+                    <input placeholder="Postal Code" name="address[zip]" value="{{ address.zip }}">
+                  </div>
+                  <div class="input-item">
+                    <input placeholder="Phone Number" name="address[phone]" value="{{ address.phone }}">
+                  </div>
+
+                  <div class="new-address-button-container">
+                    <div class="default-setting-container">
+                      <input title="set as default" type="checkbox" name="address[default]" value="{{ address.default }}">
+                      <span>Set as default address</span>
+                    </div>
+                    <button id="edit-address-default-button-{{ address.id }}" type="button" class="new-address-button edit-form-address-submit-button" data-id="{{ address.id }}">
+                      UPDATE
+                    </button>
+                  </div>
+                {% endform %}
+              </div>
+            {% endfor %}
           </div>
         </div>
         <div class="footer-spacer"></div>
