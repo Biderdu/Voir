@@ -795,13 +795,7 @@ theme.Header = (function() {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
 
-  var socPanelActiveBlocks = {
-    home: [2,3],
-    about: [2,3,4,5,6,7],
-    contact: [2],
-    product: [1,2],
-    launch: [1,2]
-  };
+  var socPanelActiveBlocks = {};
 
   var panelsWithAnimations = {};
 
@@ -816,6 +810,14 @@ theme.Header = (function() {
       product: []
     };
 
+    socPanelActiveBlocks = {
+      home: [2,3,4,5],
+      about: [2,3,4,5,6,7],
+      contact: [],
+      product: [1,2,5,6,7],
+      launch: []
+    };
+
   } else {
 
     panelsWithAnimations = {
@@ -825,6 +827,24 @@ theme.Header = (function() {
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
       product: ['product-page-collection-panel']
     };
+
+    if(windowWidth < 1025) {
+        socPanelActiveBlocks = {
+            home: [2,3],
+            about: [2,3,4,5,6,7],
+            contact: [],
+            product: [1,2],
+            launch: []
+        };
+    } else {
+        socPanelActiveBlocks = {
+            home: [2,3],
+            about: [2,3,4,5,6,7],
+            contact: [],
+            product: [1,2],
+            launch: [1,2]
+        };
+    }
 
   }
   

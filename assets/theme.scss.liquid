@@ -7686,7 +7686,7 @@ a {
 
           img {
             max-height: 100%;
-            max-width: 100%;
+            max-width: initial;
           }
 
         }
@@ -13887,7 +13887,7 @@ a {
             }
 
             .reel-controls-container {
-              bottom: -20px;
+              bottom: -17px;
               width: 110px;
               height: 15px;
 
@@ -17862,14 +17862,19 @@ a {
         line-height: 28px;
 
         .intro {
-          @include fontHelveticaLight(24px, 400, 1px);
+          @include fontHelveticaLight(22px, 400, 1px);
           color: $voir-gray-1;
           line-height: 28px;
           margin-bottom: 50px;
+
+          .date-loc {
+            @include fontHelvetica(22px, 400, 1px);
+          }
+
         }
 
         .first-paragraph {
-          margin-bottom: 20px;
+          margin-bottom: 40px;
         }
 
         .italic-paragraph {
@@ -17878,6 +17883,9 @@ a {
           line-height: 28px;
           margin-top: 30px;
           margin-bottom: 50px;
+          padding: 25px 0;
+          border-top: 1px solid #c7c8c9;
+          border-bottom: 1px solid #c7c8c9;
         }
 
         .subheading {
@@ -17998,6 +18006,11 @@ a {
 
           .intro {
             @include fontHelveticaLight(20px, 400, 1px);
+
+            .date-loc {
+              @include fontHelvetica(20px, 400, 1px);
+            }
+
           }
 
           .first-paragraph {
@@ -18085,6 +18098,10 @@ a {
           .intro {
             @include fontHelveticaLight(16px, 400, 1px);
             line-height: 22px;
+
+            .date-loc {
+              @include fontHelvetica(16px, 400, 1px);
+            }
           }
 
           .first-paragraph {
@@ -20144,7 +20161,7 @@ $insta-image-size-not-so-small: 200px;
   }
 
   .social-panel-container {
-    left: 12px;
+    left: 15px;
     top: 30%;
     height: 200px;
     width: 16px;
@@ -20152,7 +20169,7 @@ $insta-image-size-not-so-small: 200px;
     .social-bar-container {
 
       .icon-container {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
 
     }
