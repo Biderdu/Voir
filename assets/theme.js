@@ -4488,6 +4488,7 @@ function bagPageControlsInit() {
 
 
         $('#bag-page-total-price-' + productData.id).text('$' + (responseData.line_price / 100).toFixed(2));
+        $('#bag-page-mobile-total-price-' + productData.id).text('$' + (responseData.line_price / 100).toFixed(2));
 
         bagPagerecalcTotalPrice();
       }
@@ -4521,6 +4522,7 @@ function bagPageControlsInit() {
           parseInt($('.bag-page-quantity-' + productData.id).val(0));
 
           $('#bag-page-total-price-' + productData.id).text('$0.00');
+          $('#bag-page-mobile-total-price-' + productData.id).text('$0.00');
 
           newCount = 0;
 
@@ -4540,6 +4542,7 @@ function bagPageControlsInit() {
 
 
           $('#bag-page-total-price-' + productData.id).text('$' + (newPrice / 100).toFixed(2));
+          $('#bag-page-mobile-total-price-' + productData.id).text('$' + (newPrice / 100).toFixed(2));
         }
 
 

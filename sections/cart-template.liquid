@@ -28,7 +28,6 @@
               <div class="description">
                 {{ item.product.metafields.c_f.short_description }}
               </div>
-
             </td>
             <td class="size-container">
               <div class="weight">
@@ -49,10 +48,41 @@
                 </a>
               </p>
             </td>
-
             <td class="price-container">
               <div class="price">
                 <span id="bag-page-total-price-{{ item.variant_id }}" class="bag-page-total-price">{{ item.line_price | money }}</span><span class="units">CAD</span>
+              </div>
+            </td>
+            <td class="mobile-info-container">
+              <div class="upper-part">
+                <div class="title">
+                    {{ item.product.title }}
+                </div>
+                <div class="description">
+                    {{ item.product.metafields.c_f.short_description }}
+                </div>
+                <div class="size">
+                    {{ item.product.metafields.c_f.weight_info }}
+                </div>
+              </div>
+              <div class="lower-part">
+                <div class="quantity-input-container">
+                  <div data-id="{{ item.variant_id }}" id="bag-page-mobile-minus-{{ item.variant_id }}" class="bag-page-minus qty-control minus">-</div>
+                  <input data-id="{{ item.variant_id }}" class="bag-page-mobile-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                  <div data-id="{{ item.variant_id }}" id="bag-page-mobile-plus-{{ cart_item.variant_id }}" class="bag-page-plus qty-control plus">+</div>
+                </div>
+                <div class="remove-button-container">
+                  <p class="icon-container">
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                      <img src="{{ 'close_icon.svg' | asset_url }}">
+                    </a>
+                  </p>
+                </div>
+                <div class="mobile-price-container">
+                  <div class="price">
+                    <span id="bag-page-mobile-total-price-{{ item.variant_id }}" class="bag-page-total-price">{{ item.line_price | money }}</span><span class="units">CAD</span>
+                  </div>
+                </div>
               </div>
             </td>
           </tr>
@@ -65,7 +95,7 @@
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="total-price-block">
               <div class="row-container">
-                <div class="title">Total</div>
+                <div class="title">Cart Total</div>
                 <div class="price"><span id="bag-page-total-price">{{ cart.total_price | times: 1.13 | money }}</span> CAD</div>
               </div>
             </div>
