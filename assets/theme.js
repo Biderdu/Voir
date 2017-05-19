@@ -4663,38 +4663,20 @@ function setProvincesForEditAddress(id) {
 }
 
 function customerNameSave(id) {
-    console.log('/admin/customers/' + id + '.json');
+
+    var form = $('#first-name-input-container form');
 
     $.ajax({
-      type: "POST",
-      dataType: "json",
-      // url: 'https://f53f7a426127453a599f043e8d338922:79881ad1452003f20ff755ecb2ec2d9f@voirhaircare.com/admin/customers/' + id + '.json',
-      url: '/admin/customers/' + id + '.json',
-      data: {
-          "id": id,
-          "first_name": $('#first-name-input-container input').val()
-      },
-      done: function() {
-          console.log('done1:', arguments);
-      },
-      success: function(response) {
-        window.location.assign(productData.url);
-      },
-      error:   function(jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR, textStatus, errorThrown);
-
-          $('#first-name-input-container').removeClass('active');
-          $('#first-name-display-container').addClass('active');
-
-          $('#fist-name-save-button').removeClass('active');
-          $('#fist-name-edit-button').addClass('active');
-
-      }
-    }, function() {
-        console.log('done2:', arguments);
+        type: 'post',
+        url: form.attr('action'),
+        data: form.serialize(),
+        error       : function(err) {
+            console.log(err);
+        },
+        success     : function(data) {
+            console.log(data);
+        }
     });
-
-
 }
 
 function customerMailSave() {
