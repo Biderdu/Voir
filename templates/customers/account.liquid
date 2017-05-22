@@ -45,7 +45,7 @@
               <span class="street">{{ customer.default_address.address1 }}</span>
             </div>
             <div class="info-item state">
-              <span class="city">{{ customer.default_address.city }},</span><span class="province">{{ customer.default_address.province }}</span>
+              <span class="city">{{ customer.default_address.city }}</span>{% if customer.default_address.province %}<span class="province">, {{ customer.default_address.province }}</span>{% endif %}
             </div>
             <div class="info-item zip">
               <span class="zip">{{ customer.default_address.zip }}</span>
