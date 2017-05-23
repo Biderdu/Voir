@@ -4655,24 +4655,32 @@ function setProvincesForEditAddress(id) {
     }
 }
 
-function customerNameSave(id) {
+function customerNameSave() {
 
-    var form = $('#first-name-input-container form');
+    var nameVal = $('#first-name-input-container input').val();
 
-    $.ajax({
-        type: 'post',
-        url: form.attr('action'),
-        data: form.serialize(),
-        error       : function(err) {
-            console.log(err);
-        },
-        success     : function(data) {
-            console.log(data);
-        }
-    });
+    $('.customr-snippet-container form input[name="customer[first_name]"]').val(nameVal);
+    $('#first-name-display-container').text(nameVal);
+
+    $('.customr-snippet-container form').submit();
+
+    $('#first-name-input-container').removeClass('active');
+    $('#first-name-display-container').addClass('active');
+
+    $('#fist-name-save-button').removeClass('active');
+    $('#fist-name-edit-button').addClass('active');
+
 }
 
 function customerMailSave() {
+
+    var mailVal = $('#first-email-input-container input').val();
+
+    $('.customr-snippet-container form input[name="customer[email]"]').val(mailVal);
+    $('#first-email-display-container').text(mailVal);
+
+    $('.customr-snippet-container form').submit();
+
     $('#first-email-input-container').removeClass('active');
     $('#first-email-display-container').addClass('active');
 
@@ -4852,7 +4860,7 @@ $(document).ready(function() {
       });
 
       $('#fist-name-save-button').click(function(){
-          customerNameSave(customerID);
+          customerNameSave();
       });
 
       $('#fist-email-edit-button').click(function(){

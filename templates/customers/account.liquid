@@ -72,10 +72,7 @@
                     {{ customer.first_name }}
                 </div>
                 <div id="first-name-input-container" class="input-container">
-                  <form action="/a/custmeta" method="POST" id="custmeta">
-                    <input type="hidden" name="customer[id]" value="{{ customer.id }}" />
-                    <input type="text" name="metafield[first_name]" value="{{ customer.first_name }}"/>
-                    <input type="hidden" name="metafield[cmf.mockup]" value="mockup"/>
+                    <input type="text" placeholder="Name" value="{{ customer.first_name }}"/>
                   </form>
                 </div>
               </div>
@@ -95,7 +92,7 @@
                     {{ customer.email }}
                 </div>
                 <div id="first-email-input-container" class="input-container">
-                  <input type="text" value="{{ customer.email }}">
+                  <input type="text" placeholder="Email" value="{{ customer.email }}">
                 </div>
               </div>
               <div id="fist-email-edit-button" class="edit active">
@@ -324,5 +321,8 @@
         <div class="footer-spacer"></div>
       </div>
     </div>
+  </div>
+  <div class="customr-snippet-container">
+    {% include 'customer-fields' %}
   </div>
 </div>

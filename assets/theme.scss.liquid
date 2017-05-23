@@ -15771,6 +15771,10 @@ a {
 
 //account page
 
+.customr-snippet-container {
+  display: none;
+}
+
 .account-page-main-container {
   height: 100vh;
   width: 100%;
@@ -15914,6 +15918,7 @@ a {
             line-height: 20px;
             color: $voir-gray-1;
             margin-top: 20px;
+            cursor: pointer;
           }
 
         }
@@ -16122,6 +16127,7 @@ a {
                 text-transform: uppercase;
                 float: right;
                 margin-right: 20px;
+                cursor: pointer;
               }
 
               .delete {
@@ -16131,6 +16137,7 @@ a {
                 text-transform: uppercase;
                 float: right;
                 margin-right: 5px;
+                cursor: pointer;
               }
 
               &:first-child {
@@ -16529,7 +16536,6 @@ a {
 
       .bottom-side {
 
-
         .left-side {
           display: none;
         }
@@ -16557,6 +16563,17 @@ a {
 
               .field-data {
 
+                .display-container {
+
+                }
+
+                .input-container {
+
+                  input {
+                    background: #e5e5e5;
+                  }
+
+                }
               }
 
               .edit {
@@ -16598,6 +16615,9 @@ a {
                 }
 
                 .field-data {
+                  max-width: calc(100% - 260px);
+                  overflow: hidden;
+                  height: 58px;
 
                   .phone {
 
@@ -16975,6 +16995,18 @@ a {
                 @include fontHelveticaBold(12px);
                 line-height: 20px;
                 margin-bottom: 10px;
+
+                .display-container {
+                  @include fontHelveticaBold(12px);
+                }
+
+                .input-container {
+                  input {
+                    @include fontHelveticaBold(12px);
+                    height: 25px;
+                  }
+                }
+
               }
 
               .edit {
@@ -17022,6 +17054,9 @@ a {
 
                 .field-data {
                   line-height: 20px;
+                  overflow: auto;
+                  height: inherit;
+                  max-width: inherit;
 
                   .address-span {
                     display: block;
@@ -17246,6 +17281,15 @@ a {
                   margin-top: 15px;
                 }
 
+              }
+
+            }
+
+            .edit-addresses-form {
+              display: none;
+
+              &.active {
+                display: inline-block;
               }
 
             }
