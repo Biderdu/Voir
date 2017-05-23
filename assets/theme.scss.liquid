@@ -14328,7 +14328,7 @@ a {
   }
 
   .product-page-how-to-use {
-    height: 550px;
+    height: 710px;
 
     .title-block {
       @include fontCambriaBold(24px);
@@ -14347,23 +14347,23 @@ a {
     }
 
     .info-block {
-      height: 450px;
+      height: 570px;
       bottom: 0;
       top: auto;
 
       .left-side {
-        height: 40%;
+        height: 240px;
         width: 100%;
 
         .video-container {
-          height: 160px;
+          height: 220px;
           width: calc(100% - 30px);
         }
 
       }
 
       .right-side {
-        height: 60%;
+        height: 270px;
         width: 100%;
 
         .info-panel {
@@ -14804,15 +14804,44 @@ a {
 
     .review-container {
       transform: translate(-50%, -50%);
-      width: 300px;
-      height: 450px;
+      width: 350px;
+      height: 510px;
+
+      @media (max-width: 360px) {
+        width: 320px;
+        height: 480px;
+      }
+
+      @media (max-width: 320px) {
+        width: 300px;
+        height: 450px;
+      }
+
 
       .spr-form {
-        margin-top: 5px;
+        margin-top: 25px;
+
+        @media (max-width: 360px) {
+          margin-top: 15px;
+        }
+
+        @media (max-width: 320px) {
+          margin-top: 5px;
+        }
 
         form {
-          width: 270px;
-          height: 450px;
+          width: 330px;
+          height: 480px;
+
+          @media (max-width: 360px) {
+            width: 300px;
+            height: 450px;
+          }
+
+          @media (max-width: 320px) {
+            width: 270px;
+            height: 450px;
+          }
 
           .spr-form-title {
             @include fontCambriaBold(18px, 400, 1px);
@@ -14825,9 +14854,17 @@ a {
             margin-top: 35px;
 
             .spr-form-contact-name {
-              width: 250px;
+              width: 310px;
               float: left;
               margin-left: 10px;
+
+              @media (max-width: 360px) {
+                width: 280px;
+              }
+
+              @media (max-width: 320px) {
+                width: 250px;
+              }
 
               input {
                 height: 35px;
@@ -14839,9 +14876,17 @@ a {
             }
 
             .spr-form-contact-email {
-              width: 250px;
+              width: 310px;
               float: left;
               margin-left: 10px;
+
+              @media (max-width: 360px) {
+                width: 280px;
+              }
+
+              @media (max-width: 320px) {
+                width: 250px;
+              }
 
               input {
                 height: 35px;
@@ -14885,7 +14930,15 @@ a {
           .spr-form-review-title {
             padding: 0;
             margin-left: 10px;
-            width: 250px;
+            width: 310px;
+
+            @media (max-width: 360px) {
+              width: 280px;
+            }
+
+            @media (max-width: 320px) {
+              width: 250px;
+            }
 
             input {
               border-bottom: 1px solid $voir-gray-3;
@@ -14900,7 +14953,15 @@ a {
           .spr-form-review-body {
             padding: 0;
             margin-left: 10px;
-            width: 250px;
+            width: 310px;
+
+            @media (max-width: 360px) {
+              width: 280px;
+            }
+
+            @media (max-width: 320px) {
+              width: 250px;
+            }
 
             textarea {
               height: 120px;
@@ -20508,7 +20569,7 @@ $insta-image-size-not-so-small: 200px;
 
   .custom-section-slider-block {
     margin-top: 60px;
-    height: calc(400vh - 80px);
+    height: calc(400vh - 260px);
 
     .collection-slider-main-block {
       width: calc(100% - 16px);
@@ -20534,7 +20595,7 @@ $insta-image-size-not-so-small: 200px;
 
         .product-item-container {
           margin-top: 40px;
-          height: calc(100vh - 65px);
+          height: calc(100vh - 120px);
           background: #f4f4f4;
 
           &:first-child {
@@ -20545,8 +20606,12 @@ $insta-image-size-not-so-small: 200px;
             width: 100%;
 
             .product-left-side {
-              height: 55%;
+              height: 60%;
               width: 100%;
+
+              @media (max-width: 320px) {
+                height: 55%;
+              }
 
               .image-container {
                 height: 95%;
@@ -20590,13 +20655,13 @@ $insta-image-size-not-so-small: 200px;
 
             .product-right-side {
               text-align: center;
-              height: 35%;
+              height: 40%;
               width: 100%;
               padding: 0 5px;
 
               .product-title {
                 @include fontCambriaBold(28px);
-                margin-top: 5px;
+                margin-top: 10px;
                 width: 100%;
                 line-height: 26px;
                 opacity: 1;
@@ -20604,11 +20669,16 @@ $insta-image-size-not-so-small: 200px;
               }
 
               .product-description {
-                width: 95%;
+                width: 80%;
                 @include fontHelvetica(14px);
-                margin-top: 7px;
+                margin-top: 10px;
                 opacity: 1;
                 transform: translate3d(0, 0, 0);
+
+                @media (max-width: 320px) {
+                  width: 95%;
+                }
+
 
                 p {
                   @include fontHelvetica(16px);

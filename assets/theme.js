@@ -1082,9 +1082,11 @@ theme.Header = (function() {
 
             var artOffset = $('#product-page-art-panel')[0].offsetTop;
 
+            var windowHeightOffset = $(window).height()/4;
+
             $(window).scroll( function() {
 
-              if($(window).scrollTop() > artOffset - 150) {
+              if($(window).scrollTop() > artOffset - windowHeightOffset) {
                 $('#product-page-art-panel').addClass('active-animation');
               }
             });
@@ -1122,21 +1124,34 @@ theme.Header = (function() {
                 $('#product-page-review-modal-close-button').on('click', productReviewPanelToggle);
 
 
-                $('.spr-form-actions input').on('click', function() {
+                var reviewSubmit = function() {
 
-                  setTimeout(function(){
 
-                    if($('.spr-form .spr-form-message-success')[0]){
-                      
-                      $('.spr-form .spr-form-title').addClass('hidden');
 
-                      $('.spr-form .spr-form-message-success').addClass('active');
-                      
-                    }
+                  var iterations = 0;
+                  var maxIterations = 30;
 
-                  }, 1500);
+                  var waitFor = setInterval(function(){
 
-                });
+                      iterations++;
+
+                      if( $('.spr-form .spr-form-message-success')[0] ){
+                          $('.spr-form .spr-form-title').addClass('hidden');
+                          $('.spr-form .spr-form-message-success').addClass('active');
+                          clearInterval( waitFor );
+                      } else {
+
+                          $('.spr-form-actions input').unbind('click', reviewSubmit);
+                          $('.spr-form-actions input').click(reviewSubmit );
+                          if(iterations > maxIterations) {
+                              clearInterval( waitFor );
+                          }
+                      }
+                  }, 100);
+
+                };
+
+                $('.spr-form-actions input').on('click', reviewSubmit );
 
                 if($('.spr-review').length < 1) {
                   $('.for-first-review-container').addClass('active');
@@ -1240,7 +1255,6 @@ theme.Header = (function() {
           //
 
           var delta = 0;
-          var last_position = {};
           var interval = {};
 
           $('#my-picture-reel .reel-main-image').on('mousedown', function() {
@@ -1271,8 +1285,6 @@ theme.Header = (function() {
               delta = 0;
               zoomImageContainer.removeClass('active');
           });
-
-          //
 
           //observer for reviews link
             var targetReviewsRow = document.getElementById('product-page-intro-reviews-row');
@@ -1330,7 +1342,6 @@ theme.Header = (function() {
 
         animationForScroll(panelsWithAnimations.product);
 
-        // reviewsFormPositioning();
       });
 
 
@@ -1569,24 +1580,6 @@ theme.Header = (function() {
 
   function productReviewPanelToggle() {
     $('#product-page-modal-panel-review').toggleClass('active');
-  }
-
-
-
-  function reviewsFormPositioning() {
-
-    var topOffset = $(window).scrollTop();
-    
-
-    var leftElemOffset = $('.spr-form').offset().left;
-    var topElemOffset = $('.spr-form').offset().top;
-
-    if(leftElemOffset != 0) {
-      $('.spr-form').css("left", 24 - leftElemOffset);
-    }
-
-    $('.spr-form').css("top", parseInt($('.spr-form').css("top"),10) + 80 + topOffset - topElemOffset);
-
   }
 
   function productIngredientsMouseMoveAnimationInit() {
