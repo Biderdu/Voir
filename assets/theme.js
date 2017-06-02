@@ -4326,22 +4326,22 @@ function homeBagInit() {
 
     var productData = $(this).data();
 
-    window.location.assign(productData.url);
+    // window.location.assign(productData.url);
 
-    // $.ajax({
-    //   type: "POST",
-    //   url: '/cart/add.js',
-    //   data: {
-    //     quantity: 1,
-    //     id: productData.id
-    //   },
-    //   success: function(response) {
-    //     window.location.assign(productData.url);
-    //   },
-    //   error:   function(jqXHR, textStatus, errorThrown) {
-    //     window.location.assign(productData.url);
-    //   }
-    // });
+    $.ajax({
+      type: "POST",
+      url: '/cart/add.js',
+      data: {
+        quantity: 1,
+        id: productData.id
+      },
+      success: function(response) {
+        window.location.assign(productData.url);
+      },
+      error:   function(jqXHR, textStatus, errorThrown) {
+        window.location.assign(productData.url);
+      }
+    });
   })
 
 }

@@ -88,9 +88,9 @@
               </div>
 
               <div class="product-form-button-submit">
-                <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="product-btn-submit event-prevent-class">
+                <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="product-btn-submit">
                   <span id="AddToCartText-{{ section.id }}">
-                    COMING SOON
+                    ADD TO CART
                   </span>
                 </button>
               </div>
@@ -406,7 +406,7 @@
                 {{ product_col.price | money }}
               </div>
               <div data-id="{{ product_col.first_available_variant.id }}" data-url="{{ product_col.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
-                Coming soon
+                Add to bag
               </div>
             </div>
           </div>
@@ -434,7 +434,7 @@
                 {{ studio_set_product.price | money }}
             </div>
             <div data-id="{{ studio_set_product.first_available_variant.id }}" data-url="{{ studio_set_product.first_available_variant.url }}" class="add-button collection-add-to-bag-button">
-              Coming soon
+              Add to bag
             </div>
           </div>
         </div>
