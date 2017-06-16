@@ -864,6 +864,8 @@ theme.Header = (function() {
 
   }
 
+  var autoModalShowed = false;
+
   function init() {
     cacheSelectors();
 
@@ -1486,14 +1488,40 @@ theme.Header = (function() {
           
           socPanActivePos = socialPanelShowSetPos(socPanelActiveBlocks.home);
 
-            animationForScroll(panelsWithAnimations.home);
+          animationForScroll(panelsWithAnimations.home);
+
+
+          $('#subscription-launch-modal-overlay').on('click', subscriptionLaunchModalPanelToggle);
+
+          $('#subscription-launch-modal-close-button').on('click', subscriptionLaunchModalPanelToggle);
+
+          $('#subscription-auto-modal-overlay').on('click', subscriptionAutoModalPanelToggle);
+
+          $('#subscription-auto-modal-close-button').on('click', subscriptionAutoModalPanelToggle);
+
+          //email subscription
+          var form = $('#subscription-auto-modal-panel form#contact-modal-auto-form');
+
+          $('#modal-auto-submit-button').on('click',function() {
+              MailchimpAutoSubscription(form);
+          });
 
         }, 200);
+
+        setTimeout(function() {
+            subscriptionAutoModalPanelToggle();
+          }, 15000);
       });
 
       headerStyleChange($(selectors.body).scrollTop(), windowHeight);
 
       $(window).scroll( function() {
+
+        if(!autoModalShowed && (($(document).height() * 0.65) < $(selectors.body).scrollTop())) {
+            $('#subscription-auto-modal-panel').addClass('active');
+            autoModalShowed = true;
+        }
+
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
         animationForScroll(panelsWithAnimations.home);
       });
@@ -1791,6 +1819,41 @@ theme.Header = (function() {
         });
     }
 
+  //
+
+  //
+    function subscriptionAutoModalPanelToggle() {
+
+        if(!autoModalShowed) {
+            $('#subscription-auto-modal-panel').toggleClass('active');
+            autoModalShowed = true;
+        } else {
+            $('#subscription-auto-modal-panel').removeClass('active');
+        }
+
+    }
+
+    function MailchimpAutoSubscription(form) {
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            cache       : false,
+            dataType    : 'json',
+            contentType: "application/json; charset=utf-8",
+            error       : function(err) {
+                console.log("Could not connect to the registration server. Please try again later.");
+            },
+            success     : function(data) {
+                if (data.result != "success") {
+                    // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                } else {
+                    $('#subscription-auto-modal-panel').removeClass('active');
+                    subscriptionLaunchModalPanelToggle();
+                }
+            }
+        });
+    }
   //
 
   function faqHashChanges() {
@@ -4326,22 +4389,22 @@ function homeBagInit() {
 
     var productData = $(this).data();
 
-    // window.location.assign(productData.url);
+    window.location.assign(productData.url);
 
-    $.ajax({
-      type: "POST",
-      url: '/cart/add.js',
-      data: {
-        quantity: 1,
-        id: productData.id
-      },
-      success: function(response) {
-        window.location.assign(productData.url);
-      },
-      error:   function(jqXHR, textStatus, errorThrown) {
-        window.location.assign(productData.url);
-      }
-    });
+    // $.ajax({
+    //   type: "POST",
+    //   url: '/cart/add.js',
+    //   data: {
+    //     quantity: 1,
+    //     id: productData.id
+    //   },
+    //   success: function(response) {
+    //     window.location.assign(productData.url);
+    //   },
+    //   error:   function(jqXHR, textStatus, errorThrown) {
+    //     window.location.assign(productData.url);
+    //   }
+    // });
   })
 
 }

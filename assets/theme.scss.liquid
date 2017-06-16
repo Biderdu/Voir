@@ -19788,6 +19788,147 @@ a {
 
 }
 
+.subscription-auto-modal-panel {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  &.active {
+    display: block;
+  }
+
+  &.disabled {
+    display: none;
+  }
+
+  .modal-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .info-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 450px;
+    background: #ffffff;
+
+    .title {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontCambriaBold(28px, 400, 1px);
+      line-height: 36px;
+      color: $voir-gray-1;
+      text-align: center;
+      width: 300px;
+    }
+
+    .center-line {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 300px;
+      height: 2px;
+      background: #c8c9c7;
+    }
+
+    .ingredients-list {
+      width: 450px;
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include fontHelvetica(14px, 400, 1px);
+      line-height: 23px;
+      color: $voir-gray-2;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+    .subscribe-block {
+      width: 300px;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%,0);
+      @include fontHelvetica(14px, 400, 1px);
+      line-height: 23px;
+      color: $voir-gray-2;
+      text-align: center;
+
+      .input-container {
+        position: relative;
+        width: 300px;
+        height: 45px;
+        border-bottom: 2px solid #c8c9c7;
+        float: left;
+
+        input {
+          @include fontHelvetica(16px);
+          width: 100%;
+          height: 100%;
+          border: none;
+          outline: none;
+          padding: 10px 0;
+        }
+
+      }
+
+      .button-submit {
+        width: 270px;
+        height: 45px;
+        @include fontHelveticaBold(13px);
+        color: $voir-gray-1;
+        background: #ffffff;
+        border: 1px solid $voir-gray-1;
+        transition: color 0.4s ease, background 0.4s ease;
+        cursor: pointer;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 2px;
+        padding: 0;
+        margin-top: 20px;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          opacity: 1;
+          color: #ffffff;
+          background: $voir-gray-1;
+        }
+      }
+
+    }
+
+  }
+
+}
 
 
 @media (max-width: $screen-tablet) {
@@ -20499,6 +20640,10 @@ a {
 
   }
 
+  .subscription-auto-modal-panel {
+
+  }
+
 }
 
 $insta-image-size-small: 170px;
@@ -21195,6 +21340,59 @@ $insta-image-size-not-so-small: 200px;
         top: 10px;
         width: 15px;
         height: 15px;
+      }
+
+    }
+
+  }
+
+  .subscription-auto-modal-panel {
+
+    .info-container {
+      width: 310px;
+      height: 450px;
+
+      .title {
+        @include fontCambriaBold(20px, 400, 1px);
+        line-height: 26px;
+        width: 100%;
+      }
+
+      .center-line {
+        width: 240px;
+        height: 1px;
+      }
+
+      .ingredients-list {
+        width: 270px;
+        @include fontHelvetica(12px, 400, 1px);
+        line-height: 16px;
+      }
+
+      .close-button {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .subscribe-block {
+        width: 270px;
+
+
+        .input-container {
+          width: 270px;
+
+          input {
+            @include fontHelvetica(14px);
+          }
+
+        }
+
+        .button-submit {
+
+        }
+
       }
 
     }
