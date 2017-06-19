@@ -4147,54 +4147,70 @@ function footerInit() {
     $('#mobile-header-menu-panel').toggleClass('active-modal');
   });
 
+  if(window.location.hash) {
+
+    var hash = window.location.hash;
+
+    if(hash === "#samples") {
+        $('#sample-subscription-modal-panel').addClass('active');
+    }
+
+  }
+
+  //sample subscription
+  $('#sample-subscription-modal-overlay').on('click', function(){
+    $('#sample-subscription-modal-panel').removeClass('active');
+  });
+
+
 
   //email subscription
-    var form = $('form#mailchimp-contact-form');
+  var form = $('form#mailchimp-contact-form');
 
-    if ( form.length > 0 ) {
-        $('#footer-email-sub-container form input[type="submit"]').bind('click', function ( event ) {
-            if ( event ) event.preventDefault();
-        });
+  if ( form.length > 0 ) {
+      $('#footer-email-sub-container form input[type="submit"]').bind('click', function ( event ) {
+          if ( event ) event.preventDefault();
+      });
+  }
+
+  function register(form) {
+      $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize(),
+          cache       : false,
+          dataType    : 'json',
+          contentType: "application/json; charset=utf-8",
+          error       : function(err) {
+              console.log("Could not connect to the registration server. Please try again later.");
+          },
+          success     : function(data) {
+              if (data.result != "success") {
+                  // Something went wrong, do something to notify the user. maybe alert(data.msg);
+              } else {
+                  subscriptionModalPanelToggle();
+              }
+          }
+      });
+  }
+
+  $('#subscription-modal-overlay').on('click', subscriptionModalPanelToggle);
+
+  $('#subscription-modal-close-button').on('click', subscriptionModalPanelToggle);
+
+  $('#footer-email-sub-container input').keypress(function (event) {
+
+    if(event.which == 13) {
+        event.preventDefault();
+        // $('#footer-email-sub-container form').submit();
+        register(form);
     }
+  });
 
-    function register(form) {
-        $.ajax({
-            type: form.attr('method'),
-            url: form.attr('action'),
-            data: form.serialize(),
-            cache       : false,
-            dataType    : 'json',
-            contentType: "application/json; charset=utf-8",
-            error       : function(err) {
-                console.log("Could not connect to the registration server. Please try again later.");
-            },
-            success     : function(data) {
-                if (data.result != "success") {
-                    // Something went wrong, do something to notify the user. maybe alert(data.msg);
-                } else {
-                    subscriptionModalPanelToggle();
-                }
-            }
-        });
-    }
-
-    $('#subscription-modal-overlay').on('click', subscriptionModalPanelToggle);
-
-    $('#subscription-modal-close-button').on('click', subscriptionModalPanelToggle);
-
-    $('#footer-email-sub-container input').keypress(function (event) {
-
-      if(event.which == 13) {
-          event.preventDefault();
-          // $('#footer-email-sub-container form').submit();
-          register(form);
-      }
-    });
-
-    $('#footer-subscription-arrow').on('click', function(event) {
-      register(form);
-    })
-    //
+  $('#footer-subscription-arrow').on('click', function(event) {
+    register(form);
+  })
+  //
 
 }
 
