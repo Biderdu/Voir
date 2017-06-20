@@ -18254,6 +18254,323 @@ a {
 //lauch page end
 
 
+//sample page
+
+.sample-page-main-container {
+  position: relative;
+  width: 100%;
+
+  .sample-intro-block {
+    position: relative;
+    width: 100%;
+    margin-top: 130px;
+
+    .intro-image-container {
+      overflow: hidden;
+      width: 800px;
+      height: 325px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      background-image: url("{{ 'image_launch.jpg' | asset_url }}");
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    .headline {
+      margin-top: 60px;
+      width: 800px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .head {
+        @include fontHelveticaBold(20px);
+        line-height: 22px;
+        color: $voir-gray-1;
+      }
+
+      .subhead {
+        margin-top: 20px;
+        @include fontHelvetica(18px, 400, 1px);
+        line-height: 22px;
+        color: $voir-gray-2;
+      }
+
+    }
+
+    .main-container {
+      display: inline-block;
+      margin-top: 30px;
+      width: 800px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .form-heading {
+        width: 100%;
+        @include fontHelvetica(18px, 400, 1px);
+        color: $voir-gray-2;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid #a7a8aa;
+        height: 45px;
+        padding: 15px 0 15px 0;
+        @include fontHelvetica(14px);
+        letter-spacing: 1px;
+        line-height: 45px;
+        color: $voir-gray-2;
+        border-radius: 0;
+        width: 100%;
+        outline: none;
+
+      }
+
+      .mail-group, .first-name-group, .last-name {
+        position: relative;
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      .address-group {
+        position: relative;
+        width: 100%;
+
+        margin-top: 25px;
+
+        .group-title {
+          @include fontHelveticaBold(14px);
+          color: $voir-gray-2;
+        }
+
+        .street-group, .address2-group {
+          position: relative;
+          width: 100%;
+        }
+
+        .address2-group {
+          margin-top: 15px;
+        }
+
+        .city-group, .state-group, .zip-group {
+          position: relative;
+          float: left;
+          width: 30%;
+          margin-top: 15px;
+        }
+
+        .state-group, .zip-group {
+          margin-left: 5%;
+        }
+
+        .country-group {
+          float: left;
+          position: relative;
+          width: 100%;
+          margin-top: 15px;
+
+          select {
+            border: none;
+            border-bottom: 1px solid #a7a8aa;
+            height: 45px;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px);
+            letter-spacing: 1px;
+            //line-height: 45px;
+            color: $voir-gray-2;
+            width: 100%;
+          }
+
+        }
+
+      }
+
+      .clear {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+
+        .submit-button {
+          float: none;
+          height: 45px;
+          width: 350px;
+          background: #ffffff;
+          @include fontHelveticaBold(13px);
+          color: $voir-gray-1;
+          border: 1px solid $voir-gray-1;
+          transition: color 0.2s ease-out, background 0.2s ease-out;
+
+          &:hover {
+            background: $voir-gray-1;
+            color: #ffffff;
+          }
+        }
+
+        #mce-error-response {
+          margin-top: 10px;
+          @include fontHelvetica(12px);
+          color: $voir-gray-2;
+        }
+
+        #mce-success-response {
+          margin-top: 10px;
+          @include fontHelvetica(12px);
+          color: #3bbf25;
+        }
+
+      }
+
+      #mc_embed_signup div.mce_inline_error {
+        @include fontHelvetica(12px);
+        margin: 0;
+        padding: 2px 5px;
+        background-color: #9c0716;
+        font-weight: bold;
+        z-index: 1;
+        color: #fff;
+      }
+
+
+    }
+
+    .footer-spacer {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+
+  }
+
+}
+
+@media (max-width: $screen-tablet) {
+
+  .sample-page-main-container {
+
+    .sample-intro-block {
+      margin-top: 120px;
+
+      .intro-image-container {
+        width: 700px;
+        height: 280px;
+      }
+
+      .headline {
+        width: 700px;
+      }
+
+      .main-container {
+        width: 700px;
+
+        input {
+          background: #fbfbfb;
+        }
+
+        .address-group {
+
+          .country-group {
+
+            select {
+              background: #fbfbfb;
+            }
+
+          }
+
+        }
+
+        .clear {
+          .submit-button {
+            background: #fbfbfb;
+          }
+        }
+
+      }
+
+      .footer-spacer {
+
+      }
+
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+
+  .sample-page-main-container {
+
+    .sample-intro-block {
+
+      margin-top: 90px;
+
+      .intro-image-container {
+        width: 280px;
+        height: 280px;
+      }
+
+      .headline {
+        margin-top: 30px;
+        width: 300px;
+
+        .head {
+          @include fontHelveticaBold(16px);
+          line-height: 20px;
+        }
+
+        .subhead {
+          @include fontHelvetica(14px, 400, 1px);
+          line-height: 20px;
+        }
+
+      }
+
+      .main-container {
+        width: 300px;
+
+        .form-heading {
+          @include fontHelvetica(14px, 400, 1px);
+          color: $voir-gray-2;
+        }
+
+        input {
+          height: 35px;
+          padding: 10px 0 10px 0;
+          @include fontHelvetica(12px);
+          line-height: 35px;
+        }
+
+        .clear {
+          .submit-button {
+            width: 220px;
+          }
+        }
+      }
+
+      .footer-spacer {
+        height: 520px;
+      }
+
+
+    }
+
+  }
+
+}
+
+//sample page end
+
 //collections page
 
 .collections-page-collection-block {
@@ -19930,194 +20247,6 @@ a {
 
 }
 
-.sample-subscription-modal-panel {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-
-  &.active {
-    display: block;
-  }
-
-  .modal-overlay {
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
-  }
-
-  .info-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 740px;
-    background: #ffffff;
-
-    padding: 25px;
-
-    .form-heading {
-      width: 100%;
-      @include fontHelvetica(11px);
-      color: $voir-gray-1;
-      border: 1px dashed #9c0716;
-      padding: 5px;
-    }
-
-    input {
-      border: none;
-      border-bottom: 1px solid #a7a8aa;
-      height: 45px;
-      padding: 15px 0 15px 0;
-      @include fontHelvetica(14px);
-      letter-spacing: 1px;
-      line-height: 45px;
-      color: $voir-gray-2;
-      border-radius: 0;
-      width: 100%;
-    }
-
-    .mail-group, .first-name-group, .last-name {
-      position: relative;
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .address-group {
-      position: relative;
-      width: 100%;
-
-      margin-top: 25px;
-
-      .group-title {
-        @include fontHelveticaBold(14px);
-        color: $voir-gray-2;
-      }
-
-      .street-group, .address2-group {
-        position: relative;
-        width: 100%;
-      }
-
-      .address2-group {
-        margin-top: 15px;
-      }
-
-      .city-group, .state-group, .zip-group {
-        position: relative;
-        float: left;
-        width: 30%;
-        margin-top: 15px;
-      }
-
-      .state-group, .zip-group {
-        margin-left: 5%;
-      }
-
-      .country-group {
-        float: left;
-        position: relative;
-        width: 100%;
-        margin-top: 15px;
-
-        select {
-          border: none;
-          border-bottom: 1px solid #a7a8aa;
-          height: 45px;
-          padding: 15px 0 15px 0;
-          @include fontHelvetica(14px);
-          letter-spacing: 1px;
-          //line-height: 45px;
-          color: $voir-gray-2;
-          width: 100%;
-        }
-
-      }
-
-    }
-
-    .clear {
-      position: relative;
-      float: left;
-      width: 100%;
-      margin-top: 20px;
-      text-align: center;
-
-      .submit-button {
-        float: none;
-        height: 45px;
-        width: 350px;
-        background: #ffffff;
-        @include fontHelveticaBold(13px);
-        color: $voir-gray-1;
-        border: 1px solid $voir-gray-1;
-        transition: color 0.2s ease-out, background 0.2s ease-out;
-
-        &:hover {
-          background: $voir-gray-1;
-          color: #ffffff;
-        }
-      }
-
-      #mce-error-response {
-        margin-top: 10px;
-        @include fontHelvetica(12px);
-        color: $voir-gray-2;
-      }
-
-      #mce-success-response {
-        margin-top: 10px;
-        @include fontHelvetica(12px);
-        color: #3bbf25;
-      }
-
-    }
-
-    #mc_embed_signup div.mce_inline_error {
-      @include fontHelvetica(12px);
-      margin: 0;
-      padding: 2px 5px;
-      background-color: #9c0716;
-      font-weight: bold;
-      z-index: 1;
-      color: #fff;
-    }
-
-    .title {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      @include fontCambriaBold(28px, 400, 1px);
-      line-height: 36px;
-      color: $voir-gray-1;
-      text-align: center;
-      width: 300px;
-    }
-
-    .close-button {
-      position: absolute;
-      right: 25px;
-      top: 25px;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-
-    }
-
-  }
-
-}
-
 @media (max-width: $screen-tablet) {
 
   .main-content {
@@ -21580,33 +21709,6 @@ $insta-image-size-not-so-small: 200px;
 
         }
 
-      }
-
-    }
-
-  }
-
-  .sample-subscription-modal-panel {
-
-    .info-container {
-      width: 300px;
-      height: 550px;
-
-      padding: 15px;
-
-      overflow: auto;
-
-      input {
-        height: 35px;
-        padding: 10px 0 10px 0;
-        @include fontHelvetica(12px);
-        line-height: 35px;
-      }
-
-      .clear {
-        .submit-button {
-          width: 220px;
-        }
       }
 
     }

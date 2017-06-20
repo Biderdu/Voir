@@ -4147,21 +4147,6 @@ function footerInit() {
     $('#mobile-header-menu-panel').toggleClass('active-modal');
   });
 
-  if(window.location.hash) {
-
-    var hash = window.location.hash;
-
-    if(hash === "#samples") {
-        $('#sample-subscription-modal-panel').addClass('active');
-    }
-
-  }
-
-  //sample subscription
-  $('#sample-subscription-modal-overlay').on('click', function(){
-    $('#sample-subscription-modal-panel').removeClass('active');
-  });
-
 
 
   //email subscription
