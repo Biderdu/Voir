@@ -65,6 +65,8 @@
 
   <script src="{{ 'instafeed.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'reel.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'jquery.validate.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'additional-methods.min.js' | asset_url }}" defer="defer"></script>
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
@@ -170,6 +172,20 @@
         <div class="center-line"></div>
         <div class="ingredients-list">
           Please confirm your subscription in your email inbox.
+        </div>
+      </div>
+    </div>
+
+    <div id="sample-modal-panel" class="subscription-modal-panel">
+      <div id="sample-modal-overlay" class="modal-overlay"></div>
+      <div class="info-container">
+        <div id="sample-modal-close-button" class="close-button"><img src="{{ 'close_icon.svg' | asset_url }}"></div>
+        <div class="title">
+          Thank You!
+        </div>
+        <div class="center-line"></div>
+        <div class="ingredients-list">
+          Please click the link in the email we just sent to complete the sign up.
         </div>
       </div>
     </div>
