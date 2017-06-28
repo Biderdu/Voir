@@ -1508,18 +1508,25 @@ theme.Header = (function() {
 
         }, 200);
 
-        setTimeout(function() {
-            subscriptionAutoModalPanelToggle();
-          }, 15000);
+        if( localStorage.getItem("_voirsub") !== 'true') {
+            setTimeout(function() {
+                if(!autoModalShowed) {
+                    subscriptionAutoModalPanelToggle();
+                }
+            }, 15000);
+        }
+
       });
 
       headerStyleChange($(selectors.body).scrollTop(), windowHeight);
 
       $(window).scroll( function() {
 
-        if(!autoModalShowed && (($(document).height() * 0.65) < $(selectors.body).scrollTop())) {
-            $('#subscription-auto-modal-panel').addClass('active');
-            autoModalShowed = true;
+        if( localStorage.getItem("_voirsub") !== 'true') {
+            if (!autoModalShowed && (($(document).height() * 0.65) < $(selectors.body).scrollTop())) {
+                $('#subscription-auto-modal-panel').addClass('active');
+                autoModalShowed = true;
+            }
         }
 
         headerStyleChange($(selectors.body).scrollTop(), windowHeight);
@@ -1848,6 +1855,9 @@ theme.Header = (function() {
                 if (data.result != "success") {
                     // Something went wrong, do something to notify the user. maybe alert(data.msg);
                 } else {
+                  console.log('TEST');
+
+                    localStorage.setItem("_voirsub", "true");
                     $('#subscription-auto-modal-panel').removeClass('active');
                     subscriptionLaunchModalPanelToggle();
                 }

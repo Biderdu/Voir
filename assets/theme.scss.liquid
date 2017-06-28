@@ -20133,6 +20133,28 @@ a {
 
     }
 
+    .redirect-button {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%,0);
+      height: 40px;
+      width: 120px;
+      background: #ffffff;
+      @include fontHelveticaBold(13px);
+      color: $voir-gray-1;
+      border: 1px solid $voir-gray-1;
+      transition: color 0.2s ease-out, background 0.2s ease-out;
+      line-height: 40px;
+      text-align: center;
+      text-transform: uppercase;
+
+      &:hover {
+        background: $voir-gray-1;
+        color: #ffffff;
+      }
+    }
+
   }
 
 }
