@@ -4648,6 +4648,8 @@ function bagPagerecalcTotalPrice() {
     totalPrice += parseFloat($(this).text().replace(/\$/g,' '));
   });
 
+    totalPrice = totalPrice/2;
+
   $('#bag-page-sub-price').text('$' + totalPrice.toFixed(2));
   $('#bag-page-taxes-price').text('$' + (totalPrice * 0.13).toFixed(2));
   $('#bag-page-total-price').text('$' + (totalPrice * 1.13).toFixed(2));
@@ -4874,6 +4876,9 @@ $(document).ready(function() {
   sections.register('slideshow-section', theme.SlideshowSection);
   sections.register('quotes', theme.Quotes);
 
+  if(window.location.pathname === '/account/register') {
+      window.location.replace('/cart');
+  }
 
   if($('#home-intro-block').length != 0) {
 
