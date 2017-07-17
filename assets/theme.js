@@ -4884,13 +4884,13 @@ $(document).ready(function() {
 
     homeBagInit();
 
-    if($(window).width() > 1024) {
-      homeSliderDesktopInit();
-    } else if($(window).width() > 767) {
-      homeSliderInit();
-    } else {
-      
-    }
+    // if($(window).width() > 1024) {
+    //   homeSliderDesktopInit();
+    // } else if($(window).width() > 767) {
+    //   homeSliderInit();
+    // } else {
+    //
+    // }
 
   } else if($('#product-page-panel').length != 0) {
     
