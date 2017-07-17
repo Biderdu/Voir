@@ -9,7 +9,7 @@
         <thead class="cart__row cart__header">
         <th colspan="2">Product</th>
         <th>Size</th>
-        <th class="text-center">QTY</th>
+        <th class="text-center">Quantity</th>
         <th class="text-center">Remove</th>
         <th class="text-right">Price</th>
         </thead>
@@ -96,7 +96,7 @@
             <div class="total-price-block">
               <div class="row-container">
                 <div class="title">Cart Total</div>
-                <div class="price"><span id="bag-page-total-price">{{ cart.total_price | times: 1.13 | money }}</span> CAD</div>
+                <div class="price"><span id="bag-page-total-price">{{ cart.total_price | times: 1 | money }}</span> CAD</div>
               </div>
             </div>
             <div class="controls-block">

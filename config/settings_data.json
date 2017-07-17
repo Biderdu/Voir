@@ -2,9 +2,9 @@
   "current": {
     "color_text": "#3d4246",
     "color_body_text": "#788188",
-    "color_sale_text": "#7796A8",
+    "color_sale_text": "#7796a8",
     "color_borders": "#e8e9eb",
-    "color_button": "#7796A8",
+    "color_button": "#7796a8",
     "color_button_text": "#fff",
     "color_small_button": "#fff",
     "color_small_button_text": "#3d4246",
@@ -25,25 +25,25 @@
     "social_twitter_link": "",
     "social_facebook_link": "",
     "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_instagram_link": "http:\/\/instagram.com\/\/voirhaircare",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
     "social_youtube_link": "",
     "social_vimeo_link": "",
     "favicon": "",
     "checkout_header_image": "",
-    "checkout_logo_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Voir_LOGO1.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
     "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#1990C6",
-    "checkout_button_color": "#1990C6",
+    "checkout_accent_color": "#53565a",
+    "checkout_button_color": "#53565a",
     "checkout_error_color": "#ff6d6d",
     "sections": {
       "header": {
@@ -57,7 +57,7 @@
           "message": false,
           "message_text": "Announce something here",
           "message_link": "",
-          "color_bg": "#7796A8",
+          "color_bg": "#7796a8",
           "color_text": "#fff"
         }
       },
@@ -101,12 +101,6 @@
       },
       "1488806400143": {
         "type": "custom_collection",
-        "settings": {
-          "collection": "frontpage"
-        }
-      },
-      "1488883033208": {
-        "type": "custom_bottom_section",
         "settings": {
           "collection": "frontpage"
         }
