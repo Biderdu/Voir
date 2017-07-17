@@ -3734,7 +3734,7 @@ h1.product-single__title {
 }
 
 .additional-checkout-buttons {
-  margin-top: $gutter-site-mobile;
+  margin-top: 0;
 
   // reset for paypal button
   input[type="image"] {
@@ -3742,7 +3742,22 @@ h1.product-single__title {
     border: 0;
     background: transparent;
   }
+
+  .additional-checkout-button {
+    margin-right: 20px;
+  }
+
 }
+
+@media (max-width: $screen-mobile) {
+  .additional-checkout-buttons {
+    width: 270px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,10%);
+  }
+}
+
 
 
 /*================ MODULES ================*/
@@ -12826,7 +12841,6 @@ a {
   height: 100vh;
   max-height: 768px;
   position: relative;
-  margin-top: 60px;
 
   .home-intro-center-line-left {
     background: #c8c9c7;
@@ -14077,11 +14091,6 @@ a {
   .product-page-ingredients {
     height: 560px;
 
-
-    &.down-step {
-      margin-top: 140px;
-    }
-
     .ingredients-title {
       @include fontCambriaBold(24px);
       line-height: 32px;
@@ -14519,6 +14528,11 @@ a {
 
   .product-page-reviews {
     min-height: 30vh;
+    margin-top: 20px;
+
+    &.down-step {
+      margin-top: 160px;
+    }
 
     .reviews-container {
       width: calc(100% - 30px);

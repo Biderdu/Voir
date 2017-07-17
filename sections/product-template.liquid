@@ -137,6 +137,13 @@
   </div>
 </div>
 
+<div id="product-page-reviews-panel" class="product-page-reviews">
+  <div class="reviews-container">
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    <div class="for-first-review-container">Be the first to review this product</div>
+  </div>
+</div>
+
 <div id="product-page-ingredients-panel" class="product-page-ingredients {% if  product.title == 'Studio Set'%} hidden-panel {% endif %}">
   <div class="product-page-to-shop-button">
     <div class="arrow-icon-container">
@@ -354,13 +361,6 @@
           {{ product.metafields.c_f.about_artwork }}
       </div>
     </div>
-  </div>
-</div>
-
-<div id="product-page-reviews-panel" class="product-page-reviews">
-  <div class="reviews-container">
-    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-    <div class="for-first-review-container">Be the first to review this product</div>
   </div>
 </div>
 

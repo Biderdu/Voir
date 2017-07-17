@@ -814,7 +814,7 @@ theme.Header = (function() {
       home: [2,3,4,5],
       about: [2,3,4,5,6,7],
       contact: [],
-      product: [1,2,5,6,7],
+      product: [1,5,6,7],
       launch: []
     };
 
@@ -833,7 +833,7 @@ theme.Header = (function() {
             home: [2,3],
             about: [2,3,4,5,6,7],
             contact: [],
-            product: [1,2],
+            product: [1,3],
             launch: []
         };
     } else {
@@ -841,7 +841,7 @@ theme.Header = (function() {
             home: [2,3],
             about: [2,3,4,5,6,7],
             contact: [],
-            product: [1,2],
+            product: [1,3],
             launch: [1,2]
         };
     }
@@ -1606,7 +1606,7 @@ theme.Header = (function() {
     $('#detail-add-info-more').toggleClass('active');
     $('#detail-add-info-block').toggleClass('active');
 
-    $('#product-page-ingredients-panel').toggleClass('down-step');
+    $('#product-page-reviews-panel').toggleClass('down-step');
   }
 
   function productModalPanelToggle() {
@@ -4652,7 +4652,7 @@ function bagPagerecalcTotalPrice() {
 
   $('#bag-page-sub-price').text('$' + totalPrice.toFixed(2));
   $('#bag-page-taxes-price').text('$' + (totalPrice * 0.13).toFixed(2));
-  $('#bag-page-total-price').text('$' + (totalPrice * 1.13).toFixed(2));
+  $('#bag-page-total-price').text('$' + (totalPrice).toFixed(2));
 
 }
 
