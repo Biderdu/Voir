@@ -803,7 +803,7 @@ theme.Header = (function() {
   if (windowWidth < 768) {
 
     panelsWithAnimations = {
-      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
+      about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
       home: ['home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
@@ -821,7 +821,7 @@ theme.Header = (function() {
   } else {
 
     panelsWithAnimations = {
-      about: ['about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
+      about: ['about-art-panel', 'about-nature-panel', 'about-image-panel', 'about-ingredients-panel','about-packaging-panel'],
       home: ['home-collection-panel','home-slider-panel', 'home-instagram-gallery-panel'],
       faq: [],
       contact: ['contact-intro-panel', 'contact-feedback-panel'],
@@ -4904,9 +4904,9 @@ $(document).ready(function() {
     
   } else if($('#about-us-page').length != 0) {
 
-    if($(window).width() > 1024) {
-      aboutArtNatureSlider();
-    }
+    // if($(window).width() > 1024) {
+    //   aboutArtNatureSlider();
+    // }
 
   } else if($('#cart-page-main-panel').length != 0) {
 
