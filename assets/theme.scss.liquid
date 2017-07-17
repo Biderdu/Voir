@@ -18621,6 +18621,365 @@ a {
 
 //sample page end
 
+//giveaway page
+
+.giveaway-page-main-container {
+  position: relative;
+  width: 100%;
+
+  .sample-intro-block {
+    position: relative;
+    width: 100%;
+    margin-top: 130px;
+
+    .intro-image-container {
+      overflow: hidden;
+      width: 800px;
+      height: 325px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      background-image: url("{{ 'giveaway.jpg' | asset_url }}");
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    .headline {
+      margin-top: 60px;
+      width: 800px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .head {
+        @include fontHelveticaBold(20px);
+        line-height: 22px;
+        color: $voir-gray-1;
+      }
+
+      .subhead {
+        margin-top: 20px;
+        @include fontHelvetica(18px, 400, 1px);
+        line-height: 22px;
+        color: $voir-gray-2;
+      }
+
+    }
+
+    .main-container {
+      display: inline-block;
+      margin-top: 30px;
+      width: 800px;
+
+      position: relative;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .form-heading {
+        width: 100%;
+        @include fontHelvetica(18px, 400, 1px);
+        color: $voir-gray-2;
+
+        .list-line {
+          margin-top: 5px;
+        }
+
+        .footnote {
+          @include fontHelvetica(16px, 400, 1px);
+          margin-top: 20px;
+        }
+
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid #a7a8aa;
+        height: 45px;
+        padding: 15px 0 15px 0;
+        @include fontHelvetica(14px);
+        letter-spacing: 1px;
+        color: $voir-gray-2;
+        border-radius: 0;
+        width: 100%;
+        outline: none;
+      }
+
+      #mc_embed_signup input.mce_inline_error {
+        border-color: #a7a8aa;
+      }
+
+      .mail-group, .first-name-group, .last-name {
+        position: relative;
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      .address-group {
+        position: relative;
+        width: 100%;
+
+        margin-top: 25px;
+
+        .group-title {
+          @include fontHelveticaBold(14px);
+          color: $voir-gray-2;
+        }
+
+        .street-group, .address2-group {
+          position: relative;
+          width: 100%;
+        }
+
+        .address2-group {
+          margin-top: 15px;
+        }
+
+        .city-group, .state-group, .zip-group {
+          position: relative;
+          float: left;
+          width: 30%;
+          margin-top: 15px;
+        }
+
+        .state-group, .zip-group {
+          margin-left: 5%;
+        }
+
+        .country-group {
+          float: left;
+          position: relative;
+          width: 100%;
+          margin-top: 15px;
+
+          select {
+            border: none;
+            border-bottom: 1px solid #a7a8aa;
+            height: 45px;
+            padding: 15px 0 15px 0;
+            @include fontHelvetica(14px);
+            letter-spacing: 1px;
+            //line-height: 45px;
+            color: $voir-gray-2;
+            width: 100%;
+          }
+
+        }
+
+      }
+
+      .submit-button-container {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+
+        .submit-button {
+          float: none;
+          height: 45px;
+          width: 350px;
+          background: #ffffff;
+          @include fontHelveticaBold(13px);
+          color: $voir-gray-1;
+          border: 1px solid $voir-gray-1;
+          transition: color 0.2s ease-out, background 0.2s ease-out;
+          outline: none;
+
+          &:hover {
+            background: $voir-gray-1;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .clear {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+
+        .submit-button {
+          float: none;
+          height: 45px;
+          width: 350px;
+          background: #ffffff;
+          @include fontHelveticaBold(13px);
+          color: $voir-gray-1;
+          border: 1px solid $voir-gray-1;
+          transition: color 0.2s ease-out, background 0.2s ease-out;
+
+          &:hover {
+            background: $voir-gray-1;
+            color: #ffffff;
+          }
+        }
+
+        #mce-error-response {
+          margin-top: 10px;
+          @include fontHelvetica(12px);
+          color: $voir-gray-2;
+        }
+
+        #mce-success-response {
+          margin-top: 10px;
+          @include fontHelvetica(12px);
+          color: #3bbf25;
+        }
+
+      }
+
+      div.mc-field-group label.error {
+        @include fontHelvetica(12px, 400, 1px);
+        margin: 0;
+        padding: 2px 5px;
+        background-color: rgba(0,0,0,0);
+        font-weight: normal;
+        z-index: 1;
+        color: #d20000;
+      }
+
+
+    }
+
+    .footer-spacer {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+
+  }
+
+}
+
+@media (max-width: $screen-tablet) {
+
+  .giveaway-page-main-container {
+
+    .sample-intro-block {
+      margin-top: 120px;
+
+      .intro-image-container {
+        width: 700px;
+        height: 280px;
+      }
+
+      .headline {
+        width: 700px;
+      }
+
+      .main-container {
+        width: 700px;
+
+        input {
+          background: #fbfbfb;
+        }
+
+        .address-group {
+
+          .country-group {
+
+            select {
+              background: #fbfbfb;
+            }
+
+          }
+
+        }
+
+        .clear {
+          .submit-button {
+            background: #fbfbfb;
+          }
+        }
+
+      }
+
+      .footer-spacer {
+
+      }
+
+
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-mobile) {
+
+  .giveaway-page-main-container {
+
+    .sample-intro-block {
+
+      margin-top: 90px;
+
+      .intro-image-container {
+        width: 280px;
+        height: 280px;
+      }
+
+      .headline {
+        margin-top: 30px;
+        width: 300px;
+
+        .head {
+          @include fontHelveticaBold(16px);
+          line-height: 20px;
+        }
+
+        .subhead {
+          @include fontHelvetica(14px, 400, 1px);
+          line-height: 20px;
+        }
+
+      }
+
+      .main-container {
+        width: 300px;
+
+        .form-heading {
+          @include fontHelvetica(14px, 400, 1px);
+          color: $voir-gray-2;
+        }
+
+        input {
+          height: 35px;
+          padding: 10px 0 10px 0;
+          @include fontHelvetica(12px);
+        }
+
+        .submit-button-container {
+          .submit-button {
+            width: 220px;
+          }
+        }
+
+        .clear {
+          .submit-button {
+            width: 220px;
+          }
+        }
+      }
+
+      .footer-spacer {
+        height: 520px;
+      }
+
+
+    }
+
+  }
+
+}
+
+//giveaway page end
+
 //collections page
 
 .collections-page-collection-block {

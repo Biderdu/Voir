@@ -4884,13 +4884,13 @@ $(document).ready(function() {
 
     homeBagInit();
 
-    // if($(window).width() > 1024) {
-    //   homeSliderDesktopInit();
-    // } else if($(window).width() > 767) {
-    //   homeSliderInit();
-    // } else {
-    //
-    // }
+    if($(window).width() > 1024) {
+      homeSliderDesktopInit();
+    } else if($(window).width() > 767) {
+      homeSliderInit();
+    } else {
+
+    }
 
   } else if($('#product-page-panel').length != 0) {
     
@@ -4997,6 +4997,49 @@ $(document).ready(function() {
           $('#sample-modal-panel').removeClass('active');
       });
 
+
+      form.validate({
+          ignore: '.ignore',
+          submitHandler: function (form) {
+              form = $(form);
+
+              $.ajax({
+                  type: form.attr('method'),
+                  url: form.attr('action'),
+                  data: form.serialize(),
+                  cache       : false,
+                  dataType    : 'json',
+                  contentType: "application/json; charset=utf-8",
+                  error       : function(err) {
+                      console.log("Could not connect to the registration server. Please try again later.");
+                  },
+                  success     : function(data) {
+                      if (data.result != "success") {
+                          // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                      } else {
+                          console.log('SUCCESS');
+
+                          $('#sample-modal-panel').addClass('active');
+
+                      }
+                  }
+              });
+
+              return false;
+          }
+      });
+
+  } else if($('#giveaway-page-panel').length != 0) {
+
+      var form = $('form#mc-embedded-subscribe-form');
+
+      $('#sample-modal-close-button').click(function() {
+          $('#sample-modal-panel').removeClass('active');
+      });
+
+      $('#sample-modal-overlay').click(function() {
+          $('#sample-modal-panel').removeClass('active');
+      });
 
 
       form.validate({
