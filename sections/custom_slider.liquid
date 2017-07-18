@@ -9,7 +9,7 @@
   <div class="collection-slider-main-block">
     <div id="home-collection-slider-container" class="collection-slider-container">
       {% for product in collection.products %}
-        <div class="product-item-container products-slider-home">
+        <div id="home-collection-slider-slide-{{ forloop.index }}" class="product-item-container products-slider-home">
           <div class="product-info-container">
             <div class="product-left-side">
               <div class="image-container">
@@ -45,7 +45,7 @@
       {% endfor %}
     </div>
 
-    <div class="carousel-indicator-container">
+    <!--div class="carousel-indicator-container">
       {% for product in collection.products %}
 
         <div class="carousel-indicator">
@@ -53,7 +53,7 @@
         </div>
 
       {% endfor %}
-    </div>
+    </div-->
 
   </div>
 

@@ -6881,7 +6881,7 @@ a {
 }
 
 .custom-section-slider-block {
-  height: 100vh;
+  height: 400vh;
   max-width: 1366px;
   margin-left: auto;
   margin-right: auto;
@@ -6890,12 +6890,12 @@ a {
 
   .collection-slider-main-block {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #f4f4f4;
+    background: rgba(255,255,255,0);
     width: calc(100% - 50px);
-    height: 425px;
+    height: 100%;
     border-radius: 1px;
 
     .collection-slider-container {
@@ -6917,8 +6917,14 @@ a {
 
       .product-item-container {
         position: relative;
-        height: 100%;
         width: 100%;
+        margin-top: calc(100vh - 435px);
+        height: 450px;
+        background: #f4f4f4;
+
+        &:first-child {
+          margin-top: 150px;
+        }
 
         .product-info-container {
           margin: auto;
@@ -7216,7 +7222,7 @@ a {
 
 }
 
-.custom-section-slider-block.active-animation {
+.custom-section-slider-block {
 
   .collection-slider-main-block {
 
@@ -7230,7 +7236,7 @@ a {
 
       }
 
-      .product-item-container.slick-current {
+      .product-item-container.active-animation {
 
         .product-info-container {
 
@@ -20784,7 +20790,6 @@ a {
 
     .collection-slider-main-block {
       width: calc(100% - 32px);
-      height: 884px;
       border-radius: 0;
 
       .collection-slider-container {
@@ -20804,6 +20809,12 @@ a {
 
         .product-item-container {
           position: relative;
+          height: calc(100vh - 150px);
+          margin-top: 80px;
+
+          &:first-child {
+            margin-top: 50px;
+          }
 
           .product-info-container {
             width: 100%;
@@ -20926,7 +20937,7 @@ a {
 
   }
 
-  .custom-section-slider-block.active-animation {
+  .custom-section-slider-block {
 
     .collection-slider-main-block {
 
@@ -20940,7 +20951,7 @@ a {
 
         }
 
-        .product-item-container.slick-current {
+        .product-item-container.active-animation {
 
           .product-info-container {
 
