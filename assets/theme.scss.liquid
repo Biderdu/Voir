@@ -6882,7 +6882,7 @@ a {
 
 .custom-section-slider-block {
   height: 400vh;
-  max-width: 1366px;
+  max-width: 1766px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
@@ -6904,6 +6904,12 @@ a {
       //overflow: hidden;
       position: relative;
 
+      .slide-container {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+      }
+
       .slick-list {
         height: calc(100% + 40px);
         margin-top: -40px;
@@ -6918,13 +6924,10 @@ a {
       .product-item-container {
         position: relative;
         width: 100%;
-        margin-top: calc(100vh - 435px);
-        height: 450px;
+        top: 50%;
+        transform: translate(0, -50%);
+        height: calc(10vh + 375px);
         background: #f4f4f4;
-
-        &:first-child {
-          margin-top: 150px;
-        }
 
         .product-info-container {
           margin: auto;
@@ -7064,7 +7067,7 @@ a {
             .learn-button {
               position: absolute;
               left: 0;
-              bottom: 40px;
+              bottom: calc(35px + 5vh);
               border: 1px solid $voir-gray-1;
               border-radius: 1px;
               height: 45px;
@@ -21532,6 +21535,10 @@ $insta-image-size-not-so-small: 200px;
       .collection-slider-container {
         width: 100%;
         height: 100%;
+
+        .slide-container {
+          height: calc(100vh - 85px);
+        }
 
         .slick-list {
           height: calc(100% + 40px);

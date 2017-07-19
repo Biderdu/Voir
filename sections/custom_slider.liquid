@@ -9,39 +9,41 @@
   <div class="collection-slider-main-block">
     <div id="home-collection-slider-container" class="collection-slider-container">
       {% for product in collection.products %}
-        <div id="home-collection-slider-slide-{{ forloop.index }}" class="product-item-container products-slider-home">
-          <div class="product-info-container">
-            <div class="product-left-side">
-              <div class="image-container">
-                <div class="background-border">
-                  <div class="top-side border"></div>
-                  <div class="right-side border"></div>
-                  <div class="bottom-side border"></div>
-                  <div class="left-side border"></div>
-                </div>
-                <a href="{{ product.url }}">
-                  <img class="product-item-image" src="{{ product.featured_image.src | img_url: '900x' }}" alt="{{ product.featured_image.alt }}">
-                </a>
-              </div>
+          <div class="slide-container">
+            <div id="home-collection-slider-slide-{{ forloop.index }}" class="product-item-container products-slider-home">
+              <div class="product-info-container">
+                <div class="product-left-side">
+                  <div class="image-container">
+                    <div class="background-border">
+                      <div class="top-side border"></div>
+                      <div class="right-side border"></div>
+                      <div class="bottom-side border"></div>
+                      <div class="left-side border"></div>
+                    </div>
+                    <a href="{{ product.url }}">
+                      <img class="product-item-image" src="{{ product.featured_image.src | img_url: '900x' }}" alt="{{ product.featured_image.alt }}">
+                    </a>
+                  </div>
 
-            </div>
-            <div class="product-right-side">
-              <div class="product-title">{{ product.title }}</div>
-              <div class="product-description">{{ product.description }}</div>
-              <a href="{{ product.url }}">
-                <div class="learn-button">
+                </div>
+                <div class="product-right-side">
+                  <div class="product-title">{{ product.title }}</div>
+                  <div class="product-description">{{ product.description }}</div>
+                  <a href="{{ product.url }}">
+                    <div class="learn-button">
                 <span>
                 Learn More
                 </span>
-                </div>
-              </a>
+                    </div>
+                  </a>
 
+                </div>
+              </div>
+              <div class="product-short-info">
+                <div class="index">0{{ forloop.index }}<span>/</span></div> <div class="title">{{ product.metafields.c_f.short_description }}</div>
+              </div>
             </div>
           </div>
-          <div class="product-short-info">
-            <div class="index">0{{ forloop.index }}<span>/</span></div> <div class="title">{{ product.metafields.c_f.short_description }}</div>
-          </div>
-        </div>
       {% endfor %}
     </div>
 
