@@ -1168,6 +1168,27 @@ theme.Header = (function() {
 
           observerRev.observe(target, config);
 
+          //previews selection
+
+          var activeImage = $('#product-intro-active-picture');
+
+          $('.product-intro-preview-item').each(function() {
+
+
+            $(this).click(function() {
+
+                var url = $(this).find('img').attr('src');
+                var active_url = activeImage.attr('src');
+
+                $(this).find('img').attr('src', active_url);
+                activeImage.attr('src', url);
+
+            });
+
+          });
+
+          //
+
 
           //observer for reviews link
             var targetReviewsRow = document.getElementById('product-page-intro-reviews-row');
@@ -4765,9 +4786,8 @@ $(document).ready(function() {
 
     homeBagInit();
 
-    if($(window).width() > 1024) {
-        homeSliderDesktopInit();
-    }
+    // if($(window).width() > 1024) {
+    //     homeSliderDesktopInit();
     // } else if($(window).width() > 767) {
     //   homeSliderInit();
     // } else {

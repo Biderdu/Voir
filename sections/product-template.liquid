@@ -23,12 +23,23 @@
     <div class="product-intro-container">
       <div class="intro-left-side">
         {%- assign featured_img_src = product.featured_image.src -%}
+          {% if  product.title != 'Studio Set'%}
+            <div class="previews-container">
+              {% for image in product.images %}
+                  {% if forloop.first == false and forloop.index < 6 %}
+                    <div class="preview-block product-intro-preview-item">
+                      <img src="{{ image.src | img_url: '900x' }}" >
+                    </div>
+                  {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
         <div class="product-image-container">
           <div class="border"></div>
           {% if  product.title == 'Studio Set'%}
             <img src="{{ featured_img_src | img_url: '900x' }}" class="featured-image studio-set">
           {% else %}
-            <img class="reel-main-image" src="{{ product.images[1].src | img_url: '900x'}}" id="my-picture"  >
+            <img class="reel-main-image" src="{{ product.images[0].src | img_url: '900x'}}" id="product-intro-active-picture">
           {% endif %}
         </div>
       </div>
