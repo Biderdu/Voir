@@ -1048,18 +1048,32 @@ theme.Header = (function() {
           $('#info-tab-description').on('click', function() {
               $('#info-tab-description').addClass('active');
               $('#studio-inside-tab-ingredients').removeClass('active');
+              $('#info-tab-benefits').removeClass('active');
 
               $('#product-intro-what-inside-container').removeClass('active');
+              $('#product-intro-benefits-container').removeClass('active');
               $('#product-intro-main-info-container').addClass('active');
           });
 
           $('#studio-inside-tab-ingredients').on('click', function() {
+            $('#info-tab-benefits').removeClass('active');
             $('#info-tab-description').removeClass('active');
             $('#studio-inside-tab-ingredients').addClass('active');
 
             $('#product-intro-main-info-container').removeClass('active');
+              $('#product-intro-benefits-container').removeClass('active');
             $('#product-intro-what-inside-container').addClass('active');
           });
+
+            $('#info-tab-benefits').on('click', function() {
+                $('#info-tab-benefits').addClass('active');
+                $('#info-tab-description').removeClass('active');
+                $('#studio-inside-tab-ingredients').removeClass('active');
+
+                $('#product-intro-main-info-container').removeClass('active');
+                $('#product-intro-benefits-container').addClass('active');
+                $('#product-intro-what-inside-container').removeClass('active');
+            });
 
           $('#info-tab-ingredients').on('click', function() {
             $('html, body').animate({
@@ -1067,11 +1081,11 @@ theme.Header = (function() {
             }, 1000);
           });
 
-          $('#info-tab-how-to-use').on('click', function() {
-            $('html, body').animate({
-              scrollTop: $("#product-page-use-panel").offset().top
-            }, 1500);
-          });
+          // $('#info-tab-how-to-use').on('click', function() {
+          //   $('html, body').animate({
+          //     scrollTop: $("#product-page-use-panel").offset().top
+          //   }, 1500);
+          // });
 
           // $('.spr-summary-actions-newreview').on('click', function() {
           //   reviewsFormPositioning();

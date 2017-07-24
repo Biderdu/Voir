@@ -23,17 +23,17 @@
     <div class="product-intro-container">
       <div class="intro-left-side">
         {%- assign featured_img_src = product.featured_image.src -%}
-          {% if  product.title != 'Studio Set'%}
-            <div class="previews-container">
-              {% for image in product.images %}
-                  {% if forloop.first == false and forloop.index < 6 %}
-                    <div class="preview-block product-intro-preview-item">
-                      <img src="{{ image.src | img_url: '900x' }}" >
-                    </div>
-                  {% endif %}
-              {% endfor %}
-            </div>
-          {% endif %}
+        {% if  product.title != 'Studio Set'%}
+          <div class="previews-container">
+            {% for image in product.images %}
+                {% if forloop.first == false and forloop.index < 6 %}
+                  <div class="preview-block product-intro-preview-item">
+                    <img src="{{ image.src | img_url: '900x' }}" >
+                  </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
         <div class="product-image-container">
           <div class="border"></div>
           {% if  product.title == 'Studio Set'%}
@@ -41,6 +41,48 @@
           {% else %}
             <img class="reel-main-image" src="{{ product.images[0].src | img_url: '900x'}}" id="product-intro-active-picture">
           {% endif %}
+        </div>
+        <div class="selling-points-container">
+            <div class="selling-point">
+                <div class="icon-container">
+                    <img class="selling-point-icon-1">
+                </div>
+                <div class="title">
+                    {{ product.metafields.c_f.selling_point_1 }}
+                </div>
+            </div>
+            <div class="selling-point">
+                <div class="icon-container">
+                    <img class="selling-point-icon-1">
+                </div>
+                <div class="title">
+                    {{ product.metafields.c_f.selling_point_2 }}
+                </div>
+            </div>
+            <div class="selling-point">
+                <div class="icon-container">
+                    <img class="selling-point-icon-1">
+                </div>
+                <div class="title">
+                    {{ product.metafields.c_f.selling_point_3 }}
+                </div>
+            </div>
+            <div class="selling-point">
+                <div class="icon-container">
+                    <img class="selling-point-icon-1">
+                </div>
+                <div class="title">
+                    {{ product.metafields.c_f.selling_point_4 }}
+                </div>
+            </div>
+            <div class="selling-point">
+                <div class="icon-container">
+                    <img class="selling-point-icon-1">
+                </div>
+                <div class="title">
+                    {{ product.metafields.c_f.selling_point_5 }}
+                </div>
+            </div>
         </div>
       </div>
 
@@ -113,11 +155,11 @@
                   WHAT'S INSIDE
                 </div>
               {% else %}
+                <div id="info-tab-benefits" class="tab">
+                  BENEFITS
+                </div>
                 <div id="info-tab-ingredients" class="tab">
                   INGREDIENTS
-                </div>
-                <div id="info-tab-how-to-use" class="tab">
-                  HOW TO USE
                 </div>
               {% endif %}
             </div>
@@ -131,6 +173,9 @@
             </div>
             <div id="product-intro-what-inside-container" class="info-container">
                 {{ product.metafields.c_f.what_inside }}
+            </div>
+            <div id="product-intro-benefits-container" class="info-container">
+                {{ product.metafields.c_f.benefits }}
             </div>
           </div>
 
