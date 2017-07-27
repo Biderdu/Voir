@@ -37,7 +37,7 @@
             <td class="quantity-container">
               <div class="cart__qty quantity-input-container">
                 <div data-id="{{ item.variant_id }}" id="bag-page-minus-{{ item.variant_id }}" class="bag-page-minus qty-control minus">-</div>
-                <input data-id="{{ item.variant_id }}" class="bag-page-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                <input data-id="{{ item.variant_id }}" class="bag-page-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="text" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
                 <div data-id="{{ item.variant_id }}" id="bag-page-plus-{{ cart_item.variant_id }}" class="bag-page-plus qty-control plus">+</div>
               </div>
             </td>
@@ -68,7 +68,7 @@
               <div class="lower-part">
                 <div class="quantity-input-container">
                   <div data-id="{{ item.variant_id }}" id="bag-page-mobile-minus-{{ item.variant_id }}" class="bag-page-minus qty-control minus">-</div>
-                  <input data-id="{{ item.variant_id }}" class="bag-page-mobile-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                  <input data-id="{{ item.variant_id }}" class="bag-page-mobile-counter counter bag-page-quantity-{{ item.variant_id }}" readonly type="text" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
                   <div data-id="{{ item.variant_id }}" id="bag-page-mobile-plus-{{ cart_item.variant_id }}" class="bag-page-plus qty-control plus">+</div>
                 </div>
                 <div class="remove-button-container">

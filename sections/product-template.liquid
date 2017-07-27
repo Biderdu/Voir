@@ -45,7 +45,7 @@
         <div class="selling-points-container">
             <div class="selling-point">
                 <div class="icon-container">
-                    <img class="selling-point-icon-1">
+                    <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_1 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_1 }}
@@ -53,7 +53,7 @@
             </div>
             <div class="selling-point">
                 <div class="icon-container">
-                    <img class="selling-point-icon-1">
+                    <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_2 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_2 }}
@@ -61,7 +61,7 @@
             </div>
             <div class="selling-point">
                 <div class="icon-container">
-                    <img class="selling-point-icon-1">
+                    <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_3 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_3 }}
@@ -69,7 +69,7 @@
             </div>
             <div class="selling-point">
                 <div class="icon-container">
-                    <img class="selling-point-icon-1">
+                    <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_4 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_4 }}
@@ -77,7 +77,7 @@
             </div>
             <div class="selling-point">
                 <div class="icon-container">
-                    <img class="selling-point-icon-1">
+                    <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_5 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_5 }}
@@ -166,16 +166,19 @@
             <div id="product-intro-main-info-container" class="info-container active">
               {{ product.metafields.c_f.romance_description }}
               {% if product.metafields.c_f.romance_description_spart %}
-              <span id="detail-add-info-block" class="additional-info">{{ product.metafields.c_f.romance_description_spart }}</span>
-              <span id="detail-add-info-more" class="view-toggle active">VIEW MORE</span>
-              <span id="detail-add-info-less" class="view-toggle">VIEW LESS</span>
+              <span class="detail-add-info-block additional-info">{{ product.metafields.c_f.romance_description_spart }}</span>
+              <span class="detail-add-info-more view-toggle active">VIEW MORE</span>
+              <span class="detail-add-info-less view-toggle">VIEW LESS</span>
               {% endif %}
             </div>
             <div id="product-intro-what-inside-container" class="info-container">
                 {{ product.metafields.c_f.what_inside }}
             </div>
-            <div id="product-intro-benefits-container" class="info-container">
+            <div id="product-intro-benefits-container" class="info-container benefits-container">
                 {{ product.metafields.c_f.benefits }}
+              <span class="detail-add-info-block additional-info">{{ product.metafields.c_f.benefits_spart }}</span>
+              <span class="detail-add-info-more view-toggle active">VIEW MORE</span>
+              <span class="detail-add-info-less view-toggle">VIEW LESS</span>
             </div>
           </div>
 
@@ -354,7 +357,8 @@
   <div class="info-block">
     <div id="product-page-use-descriptions-videos" class="left-side">
       <div id="how-to-use-description-video" class="video-container active">
-        <iframe src="https://player.vimeo.com/video/{{ product.metafields.c_f.how_to_use_video_link }}" width="650" height="366" frameborder="0"></iframe>
+        <!--iframe src="https://player.vimeo.com/video/{{ product.metafields.c_f.how_to_use_video_link }}" width="650" height="366" frameborder="0"></iframe-->
+        <iframe src="https://www.youtube.com/embed/{{ product.metafields.c_f.youtube_link }}?controls=0&modestbranding=0&showinfo=0&rel=0" width="650" height="366" frameborder="0"></iframe>
       </div>
     </div>
     <div class="right-side">

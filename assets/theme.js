@@ -1037,11 +1037,11 @@ theme.Header = (function() {
             productQtyChange('plus');
           });
 
-          $('#detail-add-info-less').on('click', function() {
+          $('.detail-add-info-less').on('click', function() {
             productAddInfoToggle();
           });
 
-          $('#detail-add-info-more').on('click', function() {
+          $('.detail-add-info-more').on('click', function() {
             productAddInfoToggle();
           });
 
@@ -1094,7 +1094,10 @@ theme.Header = (function() {
           animationForScroll(panelsWithAnimations.product);
 
           if(windowWidth > 1024) {
-            productIngredientsMouseMoveAnimationInit();
+            setTimeout(function() {
+                productIngredientsMouseMoveAnimationInit();
+            }, 4000);
+
 
             var artOffset = $('#product-page-art-panel')[0].offsetTop;
 
@@ -1518,9 +1521,9 @@ theme.Header = (function() {
   }
 
   function productAddInfoToggle() {
-    $('#detail-add-info-less').toggleClass('active');
-    $('#detail-add-info-more').toggleClass('active');
-    $('#detail-add-info-block').toggleClass('active');
+    $('.detail-add-info-less').toggleClass('active');
+    $('.detail-add-info-more').toggleClass('active');
+    $('.detail-add-info-block').toggleClass('active');
 
     $('#product-page-reviews-panel').toggleClass('down-step');
   }

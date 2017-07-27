@@ -6885,7 +6885,7 @@ a {
 }
 
 .custom-section-slider-block {
-  height: 360vh;
+  height: 320vh;
   max-width: 1766px;
   margin-left: auto;
   margin-right: auto;
@@ -6914,7 +6914,7 @@ a {
 
       .slide-container {
         position: relative;
-        height: 90vh;
+        height: 80vh;
         width: 100%;
 
         @media (min-height: 1080px) {
@@ -8303,14 +8303,14 @@ a {
 .about-art-nature-container {
   position: relative;
   width: 100%;
-  height: 120vh;
+  height: 105vh;
   overflow: hidden;
   margin-top: 60px;
 }
 
 .about-art-block-container {
   position: absolute;
-  height: 60vh;
+  height: 55vh;
   width: 100%;
   background: #ffffff;
   //transform: translate3d(0, 100%,0);
@@ -8390,7 +8390,7 @@ a {
 
 .about-nature-block-container {
   position: absolute;
-  height: 60vh;
+  height: 50vh;
   width: 100%;
   background: #ffffff;
   transform: translate3d(0, 100%,0);
@@ -8494,7 +8494,7 @@ a {
 
 .about-image-block-container {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   background: #ffffff;
 
@@ -8503,7 +8503,7 @@ a {
     top: 50%;
     left: 10%;
     transform: translate(0,-50%);
-    height: 70%;
+    height: 90%;
     width: 80%;
     overflow: hidden;
     opacity: 0;
@@ -11081,7 +11081,7 @@ a {
     .product-intro-container {
       position: absolute;
       width: 100%;
-      height: 500px;
+      height: 490px;
       top: 50%;
       transform: translate(0, -50%);
 
@@ -11305,7 +11305,47 @@ a {
               img {
                 max-height: 100%;
                 max-width: 100%;
-                content: url('{{ "brush_icon.svg" | asset_url }}');
+                content: url('{{ "aerosol-free.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-aerosol-free {
+                content: url('{{ "aerosol-free.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-award-winning {
+                content: url('{{ "award-winning-ingredients.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-all-hair {
+                content: url('{{ "for-all-hair-types.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-instant-result {
+                content: url('{{ "instant-result.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-no-animal-testing {
+                content: url('{{ "no-animal-testing.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-non-sticky {
+                content: url('{{ "non-sticky.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-recyclable-packaging {
+                content: url('{{ "recyclable-packaging.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-silicon-free {
+                content: url('{{ "sillicon-free.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-travel-friendly {
+                content: url('{{ "travel-friendly.svg" | asset_url }}');
+              }
+
+              .selling-point-icon-versatile {
+                content: url('{{ "versatile.svg" | asset_url }}');
               }
 
             }
@@ -11543,6 +11583,10 @@ a {
               line-height: 24px;
               color: #424448;
 
+              &.benefits-container {
+                padding-left: 18px;
+              }
+
               &.active {
                 display: block;
               }
@@ -11571,10 +11615,11 @@ a {
               }
 
               p {
+                display: list-item;
                 margin-bottom: 5px;
                 color: #424448;
-                @include fontHelveticaLight(14px, 400, 1.0px);
-                line-height: 22px;
+                @include fontHelveticaLight(16px, 400, 1.0px);
+                line-height: 20px;
               }
 
             }
@@ -11665,7 +11710,7 @@ a {
     height: 500px;
     width: 100%;
     position: absolute;
-    top: 25%;
+    top: 22%;
     left: 50%;
     transform: translate(-50%, 0);
 
@@ -12203,7 +12248,7 @@ a {
         display: none;
         position: relative;
         height: 100%;
-        width: 650px;
+        width: 649px;
 
         float: right;
         border-radius: 3px;
@@ -13235,7 +13280,7 @@ a {
 
             img.reel-main-image {
               height: 390px;
-              width: 290px;
+              width: 260px;
             }
 
             img.studio-set {
@@ -14016,7 +14061,7 @@ a {
 
             img.reel-main-image {
               height: 255px;
-              width: 191px;
+              width: 171px;
             }
 
             img.studio-set {
@@ -18782,7 +18827,7 @@ a {
       left: 50%;
       transform: translate(-50%,0);
 
-      background-image: url("{{ 'giveaway.jpg' | asset_url }}");
+      background-image: url("{{ 'giveawaywebsite.jpg' | asset_url }}");
       background-size: cover;
       background-position: center;
 
@@ -20657,7 +20702,7 @@ a {
 
     .redirect-button {
       position: absolute;
-      top: 70%;
+      top: 75%;
       left: 50%;
       transform: translate(-50%,0);
       height: 40px;
