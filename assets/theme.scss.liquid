@@ -6886,16 +6886,12 @@ a {
 }
 
 .custom-section-slider-block {
-  height: 320vh;
+  height: calc(40vh + 1800px);
   max-width: 1766px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
   position: relative;
-
-  @media (min-height: 1080px) {
-    height: 240vh;
-  }
 
   .collection-slider-main-block {
     position: absolute;
@@ -6915,13 +6911,9 @@ a {
 
       .slide-container {
         position: relative;
-        height: 80vh;
+        padding-top: 50px;
+        height: calc(10vh + 450px);
         width: 100%;
-
-        @media (min-height: 1080px) {
-          height: 60vh;
-        }
-
       }
 
       .slick-list {
@@ -7337,6 +7329,7 @@ a {
 
 .custom-section-collection-block {
   height: 100vh;
+  max-height: 768px;
   position: relative;
   margin-top: 60px;
 
@@ -7632,7 +7625,8 @@ a {
 }
 
 .custom-section-instagram-gallery {
-  height: calc(100vh + 400px);
+  max-height: 768px;
+  height: 100vh;
   position: relative;
 
   .home-intro-center-line-left {
@@ -7691,7 +7685,7 @@ a {
     opacity: 1;
     position: absolute;
     width: 85%;
-    top: 28%;
+    top: 33%;
     left: 50%;
     height: 270px;
     transform: translate(-50%, 0);
@@ -7768,7 +7762,7 @@ a {
 
   .bottom-gallery-button {
     position: absolute;
-    top: 60%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%,0);
     height: 45px;
@@ -7806,7 +7800,6 @@ a {
   }
 
 }
-
 
 .custom-section-instagram-gallery.active-animation {
 
@@ -7883,6 +7876,12 @@ a {
     transition: opacity 1.0s ease 1s;
   }
 
+}
+
+.home-page-footer-spacer {
+  position: relative;
+  width: 100%;
+  height: 300px;
 }
 
 .custom-section-bottom-info-block {
@@ -8304,6 +8303,7 @@ a {
 .about-art-nature-container {
   position: relative;
   width: 100%;
+  max-height: 805px;
   height: 105vh;
   overflow: hidden;
   margin-top: 60px;
@@ -8312,6 +8312,7 @@ a {
 .about-art-block-container {
   position: absolute;
   height: 55vh;
+  max-height: 422px;
   width: 100%;
   background: #ffffff;
   //transform: translate3d(0, 100%,0);
@@ -8392,6 +8393,7 @@ a {
 .about-nature-block-container {
   position: absolute;
   height: 50vh;
+  max-height: 384px;
   width: 100%;
   background: #ffffff;
   transform: translate3d(0, 100%,0);
@@ -8496,6 +8498,7 @@ a {
 .about-image-block-container {
   position: relative;
   height: 80vh;
+  max-height: 614px;
   width: 100%;
   background: #ffffff;
 
@@ -8534,6 +8537,7 @@ a {
 .about-ingredients-block-container {
   position: relative;
   height: 100vh;
+  max-height: 770px;
   width: 100%;
   background: #ffffff;
 
@@ -8693,7 +8697,8 @@ a {
 
 .about-packaging-block-container {
   position: relative;
-  height: calc(100vh + 200px);
+  height: 80vh;
+  max-height: 614px;
   width: 100%;
   background: #ffffff;
 
@@ -8701,7 +8706,7 @@ a {
     position: absolute;
     height: 360px;
     width: 400px;
-    top: 40%;
+    top: 50%;
     right: calc(50% + 63px);
     transform: translate(0,-50%);
     text-align: left;
@@ -8724,7 +8729,7 @@ a {
     position: absolute;
     height: 340px;
     width: 450px;
-    top: calc(40% + 15px);
+    top: calc(50% + 15px);
     left: calc(50% + 33px);
     transform: translate(0,-50%);
     text-align: left;
@@ -8881,6 +8886,12 @@ a {
 
 }
 
+.about-page-footer-spacer {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
 @media (max-width: $screen-tablet) {
 
   .about-intro-block-container {
@@ -8959,6 +8970,7 @@ a {
     position: relative;
     width: 100%;
     height: 110vh;
+    max-height: none;
     margin-top: 0;
   }
 
@@ -8966,6 +8978,7 @@ a {
     position: relative;
     top: 0;
     height: 55vh;
+    max-height: none;
     transform: translate3d(0, 0,0);
 
     .art-block-info {
@@ -9003,6 +9016,7 @@ a {
     position: relative;
     bottom: 0;
     height: 55vh;
+    max-height: none;
     transform: translate3d(0, 0,0);
 
     .nature-block-background {
@@ -9063,6 +9077,7 @@ a {
 
   .about-image-block-container {
     height: 55vh;
+    max-height: none;
 
     .image-container {
 
@@ -9088,6 +9103,7 @@ a {
 
   .about-ingredients-block-container {
     height: 55vh;
+    max-height: none;
 
     .ingr-block-background {
       bottom: 0;
@@ -9178,7 +9194,8 @@ a {
   }
 
   .about-packaging-block-container {
-    height: 1200px;
+    height: 900px;
+    max-height: none;
 
     .packaging-image {
       position: absolute;
@@ -9205,7 +9222,7 @@ a {
       position: absolute;
       height: 300px;
       width: 400px;
-      top: 48%;
+      top: 57%;
       left: 75px;
       transform: translate(0,0);
       text-align: left;
@@ -9305,6 +9322,9 @@ a {
 
   }
 
+  .about-page-footer-spacer {
+    background: #ffffff;
+  }
 }
 
 @media (max-width: $screen-mobile) {
@@ -9628,14 +9648,14 @@ a {
   }
 
   .about-packaging-block-container {
-    height: 1060px;
+    height: 660px;
 
     .packaging-image {
       height: 160px;
       width: calc(100% - 20px);
       top: 12%;
       right: 50%;
-      transform: translate(50%, -50%);
+      transform: translate(50%, 0);
 
       img {
         height: auto;
@@ -9647,7 +9667,7 @@ a {
     .packaging-block-info {
       height: 250px;
       width: 270px;
-      top: 26%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%,0);
 
@@ -9739,6 +9759,10 @@ a {
 
     }
 
+  }
+
+  .about-page-footer-spacer {
+    height: 450px;
   }
 }
 
@@ -11152,6 +11176,11 @@ a {
           img.reel-main-image {
             //height: 450px;
             //width: 337px;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
             width: 100%;
             border-radius: 2px;
           }
@@ -12596,7 +12625,6 @@ a {
 
           }
 
-
         }
 
         .spr-content {
@@ -12663,6 +12691,11 @@ a {
                   font-style: normal;
                 }
 
+              }
+
+              .spr-review-header-title {
+                height: 24px;
+                overflow: hidden;
               }
 
               .spr-review-content {
@@ -13280,8 +13313,7 @@ a {
             transform: translate(50%,-50%);
 
             img.reel-main-image {
-              height: 390px;
-              width: 260px;
+              width: 280px;
             }
 
             img.studio-set {
@@ -14061,8 +14093,7 @@ a {
             top: 42%;
 
             img.reel-main-image {
-              height: 255px;
-              width: 171px;
+              width: 180px;
             }
 
             img.studio-set {
@@ -20968,7 +20999,7 @@ a {
   }
 
   .custom-section-slider-block {
-
+    height: 400vh;
     margin-top: 60px;
 
     .collection-slider-main-block {
@@ -20988,6 +21019,11 @@ a {
             height: 100%;
           }
 
+        }
+
+        .slide-container {
+          height: 95vh;
+          padding-top: 0;
         }
 
         .product-item-container {
@@ -21195,6 +21231,7 @@ a {
 
   .custom-section-collection-block {
     height: 1024px;
+    max-height: none;
     position: relative;
 
     .home-intro-center-line-left {
@@ -21290,8 +21327,8 @@ a {
   }
 
   .custom-section-instagram-gallery {
-
-    height: 1080px;;
+    max-height: none;
+    height: 680px;
 
     .home-intro-center-line-left {
       width: 0;
@@ -21420,6 +21457,10 @@ a {
       }
 
     }
+
+  }
+
+  .home-page-footer-spacer {
 
   }
 
@@ -22101,6 +22142,10 @@ $insta-image-size-not-so-small: 200px;
 
     }
 
+  }
+
+  .home-page-footer-spacer {
+    height: 450px;
   }
 
   .custom-section-bottom-info-block {
