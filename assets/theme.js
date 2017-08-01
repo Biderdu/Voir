@@ -4145,7 +4145,9 @@ function instagramInit() {
       clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
 
       // accessToken: '4775145375.488d6d5.69f8d4ff2f5342698736325c3d2b0718',
-      accessToken: '4482001775.1677ed0.d6759f19a65a42b6aaa6337e416430e4',
+      // accessToken: '4482001775.1677ed0.d6759f19a65a42b6aaa6337e416430e4',
+      accessToken: '4482001775.1677ed0.54530984eb99473080430eb26d0d91e3',
+
 
       resolution: 'standard_resolution',
       template: '<a target="_blank" href="{{link}}"><div class="insta-image-container"><img src="{{image}}" /></div></a>',

@@ -42,7 +42,8 @@
             <img class="reel-main-image" src="{{ product.images[0].src | img_url: '900x'}}" id="product-intro-active-picture">
           {% endif %}
         </div>
-        <div class="selling-points-container">
+          {% if  product.title != 'Studio Set'%}
+       <div class="selling-points-container">
             <div class="selling-point">
                 <div class="icon-container">
                     <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_1 }}">
@@ -75,15 +76,16 @@
                     {{ product.metafields.c_f.selling_point_4 }}
                 </div>
             </div>
-            <div class="selling-point">
+            <!--div class="selling-point">
                 <div class="icon-container">
                     <img class="selling-point-icon-{{ product.metafields.c_f.selling_point_icon_5 }}">
                 </div>
                 <div class="title">
                     {{ product.metafields.c_f.selling_point_5 }}
                 </div>
-            </div>
+            </div-->
         </div>
+          {% endif %}
       </div>
 
       <div class="intro-right-side">

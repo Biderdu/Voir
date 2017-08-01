@@ -3020,11 +3020,11 @@ $slick-dot-size-small: 10px;
 /*================ Index sections ================*/
 .index-section {
   //padding-top: $section-spacing-small;
-  padding-bottom: $section-spacing-small;
+  //padding-bottom: $section-spacing-small;
 
   @include media-query($medium-up) {
     //padding-top: $section-spacing;
-    padding-bottom: $section-spacing;
+    //padding-bottom: $section-spacing;
   }
 
   &:first-child {
@@ -3037,31 +3037,31 @@ $slick-dot-size-small: 10px;
   }
 }
 
-.index-section--flush + .index-section--flush {
-  margin-top: -($section-spacing-small * 2);
-
-  @include media-query($medium-up) {
-    margin-top: -($section-spacing * 2);
-  }
-}
+//.index-section--flush + .index-section--flush {
+//  margin-top: -($section-spacing-small * 2);
+//
+//  @include media-query($medium-up) {
+//    margin-top: -($section-spacing * 2);
+//  }
+//}
 
 // Flush sections should be tight to the nav if they are the first on the page
-.index-section--flush:first-child {
-  margin-top: -$section-spacing-small;
-
-  @include media-query($medium-up) {
-    margin-top: -$section-spacing;
-  }
-}
+//.index-section--flush:first-child {
+//  margin-top: -$section-spacing-small;
+//
+//  @include media-query($medium-up) {
+//    margin-top: -$section-spacing;
+//  }
+//}
 
 // Flush sections should be tight to the footer if they are last on the page
-.index-section--flush:last-child {
-  margin-bottom: -$section-spacing-small;
-
-  @include media-query($medium-up) {
-    margin-bottom: -$section-spacing;
-  }
-}
+//.index-section--flush:last-child {
+//  margin-bottom: -$section-spacing-small;
+//
+//  @include media-query($medium-up) {
+//    margin-bottom: -$section-spacing;
+//  }
+//}
 
 // Visually align featured product section (if first on homepage on mobile)
 @include media-query($small) {
@@ -6939,7 +6939,7 @@ a {
           margin: auto;
           position: relative;
           height: 100%;
-          width: 70%;
+          width: 75%;
 
           .product-left-side {
             position: relative;
@@ -7328,10 +7328,9 @@ a {
 }
 
 .custom-section-collection-block {
-  height: 100vh;
-  max-height: 768px;
+  height: 95vh;
+  max-height: 730px;
   position: relative;
-  margin-top: 60px;
 
   .home-intro-center-line-left {
     background: #c8c9c7;
@@ -7339,7 +7338,7 @@ a {
     width: 0;
     transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 0;
   }
 
@@ -7349,7 +7348,7 @@ a {
     width: 0;
     transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 25%;
+    top: 20%;
     right: 0;
   }
 
@@ -7357,7 +7356,7 @@ a {
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 25%;
+    top: 20%;
     transform: translate(-50%, -50%);
     text-align: center;
 
@@ -7388,7 +7387,7 @@ a {
   .collections-block-container {
     position: absolute;
     height: 320px;
-    top: 45%;
+    top: 41%;
     left: 0;
     width: 100%;
     text-align: center;
@@ -7635,7 +7634,7 @@ a {
     width: 0;
     transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 17%;
+    top: 15%;
     left: 0;
   }
 
@@ -7645,7 +7644,7 @@ a {
     width: 0;
     transition: width 0.2s ease 0.2s;
     position: absolute;
-    top: 17%;
+    top: 15%;
     right: 0;
   }
 
@@ -7653,7 +7652,7 @@ a {
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 17%;
+    top: 15%;
     transform: translate(-50%, -50%);
     text-align: center;
 
@@ -7762,7 +7761,7 @@ a {
 
   .bottom-gallery-button {
     position: absolute;
-    top: 80%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%,0);
     height: 45px;
@@ -8304,14 +8303,14 @@ a {
   position: relative;
   width: 100%;
   max-height: 805px;
-  height: 105vh;
+  height: 130vh;
   overflow: hidden;
   margin-top: 60px;
 }
 
 .about-art-block-container {
   position: absolute;
-  height: 55vh;
+  height: 70vh;
   max-height: 422px;
   width: 100%;
   background: #ffffff;
@@ -8392,7 +8391,7 @@ a {
 
 .about-nature-block-container {
   position: absolute;
-  height: 50vh;
+  height: 60vh;
   max-height: 384px;
   width: 100%;
   background: #ffffff;
@@ -8536,7 +8535,7 @@ a {
 
 .about-ingredients-block-container {
   position: relative;
-  height: 100vh;
+  height: 110vh;
   max-height: 770px;
   width: 100%;
   background: #ffffff;
@@ -8547,7 +8546,7 @@ a {
     left: 25px;
     right: 25px;
 
-    height: calc(100% - 125px);
+    height: calc(100% - 100px);
 
     background: #f4f4f4;
   }
@@ -9545,7 +9544,7 @@ a {
     height: 520px;
 
     .ingr-block-background {
-      bottom: 5px;
+      bottom: 0;
       left: 0;
       right: 0;
 
@@ -11120,7 +11119,7 @@ a {
           position: absolute;
 
           top: 55%;
-          right: calc(10% + 370px);
+          right: calc(15% + 337px);
           transform: translate(0, -50%);
 
           width: 50px;
@@ -11308,29 +11307,32 @@ a {
         }
 
         .selling-points-container {
-          display: none;
 
           position: absolute;
-          bottom: 35px;
-          right: -50px;
-          height: 40px;
-          width: 650px;
+          bottom: -15px;
+          right: calc(15% + 140px);
+          transform: translate(50%,0);
+          height: 60px;
+          width: 595px;
 
           .selling-point {
             position: relative;
             float: left;
 
             height: 100%;
-            width: 125px;
+            width: 145px;
             margin-left: 5px;
+
+            &:first-child {
+              margin-left: 0;
+            }
 
             .icon-container {
               position: relative;
-              top: 50%;
-              transform: translate(0, -50%);
-              height: 20px;
-              width: 17px;
-              float: left;
+              width: 100%;
+              height: 25px;
+              text-align: center;
+
 
               img {
                 max-height: 100%;
@@ -11347,6 +11349,7 @@ a {
               }
 
               .selling-point-icon-all-hair {
+                height: 20px;
                 content: url('{{ "for-all-hair-types.svg" | asset_url }}');
               }
 
@@ -11366,7 +11369,7 @@ a {
                 content: url('{{ "recyclable-packaging.svg" | asset_url }}');
               }
 
-              .selling-point-icon-silicon-free {
+              .selling-point-icon-silicone-free {
                 content: url('{{ "sillicon-free.svg" | asset_url }}');
               }
 
@@ -11375,17 +11378,17 @@ a {
               }
 
               .selling-point-icon-versatile {
+                height: 20px;
                 content: url('{{ "versatile.svg" | asset_url }}');
               }
 
             }
 
             .title {
-              float: left;
-              margin-left: 5px;
-              width: 103px;
-              line-height: 40px;
-              @include fontHelvetica(10px);
+              height: 35px;
+              width: 100%;
+              line-height: 35px;
+              @include fontHelvetica(11px);
               color: $voir-gray-2;
               text-align: center;
             }
@@ -12724,6 +12727,28 @@ a {
 
             }
 
+            .spr-pagination {
+              margin-left: 20px;
+              border: 0;
+
+              .spr-pagination-page {
+                @include fontHelveticaLight(15px);
+                color: $voir-gray-3;
+                margin-left: 5px;
+
+                &.is-active {
+                  @include fontHelveticaBold(15px);
+                  color: $voir-gray-1;
+                }
+
+              }
+
+              .spr-pagination-next, .spr-pagination-prev {
+                display: none;
+              }
+
+            }
+
           }
 
 
@@ -13301,7 +13326,31 @@ a {
           width: 100%;
 
           .previews-container {
-            display: none;
+            position: absolute;
+            top: auto;
+            bottom: 10px;
+            right: 50%;
+            transform: translate(50%, 0);
+            width: 175px;
+            height: 40px;
+
+            .preview-block {
+              margin-left: 5px;
+              float: left;
+              position: relative;
+              width: 40px;
+              height: 40px;
+              overflow: hidden;
+              border-radius: 25px;
+              cursor: pointer;
+              margin-top: 0;
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+            }
+
           }
 
           .product-image-container {
@@ -13427,6 +13476,16 @@ a {
 
               .info-container {
                 text-align: justify;
+
+                &.benefits-container {
+                  padding-left: 16px;
+                }
+
+                p {
+                  word-break: break-word;
+                  white-space: normal;
+                }
+
               }
 
             }
@@ -13850,7 +13909,6 @@ a {
 
   .product-page-reviews {
     background: #ffffff;
-    margin-top: -15px;
     margin-bottom: -15px;
 
 
@@ -14084,7 +14142,14 @@ a {
           height: 40%;
 
           .previews-container {
-            display: none;
+            width: 115px;
+            height: 25px;
+
+            .preview-block {
+              width: 25px;
+              height: 25px;
+            }
+
           }
 
           .product-image-container {
@@ -14260,10 +14325,6 @@ a {
 
                 }
 
-                #info-tab-benefits {
-                  display: none;
-                }
-
               }
 
               .info-container {
@@ -14275,8 +14336,6 @@ a {
                   margin-bottom: 1px;
                   @include fontHelveticaLight(12px, 400, 1.0px);
                   line-height: 18px;
-                  word-break: break-all;
-                  white-space: normal;
                 }
 
                 .view-toggle {
@@ -14746,7 +14805,7 @@ a {
 
   .product-page-reviews {
     min-height: 30vh;
-    margin-top: 20px;
+    margin-top: 70px;
 
     &.down-step {
       margin-top: 160px;
@@ -21403,7 +21462,7 @@ a {
     }
 
     .bottom-gallery-button {
-      top: 60%;
+      top: 75%;
     }
 
   }
@@ -22019,7 +22078,7 @@ $insta-image-size-not-so-small: 200px;
   }
 
   .custom-section-instagram-gallery {
-    height: calc(80vh + 500px);
+    height: 450px;
 
     .home-intro-center-line-left {
       width: 0;
@@ -22047,7 +22106,7 @@ $insta-image-size-not-so-small: 200px;
 
     .insta-gallery-container {
       width: 100%;
-      top: 17%;
+      top: 25%;
       height: $insta-image-size-not-so-small;
       transform: translate(-50%, 0);
 
@@ -22093,7 +22152,7 @@ $insta-image-size-not-so-small: 200px;
     }
 
     .bottom-gallery-button {
-      top: 40%;
+      top: 80%;
     }
 
   }
@@ -22902,20 +22961,20 @@ $insta-image-size-not-so-small: 200px;
 }
 
 // Flush newsletter section should be following another flushed section (slideshow)
-.index-section--flush + .index-section--newsletter {
-  margin-top: -$section-spacing-small;
-
-  @include media-query($medium-up) {
-    margin-top: -$section-spacing;
-  }
-}
+//.index-section--flush + .index-section--newsletter {
+//  margin-top: -$section-spacing-small;
+//
+//  @include media-query($medium-up) {
+//    margin-top: -$section-spacing;
+//  }
+//}
 
 // Flush newsletter section should be preceding another flushed section (slideshow)
-.index-section--newsletter + .index-section--flush {
-  margin-top: -($section-spacing-small * 2);
-
-  @include media-query($medium-up) {
-    margin-top: -($section-spacing * 2);
-  }
-}
+//.index-section--newsletter + .index-section--flush {
+//  margin-top: -($section-spacing-small * 2);
+//
+//  @include media-query($medium-up) {
+//    margin-top: -($section-spacing * 2);
+//  }
+//}
 
