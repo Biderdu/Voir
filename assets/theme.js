@@ -851,7 +851,7 @@ theme.Header = (function() {
 
   var socPanActivePos = [];
 
-  var headerTop = 36;
+  var headerTop = 33;
 
   var showShipping = true;
 
@@ -1437,7 +1437,14 @@ theme.Header = (function() {
 
       });
 
-      headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+      if(windowWidth < 1025) {
+          headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+      } else {
+          $(selectors.siteHeader).addClass( "bright" );
+          $('.gradient-back-block').css( "background","rgba(255,255,255,0.65)" );
+      }
+
+
 
       $(window).scroll( function() {
 
@@ -1448,7 +1455,10 @@ theme.Header = (function() {
             }
         }
 
-        headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+        if(windowWidth < 1025) {
+            headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+        }
+
         animationForScroll(panelsWithAnimations.home);
       });
 
@@ -4132,6 +4142,21 @@ function subscriptionModalPanelToggle() {
     $('#subscription-modal-panel').toggleClass('active');
 }
 
+function homeIntroSliderInit() {
+
+    $('#home-intro-slider').slick({
+        dots: true,
+        infinite: false,
+        arrows: false,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 7000,
+        fade: true,
+        cssEase: 'linear'
+    });
+
+}
+
 function instagramInit() {
 
   if($('#instafeed').length != 0) {
@@ -4144,9 +4169,7 @@ function instagramInit() {
       // clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
       clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
 
-      // accessToken: '4775145375.488d6d5.69f8d4ff2f5342698736325c3d2b0718',
-      // accessToken: '4482001775.1677ed0.d6759f19a65a42b6aaa6337e416430e4',
-      accessToken: '4482001775.1677ed0.54530984eb99473080430eb26d0d91e3',
+      accessToken: '4482001775.1677ed0.d4d7208075a8457f914ad4d150d993f9',
 
 
       resolution: 'standard_resolution',
@@ -4805,6 +4828,10 @@ $(document).ready(function() {
 
     homeBagInit();
 
+    homeIntroSliderInit();
+
+    instagramInit();
+
     // if($(window).width() > 1024) {
     //     homeSliderDesktopInit();
     // } else if($(window).width() > 767) {
@@ -4999,8 +5026,6 @@ $(document).ready(function() {
   bagInit();
 
   footerInit();
-  
-  instagramInit();
 
 });
 

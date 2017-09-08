@@ -4869,8 +4869,8 @@ h1.product-single__title {
 
 .site-header.bright {
   background: rgba(255,255,255,0.85);
-  box-shadow: 0 1px 3px #e9e9e9;
-  transition: top 0.05s ease-out, background 0.15s ease-out;
+  box-shadow: 0 3px 2px #f3f3f3;
+  transition: background 0.15s ease-out;
 
   .site-header-main-container {
 
@@ -6638,7 +6638,49 @@ a {
   width: 100%;
   background: #ffffff;
 
+  .home-intro-bottom-line-block {
+    position: absolute;
+    bottom: 0;
+    height: 36px;
+    width: 100%;
+
+    .add-line {
+      float: left;
+      height: 100%;
+      width: calc(50% - 18px);
+      background: #ffffff;
+    }
+
+    .arrow-block {
+      position: relative;
+      float: left;
+      width: 36px;
+      height: 100%;
+      background: rgba(255,255,255,0);
+      overflow: hidden;
+
+      .arrow-helper-1 {
+        position: absolute;
+        height: 200%;
+        background: #ffffff;
+        width: 100%;
+        transform: rotate(38deg) translate(27%,-36%);
+      }
+
+      .arrow-helper-2 {
+        position: absolute;
+        height: 200%;
+        background: #ffffff;
+        width: 100%;
+        transform: rotate(-38deg) translate(-27%,-28%);
+      }
+
+    }
+
+  }
+
   .home-intro-center-line-left {
+    display: none;
     background: #c8c9c7;
     height: 2px;
     width: 0;
@@ -6649,6 +6691,7 @@ a {
   }
 
   .home-intro-center-line-right {
+    display: none;
     background: #c8c9c7;
     height: 2px;
     width: 0;
@@ -6738,7 +6781,72 @@ a {
   transition: visibility 0.1s ease, opacity 0.6s ease-out 0.1s;
 }
 
+.home-intro-slider-background {
+
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  top: 0;
+  height: 100%;
+
+  .home-slider-container {
+    position: relative;
+    height: 100%;
+
+    .slick-list {
+      height: 100%;
+
+      .slick-track {
+        height: 100%;
+
+        .slider-image-container {
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+
+          img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 100%;
+            max-width: none;
+            border: 0;
+            transform: translate(-50%,-50%);
+          }
+
+        }
+
+      }
+
+    }
+
+    .slick-dots {
+      display: block;
+      left: 50%;
+      transform: translate(-50%,0);
+      bottom: 45px;
+
+      li button:before {
+        color: $voir-gray-1;
+      }
+
+      li.slick-active button:before {
+        color: $voir-gray-2;
+      }
+
+    }
+
+  }
+
+}
+
 .home-intro-video-background {
+  display: none;
   overflow: hidden;
   position: absolute;
   left: 22px;
@@ -6764,51 +6872,11 @@ a {
     display: none;
   }
 
-  .home-intro-bottom-line-block {
-    position: absolute;
-    bottom: 0;
-    height: 36px;
-    width: 100%;
-
-    .add-line {
-      float: left;
-      height: 100%;
-      width: calc(50% - 18px);
-      background: #ffffff;
-    }
-
-    .arrow-block {
-      position: relative;
-      float: left;
-      width: 36px;
-      height: 100%;
-      background: rgba(255,255,255,0);
-      overflow: hidden;
-
-      .arrow-helper-1 {
-        position: absolute;
-        height: 200%;
-        background: #ffffff;
-        width: 100%;
-        transform: rotate(38deg) translate(27%,-36%);
-      }
-
-      .arrow-helper-2 {
-        position: absolute;
-        height: 200%;
-        background: #ffffff;
-        width: 100%;
-        transform: rotate(-38deg) translate(-27%,-28%);
-      }
-
-    }
-
-  }
-
 }
 
 .home-intro-text-container {
 
+  display: none;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -20976,7 +21044,14 @@ a {
     background: #fbfbfb;
     height: calc(100vh - 52px);
 
+    .home-intro-bottom-line-block {
+
+      display: none;
+
+    }
+
     .home-intro-center-line-left {
+      display: block;
       background: #c8c9c7;
       height: 2px;
       width: 0;
@@ -20986,6 +21061,7 @@ a {
     }
 
     .home-intro-center-line-right {
+      display: block;
       background: #c8c9c7;
       height: 2px;
       width: 0;
@@ -21013,20 +21089,21 @@ a {
     width: 60px;
   }
 
+  .home-intro-slider-background {
+    display: none;
+  }
+
   .home-intro-video-background {
+    display: block;
     left: 16px;
     right: 16px;
 
-    .home-intro-bottom-line-block {
-
-      display: none;
-
-    }
 
   }
 
   .home-intro-text-container {
 
+    display: block;
     height: 130px;
     width: 500px;
     top: 45%;
