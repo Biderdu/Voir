@@ -775,6 +775,7 @@ window.theme = window.theme || {};
 
 theme.Header = (function() {
   var selectors = {
+    html: 'html',
     body: 'body',
     navigation: '#AccessibleNav',
     siteNavHasDropdown: '.site-nav--has-dropdown',
@@ -1438,7 +1439,7 @@ theme.Header = (function() {
       });
 
       if(windowWidth < 1025) {
-          headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+          headerStyleChange($(selectors.html).scrollTop(), windowHeight);
       } else {
           $(selectors.siteHeader).addClass( "bright" );
           $('.gradient-back-block').css( "background","rgba(255,255,255,0.65)" );
@@ -1449,14 +1450,14 @@ theme.Header = (function() {
       $(window).scroll( function() {
 
         if( localStorage.getItem("_voirsub") !== 'true') {
-            if (!autoModalShowed && (($(document).height() * 0.65) < $(selectors.body).scrollTop())) {
+            if (!autoModalShowed && (($(document).height() * 0.65) < $(selectors.html).scrollTop())) {
                 $('#subscription-auto-modal-panel').addClass('active');
                 autoModalShowed = true;
             }
         }
 
         if(windowWidth < 1025) {
-            headerStyleChange($(selectors.body).scrollTop(), windowHeight);
+            headerStyleChange($(selectors.html).scrollTop(), windowHeight);
         }
 
         animationForScroll(panelsWithAnimations.home);
@@ -1467,19 +1468,19 @@ theme.Header = (function() {
 
 
     if(showShipping) {
-      headerPositionChange($(selectors.body).scrollTop());
+      headerPositionChange($(selectors.html).scrollTop());
     }
 
     
-    socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
+    socialPanelShowCheck($(selectors.html).scrollTop(), socPanActivePos);
 
     $(window).scroll( function() {
 
       if(showShipping) {
-        headerPositionChange($(selectors.body).scrollTop());
+        headerPositionChange($(selectors.html).scrollTop());
       }
 
-      socialPanelShowCheck($(selectors.body).scrollTop(), socPanActivePos);
+      socialPanelShowCheck($(selectors.html).scrollTop(), socPanActivePos);
     });
 
 
@@ -4150,7 +4151,7 @@ function homeIntroSliderInit() {
         arrows: false,
         slidesToShow: 1,
         autoplay: true,
-        autoplaySpeed: 7000,
+        autoplaySpeed: 5000,
         fade: true,
         cssEase: 'linear'
     });
@@ -4169,7 +4170,8 @@ function instagramInit() {
       // clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
       clientId: 'ad370d39b3694ab4b2202878bf5d5fe4',
 
-      accessToken: '4482001775.1677ed0.d4d7208075a8457f914ad4d150d993f9',
+      // accessToken: '4482001775.1677ed0.d4d7208075a8457f914ad4d150d993f9',
+      accessToken: '4482001775.1677ed0.ad61888882d14293ab3c0b717de922e2',
 
 
       resolution: 'standard_resolution',
